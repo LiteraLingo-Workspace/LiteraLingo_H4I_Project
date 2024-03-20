@@ -1,10 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+import { theme } from "./common/styles";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<div />} />
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
