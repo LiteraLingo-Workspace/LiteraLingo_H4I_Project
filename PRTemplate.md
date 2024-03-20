@@ -2,7 +2,7 @@
 [Used around 2-3 sentences to describe what the ticket is]
 
 
-## Type of change
+# Type of change
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] This change requires a documentation update
 
