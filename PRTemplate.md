@@ -1,9 +1,9 @@
 # Description
 [Used around 2-3 sentences to describe what the ticket is]
 
-
 # Type of change
 - [ ] New feature (non-breaking change which adds functionality)
+- [ ] Bug Fix 
 - [ ] This change requires a documentation update
 
 # How Has This Been Tested?
