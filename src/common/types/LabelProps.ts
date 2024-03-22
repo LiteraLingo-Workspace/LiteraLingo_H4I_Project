@@ -4,6 +4,7 @@ import {
   ColorProps,
   FlexboxProps,
   FontSizeProps,
+  FontFamilyProps,
   LayoutProps,
   PositionProps,
   SpaceProps,
@@ -20,6 +21,7 @@ export type LabelProps = SpaceProps &
   BoxShadowProps &
   TextAlignProps &
   FontSizeProps &
+  FontFamilyProps &
   ColorProps & {
     color?: ColorSystem;
   };

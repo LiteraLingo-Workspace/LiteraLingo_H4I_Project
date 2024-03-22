@@ -9,6 +9,7 @@ import {
   space,
   textAlign,
   fontSize,
+  fontFamily,
 } from "styled-system";
 
 import { LabelProps } from "../types";
@@ -23,9 +24,11 @@ export const Label = styled.div<LabelProps>`
   ${boxShadow}
   ${textAlign}
   ${fontSize}
+  ${fontFamily}
 `;
 
 Label.defaultProps = {
+  fontFamily: "'Poppins', sans-serif",
   display: "inline-block",
   border: "none",
   borderRadius: "30px",
