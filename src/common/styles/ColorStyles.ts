@@ -1,24 +1,24 @@
 export type ColorSystem =
   | "primary"
   | "secondary"
-  | "very-light"
+  | "veryLight"
   | "white"
-  | "cool-dark"
-  | "cool-accent-bg"
-  | "cool-light"
+  | "coolDark"
+  | "coolAccentBg"
+  | "coolLight"
   | "warm"
-  | "warm-light"
-  | "warm-yellow"
+  | "warmLight"
+  | "warmYellow"
   | "failure"
   | "success"
-  | "faint-blue"
-  | "faint-yellow"
-  | "faint-warm"
-  | "faint-cool-dark"
-  | "faint-cool-light"
-  | "faint-grey"
-  | "faint-purple"
-  | "faint-primary";
+  | "faintBlue"
+  | "faintYellow"
+  | "faintWarm"
+  | "faintCoolDark"
+  | "faintCoolLight"
+  | "faintGrey"
+  | "faintPurple"
+  | "faintPrimary";
 
 export const theme = {
   colors: {
@@ -34,13 +34,13 @@ export const theme = {
     warmYellow: "#F1B950",
     failure: "#D53132",
     success: "#45CB73",
-    faintBlue: "#64AEC6",
-    faintYellow: "#F1B950",
-    faintWarm: "#F37576",
-    faintCoolDark: "#467ABE",
-    faintCoolLight: "#86DFD4",
-    faintGrey: "#98A8BA",
-    faintPurple: "#6941C6",
-    faintPrimary: "#163968",
+    faintBlue: "rgba(100, 174, 198, 0.2)",
+    faintYellow: "rgba(241, 185, 80, 0.2)",
+    faintWarm: "rgba(243, 117, 118, 0.2)",
+    faintCoolDark: "rgba(70, 122, 190, 0.2)",
+    faintCoolLight: "rgba(134, 223, 212, 0.2)",
+    faintGrey: "rgba(152, 168, 186, 0.2)",
+    faintPurple: "rgba(105, 65, 198, 0.2)",
+    faintPrimary: "rgba(22, 57, 104, 0.2)",
   },
 };
