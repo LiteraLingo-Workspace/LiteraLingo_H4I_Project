@@ -5,10 +5,12 @@ import {
   FlexboxProps,
   FontSizeProps,
   FontFamilyProps,
+  FontWeightProps,
   LayoutProps,
   PositionProps,
   SpaceProps,
   TextAlignProps,
+  LineHeightProps,
 } from "styled-system";
 
 import { ColorSystem } from "../styles";
@@ -22,6 +24,8 @@ export type LabelProps = SpaceProps &
   TextAlignProps &
   FontSizeProps &
   FontFamilyProps &
+  FontWeightProps &
+  LineHeightProps &
   ColorProps & {
     color?: ColorSystem;
   };
