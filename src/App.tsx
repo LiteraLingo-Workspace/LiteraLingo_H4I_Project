@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { theme } from "./common/styles";
-import { Label } from "./common/components/Label";
 
 function App() {
   return (
