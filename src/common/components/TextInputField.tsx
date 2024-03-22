@@ -44,5 +44,5 @@ TextInputField.defaultProps = {
   lineHeight: "21px",
   border: `2px solid ${theme.colors.primary}`,
   borderRadius: "8px",
-  padding: "5px 5px",
+  padding: "5px 6px",
 };
