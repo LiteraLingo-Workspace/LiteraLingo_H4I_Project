@@ -1,46 +1,46 @@
 export type ColorSystem =
   | "primary"
   | "secondary"
-  | "very-light"
+  | "veryLight"
   | "white"
-  | "cool-dark"
-  | "cool-accent-bg"
-  | "cool-light"
+  | "coolDark"
+  | "coolAccentBg"
+  | "coolLight"
   | "warm"
-  | "warm-light"
-  | "warm-yellow"
+  | "warmLight"
+  | "warmYellow"
   | "failure"
   | "success"
-  | "faint-blue"
-  | "faint-yellow"
-  | "faint-warm"
-  | "faint-cool-dark"
-  | "faint-cool-light"
-  | "faint-grey"
-  | "faint-purple"
-  | "faint-primary";
+  | "faintBlue"
+  | "faintYellow"
+  | "faintWarm"
+  | "faintCoolDark"
+  | "faintCoolLight"
+  | "faintGrey"
+  | "faintPurple"
+  | "faintPrimary";
 
 export const theme = {
   colors: {
-    primary: "#163968",
-    secondary: "#98A8BA",
-    veryLight: "#D8E7EC",
-    white: "#FFFFFF",
-    coolDark: "#467ABE",
-    coolAccentBg: "#64AEC6",
-    coolLight: "#86DFD4",
-    warm: "#F37576",
-    warmLight: "#F7A4A6",
-    warmYellow: "#F1B950",
-    failure: "#D53132",
-    success: "#45CB73",
-    faintBlue: "#64AEC6",
-    faintYellow: "#F1B950",
-    faintWarm: "#F37576",
-    faintCoolDark: "#467ABE",
-    faintCoolLight: "#86DFD4",
-    faintGrey: "#98A8BA",
-    faintPurple: "#6941C6",
-    faintPrimary: "#163968",
+    primary: "rgb(22, 57, 104)",
+    secondary: "rgb(152, 168, 186)",
+    veryLight: "rgb(216, 231, 236)",
+    white: "rgb(255, 255, 255)",
+    coolDark: "rgb(70, 122, 190)",
+    coolAccentBg: "rgb(100, 174, 198)",
+    coolLight: "rgb(134, 223, 212)",
+    warm: "rgb(243, 117, 118)",
+    warmLight: "rgb(247, 164, 166)",
+    warmYellow: "rgb(241, 185, 80)",
+    failure: "rgb(213, 49, 50)",
+    success: "rgb(69, 203, 115)",
+    faintBlue: "rgba(100, 174, 198, 0.2)",
+    faintYellow: "rgba(241, 185, 80, 0.2)",
+    faintWarm: "rgba(243, 117, 118, 0.2)",
+    faintCoolDark: "rgba(70, 122, 190, 0.2)",
+    faintCoolLight: "rgba(134, 223, 212, 0.2)",
+    faintGrey: "rgba(152, 168, 186, 0.2)",
+    faintPurple: "rgba(105, 65, 198, 0.2)",
+    faintPrimary: "rgba(22, 57, 104, 0.2)",
   },
 };
