@@ -10,15 +10,6 @@ function App() {
       <Routes>
         <Route path="/" />
       </Routes>
-      <Label color={"warmYellow"} bg={"faintYellow"}>
-        Simile
-      </Label>
-      <Label color={"coolAccentBg"} bg={"faintBlue"}>
-        Metaphor
-      </Label>
-      <Label color={"warm"} bg={"faintWarm"}>
-        Metonymy
-      </Label>
     </ThemeProvider>
   );
 }
