@@ -31,5 +31,5 @@ Label.defaultProps = {
   borderRadius: "30px",
   textAlign: "center",
   verticalAlign: "middle",
-  padding: "10px 15px",
+  padding: "8px 16px",
 };
