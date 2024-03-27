@@ -29,10 +29,13 @@ export const Label = styled.div<LabelProps>`
 
 Label.defaultProps = {
   fontFamily: "'Poppins', sans-serif",
+  fontWeight: "400",
+  fontSize: "16px",
   display: "inline-block",
   border: "none",
   borderRadius: "30px",
   textAlign: "center",
   verticalAlign: "middle",
   padding: "8px 16px",
+  lineHeight: "22px",
 };
