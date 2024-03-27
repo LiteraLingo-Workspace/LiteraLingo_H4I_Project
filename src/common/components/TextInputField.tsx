@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { TextInputFieldProps } from "../types";
+import { theme } from "../styles";
 import {
   border,
   boxShadow,
@@ -12,9 +14,6 @@ import {
   fontFamily,
   fontWeight,
 } from "styled-system";
-
-import { TextInputFieldProps } from "../types";
-import { theme } from "../styles";
 
 export const TextInputField = styled.input<TextInputFieldProps>`
   ${color}
