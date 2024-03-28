@@ -1,9 +1,9 @@
 {
-  "signIn": "S'inscrire",
-  "createAccountLabel": "Nouveau sur LiteralLingo?",
+  "signIn": "Se connecter",
+  "createAccountLabel": "Nouveau sur LiteraLingo?",
   "createAccount": "Créer un compte",
   "welcomePage": {
-    "title": "LiteralLingo",
-    "subTitle": "Débloquer l'anglais littéralement"
+    "title": "LiteraLingo",
+    "subTitle": "Débloquez l'anglais littéralement"
   }
 }
