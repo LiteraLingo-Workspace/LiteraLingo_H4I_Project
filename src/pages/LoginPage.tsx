@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { theme } from "../common/styles";
 import { BsX } from 'react-icons/bs';
 
-import { Label } from '../common/components/Label';
 import { TextInputField } from '../common/components/TextInputField';
 
 const Dialogue = styled.div`
@@ -29,9 +28,15 @@ const Button = styled.button`
   border: none;
   border-radius: 24px;
   height: 48px;
-  width: 96px;
+  min-width: 96px;
   background: linear-gradient(180deg, #64AEC6 0%, #5A8BCA 100%);
   color: white;
+`;
+
+const Text = styled.p`
+  padding: 0;
+  color: ${theme.colors.primary};
+  margin: 0;
 `;
 
 const LoginDialogue = () => {
@@ -39,17 +44,17 @@ const LoginDialogue = () => {
   return (
     <Dialogue>
       <FlexRow>
-        <Label fontFamily={"'Baloo 2'"} padding={'0'} fontSize={'24px'} style={{flexGrow: 1, fontWeight: 700, textAlign: 'left', color: theme.colors.primary, lineHeight: '40px'}}>Sign in to your account</Label>
+        <Text style={{fontSize: '24px', flexGrow: 1, fontWeight: 700, textAlign: 'left', lineHeight: '40px'}}>Sign in to your account</Text>
         <BsX style={{width: '40px', height: '40px', transform: 'translate(10px)'}} color={theme.colors.primary}></BsX>
       </FlexRow>
 
-      <Label padding={'0'} style={{color: theme.colors.primary}}>Enter your email</Label>
+      <Text>Enter your email</Text>
       <TextInputField width={"calc(100% - 16px)"} style={{marginBottom: '48px', borderWidth: '1px'}} type="email" placeholder="janedoe@gmail.com" />
 
-      <Label padding={'0'} style={{color: theme.colors.primary}}>Enter your password</Label>
+      <Text>Enter your password</Text>
       <TextInputField width={"calc(100% - 16px)"} style={{marginBottom: '48px', borderWidth: '1px'}} type="password" />
 
-      <Button><Label style={{fontWeight: 600}}>Sign In</Label></Button>
+      <Button><Text style={{fontWeight: 600, color: 'white'}}>Sign In</Text></Button>
     </Dialogue>
   )
 }
