@@ -27,7 +27,9 @@ const Button = styled.button`
   float: right;
   border: none;
   border-radius: 24px;
+  gap: 4px;
   height: 48px;
+  padding: 8px 16px 8px 16px;
   min-width: 96px;
   background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
   color: white;
@@ -36,6 +38,7 @@ const Button = styled.button`
 const Text = styled.p`
   padding: 0;
   color: ${theme.colors.primary};
+  font-family: "Baloo 2", sans-serif;
   margin: 0;
 `;
 
@@ -80,7 +83,16 @@ const LoginDialogue = () => {
       />
 
       <Button>
-        <Text style={{ fontWeight: 600, color: "white" }}>Sign In</Text>
+        <Text
+          style={{
+            fontSize: "20px",
+            fontWeight: 600,
+            lineHeight: "32px",
+            color: "white",
+          }}
+        >
+          Sign In
+        </Text>
       </Button>
     </Dialogue>
   );
