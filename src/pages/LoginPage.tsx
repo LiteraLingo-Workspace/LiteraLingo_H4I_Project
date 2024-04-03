@@ -156,7 +156,7 @@ const SignupDialogue = () => {
       </Button>
     </Dialogue>
   );
-}
+};
 
 const Container = styled.div`
   background-color: ${theme.colors.primary};
