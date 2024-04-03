@@ -2,8 +2,11 @@
   "signIn": "Sign In",
   "createAccountLabel": "New to LiteraLingo?",
   "createAccount": "Create Account",
-  "welcomePage": {
+  "landingPage": {
     "title": "LiteraLingo",
-    "subTitle": "Unlock English Literally"
+    "subTitle": "Unlock English Literally",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "new": "New to LiteraLingo?"
   }
 }
