@@ -91,7 +91,7 @@ const LoginDialogue = () => {
             color: "white",
           }}
         >
-          Sign In
+          Sign in
         </Text>
       </Button>
     </Dialogue>
