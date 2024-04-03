@@ -152,7 +152,16 @@ const SignupDialogue = () => {
       />
 
       <Button>
-        <Text style={{ fontWeight: 600, color: "white" }}>Sign up</Text>
+        <Text
+          style={{
+            fontSize: "20px",
+            fontWeight: 600,
+            lineHeight: "32px",
+            color: "white",
+          }}
+        >
+          Sign up
+        </Text>
       </Button>
     </Dialogue>
   );
