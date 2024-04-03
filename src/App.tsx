@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { LoginPage } from './pages/LoginPage';
+import { LoginPage } from "./pages/LoginPage";
 
 import { theme } from "./common/styles";
 
