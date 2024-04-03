@@ -7,7 +7,6 @@ import { TextInputField } from "../common/components/TextInputField";
 const Dialogue = styled.div`
   background: white;
   width: 344px;
-  height: 397px;
   border-radius: 16px;
   padding: 24px;
   padding-top: 15px;
@@ -98,6 +97,67 @@ const LoginDialogue = () => {
   );
 };
 
+const SignupDialogue = () => {
+  return (
+    <Dialogue>
+      <FlexRow>
+        <Text
+          style={{
+            fontSize: "24px",
+            flexGrow: 1,
+            fontWeight: 700,
+            textAlign: "left",
+            lineHeight: "40px",
+          }}
+        >
+          Create an account
+        </Text>
+        <BsX
+          style={{
+            width: "40px",
+            height: "40px",
+            transform: "translate(10px)",
+          }}
+          color={theme.colors.primary}
+        ></BsX>
+      </FlexRow>
+
+      <Text>What should we call you? (Your name)</Text>
+      <TextInputField
+        width={"calc(100% - 16px)"}
+        style={{ marginBottom: "48px", borderWidth: "1px" }}
+        placeholder="Jane Doe"
+      />
+
+      <Text>Enter your email</Text>
+      <TextInputField
+        width={"calc(100% - 16px)"}
+        style={{ marginBottom: "48px", borderWidth: "1px" }}
+        type="email"
+        placeholder="janedoe@gmail.com"
+      />
+
+      <Text>Enter your password</Text>
+      <TextInputField
+        width={"calc(100% - 16px)"}
+        style={{ marginBottom: "48px", borderWidth: "1px" }}
+        type="password"
+      />
+
+      <Text>Re-enter your password</Text>
+      <TextInputField
+        width={"calc(100% - 16px)"}
+        style={{ marginBottom: "48px", borderWidth: "1px" }}
+        type="password"
+      />
+
+      <Button>
+        <Text style={{ fontWeight: 600, color: "white" }}>Sign up</Text>
+      </Button>
+    </Dialogue>
+  );
+}
+
 const Container = styled.div`
   background-color: ${theme.colors.primary};
   position: absolute;
@@ -180,6 +240,15 @@ export const LoginPage = () => {
     <Container>
       <LoginBackground></LoginBackground>
       <LoginDialogue></LoginDialogue>
+    </Container>
+  );
+};
+
+export const SignupPage = () => {
+  return (
+    <Container>
+      <LoginBackground></LoginBackground>
+      <SignupDialogue></SignupDialogue>
     </Container>
   );
 };
