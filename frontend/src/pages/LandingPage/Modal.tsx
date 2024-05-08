@@ -20,11 +20,15 @@ const Button = ({ color, text, route }: ButtonProps) => {
       alignItems="center"
       borderRadius={100}
       bg={color}
-      width="200px"
-      p="12px"
+      width="265px"
       onClick={() => navigate(route)}
     >
-      <StyledText color="white" fontSize="20px" lineHeight="51px">
+      <StyledText
+        color="white"
+        fontSize="20px"
+        lineHeight="51px"
+        fontWeight="600"
+      >
         {text}
       </StyledText>
     </StyledDiv>
@@ -40,8 +44,7 @@ export const Modal = () => (
     borderTopLeftRadius={64}
     borderTopRightRadius={64}
     width="100%"
-    height="40%"
-    py="20px"
+    height="39%"
     bg="white"
   >
     <Button
@@ -50,7 +53,11 @@ export const Modal = () => (
       route="/login"
     />
     <StyledDiv height="0.5px" width="300px" bg="lightGrey" my="30px" />
-    <StyledText color="lightgrey" fontSize="22px" lineHeight="51px">
+    <StyledText
+      color={theme.colors.secondary}
+      fontSize="22px"
+      lineHeight="51px"
+    >
       {t("landingPage.new")}
     </StyledText>
     <Button

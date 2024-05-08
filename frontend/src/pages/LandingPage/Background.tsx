@@ -42,7 +42,7 @@ export const Background = () => {
         <StyledText
           color={theme.colors.primary}
           fontSize="32px"
-          lineHeight="51px"
+          lineHeight="40px"
           fontWeight="500"
         >
           {t("landingPage.subTitle1")}
@@ -50,7 +50,7 @@ export const Background = () => {
         <StyledText
           color={theme.colors.primary}
           fontSize="32px"
-          lineHeight="51px"
+          lineHeight="40px"
           fontWeight="700"
         >
           {t("landingPage.subTitle2")}
