@@ -8,7 +8,6 @@ import {
   position,
   space,
 } from "styled-system";
-
 import { StyledDivProps } from "../types";
 
 export const StyledDiv = styled.div<StyledDivProps>`

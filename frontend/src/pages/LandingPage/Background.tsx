@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 
 import { StyledDiv, StyledImage, StyledText } from "../../common/components";
-import { landingGraphic, landingLogo } from "../../images";
+import { landingGraphic, landingLogo } from "../../../images";
+import { theme } from "../../common/styles";
 
 export const Background = () => {
   const { t } = useTranslation();
@@ -13,7 +14,6 @@ export const Background = () => {
       alignItems="center"
       justifyContent="flex-end"
       height="60%"
-      width="450px"
       mb="40px"
     >
       <StyledDiv
@@ -23,11 +23,37 @@ export const Background = () => {
         justifyContent="center"
       >
         <StyledImage height="86px" mr="20px" src={landingLogo} />
-        <StyledText variant="title">{t("landingPage.title")}</StyledText>
+        <StyledText
+          color="white"
+          fontSize="40px"
+          lineHeight="88px"
+          fontWeight="600"
+        >
+          {t("landingPage.title")}
+        </StyledText>
       </StyledDiv>
-      <StyledDiv width="60%" mt="40px" pl="40px" pr="100px">
-        <StyledText variant="landingSubtitle">
-          {t("landingPage.subTitle")}
+      <StyledDiv
+        width="100%"
+        mt="10px"
+        mb="-75px"
+        display="flex"
+        flexDirection="column"
+      >
+        <StyledText
+          color={theme.colors.primary}
+          fontSize="32px"
+          lineHeight="51px"
+          fontWeight="500"
+        >
+          {t("landingPage.subTitle1")}
+        </StyledText>
+        <StyledText
+          color={theme.colors.primary}
+          fontSize="32px"
+          lineHeight="51px"
+          fontWeight="700"
+        >
+          {t("landingPage.subTitle2")}
         </StyledText>
       </StyledDiv>
       <StyledImage height="216px" src={landingGraphic} />

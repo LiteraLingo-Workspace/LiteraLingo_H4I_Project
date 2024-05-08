@@ -24,7 +24,9 @@ const Button = ({ color, text, route }: ButtonProps) => {
       p="12px"
       onClick={() => navigate(route)}
     >
-      <StyledText variant="button">{text}</StyledText>
+      <StyledText color="white" fontSize="20px" lineHeight="51px">
+        {text}
+      </StyledText>
     </StyledDiv>
   );
 };
@@ -35,8 +37,8 @@ export const Modal = () => (
     flexDirection="column"
     alignItems="center"
     justifyContent="center"
-    borderTopLeftRadius={100}
-    borderTopRightRadius={100}
+    borderTopLeftRadius={64}
+    borderTopRightRadius={64}
     width="100%"
     height="40%"
     py="20px"
@@ -48,7 +50,9 @@ export const Modal = () => (
       route="/login"
     />
     <StyledDiv height="0.5px" width="300px" bg="lightGrey" my="30px" />
-    <StyledText variant="landingSubtext">{t("landingPage.new")}</StyledText>
+    <StyledText color="lightgrey" fontSize="22px" lineHeight="51px">
+      {t("landingPage.new")}
+    </StyledText>
     <Button
       color={theme.colors.warm}
       text={t("landingPage.createAccount")}

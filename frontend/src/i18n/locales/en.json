@@ -4,7 +4,8 @@
   "createAccount": "Create Account",
   "landingPage": {
     "title": "LiteraLingo",
-    "subTitle": "Unlock English Literally",
+    "subTitle1": "Unlock English",
+    "subTitle2": "Literally!",
     "signIn": "Sign In",
     "createAccount": "Create Account",
     "new": "New to LiteraLingo?"
