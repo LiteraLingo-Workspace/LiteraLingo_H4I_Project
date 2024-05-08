@@ -14,7 +14,7 @@ export const Background = () => {
       alignItems="center"
       justifyContent="flex-end"
       height="60%"
-      mb="40px"
+      mb="10px"
     >
       <StyledDiv
         display="flex"
@@ -56,7 +56,7 @@ export const Background = () => {
           {t("landingPage.subTitle2")}
         </StyledText>
       </StyledDiv>
-      <StyledImage height="216px" src={landingGraphic} />
+      <StyledImage height="260px" src={landingGraphic} />
     </StyledDiv>
   );
 };
