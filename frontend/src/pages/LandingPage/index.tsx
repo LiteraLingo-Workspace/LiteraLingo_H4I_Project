@@ -1,4 +1,4 @@
-import { StyledDiv } from "../../common/components";
+import { StyledDiv } from "../../common/components/index";
 import { theme } from "../../common/styles";
 import { Background } from "./Background";
 import { Modal } from "./Modal";

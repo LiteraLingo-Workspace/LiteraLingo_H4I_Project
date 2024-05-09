@@ -1,6 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import { StyledDiv, StyledImage, StyledText } from "../../common/components";
+import {
+  StyledDiv,
+  StyledImage,
+  StyledText,
+} from "../../common/components/index";
 import { landingGraphic, landingLogo } from "../../../images";
 import { theme } from "../../common/styles";
 

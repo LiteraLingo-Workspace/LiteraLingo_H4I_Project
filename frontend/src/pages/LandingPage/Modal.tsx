@@ -1,39 +1,10 @@
 import { t } from "i18next";
-import { useNavigate } from "react-router-dom";
-
-import { StyledDiv, StyledText } from "../../common/components";
+import {
+  StyledDiv,
+  StyledText,
+  StyledButton,
+} from "../../common/components/index";
 import { theme } from "../../common/styles";
-
-type ButtonProps = {
-  color: string;
-  text: string;
-  route: string;
-};
-
-const Button = ({ color, text, route }: ButtonProps) => {
-  const navigate = useNavigate();
-
-  return (
-    <StyledDiv
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      borderRadius={100}
-      bg={color}
-      width="265px"
-      onClick={() => navigate(route)}
-    >
-      <StyledText
-        color="white"
-        fontSize="20px"
-        lineHeight="51px"
-        fontWeight="600"
-      >
-        {text}
-      </StyledText>
-    </StyledDiv>
-  );
-};
 
 export const Modal = () => (
   <StyledDiv
@@ -47,23 +18,60 @@ export const Modal = () => (
     height="39%"
     bg="white"
   >
-    <Button
-      color={theme.colors.coolAccentBg}
-      text={t("landingPage.signIn")}
-      route="/login"
+    <StyledButton
+      bg={theme.colors.coolAccentBg}
+      borderRadius={32}
+      color="white"
+      width="300px"
+      height="67px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <StyledText
+        color="white"
+        fontSize="32px"
+        lineHeight="51px"
+        fontWeight="500"
+      >
+        {t("landingPage.signIn")}
+      </StyledText>
+    </StyledButton>
+    <StyledDiv
+      height="1px"
+      width="300px"
+      bg={theme.colors.faintGrey}
+      marginTop="20px"
+      marginBottom="10px"
     />
-    <StyledDiv height="0.5px" width="300px" bg="lightGrey" my="30px" />
     <StyledText
       color={theme.colors.secondary}
-      fontSize="22px"
-      lineHeight="51px"
+      fontSize="20px"
+      lineHeight="30px"
+      fontWeight="400"
+      marginBottom="8px"
+      textAlign="center"
     >
       {t("landingPage.new")}
     </StyledText>
-    <Button
-      color={theme.colors.warm}
-      text={t("landingPage.createAccount")}
-      route="/signup"
-    />
+    <StyledButton
+      bg={theme.colors.warm}
+      borderRadius={32}
+      color="white"
+      width="300px"
+      height="67px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <StyledText
+        color="white"
+        fontSize="32px"
+        lineHeight="51px"
+        fontWeight="500"
+      >
+        {t("landingPage.createAccount")}
+      </StyledText>
+    </StyledButton>
   </StyledDiv>
 );
