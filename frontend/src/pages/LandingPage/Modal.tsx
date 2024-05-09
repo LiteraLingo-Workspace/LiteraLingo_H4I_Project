@@ -27,6 +27,7 @@ export const Modal = () => (
       display="flex"
       justifyContent="center"
       alignItems="center"
+      border="none"
     >
       <StyledText
         color="white"
@@ -51,11 +52,12 @@ export const Modal = () => (
       fontWeight="400"
       marginBottom="8px"
       textAlign="center"
+      fontFamily="Poppins"
     >
       {t("landingPage.new")}
     </StyledText>
     <StyledButton
-      bg={theme.colors.warm}
+      background="linear-gradient(180deg, #F37576 0%, #F1B950 160%)"
       borderRadius={32}
       color="white"
       width="300px"
@@ -63,6 +65,7 @@ export const Modal = () => (
       display="flex"
       justifyContent="center"
       alignItems="center"
+      border="none"
     >
       <StyledText
         color="white"

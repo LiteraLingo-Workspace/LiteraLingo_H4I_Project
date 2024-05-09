@@ -7,10 +7,11 @@ import {
   layout,
   position,
   space,
+  background,
 } from "styled-system";
 import { StyledButtonProps } from "../types";
 
-export const StyledButton = styled.div<StyledButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   ${color}
   ${space}
   ${layout}
@@ -18,4 +19,8 @@ export const StyledButton = styled.div<StyledButtonProps>`
   ${border}
   ${position}
   ${boxShadow}
+  ${background}
+  &:hover {
+    cursor: pointer;
+  }
 `;

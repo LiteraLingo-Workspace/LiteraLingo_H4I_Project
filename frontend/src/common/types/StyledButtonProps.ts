@@ -6,6 +6,7 @@ import {
   PositionProps,
   SpaceProps,
   ColorProps,
+  BackgroundProps,
 } from "styled-system";
 
 export type StyledButtonProps = SpaceProps &
@@ -14,4 +15,5 @@ export type StyledButtonProps = SpaceProps &
   BorderProps &
   PositionProps &
   BoxShadowProps &
-  ColorProps;
+  ColorProps &
+  BackgroundProps;
