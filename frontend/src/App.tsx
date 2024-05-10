@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-
 import { theme } from "./common/styles";
 import GlobalStyle from "./common/styles/GlobalStyle";
 import { LoginPage, SignupPage, LandingPage } from "./pages/index";
