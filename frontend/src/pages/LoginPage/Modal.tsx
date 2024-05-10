@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
+import { InputField } from "../../common/components/InputField";
+import { UserAuthButton } from "../../common/components/UserAuthButton";
 
 const FlexRow = styled.div`
   display: flex;
@@ -11,22 +13,18 @@ const FlexRow = styled.div`
   margin-bottom: 48px;
 `;
 
-const Button = styled.button`
-  float: right;
-  border: none;
-  border-radius: 24px;
-  gap: 4px;
-  height: 48px;
-  padding: 8px 16px 8px 16px;
-  min-width: 96px;
-  background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
-  color: white;
+const Text = styled.p`
+  color: ${theme.colors.primary};
+  padding: 0;
+  margin: 0;
 `;
 
-const Text = styled.p`
-  padding: 0;
-  color: ${theme.colors.primary};
-  margin: 0;
+const Title = styled(Text)`
+  font-size: 24px;
+  flex-grow: 1;
+  font-weight: 700;
+  text-align: left;
+  line-feight: 40px;
 `;
 
 const Container = styled.div`
@@ -39,43 +37,13 @@ const Container = styled.div`
   z-index: 1;
 `;
 
-const InputField = styled.input`
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 21px;
-  border: 2px solid ${theme.colors.primary};
-  border-radius: 8px;
-  padding: 5px 6px;
-  border-width: 1px;
-  margin-bottom: 48px;
-  width: calc(100% - 16px);
-  &::placeholder {
-    color: ${theme.colors.secondary};
-    font-family: Poppins, sans-serif;
-  }
-  &:focus {
-    outline: none;
-    box-shadow: 0px 0px 2px ${theme.colors.coolDark};
-  }
-`;
-
 export const Modal = () => {
   const navigate = useNavigate();
 
   return (
     <Container>
       <FlexRow>
-        <Text
-          style={{
-            fontSize: "24px",
-            flexGrow: 1,
-            fontWeight: 700,
-            textAlign: "left",
-            lineHeight: "40px",
-          }}
-        >
-          {t("loginPage.title")}
-        </Text>
+        <Title>{t("loginPage.title")}</Title>
         <BsX
           style={{
             width: "40px",
@@ -87,24 +55,11 @@ export const Modal = () => {
           onClick={() => navigate("/")}
         ></BsX>
       </FlexRow>
-      {t("loginPage.email")}
-      <Text></Text>
+      <Text>{t("loginPage.email")}</Text>
       <InputField type="email" placeholder="janedoe@gmail.com" />
-      {t("loginPage.password")}
-      <Text></Text>
+      <Text>{t("loginPage.password")}</Text>
       <InputField type="password" />
-      <Button>
-        <Text
-          style={{
-            fontSize: "20px",
-            fontWeight: 600,
-            lineHeight: "32px",
-            color: "white",
-          }}
-        >
-          {t("loginPage.button")}
-        </Text>
-      </Button>
+      <UserAuthButton text={t("loginPage.button")} />
     </Container>
   );
 };

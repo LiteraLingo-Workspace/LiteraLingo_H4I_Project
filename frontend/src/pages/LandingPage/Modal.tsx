@@ -44,7 +44,7 @@ const Break = styled.div`
   width: 300px;
   background-color: ${theme.colors.faintGrey};
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 `;
 
 const Question = styled.p`
