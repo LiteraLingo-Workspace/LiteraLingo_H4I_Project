@@ -1,9 +1,24 @@
 {
-  "signIn": "Se connecter",
-  "createAccountLabel": "Nouveau sur LiteraLingo?",
-  "createAccount": "Créer un compte",
-  "welcomePage": {
+  "loginPage": {
+    "title": "Connectez-vous à votre compte",
+    "email": "Entrez votre courriel",
+    "password": "Entrez votre mot de passe",
+    "button": "Se connecter"
+  },
+  "signupPage": {
+    "title": "Créer un compte",
+    "name": "Comment on vous appelle? (Votre nom)",
+    "email": "Entrez votre courriel",
+    "password": "Entrez votre mot de passe",
+    "passwordConfirmation": "Rentrez votre courriel",
+    "button": "S'inscrire"
+  },
+  "landingPage": {
     "title": "LiteraLingo",
-    "subTitle": "Débloquez l'anglais littéralement"
+    "subTitle1": "Débloquez l'anglais",
+    "subTitle2": "littéralement!",
+    "signIn": "Se connecter",
+    "createAccount": "Créer un compte",
+    "new": "Nouveau sur LiteraLingo?"
   }
 }

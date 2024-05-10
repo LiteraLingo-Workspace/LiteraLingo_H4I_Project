@@ -2,6 +2,7 @@ import { BsX } from "react-icons/bs";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { t } from "i18next";
 
 const FlexRow = styled.div`
   display: flex;
@@ -73,7 +74,7 @@ export const Modal = () => {
             lineHeight: "40px",
           }}
         >
-          Create an account
+          {t("signupPage.title")}
         </Text>
         <BsX
           style={{
@@ -86,13 +87,16 @@ export const Modal = () => {
           onClick={() => navigate("/")}
         ></BsX>
       </FlexRow>
-      <Text>What should we call you? (Your name)</Text>
+      <Text> {t("signupPage.name")}</Text>
       <InputField placeholder="Jane Doe" />
-      <Text>Enter your email</Text>
+      {t("signupPage.email")}
+      <Text></Text>
       <InputField type="email" placeholder="janedoe@gmail.com" />
-      <Text>Enter your password</Text>
+      {t("signupPage.password")}
+      <Text></Text>
       <InputField type="password" />
-      <Text>Re-enter your password</Text>
+      {t("signupPage.passwordConfirmation")}
+      <Text></Text>
       <InputField type="password" />
       <Button>
         <Text
@@ -103,7 +107,7 @@ export const Modal = () => {
             color: "white",
           }}
         >
-          Sign up
+          {t("signupPage.button")}
         </Text>
       </Button>
     </Container>

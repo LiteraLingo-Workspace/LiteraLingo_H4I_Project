@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
@@ -73,7 +74,7 @@ export const Modal = () => {
             lineHeight: "40px",
           }}
         >
-          Sign in to your account
+          {t("loginPage.title")}
         </Text>
         <BsX
           style={{
@@ -86,9 +87,11 @@ export const Modal = () => {
           onClick={() => navigate("/")}
         ></BsX>
       </FlexRow>
-      <Text>Enter your email</Text>
+      {t("loginPage.email")}
+      <Text></Text>
       <InputField type="email" placeholder="janedoe@gmail.com" />
-      <Text>Enter your password</Text>
+      {t("loginPage.password")}
+      <Text></Text>
       <InputField type="password" />
       <Button>
         <Text
@@ -99,7 +102,7 @@ export const Modal = () => {
             color: "white",
           }}
         >
-          Sign in
+          {t("loginPage.button")}
         </Text>
       </Button>
     </Container>
