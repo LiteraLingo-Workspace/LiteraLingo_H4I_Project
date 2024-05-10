@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BackgroundContainer = styled.svg`
+const Container = styled.svg`
   position: absolute;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@ const BackgroundContainer = styled.svg`
 
 export const Background = () => {
   return (
-    <BackgroundContainer
+    <Container
       width="393"
       height="852"
       viewBox="0 0 393 852"
@@ -61,6 +61,6 @@ export const Background = () => {
           fill="#F37576"
         />
       </g>
-    </BackgroundContainer>
+    </Container>
   );
 };

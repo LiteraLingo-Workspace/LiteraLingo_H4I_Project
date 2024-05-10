@@ -61,6 +61,7 @@ export const Modal = () => {
             width: "40px",
             height: "40px",
             transform: "translate(10px)",
+            cursor: "pointer",
           }}
           color={theme.colors.primary}
           onClick={() => navigate("/")}

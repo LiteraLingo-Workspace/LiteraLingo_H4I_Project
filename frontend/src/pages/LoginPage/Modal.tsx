@@ -29,7 +29,7 @@ const Text = styled.p`
   margin: 0;
 `;
 
-const Dialogue = styled.div`
+const Container = styled.div`
   background: white;
   width: 344px;
   border-radius: 16px;
@@ -43,7 +43,7 @@ export const Modal = () => {
   const navigate = useNavigate();
 
   return (
-    <Dialogue>
+    <Container>
       <FlexRow>
         <Text
           style={{
@@ -61,6 +61,7 @@ export const Modal = () => {
             width: "40px",
             height: "40px",
             transform: "translate(10px)",
+            cursor: "pointer",
           }}
           color={theme.colors.primary}
           onClick={() => navigate("/")}
@@ -91,6 +92,6 @@ export const Modal = () => {
           Sign in
         </Text>
       </Button>
-    </Dialogue>
+    </Container>
   );
 };
