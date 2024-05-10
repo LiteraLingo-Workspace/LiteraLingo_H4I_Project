@@ -6,7 +6,7 @@ import {
   StyledText,
 } from "../../common/components/index";
 import { landingGraphic, landingLogo } from "../../../images";
-import { theme } from "../../common/styles";
+import { theme } from "../../common/styles/index";
 
 export const Background = () => {
   const { t } = useTranslation();

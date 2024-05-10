@@ -1,7 +1,6 @@
 import { BsX } from "react-icons/bs";
-import { theme } from "../../common/styles";
+import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
-import { TextInputField } from "../../common/components/index";
 import styled from "styled-components";
 
 const FlexRow = styled.div`
@@ -39,6 +38,26 @@ const Container = styled.div`
   z-index: 1;
 `;
 
+const InputField = styled.input`
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  border: 2px solid ${theme.colors.primary};
+  border-radius: 8px;
+  padding: 5px 6px;
+  border-width: 1px;
+  margin-bottom: 48px;
+  width: calc(100% - 16px);
+  &::placeholder {
+    color: ${theme.colors.secondary};
+    font-family: Poppins, sans-serif;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px ${theme.colors.coolDark};
+  }
+`;
+
 export const Modal = () => {
   const navigate = useNavigate();
 
@@ -68,30 +87,13 @@ export const Modal = () => {
         ></BsX>
       </FlexRow>
       <Text>What should we call you? (Your name)</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        placeholder="Jane Doe"
-      />
+      <InputField placeholder="Jane Doe" />
       <Text>Enter your email</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="email"
-        placeholder="janedoe@gmail.com"
-      />
+      <InputField type="email" placeholder="janedoe@gmail.com" />
       <Text>Enter your password</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="password"
-      />
+      <InputField type="password" />
       <Text>Re-enter your password</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="password"
-      />
+      <InputField type="password" />
       <Button>
         <Text
           style={{

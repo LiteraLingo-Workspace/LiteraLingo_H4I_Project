@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../common/styles";
+import { theme } from "../../common/styles/index";
 import { Background } from "./Background";
 import { Modal } from "./Modal";
 

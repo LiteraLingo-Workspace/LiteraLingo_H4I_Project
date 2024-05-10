@@ -1,6 +1,5 @@
 import { t } from "i18next";
-import { StyledDiv, StyledText } from "../../common/components/index";
-import { theme } from "../../common/styles";
+import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -33,48 +32,43 @@ const SignupButton = styled(LoginButton)`
   background: linear-gradient(180deg, #f37576 0%, #f1b950 160%);
 `;
 
+const ButtonText = styled.p`
+  color: white;
+  font-size: 32px;
+  line-height: 51px;
+  font-weight: 500;
+`;
+
+const Break = styled.div`
+  height: 1px;
+  width: 300px;
+  background-color: ${theme.colors.faintGrey};
+  margin-top: 20px;
+  margin-bottom: 10px;
+`;
+
+const Question = styled.p`
+  color: ${theme.colors.secondary};
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+`;
+
 export const Modal = () => {
   const navigate = useNavigate();
 
   return (
     <Container>
       <LoginButton onClick={() => navigate("/login")}>
-        <StyledText
-          color="white"
-          fontSize="32px"
-          lineHeight="51px"
-          fontWeight="500"
-        >
-          {t("landingPage.signIn")}
-        </StyledText>
+        <ButtonText>{t("landingPage.signIn")}</ButtonText>
       </LoginButton>
-      <StyledDiv
-        height="1px"
-        width="300px"
-        bg={theme.colors.faintGrey}
-        marginTop="20px"
-        marginBottom="10px"
-      />
-      <StyledText
-        color={theme.colors.secondary}
-        fontSize="20px"
-        lineHeight="30px"
-        fontWeight="400"
-        marginBottom="8px"
-        textAlign="center"
-        fontFamily="Poppins"
-      >
-        {t("landingPage.new")}
-      </StyledText>
+      <Break />
+      <Question>{t("landingPage.new")}</Question>
       <SignupButton onClick={() => navigate("/signup")}>
-        <StyledText
-          color="white"
-          fontSize="32px"
-          lineHeight="51px"
-          fontWeight="500"
-        >
-          {t("landingPage.createAccount")}
-        </StyledText>
+        <ButtonText>{t("landingPage.createAccount")}</ButtonText>
       </SignupButton>
     </Container>
   );
