@@ -1,8 +1,8 @@
 import { t } from "i18next";
+import styled from "styled-components";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 const FlexRow = styled.div`
   display: flex;

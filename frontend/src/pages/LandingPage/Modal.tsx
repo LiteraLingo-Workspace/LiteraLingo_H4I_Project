@@ -1,7 +1,7 @@
 import { t } from "i18next";
+import styled from "styled-components";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
