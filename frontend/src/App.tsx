@@ -3,8 +3,7 @@ import { ThemeProvider } from "styled-components";
 
 import { theme } from "./common/styles";
 import GlobalStyle from "./common/styles/GlobalStyle";
-import { LandingPage } from "./pages/index";
-import { LoginPage, SignupPage } from "./pages/index";
+import { LoginPage, SignupPage, LandingPage } from "./pages/index";
 
 function App() {
   return (

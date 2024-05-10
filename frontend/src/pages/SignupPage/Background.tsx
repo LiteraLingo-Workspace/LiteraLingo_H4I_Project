@@ -1,185 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../common/styles";
-import { BsX } from "react-icons/bs";
 
-import { TextInputField } from "../common/components/TextInputField";
-
-const Dialogue = styled.div`
-  background: white;
-  width: 344px;
-  border-radius: 16px;
-  padding: 24px;
-  padding-top: 15px;
-  box-sizing: border-box;
-  font-family: "Baloo 2", sans-serif;
-  z-index: 1;
-`;
-
-const FlexRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 48px;
-`;
-
-const Button = styled.button`
-  float: right;
-  border: none;
-  border-radius: 24px;
-  gap: 4px;
-  height: 48px;
-  padding: 8px 16px 8px 16px;
-  min-width: 96px;
-  background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
-  color: white;
-`;
-
-const Text = styled.p`
-  padding: 0;
-  color: ${theme.colors.primary};
-  font-family: "Baloo 2", sans-serif;
-  margin: 0;
-`;
-
-const LoginDialogue = () => {
-  return (
-    <Dialogue>
-      <FlexRow>
-        <Text
-          style={{
-            fontSize: "24px",
-            flexGrow: 1,
-            fontWeight: 700,
-            textAlign: "left",
-            lineHeight: "40px",
-          }}
-        >
-          Sign in to your account
-        </Text>
-        <BsX
-          style={{
-            width: "40px",
-            height: "40px",
-            transform: "translate(10px)",
-          }}
-          color={theme.colors.primary}
-        ></BsX>
-      </FlexRow>
-
-      <Text>Enter your email</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="email"
-        placeholder="janedoe@gmail.com"
-      />
-
-      <Text>Enter your password</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="password"
-      />
-
-      <Button>
-        <Text
-          style={{
-            fontSize: "20px",
-            fontWeight: 600,
-            lineHeight: "32px",
-            color: "white",
-          }}
-        >
-          Sign in
-        </Text>
-      </Button>
-    </Dialogue>
-  );
-};
-
-const SignupDialogue = () => {
-  return (
-    <Dialogue>
-      <FlexRow>
-        <Text
-          style={{
-            fontSize: "24px",
-            flexGrow: 1,
-            fontWeight: 700,
-            textAlign: "left",
-            lineHeight: "40px",
-          }}
-        >
-          Create an account
-        </Text>
-        <BsX
-          style={{
-            width: "40px",
-            height: "40px",
-            transform: "translate(10px)",
-          }}
-          color={theme.colors.primary}
-        ></BsX>
-      </FlexRow>
-
-      <Text>What should we call you? (Your name)</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        placeholder="Jane Doe"
-      />
-
-      <Text>Enter your email</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="email"
-        placeholder="janedoe@gmail.com"
-      />
-
-      <Text>Enter your password</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="password"
-      />
-
-      <Text>Re-enter your password</Text>
-      <TextInputField
-        width={"calc(100% - 16px)"}
-        style={{ marginBottom: "48px", borderWidth: "1px" }}
-        type="password"
-      />
-
-      <Button>
-        <Text
-          style={{
-            fontSize: "20px",
-            fontWeight: 600,
-            lineHeight: "32px",
-            color: "white",
-          }}
-        >
-          Sign up
-        </Text>
-      </Button>
-    </Dialogue>
-  );
-};
-
-const Container = styled.div`
-  background-color: ${theme.colors.primary};
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const BackgroundContainer = styled.svg`
+const Container = styled.svg`
   position: absolute;
   top: 0;
   left: 0;
@@ -188,9 +9,9 @@ const BackgroundContainer = styled.svg`
   z-index: 0;
 `;
 
-const LoginBackground = () => {
+export const Background = () => {
   return (
-    <BackgroundContainer
+    <Container
       width="393"
       height="852"
       viewBox="0 0 393 852"
@@ -240,24 +61,6 @@ const LoginBackground = () => {
           fill="#F37576"
         />
       </g>
-    </BackgroundContainer>
-  );
-};
-
-export const LoginPage = () => {
-  return (
-    <Container>
-      <LoginBackground></LoginBackground>
-      <LoginDialogue></LoginDialogue>
-    </Container>
-  );
-};
-
-export const SignupPage = () => {
-  return (
-    <Container>
-      <LoginBackground></LoginBackground>
-      <SignupDialogue></SignupDialogue>
     </Container>
   );
 };
