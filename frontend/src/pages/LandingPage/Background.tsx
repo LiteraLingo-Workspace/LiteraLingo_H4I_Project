@@ -45,7 +45,7 @@ const FlexColumn = styled.div`
   margin-bottom: -75px;
 `;
 
-export const Background = () => {
+export const Background: React.FC = () => {
   const { t } = useTranslation();
 
   return (

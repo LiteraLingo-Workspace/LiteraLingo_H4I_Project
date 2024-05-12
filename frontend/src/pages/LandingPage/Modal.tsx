@@ -57,7 +57,7 @@ const Question = styled.p`
   font-family: "Poppins", sans-serif;
 `;
 
-export const Modal = () => {
+export const Modal: React.FC = () => {
   const navigate = useNavigate();
 
   return (

@@ -16,7 +16,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export const LandingPage = () => {
+export const LandingPage: React.FC = () => {
   return (
     <Container>
       <Background />

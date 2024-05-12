@@ -6,7 +6,7 @@ import { InputField } from "./InputField";
 import { Button } from "./Button";
 import { Container, FlexRow, Title, Label } from "./Modal";
 
-export const LoginModal = () => {
+export const LoginModal: React.FC = () => {
   const navigate = useNavigate();
 
   return (

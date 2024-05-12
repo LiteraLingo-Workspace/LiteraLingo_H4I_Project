@@ -9,7 +9,7 @@ const Container = styled.svg`
   z-index: 0;
 `;
 
-export const Background = () => {
+export const Background: React.FC = () => {
   return (
     <Container
       width="393"
