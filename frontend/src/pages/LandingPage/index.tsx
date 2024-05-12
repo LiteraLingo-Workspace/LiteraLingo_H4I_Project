@@ -16,9 +16,11 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export const LandingPage = () => (
-  <Container>
-    <Background />
-    <Modal />
-  </Container>
-);
+export const LandingPage = () => {
+  return (
+    <Container>
+      <Background />
+      <Modal />
+    </Container>
+  );
+};
