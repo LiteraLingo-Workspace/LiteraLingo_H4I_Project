@@ -32,4 +32,41 @@ const Container = styled.div`
   z-index: 1;
 `;
 
-export { FlexRow, Label, Title, Container };
+const InputField = styled.input`
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  border: 2px solid ${theme.colors.primary};
+  border-radius: 8px;
+  padding: 5px 6px;
+  border-width: 1px;
+  margin-bottom: 48px;
+  width: calc(100% - 16px);
+  &::placeholder {
+    color: ${theme.colors.secondary};
+    font-family: Poppins, sans-serif;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px ${theme.colors.coolDark};
+  }
+`;
+
+const Button = styled.button`
+  float: right;
+  border: none;
+  border-radius: 24px;
+  gap: 4px;
+  height: 48px;
+  padding: 8px 16px 8px 16px;
+  background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
+  color: white;
+  cursor: pointer;
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+`;
+
+export { FlexRow, Label, Title, Container, InputField, Button };

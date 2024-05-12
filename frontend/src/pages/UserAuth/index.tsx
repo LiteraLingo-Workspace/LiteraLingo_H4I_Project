@@ -4,6 +4,10 @@ import { Background } from "./Background";
 import { LoginModal } from "./LoginModal";
 import { SignupModal } from "./SignupModal";
 
+interface UserAuthPageProps {
+  type: string;
+}
+
 const Container = styled.div`
   background-color: ${theme.colors.primary};
   position: absolute;
@@ -16,22 +20,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const LoginPage = () => {
+export const UserAuthPage: React.FC<UserAuthPageProps> = ({ type }) => {
   return (
     <Container>
       <Background />
-      <LoginModal />
+      {(type === "login" && <LoginModal />) ||
+        (type === "signup" && <SignupModal />)}
     </Container>
   );
 };
-
-const SignupPage = () => {
-  return (
-    <Container>
-      <Background />
-      <SignupModal />
-    </Container>
-  );
-};
-
-export { LoginPage, SignupPage };

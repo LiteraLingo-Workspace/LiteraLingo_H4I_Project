@@ -2,9 +2,7 @@ import { t } from "i18next";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../common/styles/index";
 import { useNavigate } from "react-router-dom";
-import { InputField } from "./InputField";
-import { Button } from "./Button";
-import { Container, FlexRow, Title, Label } from "./Modal";
+import { Container, FlexRow, Title, Label, InputField, Button } from "./Modal";
 
 export const LoginModal: React.FC = () => {
   const navigate = useNavigate();
@@ -25,7 +23,7 @@ export const LoginModal: React.FC = () => {
         ></BsX>
       </FlexRow>
       <Label>{t("loginPage.email")}</Label>
-      <InputField type="email" placeholder="janedoe@gmail.com" />
+      <InputField type="email" placeholder="p.drizzy@gmail.com" />
       <Label>{t("loginPage.password")}</Label>
       <InputField type="password" />
       <Button>{t("loginPage.button")}</Button>
