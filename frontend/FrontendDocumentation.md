@@ -4,15 +4,15 @@
 
 run `npm run install` to run the frontend
 
-## How to create React Components
+## How to create components
 
 Ensure that your component is declared in the following way for faster TypeScript compilation speeds:
 
 `export const ComponentName: React.FC<ComponentNameProps> = ({ ...props... }) => {}`
 
-## How to organize React Components
+## How to organize components
 
-When a React Component is being used in multiple areas, move it and its corresponding `styled-component` objects into its own file. Then import it into the file you'd like to use it in.
+Components and their corresponding `styled-components` objects are in the same file for ease of use and development
 
 `Background.tsx`:
 
@@ -39,17 +39,25 @@ export const Background: React.FC<BackgroundProps> = ({ name, type }) => {
 };
 ```
 
-Your `.tsx` file can also contain just a single `styled-component` object and nothing else.
+Your component files can also just contain `styled-component` objects and nothing else
 
 `FlexRow.tsx`:
 
 ```
-export const FlexRow = styled.div`
+const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   margin-bottom: 48px;
 `;
+
+const Label = styled.p`
+  color: ${theme.colors.primary};
+  padding: 0;
+  margin: 0;
+`;
+
+export { FlexRow, Label };
 ```
 
 ## Pull Requests
