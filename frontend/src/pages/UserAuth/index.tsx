@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../common/styles/index";
 import { Background } from "./Background";
-import { Modal } from "./Modal";
+import { LoginModal } from "./LoginModal";
+import { SignupModal } from "./SignupModal";
 
 const Container = styled.div`
   background-color: ${theme.colors.primary};
@@ -15,11 +16,22 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <Container>
       <Background />
-      <Modal />
+      <LoginModal />
     </Container>
   );
 };
+
+const SignupPage = () => {
+  return (
+    <Container>
+      <Background />
+      <SignupModal />
+    </Container>
+  );
+};
+
+export { LoginPage, SignupPage };

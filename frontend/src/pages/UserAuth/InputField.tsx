@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../styles";
+import { theme } from "../../common/styles/index";
 
 export const InputField = styled.input`
   font-size: 14px;

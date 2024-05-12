@@ -1,4 +1,4 @@
-// temporary file to store what a label looks like
+// temporary file to store what a label looks like (will place somewhere else later)
 import styled from "styled-components";
 
 interface Props {
