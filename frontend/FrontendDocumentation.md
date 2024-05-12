@@ -6,7 +6,7 @@ run `npm run install` to run the frontend
 
 ## How to create React Components
 
-Ensure that your component is declared in the following way to ensure faster TypeScript compilation speeds:
+Ensure that your component is declared in the following way for faster TypeScript compilation speeds:
 
 `export const ComponentName: React.FC<ComponentNameProps> = ({ ...props... }) => {}`
 
@@ -39,7 +39,7 @@ export const Background: React.FC<BackgroundProps> = ({ name, type }) => {
 };
 ```
 
-Your `.tsx` file `styled-component` can also contain just a single `styled-component` object and nothing else.
+Your `.tsx` file can also contain just a single `styled-component` object and nothing else.
 
 `FlexRow.tsx`:
 
@@ -54,4 +54,4 @@ export const FlexRow = styled.div`
 
 ## Pull Requests
 
-Developers when submitting Pull Requests should use the template in PRTemplate.md to ensure quality and testing.
+Developers when submitting Pull Requests should use the template in [a relative link](/PRTemplate.md) to ensure quality and testing.
