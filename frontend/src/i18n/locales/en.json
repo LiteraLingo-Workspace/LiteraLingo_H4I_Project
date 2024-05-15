@@ -1,9 +1,24 @@
 {
-  "signIn": "Sign In",
-  "createAccountLabel": "New to LiteraLingo?",
-  "createAccount": "Create Account",
-  "welcomePage": {
+  "loginPage": {
+    "title": "Sign in to your account",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "button": "Sign in"
+  },
+  "signupPage": {
+    "title": "Create an account",
+    "name": "What should we call you? (Your name)",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "passwordConfirmation": "Re-enter your password",
+    "button": "Sign up"
+  },
+  "landingPage": {
     "title": "LiteraLingo",
-    "subTitle": "Unlock English Literally"
+    "subTitle1": "Unlock English",
+    "subTitle2": "Literally!",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "new": "New to LiteraLingo?"
   }
 }

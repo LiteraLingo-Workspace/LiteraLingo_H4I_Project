@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { LoginPage, SignupPage } from "./pages/LoginPage";
 import { theme } from "./common/styles";
 import GlobalStyle from "./common/styles/GlobalStyle";
+import { LandingPage, UserAuthPage } from "./pages/index";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" />
-          <Route path="/login" Component={LoginPage} />
-          <Route path="/signup" Component={SignupPage} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<UserAuthPage type="login" />} />
+          <Route path="/signup" element={<UserAuthPage type="signup" />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

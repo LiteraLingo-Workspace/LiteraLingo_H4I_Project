@@ -1,41 +1,22 @@
+// temporary file to store what a label looks like (will place somewhere else later)
 import styled from "styled-components";
-import {
-  border,
-  boxShadow,
-  color,
-  flexbox,
-  layout,
-  position,
-  space,
-  textAlign,
-  fontSize,
-  fontFamily,
-} from "styled-system";
 
-import { LabelProps } from "../types";
+interface Props {
+  color: string;
+  bg: string;
+}
 
-export const Label = styled.div<LabelProps>`
-  ${color}
-  ${space}
-  ${layout}
-  ${flexbox}
-  ${border}
-  ${position}
-  ${boxShadow}
-  ${textAlign}
-  ${fontSize}
-  ${fontFamily}
+export const Label = styled.div<Props>`
+  color: ${(p) => p.color};
+  background-color: ${(p) => p.bg};
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px 16px;
+  line-height: 22px;
 `;
-
-Label.defaultProps = {
-  fontFamily: "'Poppins', sans-serif",
-  fontWeight: "400",
-  fontSize: "16px",
-  display: "inline-block",
-  border: "none",
-  borderRadius: "30px",
-  textAlign: "center",
-  verticalAlign: "middle",
-  padding: "8px 16px",
-  lineHeight: "22px",
-};
