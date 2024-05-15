@@ -4,11 +4,12 @@ import { theme } from "../../common/styles";
 
 const Container = styled.div`
   width: 100%;
+  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  top: 68px;
+  margin-bottom: 20px;
 `;
 
 const NameContainer = styled.div`
