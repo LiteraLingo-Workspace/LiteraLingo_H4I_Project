@@ -18,44 +18,33 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
+const Text = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32.04px;
+`;
+
+const ArrowContainer = styled.div`
+  height: 32px;
+  width: 48px;
+  border-radius: 16px;
+  background-color: ${theme.colors.faintBlue};
+  padding: 4px 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const TranslationBar: React.FC = () => {
   return (
     <Container>
-      <p
-        style={{
-          fontFamily: "'Baloo 2', sans-serif",
-          fontWeight: "400",
-          fontSize: "20px",
-          lineHeight: "32.04px",
-        }}
-      >
-        Figurative
-      </p>
-      <div
-        style={{
-          height: "32px",
-          width: "48px",
-          borderRadius: "16px",
-          backgroundColor: `${theme.colors.faintBlue}`,
-          padding: "4px 12px",
-          boxSizing: "border-box",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <Text>Figurative</Text>
+      <ArrowContainer>
         <FaArrowRightLong size={15} />
-      </div>
-      <p
-        style={{
-          fontFamily: "'Baloo 2', sans-serif",
-          fontWeight: "400",
-          fontSize: "20px",
-          lineHeight: "32.04px",
-        }}
-      >
-        Literal
-      </p>
+      </ArrowContainer>
+      <Text>Literal</Text>
     </Container>
   );
 };
