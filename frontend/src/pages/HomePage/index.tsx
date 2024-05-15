@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Background } from "./Background";
 import { Welcome } from "./Welcome";
 import { TranslationBar } from "./TranslationBar";
+import { TranslationBox } from "./TranslationBox";
 
 const Container = styled.div`
   background-color: transparent;
@@ -32,6 +33,7 @@ export const HomePage: React.FC = () => {
       <SubContainer>
         <Welcome />
         <TranslationBar />
+        <TranslationBox />
       </SubContainer>
     </Container>
   );
