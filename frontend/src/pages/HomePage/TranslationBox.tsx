@@ -67,6 +67,8 @@ const LeftButtonsContainer = styled.div`
   flex-direction: row;
   gap: 10px;
   position: relative;
+  padding-top: 10px;
+  align-items: center;
   color: ${theme.colors.coolDark};
 `;
 
@@ -77,7 +79,7 @@ const RightButtonsContainer = styled.div`
 
 const GoButton = styled.button`
   border-radius: 100px;
-  padding: 8px 12px 8px 16px;
+  padding: 8px 12px 8px 12px;
   height: 38px;
   width: 85px;
   background-color: ${theme.colors.warm};
@@ -143,8 +145,8 @@ export const TranslationBox: React.FC = () => {
         </TextContainer>
         <ButtonsContainer>
           <LeftButtonsContainer>
-            <BsCamera size={24.5} style={{ marginTop: "auto" }} />
-            <HiOutlineMicrophone size={24.5} style={{ marginTop: "auto" }} />
+            <BsCamera size={24.5} />
+            <HiOutlineMicrophone size={24.5} />
           </LeftButtonsContainer>
           <RightButtonsContainer>
             <GoButton style={{ marginTop: "auto" }}>

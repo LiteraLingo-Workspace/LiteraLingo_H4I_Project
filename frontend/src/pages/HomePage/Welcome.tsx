@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
 const NameContainer = styled.div`
@@ -34,7 +34,6 @@ export const Welcome: React.FC = () => {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: "500",
             fontSize: "20px",
-            lineHeight: "30px",
           }}
         >
           Welcome
@@ -44,7 +43,7 @@ export const Welcome: React.FC = () => {
             fontFamily: "'Baloo 2', sans-serif",
             fontWeight: "500",
             fontSize: "32px",
-            lineHeight: "51.26px",
+            marginTop: "-10px",
           }}
         >
           Anna
