@@ -27,6 +27,15 @@ const SubContainer = styled.div`
   top: 68px;
 `;
 
+const Temp = styled.div`
+  position: fixed;
+  bottom: 0;
+  height: 7%;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+`;
+
 export const HomePage: React.FC = () => {
   return (
     <Container>
@@ -36,7 +45,7 @@ export const HomePage: React.FC = () => {
         <TranslationBar />
         <TranslationBox />
       </SubContainer>
-      <History />
+      <Temp />
     </Container>
   );
 };

@@ -1,0 +1,62 @@
+import React from "react";
+import { DrawerDirection } from "./types";
+
+interface DrawerContextValue {
+  drawerRef: React.RefObject<HTMLDivElement>;
+  overlayRef: React.RefObject<HTMLDivElement>;
+  scaleBackground: (open: boolean) => void;
+  onPress: (event: React.PointerEvent<HTMLDivElement>) => void;
+  onRelease: (event: React.PointerEvent<HTMLDivElement>) => void;
+  onDrag: (event: React.PointerEvent<HTMLDivElement>) => void;
+  dismissible: boolean;
+  handleOnly: boolean;
+  isOpen: boolean;
+  isDragging: boolean;
+  keyboardIsOpen: React.MutableRefObject<boolean>;
+  snapPointsOffset: number[] | null;
+  snapPoints?: (number | string)[] | null;
+  modal: boolean;
+  shouldFade: boolean;
+  activeSnapPoint?: number | string | null;
+  setActiveSnapPoint: (o: number | string | null) => void;
+  visible: boolean;
+  closeDrawer: () => void;
+  setVisible: (o: boolean) => void;
+  openProp?: boolean;
+  onOpenChange?: (o: boolean) => void;
+  direction?: DrawerDirection;
+}
+
+export const DrawerContext = React.createContext<DrawerContextValue>({
+  drawerRef: { current: null },
+  overlayRef: { current: null },
+  scaleBackground: () => {},
+  onPress: () => {},
+  onRelease: () => {},
+  onDrag: () => {},
+  openProp: undefined,
+  dismissible: false,
+  handleOnly: false,
+  isOpen: false,
+  isDragging: false,
+  keyboardIsOpen: { current: false },
+  snapPointsOffset: null,
+  snapPoints: null,
+  modal: false,
+  shouldFade: false,
+  activeSnapPoint: null,
+  onOpenChange: () => {},
+  setActiveSnapPoint: () => {},
+  visible: false,
+  closeDrawer: () => {},
+  setVisible: () => {},
+  direction: "bottom",
+});
+
+export const useDrawerContext = () => {
+  const context = React.useContext(DrawerContext);
+  if (!context) {
+    throw new Error("useDrawerContext must be used within a Drawer.Root");
+  }
+  return context;
+};

@@ -1,0 +1,103 @@
+[drawer] {
+  touch-action: none;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+[drawer][drawer-direction="bottom"] {
+  transform: translate3d(0, 100%, 0);
+}
+
+.dragging .scrollable [drawer-direction="bottom"] {
+  overflow-y: hidden !important;
+}
+
+[drawer][drawer-visible="true"][drawer-direction="bottom"] {
+  transform: translate3d(0, var(--snap-point-height, 0), 0);
+}
+
+[overlay] {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+[overlay][drawer-visible="true"] {
+  opacity: 1;
+}
+
+[drawer]::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  background-color: inherit;
+}
+
+[drawer][drawer-direction="bottom"]::after {
+  top: 100%;
+  bottom: initial;
+  left: 0;
+  right: 0;
+  height: 200%;
+}
+
+[handle] {
+  display: block;
+  position: relative;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+  height: 5px;
+  width: 56px;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+[handle]:hover,
+[handle]:active {
+  opacity: 1;
+}
+
+[handle]:active {
+  cursor: grabbing;
+}
+
+[handle-hitarea] {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, 2.75rem); /* 44px */
+  height: max(100%, 2.75rem); /* 44px */
+  touch-action: inherit;
+}
+
+[overlay][snap-points="true"]:not([snap-points-overlay="true"]):not(
+    [data-state="closed"]
+  ) {
+  opacity: 0;
+}
+
+[overlay][snap-points-overlay="true"]:not([drawer-visible="false"]) {
+  opacity: 1;
+}
+
+/* This will allow us to not animate via animation, but still benefit from delaying unmount via Radix. */
+@keyframes fake-animation {
+  from {
+  }
+  to {
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [drawer] {
+    user-select: none;
+  }
+}
+
+@media (pointer: fine) {
+  [handle-hitarea] {
+    width: 100%;
+    height: 100%;
+  }
+}
