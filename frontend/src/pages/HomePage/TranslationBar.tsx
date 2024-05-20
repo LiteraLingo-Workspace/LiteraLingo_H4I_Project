@@ -16,7 +16,7 @@ const Container = styled.div`
   padding: 16px 24px;
   box-shadow: 0px 0px 40px 0px rgba(152, 168, 186, 0.2);
   box-sizing: border-box;
-  margin-bottom: 35px;
+  margin-bottom: 4.1%;
 `;
 
 const Text = styled.p`

@@ -3,7 +3,6 @@ import { Background } from "./Background";
 import { Welcome } from "./Welcome";
 import { TranslationBar } from "./TranslationBar";
 import { TranslationBox } from "./TranslationBox";
-import { History } from "./History";
 
 const Container = styled.div`
   background-color: transparent;
@@ -25,30 +24,27 @@ const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 68px;
+  top: 7.98%;
 `;
 
-const Temp = styled.div`
-  position: fixed;
-  bottom: 0;
-  height: 7%;
-  width: 100%;
-  background-color: white;
-  z-index: 1;
-`;
+// const Temp = styled.div`
+//   position: fixed;
+//   bottom: 0;
+//   height: 7%;
+//   width: 100%;
+//   background-color: white;
+//   z-index: 1;
+// `;
 
 export const HomePage: React.FC = () => {
   return (
-    <>
+    <Container>
       <Background />
-      <Container>
-        <SubContainer>
-          <Welcome />
-          <TranslationBar />
-          <TranslationBox />
-        </SubContainer>
-        <History />
-      </Container>
-    </>
+      <SubContainer>
+        <Welcome />
+        <TranslationBar />
+        <TranslationBox />
+      </SubContainer>
+    </Container>
   );
 };

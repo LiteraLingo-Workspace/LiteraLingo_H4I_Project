@@ -9,7 +9,7 @@ const Container = styled.div`
   top: 656px;
   height: 723px;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 `;
 
 const TabContainer = styled.div`
@@ -349,27 +349,6 @@ export const History: React.FC = () => {
             <HistoryItemBottomText>
               Use soft words and hard argumentsre
             </HistoryItemBottomText>
-          </HistoryItemBottom>
-        </HistoryItem>
-        <HistoryItem>
-          <HistoryItemTop>
-            <p
-              style={{
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "22px",
-                fontFamily: "Poppins, sans-serif",
-              }}
-            >
-              Proverb
-            </p>
-            <HistoryItemButtons>
-              <CiStar size={24} />
-              <BsThreeDotsVertical size={18} />
-            </HistoryItemButtons>
-          </HistoryItemTop>
-          <HistoryItemBottom>
-            <HistoryItemBottomText>Diddy do it?</HistoryItemBottomText>
           </HistoryItemBottom>
         </HistoryItem>
       </HistoryItemContainer>

@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 3.52%;
 `;
 
 const NameContainer = styled.div`
