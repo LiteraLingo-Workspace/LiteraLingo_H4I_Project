@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { BsCamera } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { FaAngleRight } from "react-icons/fa6";
-import { History } from "./History";
 
 const Container = styled.div`
   color: ${theme.colors.primary};
@@ -20,7 +19,6 @@ const Container = styled.div`
   width: 100%;
   padding: 16px 24px;
   box-sizing: border-box;
-  margin-bottom: 20px;
 `;
 
 const SubContainer = styled.div`
@@ -157,7 +155,6 @@ export const TranslationBox: React.FC = () => {
           </RightButtonsContainer>
         </ButtonsContainer>
       </SubContainer>
-      <History />
     </Container>
   );
 };

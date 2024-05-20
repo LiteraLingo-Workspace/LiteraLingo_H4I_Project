@@ -8,11 +8,13 @@ import { History } from "./History";
 const Container = styled.div`
   background-color: transparent;
   position: absolute;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -20,7 +22,6 @@ const Container = styled.div`
 const SubContainer = styled.div`
   position: absolute;
   width: 344px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,14 +39,16 @@ const Temp = styled.div`
 
 export const HomePage: React.FC = () => {
   return (
-    <Container>
+    <>
       <Background />
-      <SubContainer>
-        <Welcome />
-        <TranslationBar />
-        <TranslationBox />
-      </SubContainer>
-      <Temp />
-    </Container>
+      <Container>
+        <SubContainer>
+          <Welcome />
+          <TranslationBar />
+          <TranslationBox />
+        </SubContainer>
+        <History />
+      </Container>
+    </>
   );
 };

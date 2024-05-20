@@ -4,6 +4,14 @@ import { FaHistory } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
+const Container = styled.div`
+  position: absolute;
+  top: 656px;
+  height: 723px;
+  width: 100%;
+  z-index: -1;
+`;
+
 const TabContainer = styled.div`
   height: 136px;
   width: 100%;
@@ -40,6 +48,7 @@ const HistoryItemContainer = styled.div`
   align-items: center;
   padding: 24px 24px 80px 24px;
   gap: 16px;
+  overflow: auto;
 `;
 
 const HistoryItem = styled.div`
@@ -92,288 +101,278 @@ const HistoryItemBottomText = styled.p`
 
 export const History: React.FC = () => {
   return (
-    <div
-      style={{
-        zIndex: 0,
-        overflow: "auto",
-        flexDirection: "column-reverse",
-        position: "fixed",
-      }}
-      className="scroll"
-    >
-      <div>
-        <TabContainer>
-          <TextContainer>
-            <svg
-              width="34"
-              height="8"
-              viewBox="0 0 34 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ margin: "0 auto" }}
+    <Container>
+      <TabContainer>
+        <TextContainer>
+          <svg
+            width="34"
+            height="8"
+            viewBox="0 0 34 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ margin: "0 auto" }}
+          >
+            <path
+              d="M33 7L17 2L1 7"
+              stroke="#D8E7EC"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          <TitleContainer>
+            <FaHistory size={21} />
+            <p
+              style={{
+                fontWeight: 600,
+                fontSize: "20px",
+                lineHeight: "32.04px",
+              }}
             >
-              <path
-                d="M33 7L17 2L1 7"
-                stroke="#D8E7EC"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-            <TitleContainer>
-              <FaHistory size={21} />
-              <p
-                style={{
-                  fontWeight: 600,
-                  fontSize: "20px",
-                  lineHeight: "32.04px",
-                }}
-              >
-                Your History
-              </p>
-            </TitleContainer>
+              Your History
+            </p>
+          </TitleContainer>
+          <p
+            style={{
+              fontWeight: 400,
+              fontSize: "14px",
+              lineHeight: "16px",
+              color: `${theme.colors.veryLight}`,
+            }}
+          >
+            Swipe up to see your most recent translations!
+          </p>
+        </TextContainer>
+      </TabContainer>
+      <HistoryItemContainer>
+        <HistoryItem>
+          <HistoryItemTop>
             <p
               style={{
                 fontWeight: 400,
-                fontSize: "14px",
-                lineHeight: "16px",
-                color: `${theme.colors.veryLight}`,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
               }}
             >
-              Swipe up to see your most recent translations!
+              Metonymy
             </p>
-          </TextContainer>
-        </TabContainer>
-        <HistoryItemContainer>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Simile
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                This winter is as cold as death
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Metonymy
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>
-                Use soft words and hard argumentsre
-              </HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-          <HistoryItem>
-            <HistoryItemTop>
-              <p
-                style={{
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontFamily: "Poppins, sans-serif",
-                }}
-              >
-                Proverb
-              </p>
-              <HistoryItemButtons>
-                <CiStar size={24} />
-                <BsThreeDotsVertical size={18} />
-              </HistoryItemButtons>
-            </HistoryItemTop>
-            <HistoryItemBottom>
-              <HistoryItemBottomText>Diddy do it?</HistoryItemBottomText>
-            </HistoryItemBottom>
-          </HistoryItem>
-        </HistoryItemContainer>
-      </div>
-    </div>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Simile
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              This winter is as cold as death
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Metonymy
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>
+              Use soft words and hard argumentsre
+            </HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+        <HistoryItem>
+          <HistoryItemTop>
+            <p
+              style={{
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Proverb
+            </p>
+            <HistoryItemButtons>
+              <CiStar size={24} />
+              <BsThreeDotsVertical size={18} />
+            </HistoryItemButtons>
+          </HistoryItemTop>
+          <HistoryItemBottom>
+            <HistoryItemBottomText>Diddy do it?</HistoryItemBottomText>
+          </HistoryItemBottom>
+        </HistoryItem>
+      </HistoryItemContainer>
+    </Container>
   );
 };
