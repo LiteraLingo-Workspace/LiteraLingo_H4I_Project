@@ -2,7 +2,7 @@
 
 ## How to run
 
-run `npm run install` to run the frontend
+run `npm i && npm run install` in the `frontend` folder
 
 ## How to create components
 
@@ -62,4 +62,4 @@ export { FlexRow, Label };
 
 ## Pull Requests
 
-Developers when submitting Pull Requests should use the template in [a relative link](/PRTemplate.md) to ensure quality and testing.
+Developers when submitting Pull Requests should use the template in [PRTemplate.md](/PRTemplate.md) to ensure quality and testing.
