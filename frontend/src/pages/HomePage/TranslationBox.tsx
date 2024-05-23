@@ -5,6 +5,7 @@ import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../common/components/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
+import data from "./translations.json";
 
 const Container = styled.div`
   color: ${theme.colors.primary};
@@ -51,6 +52,13 @@ const TextField = styled.textarea`
     color: ${theme.colors.secondary};
     font-family: Poppins, sans-serif;
   }
+`;
+
+const Result = styled.p`
+  color: black;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
 `;
 
 const ButtonsContainer = styled.div`
@@ -117,10 +125,25 @@ const Label = styled.p`
   line-height: 21px;
 `;
 
+const Break = styled.div`
+  height: 1px;
+  width: 312px;
+  background-color: ${theme.colors.faintGrey};
+  margin-top: 8px;
+  margin-bottom: 4px;
+`;
+
+type JsonData = {
+  [key: string]: any;
+};
+
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
+  const [result, setResult] = useState("");
   const [translate, setTranslate] = useState<boolean>(false);
+  const [canType, setCanType] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const translations: JsonData = JSON.parse(JSON.stringify(data));
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
@@ -156,6 +179,7 @@ export const TranslationBox: React.FC = () => {
               rows={1}
               value={value}
               placeholder="Insert sentence to paraphrase"
+              disabled={!canType}
             ></TextField>
           </TextContainer>
           <ButtonsContainer>
@@ -166,7 +190,13 @@ export const TranslationBox: React.FC = () => {
             <InnerButtonsContainer>
               <GoButton
                 style={{ marginTop: "auto" }}
-                onClick={() => setTranslate(true)}
+                onClick={() => {
+                  setTranslate(true);
+                  setCanType(false);
+                  translations.hasOwnProperty(value)
+                    ? setResult(translations[value])
+                    : setResult("error");
+                }}
               >
                 <p style={{ marginLeft: "5px" }}>Go</p>
                 <svg
@@ -195,14 +225,22 @@ export const TranslationBox: React.FC = () => {
               ref={textAreaRef}
               rows={1}
               value={value}
-              placeholder="Pressed"
+              disabled={!canType}
             ></TextField>
+            <Break />
+            <Label>Literal</Label>
+            <Result>{result}</Result>
           </TextContainer>
           <ButtonsContainer>
             <InnerButtonsContainer>
               <RestartButton
                 style={{ marginTop: "auto" }}
-                onClick={() => setTranslate(false)}
+                onClick={() => {
+                  setTranslate(false);
+                  setCanType(true);
+                  setValue("");
+                  setResult("");
+                }}
               >
                 <BsArrowCounterclockwise />
                 <p>Restart</p>
