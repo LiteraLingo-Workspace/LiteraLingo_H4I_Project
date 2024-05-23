@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../common/styles";
 import { useEffect, useRef, useState } from "react";
-import { BsCamera } from "react-icons/bs";
+import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
-import { FaAngleRight } from "react-icons/fa6";
+import { TypeLabel } from "../../common/components/TypeLabel";
+import { IoIosStarOutline } from "react-icons/io";
 
 const Container = styled.div`
   color: ${theme.colors.primary};
@@ -61,7 +62,7 @@ const ButtonsContainer = styled.div`
   justify-content: space-between;
 `;
 
-const LeftButtonsContainer = styled.div`
+const InnerButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -71,16 +72,29 @@ const LeftButtonsContainer = styled.div`
   color: ${theme.colors.coolDark};
 `;
 
-const RightButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const GoButton = styled.button`
   border-radius: 100px;
   padding: 8px 12px 8px 12px;
   height: 38px;
   width: 85px;
+  background-color: ${theme.colors.warm};
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: Baloo 2, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+`;
+
+const RestartButton = styled.button`
+  border-radius: 100px;
+  padding: 8px 12px 8px 12px;
+  height: 38px;
+  width: 130px;
   background-color: ${theme.colors.warm};
   display: flex;
   justify-content: center;
@@ -105,6 +119,7 @@ const Label = styled.p`
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
+  const [translate, setTranslate] = useState<boolean>(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const useAutosizeTextArea = (
@@ -131,30 +146,80 @@ export const TranslationBox: React.FC = () => {
 
   return (
     <Container>
-      <SubContainer>
-        <TextContainer>
-          <Label>Figurative</Label>
-          <TextField
-            onChange={handleChange}
-            ref={textAreaRef}
-            rows={1}
-            value={value}
-            placeholder="Insert sentence to paraphrase"
-          ></TextField>
-        </TextContainer>
-        <ButtonsContainer>
-          <LeftButtonsContainer>
-            <BsCamera size={24.5} />
-            <HiOutlineMicrophone size={24.5} />
-          </LeftButtonsContainer>
-          <RightButtonsContainer>
-            <GoButton style={{ marginTop: "auto" }}>
-              <p>Go</p>
-              <FaAngleRight />
-            </GoButton>
-          </RightButtonsContainer>
-        </ButtonsContainer>
-      </SubContainer>
+      {!translate ? (
+        <SubContainer>
+          <TextContainer>
+            <Label>Figurative</Label>
+            <TextField
+              onChange={handleChange}
+              ref={textAreaRef}
+              rows={1}
+              value={value}
+              placeholder="Insert sentence to paraphrase"
+            ></TextField>
+          </TextContainer>
+          <ButtonsContainer>
+            <InnerButtonsContainer>
+              <BsCamera size={24.5} />
+              <HiOutlineMicrophone size={24.5} />
+            </InnerButtonsContainer>
+            <InnerButtonsContainer>
+              <GoButton
+                style={{ marginTop: "auto" }}
+                onClick={() => setTranslate(true)}
+              >
+                <p style={{ marginLeft: "5px" }}>Go</p>
+                <svg
+                  width="10"
+                  height="15"
+                  viewBox="0 0 10 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.2944 7L2.69869 1.3C2.299 0.9 1.69946 0.9 1.29977 1.3C0.900077 1.7 0.900077 2.3 1.29977 2.7L6.19601 7.6L1.29977 12.5C1.09992 12.7 1 12.9 1 13.2C1 13.8 1.39969 14.2 1.99923 14.2C2.299 14.2 2.49885 14.1 2.69869 13.9L8.39432 8.2C8.69409 8 8.69409 7.4 8.2944 7Z"
+                    fill="white"
+                    stroke="white"
+                  />
+                </svg>
+              </GoButton>
+            </InnerButtonsContainer>
+          </ButtonsContainer>
+        </SubContainer>
+      ) : (
+        <SubContainer>
+          <TextContainer>
+            <Label>Figurative</Label>
+            <TextField
+              onChange={handleChange}
+              ref={textAreaRef}
+              rows={1}
+              value={value}
+              placeholder="Pressed"
+            ></TextField>
+          </TextContainer>
+          <ButtonsContainer>
+            <InnerButtonsContainer>
+              <RestartButton
+                style={{ marginTop: "auto" }}
+                onClick={() => setTranslate(false)}
+              >
+                <BsArrowCounterclockwise />
+                <p>Restart</p>
+              </RestartButton>
+            </InnerButtonsContainer>
+            <InnerButtonsContainer>
+              <TypeLabel
+                color={theme.colors.purple}
+                bg={theme.colors.faintPurple}
+              >
+                Sarcasm
+              </TypeLabel>
+              <IoIosStarOutline size={32} />
+            </InnerButtonsContainer>
+          </ButtonsContainer>
+        </SubContainer>
+      )}
     </Container>
   );
 };

@@ -6,7 +6,7 @@ interface Props {
   bg: string;
 }
 
-export const Label = styled.div<Props>`
+export const TypeLabel = styled.div<Props>`
   color: ${(p) => p.color};
   background-color: ${(p) => p.bg};
   font-family: "Poppins", sans-serif;

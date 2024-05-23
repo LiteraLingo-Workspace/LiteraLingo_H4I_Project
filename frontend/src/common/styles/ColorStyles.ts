@@ -29,6 +29,7 @@ export const theme = {
     coolDark: "rgb(70, 122, 190)",
     coolAccentBg: "rgb(100, 174, 198)",
     coolLight: "rgb(134, 223, 212)",
+    purple: "rgb(105, 65, 198)",
     warm: "rgb(243, 117, 118)",
     warmLight: "rgb(247, 164, 166)",
     warmYellow: "rgb(241, 185, 80)",
