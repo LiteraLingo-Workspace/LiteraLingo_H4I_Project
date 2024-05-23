@@ -37,6 +37,7 @@ const SubContainer = styled.div`
 // `;
 
 export const HomePage: React.FC = () => {
+  // TODO: fix css styles to make them more neat
   return (
     <Container>
       <Background />

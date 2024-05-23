@@ -182,6 +182,7 @@ export const TranslationBox: React.FC = () => {
               value={value}
               placeholder="Insert sentence to paraphrase"
               disabled={!canType}
+              maxLength={80}
             ></TextField>
           </TextContainer>
           <ButtonsContainer>
