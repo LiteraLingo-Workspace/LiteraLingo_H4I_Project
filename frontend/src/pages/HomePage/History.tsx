@@ -3,17 +3,18 @@ import { theme } from "../../common/styles";
 import { FaHistory } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useState } from "react";
 
 const Container = styled.div`
   position: absolute;
-  top: 656px;
   height: 723px;
   width: 100%;
   z-index: 1;
+  overflow: scroll;
 `;
 
 const TabContainer = styled.div`
-  height: 136px;
+  position: fixed;
   width: 100%;
   background-color: ${theme.colors.coolAccentBg};
   border-radius: 16px 16px 0 0;
@@ -48,7 +49,6 @@ const HistoryItemContainer = styled.div`
   align-items: center;
   padding: 24px 24px 80px 24px;
   gap: 16px;
-  overflow: auto;
 `;
 
 const HistoryItem = styled.div`
@@ -100,26 +100,49 @@ const HistoryItemBottomText = styled.p`
 `;
 
 export const History: React.FC = () => {
+  const [expanded, setExpanded] = useState<boolean>(false);
+
   return (
-    <Container>
-      <TabContainer>
+    <Container style={{ top: `${expanded ? 656 : 68}px` }}>
+      <TabContainer
+        onClick={() => setExpanded(!expanded)}
+        style={{ height: `${expanded ? 136 : 80}px` }}
+      >
         <TextContainer>
-          <svg
-            width="34"
-            height="8"
-            viewBox="0 0 34 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ margin: "0 auto" }}
-          >
-            <path
-              d="M33 7L17 2L1 7"
-              stroke="#D8E7EC"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-          <TitleContainer>
+          {expanded ? (
+            <svg
+              width="34"
+              height="8"
+              viewBox="0 0 34 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ margin: "0 auto" }}
+            >
+              <path
+                d="M33 7L17 2L1 7"
+                stroke="#D8E7EC"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              width="34"
+              height="8"
+              viewBox="0 0 34 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ margin: "0 auto" }}
+            >
+              <path
+                d="M33 1L17 6L1 1"
+                stroke="#D8E7EC"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          )}
+          <TitleContainer style={{ marginTop: `${expanded ? 0 : 15}px` }}>
             <FaHistory size={21} />
             <p
               style={{
@@ -131,42 +154,21 @@ export const History: React.FC = () => {
               Your History
             </p>
           </TitleContainer>
-          <p
-            style={{
-              fontWeight: 400,
-              fontSize: "14px",
-              lineHeight: "16px",
-              color: `${theme.colors.veryLight}`,
-            }}
-          >
-            Swipe up to see your most recent translations!
-          </p>
-        </TextContainer>
-      </TabContainer>
-      <HistoryItemContainer>
-        <HistoryItem>
-          <HistoryItemTop>
+          {expanded && (
             <p
               style={{
                 fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "22px",
-                fontFamily: "Poppins, sans-serif",
+                fontSize: "14px",
+                lineHeight: "16px",
+                color: `${theme.colors.veryLight}`,
               }}
             >
-              Metonymy
+              Swipe up to see your most recent translations!
             </p>
-            <HistoryItemButtons>
-              <CiStar size={24} />
-              <BsThreeDotsVertical size={18} />
-            </HistoryItemButtons>
-          </HistoryItemTop>
-          <HistoryItemBottom>
-            <HistoryItemBottomText>
-              Use soft words and hard argumentsre
-            </HistoryItemBottomText>
-          </HistoryItemBottom>
-        </HistoryItem>
+          )}
+        </TextContainer>
+      </TabContainer>
+      <HistoryItemContainer style={{ marginTop: `${expanded ? 0 : 80}px` }}>
         <HistoryItem>
           <HistoryItemTop>
             <p
