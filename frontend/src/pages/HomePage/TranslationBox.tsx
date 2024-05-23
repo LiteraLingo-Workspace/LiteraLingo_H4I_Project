@@ -43,6 +43,7 @@ const TextContainer = styled.div`
 const TextField = styled.textarea`
   color: ${theme.colors.primary};
   resize: none;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
@@ -50,11 +51,15 @@ const TextField = styled.textarea`
   outline: none;
   &::placeholder {
     color: ${theme.colors.secondary};
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
   }
 `;
 
 const Result = styled.p`
+  font-family: "Poppins", sans-serif;
   color: black;
   font-weight: 400;
   font-size: 20px;
@@ -151,11 +156,8 @@ export const TranslationBox: React.FC = () => {
   ) => {
     useEffect(() => {
       if (textAreaRef) {
-        // We need to reset the height momentarily to get the correct scrollHeight for the textarea
         textAreaRef.style.height = "0px";
         const scrollHeight = textAreaRef.scrollHeight;
-        // We then set the height directly, outside of the render loop
-        // Trying to set this with state or a ref will product an incorrect value.
         textAreaRef.style.height = scrollHeight + "px";
       }
     }, [textAreaRef, value]);
