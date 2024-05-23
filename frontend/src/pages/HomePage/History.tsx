@@ -20,6 +20,7 @@ const TabContainer = styled.div`
   border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const TextContainer = styled.div`
@@ -103,13 +104,13 @@ export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <Container style={{ top: `${expanded ? 656 : 68}px` }}>
+    <Container style={{ top: `${!expanded ? 656 : 68}px` }}>
       <TabContainer
         onClick={() => setExpanded(!expanded)}
-        style={{ height: `${expanded ? 136 : 80}px` }}
+        style={{ height: `${!expanded ? 136 : 80}px` }}
       >
         <TextContainer>
-          {expanded ? (
+          {!expanded ? (
             <svg
               width="34"
               height="8"
@@ -137,12 +138,12 @@ export const History: React.FC = () => {
               <path
                 d="M33 1L17 6L1 1"
                 stroke="#D8E7EC"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
             </svg>
           )}
-          <TitleContainer style={{ marginTop: `${expanded ? 0 : 15}px` }}>
+          <TitleContainer style={{ marginTop: `${!expanded ? 0 : 15}px` }}>
             <FaHistory size={21} />
             <p
               style={{
@@ -154,7 +155,7 @@ export const History: React.FC = () => {
               Your History
             </p>
           </TitleContainer>
-          {expanded && (
+          {!expanded && (
             <p
               style={{
                 fontWeight: 400,
@@ -168,7 +169,7 @@ export const History: React.FC = () => {
           )}
         </TextContainer>
       </TabContainer>
-      <HistoryItemContainer style={{ marginTop: `${expanded ? 0 : 80}px` }}>
+      <HistoryItemContainer style={{ marginTop: `${!expanded ? 0 : 80}px` }}>
         <HistoryItem>
           <HistoryItemTop>
             <p
