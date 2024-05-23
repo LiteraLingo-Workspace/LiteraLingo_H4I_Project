@@ -50,6 +50,7 @@ const HistoryItemContainer = styled.div`
   align-items: center;
   padding: 24px 24px 80px 24px;
   gap: 16px;
+  border-bottom: 15px solid ${theme.colors.coolAccentBg};
 `;
 
 const HistoryItem = styled.div`
