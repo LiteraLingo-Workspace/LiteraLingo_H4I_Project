@@ -2,7 +2,11 @@
 
 ## How to run
 
-run `npm i && npm run install` in the `frontend` folder
+Run `npm i && npm run install` in the `frontend` folder
+
+## How to organize your code
+
+Use Prettier for formatting. The default settings are fine
 
 ## How to create components
 
