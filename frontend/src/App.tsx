@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./common/styles";
 import GlobalStyle from "./common/styles/GlobalStyle";
-import { LandingPage, UserAuthPage } from "./pages/index";
+import { LandingPage, UserAuthPage, SavedPage } from "./pages/index";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {SavedPage} from "./pages/SavedPage/SavedPage";
+
 
 function App() {
   return (
