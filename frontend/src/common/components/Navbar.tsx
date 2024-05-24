@@ -14,7 +14,6 @@ const Container = styled.div`
   border-radius: 15px;
   padding: 4px 8px 4px 8px;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid red;
 `;
 
 const LinkContainer = styled.div`
