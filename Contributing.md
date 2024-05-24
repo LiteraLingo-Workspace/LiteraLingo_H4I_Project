@@ -1,5 +1,9 @@
 # Contributing
 
+## Formatting
+
+Ensure that you use [Prettier](https://prettier.io/) so that your code is auto-formatting on save. Default settings will do
+
 ## General steps on how to make changes
 
 At the beginning of a coding session, run `git pull` to pull whatever new changes might have been merged into `main` since your last session
