@@ -5,6 +5,7 @@ import { Overview } from "./Overview";
 import { FocalPoint } from "./FocalPoint";
 import { Settings } from "./Settings";
 import { Background } from "./Background";
+import { Navbar } from "../../common/components/Navbar";
 
 const Container = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ export const MePage: React.FC = () => {
         <FocalPoint />
         <Settings />
       </div>
+      <Navbar />
     </Container>
   );
 };
