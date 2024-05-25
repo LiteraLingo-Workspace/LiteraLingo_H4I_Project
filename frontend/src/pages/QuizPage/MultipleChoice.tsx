@@ -33,6 +33,7 @@ const ChoiceContainer = styled.div`
   border-radius: 16px;
   box-shadow: 0px 4px 0px 0px rgba(100, 174, 198, 1);
   cursor: pointer;
+  background: white;
 `;
 
 const ChoiceText = styled.p`
