@@ -9,6 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   color: ${theme.colors.primary};
+  margin-top: 20px;
 `;
 
 const SettingsContainer = styled.div`
