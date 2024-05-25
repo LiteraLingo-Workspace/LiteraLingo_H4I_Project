@@ -2,7 +2,7 @@
 
 ## How to run
 
-Run `npm i && npm run install` in the `frontend` folder
+Run `npm i && npm run dev` in the `frontend` folder
 
 ## How to organize your code
 

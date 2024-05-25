@@ -12,7 +12,7 @@
 
 [Used around 1-3 sentences to describe the test that was performed. Automated tests preferred for backend tasks. If it's a frontend task please attach a screenshot.]
 
-# Checklist:
+# Checklist (To be deleted from your PR description as it's just for your own reference):
 
 - [ ] I have used Prettier to format my code
 - [ ] I have performed a self-review of my own code
