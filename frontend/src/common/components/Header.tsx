@@ -4,7 +4,6 @@ import { theme } from "../styles";
 const Container = styled.div`
   position: fixed;
   height: 104px;
-  width: 100%;
   z-index: 100;
 `;
 
@@ -14,19 +13,30 @@ const Text = styled.h1`
   color: ${theme.colors.primary};
   font-weight: 700;
   font-size: 24px;
-  position: relative;
-  top: 68px;
-  left: 36px;
 `;
 
 interface TitleProps {
   title: string;
+  typeLabel?: JSX.Element;
 }
 
-export const Header: React.FC<TitleProps> = ({ title }) => {
+export const Header: React.FC<TitleProps> = ({ title, typeLabel }) => {
   return (
     <Container>
-      <Text>{title}</Text>
+      <div
+        style={{
+          display: "flex",
+          height: "38px",
+          alignItems: "center",
+          position: "relative",
+          top: "68px",
+          left: "36px",
+          gap: "15px",
+        }}
+      >
+        <Text>{title}</Text>
+        {typeLabel}
+      </div>
     </Container>
   );
 };
