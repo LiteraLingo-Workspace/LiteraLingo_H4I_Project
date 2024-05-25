@@ -14,6 +14,9 @@ const Container = styled.div`
   border-radius: 15px;
   padding: 4px 8px 4px 8px;
   background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 0 40px #98A8BA33;
 `;
 
 const LinkContainer = styled.div`
