@@ -11,6 +11,7 @@ const Container = styled.div`
   align-items: center;
   gap: 10px;
   margin-left: 14px;
+  margin-bottom: 10px;
 `;
 
 const Title = styled.p`
