@@ -2,7 +2,7 @@
 
 ## How to run
 
-run `npm i && npm run install` in the `frontend` folder
+run `npm i && npm run dev` in the `frontend` folder
 
 ## How to create components
 
