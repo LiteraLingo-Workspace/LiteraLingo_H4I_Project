@@ -1,3 +1,11 @@
+import { Navbar } from "../../common/components/Navbar";
+
 export const ProgressPage: React.FC = () => {
-  return <p>dummy progress page</p>;
+  return (
+    <div>
+    <p>dummy progress page</p>
+    <Navbar/>
+    </div>
+
+  )
 };

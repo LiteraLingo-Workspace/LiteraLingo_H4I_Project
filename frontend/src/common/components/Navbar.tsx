@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaRegStar, FaRegUser, FaMagic } from "react-icons/fa";
 import { MdOutlineQuestionMark } from "react-icons/md";
 import { theme } from "../styles";
@@ -55,10 +57,11 @@ const HomeIconBackground = styled.div`
 `;
 
 export const Navbar: React.FC = () => {
+  const navigate = useNavigate(); 
   return (
     <PositionContainer>
       <Container>
-        <LinkContainer>
+        <LinkContainer onClick={() => navigate('/progress')}>
           <svg
             width="34"
             height="33"
@@ -79,24 +82,24 @@ export const Navbar: React.FC = () => {
 
           <Text>Progress</Text>
         </LinkContainer>
-        <LinkContainer>
+        <LinkContainer onClick={() => navigate('/quiz')}>
           <MdOutlineQuestionMark
             size={32}
             style={{ position: "absolute", top: "13px" }}
           />
           <Text>Quiz</Text>
         </LinkContainer>
-        <LinkContainer>
+        <LinkContainer onClick={() => navigate('/home')}>
           <HomeIconBackground>
             <FaMagic size={26} color="white" />
           </HomeIconBackground>
           <Text>Home</Text>
         </LinkContainer>
-        <LinkContainer>
+        <LinkContainer onClick={() => navigate('/saved')}>
           <FaRegStar size={32} style={{ position: "absolute", top: "13px" }} />
           <Text>Saved</Text>
         </LinkContainer>
-        <LinkContainer>
+        <LinkContainer onClick={() => navigate('/me')}>
           <FaRegUser size={32} style={{ position: "absolute", top: "13px" }} />
           <Text>Me</Text>
         </LinkContainer>
