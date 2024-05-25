@@ -4,6 +4,7 @@ import { Welcome } from "./Welcome";
 import { TranslationBar } from "./TranslationBar";
 import { TranslationBox } from "./TranslationBox";
 import { History } from "./History";
+import { Navbar } from "../../common/components/Navbar";
 
 const Container = styled.div`
   background-color: transparent;
@@ -49,6 +50,7 @@ export const HomePage: React.FC = () => {
       </SubContainer>
       <History />
       <Temp />
+      <Navbar />
     </Container>
   );
 };

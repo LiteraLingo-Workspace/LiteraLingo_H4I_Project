@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { theme } from "../../common/styles/index";
 import { Background } from "./Background";
 import { Modal } from "./Modal";
-import { Navbar } from "../../common/components/Navbar";
 
 const Container = styled.div`
   background-color: ${theme.colors.coolAccentBg};
@@ -22,7 +21,6 @@ export const LandingPage: React.FC = () => {
     <Container>
       <Background />
       <Modal />
-      <Navbar />
     </Container>
   );
 };

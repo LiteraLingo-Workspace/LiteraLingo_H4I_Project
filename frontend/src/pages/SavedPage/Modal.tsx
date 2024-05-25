@@ -1,44 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../common/styles/index";
 import { Item } from "./Item";
 
 const SavedPage = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  z-index: 1;
+  align-items: center;
   position: relative;
-  overflow: hidden;
-`;
-
-const Header = styled.div`
-  padding-top: 68px;
-  padding-left: 30px;
-  position: fixed;
-`;
-
-const HeaderTitle = styled.h1`
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  color: ${theme.colors.primary};
-  font-weight: 700;
-  font-size: 24px;
+  top: 94px;
+  padding: 24px 24px 80px 24px;
 `;
 
 const SavedItems = styled.div`
-  flex: 1;
-  margin: 16px;
-  top: 94px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-`;
-
-//might have to adjust the height to account of the navbar
-const Space = styled.div`
-  width: 100%;
-  height: 150px;
+  overflow: auto;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 600px;
+  width: 341px;
 `;
 
 export const Modal: React.FC = () => {
@@ -71,14 +51,10 @@ export const Modal: React.FC = () => {
 
   return (
     <SavedPage>
-      <Header>
-        <HeaderTitle>Saved</HeaderTitle>
-      </Header>
       <SavedItems>
         {items.map((item, index) => (
           <Item key={index} id={item.id} type={item.type} text={item.text} />
         ))}
-        <Space></Space>
       </SavedItems>
     </SavedPage>
   );
