@@ -4,22 +4,22 @@ import { theme } from "../../common/styles";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 20px;
   width: 344px;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 20px;
 `;
 
 const ChoicesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 20px;
   width: 344px;
-  gap: 25px;
+  gap: 15px;
 `;
 
 const ChoiceContainer = styled.div`
