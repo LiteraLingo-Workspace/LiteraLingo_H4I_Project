@@ -6,8 +6,6 @@ import { theme } from "../../common/styles/index";
 
 
 const SavedPage = styled.div`
-
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -38,7 +36,6 @@ const SavedItems = styled.div`
   flex: 1;
   margin: 16px;
   top:94px;
-  height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
@@ -66,7 +63,7 @@ const SavedItem = styled.div`
 `;
 
 const ItemType = styled.div`
-  color: #98A8BA;
+  color: ${theme.colors.secondary}
   font-size: 16px;
   font-family: "Poppins", sans-serif;
 `;
@@ -86,6 +83,13 @@ const ItemText = styled.div`
 const ItemActions = styled.div`
   display: flex;
   align-items: center;
+`;
+
+//might have to adjust the height to account of the navbar 
+const Space = styled.div `
+  width: 100%;
+  height: 150px;
+
 `;
 
 
@@ -126,25 +130,32 @@ export const Modal: React.FC = () => {
       </Header>
       <SavedItems>
         {items.map((item, index) => (
-          <Item key={index} item={item}/>
+          <Item key={index} id = {item.id} type = {item.type} text = {item.text} />
          
         ))}
+        <Space>
+
+        </Space>
       </SavedItems>
 
     </SavedPage>
   );
 };
 
-
-const Item: React.FC<{ item: { id: number, type: string, text: string } }> = ({ item }) => {
+interface itemProps  {
+  id: number; 
+  type: string; 
+  text: string; 
+}
+const Item: React.FC<itemProps> = ({ id, type, text }) => {
   const [saved, setSaved] = useState(false);
 
   return (
-    <SavedItem key={item.id}>
+    <SavedItem key={id}>
 
             <Top>
 
-                <ItemType>{item.type}</ItemType>
+                <ItemType>{type}</ItemType>
 
 
                 <ItemActions>
@@ -156,7 +167,7 @@ const Item: React.FC<{ item: { id: number, type: string, text: string } }> = ({ 
             </Top>
 
 
-            <ItemText className="item-text">{item.text}</ItemText>
+            <ItemText className="item-text">{text}</ItemText>
           </SavedItem>
   );
 };
