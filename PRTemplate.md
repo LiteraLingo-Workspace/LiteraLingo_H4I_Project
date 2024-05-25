@@ -14,6 +14,7 @@
 
 # Checklist (To be deleted from your PR description as it's just for your own reference):
 
+- [ ] I have used Prettier to format my code
 - [ ] I have performed a self-review of my own code
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
