@@ -17,7 +17,7 @@ export const MePage: React.FC = () => {
     <Container>
       <Background />
       <Header title="Your Profile" />
-      <div style={{ position: "absolute", top: "104px" }}>
+      <div style={{ position: "absolute", top: "104px", width: "344px" }}>
         <UserInfo />
         <Overview />
         <FocalPoint />
