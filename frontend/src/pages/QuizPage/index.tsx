@@ -3,6 +3,9 @@ import { Header } from "../../common/components/Header";
 import { TypeLabel } from "../../common/components/TypeLabel";
 import { theme } from "../../common/styles";
 import { StatusInfo } from "./StatusInfo";
+import { Prompt } from "./Prompt";
+import { MultipleChoice } from "./MultipleChoice";
+import { Background } from "./Background";
 
 const Container = styled.div`
   display: flex;
@@ -18,6 +21,7 @@ const Container = styled.div`
 export const QuizPage: React.FC = () => {
   return (
     <Container>
+      <Background />
       <Header
         title="Quiz"
         typeLabel={
@@ -35,10 +39,13 @@ export const QuizPage: React.FC = () => {
           top: "104px",
           width: "100%",
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <StatusInfo />
+        <Prompt />
+        <MultipleChoice />
       </div>
     </Container>
   );
