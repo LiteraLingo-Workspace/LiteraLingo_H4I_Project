@@ -48,7 +48,6 @@ export const QuizPage: React.FC = () => {
         <Prompt />
         <MultipleChoice />
       </div>
-      <Navbar />
     </Container>
   );
 };
