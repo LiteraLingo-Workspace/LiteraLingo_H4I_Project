@@ -6,6 +6,7 @@ import { StatusInfo } from "./StatusInfo";
 import { Prompt } from "./Prompt";
 import { MultipleChoice } from "./MultipleChoice";
 import { Background } from "./Background";
+import { Navbar } from "../../common/components/Navbar";
 
 const Container = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ export const QuizPage: React.FC = () => {
         <Prompt />
         <MultipleChoice />
       </div>
+      <Navbar/>
     </Container>
   );
 };
