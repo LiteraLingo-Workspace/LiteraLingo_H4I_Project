@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaRegStar, FaRegUser } from "react-icons/fa";
+import { FaRegStar, FaRegUser, FaMagic } from "react-icons/fa";
 import { MdOutlineQuestionMark } from "react-icons/md";
 import { theme } from "../styles";
 
@@ -34,6 +34,18 @@ const Text = styled.div`
   top: 51px;
 `;
 
+const HomeIconBackground = styled.div`
+  width: 61px;
+  height: 56px;
+  position: relative;
+  top: 3.5px;
+  border-radius: 30.5px;
+  background: #f37576;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Navbar: React.FC = () => {
   return (
     <Container>
@@ -66,27 +78,9 @@ export const Navbar: React.FC = () => {
         <Text>Quiz</Text>
       </LinkContainer>
       <LinkContainer>
-        <svg
-          width="62"
-          height="63"
-          viewBox="0 0 62 63"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="0.839355"
-            y="0.5"
-            width="61"
-            height="62"
-            rx="30.5"
-            fill="#F37576"
-          />
-          <path
-            d="M29.5269 22.125L30.4331 20.25L32.2456 19.3125L30.4331 18.375L29.5269 16.5L28.6206 18.375L26.8081 19.3125L28.6206 20.25L29.5269 22.125ZM21.3706 25.875L22.8806 22.7502L25.9019 21.1875L22.8806 19.6248L21.3706 16.5L19.8606 19.6248L16.8394 21.1875L19.8606 22.7502L21.3706 25.875ZM41.3081 33.375L39.7981 36.4998L36.7769 38.0625L39.7981 39.6252L41.3081 42.75L42.8181 39.6252L45.8394 38.0625L42.8181 36.4998L41.3081 33.375ZM45.3081 22.0213L40.5021 17.0496C40.1487 16.6828 39.6848 16.5 39.2209 16.5C38.757 16.5 38.2931 16.6828 37.9391 17.0496L17.3706 38.3273C16.6626 39.0598 16.6626 40.2469 17.3706 40.9787L22.1766 45.9504C22.5306 46.3166 22.9945 46.4994 23.4578 46.4994C23.9217 46.4994 24.3856 46.3166 24.7396 45.9504L45.3081 24.6721C46.0161 23.9408 46.0161 22.7531 45.3081 22.0213ZM37.1988 28.4215L34.3153 25.4385L39.2203 20.3643L42.1039 23.3473L37.1988 28.4215Z"
-            fill="white"
-          />
-        </svg>
-
+        <HomeIconBackground>
+          <FaMagic size={26} color="white" />
+        </HomeIconBackground>
         <Text>Home</Text>
       </LinkContainer>
       <LinkContainer>
