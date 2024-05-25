@@ -5,7 +5,7 @@ interface TitleContainerProps {
   icon: JSX.Element;
 }
 
-const TitleContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,14 +20,14 @@ const Title = styled.p`
   line-height: 31.2px;
 `;
 
-export const TitleCotainer: React.FC<TitleContainerProps> = ({
+export const TitleContainer: React.FC<TitleContainerProps> = ({
   title,
   icon,
 }) => {
   return (
-    <TitleContainer>
+    <Container>
       {icon}
       <Title>{title}</Title>
-    </TitleContainer>
+    </Container>
   );
 };
