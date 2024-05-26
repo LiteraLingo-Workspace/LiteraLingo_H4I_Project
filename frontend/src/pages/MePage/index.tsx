@@ -6,6 +6,7 @@ import { FocalPoint } from "./FocalPoint";
 import { Settings } from "./Settings";
 import { Background } from "./Background";
 import { Navbar } from "../../common/components/Navbar";
+import { theme } from "../../common/styles";
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ export const MePage: React.FC = () => {
   return (
     <Container>
       <Background />
-      <Header title="Your Profile" />
+      <Header title="Your Profile" color={theme.colors.primary} />
       <div style={{ position: "absolute", top: "104px", width: "344px" }}>
         <UserInfo />
         <Overview />

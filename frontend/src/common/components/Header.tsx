@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../styles";
 
 const Container = styled.div`
   position: fixed;
@@ -10,17 +9,17 @@ const Container = styled.div`
 const Text = styled.h1`
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: ${theme.colors.primary};
   font-weight: 700;
   font-size: 24px;
 `;
 
 interface TitleProps {
   title: string;
+  color: string;
   typeLabel?: JSX.Element;
 }
 
-export const Header: React.FC<TitleProps> = ({ title, typeLabel }) => {
+export const Header: React.FC<TitleProps> = ({ title, color, typeLabel }) => {
   return (
     <Container>
       <div
@@ -34,7 +33,7 @@ export const Header: React.FC<TitleProps> = ({ title, typeLabel }) => {
           gap: "15px",
         }}
       >
-        <Text>{title}</Text>
+        <Text style={{ color: color }}>{title}</Text>
         {typeLabel}
       </div>
     </Container>
