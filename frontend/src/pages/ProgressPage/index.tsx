@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Header } from "../../common/components/Header";
 import { Navbar } from "../../common/components/Navbar";
 import { Summary } from "./Summary";
+import { Streak } from "./Streak";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ export const ProgressPage: React.FC = () => {
       <Header title="Your Progress" color="white" />
       <div style={{ position: "absolute", top: "104px", width: "100%" }}>
         <Summary />
+        <Streak />
       </div>
       <Navbar />
     </Container>

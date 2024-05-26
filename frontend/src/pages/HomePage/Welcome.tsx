@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { avatar } from "../../../images";
+import { avatar } from "../../../images/index";
 import { theme } from "../../common/styles";
 
 const Container = styled.div`
