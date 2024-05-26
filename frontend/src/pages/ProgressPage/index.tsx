@@ -21,8 +21,8 @@ export const ProgressPage: React.FC = () => {
       <Header title="Your Progress" color="white" />
       <div style={{ position: "absolute", top: "104px", width: "100%" }}>
         <Summary />
-        <Navbar />
       </div>
+      <Navbar />
     </Container>
   );
 };
