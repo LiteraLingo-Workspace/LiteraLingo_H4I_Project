@@ -30,11 +30,10 @@ export const Date: React.FC<DateProps> = ({
   return (
     <Container
       style={{
-        height: today != null && today ? "127px" : "99px",
-        backgroundColor:
-          today != null && today
-            ? `${theme.colors.warmYellow}`
-            : "rgba(216, 231, 236, 0.8)",
+        height: today ? "127px" : "99px",
+        backgroundColor: today
+          ? `${theme.colors.warmYellow}`
+          : "rgba(216, 231, 236, 0.8)",
       }}
     >
       {!streakActive ? (
@@ -149,6 +148,7 @@ export const Date: React.FC<DateProps> = ({
           fontWeight: 400,
           fontSize: "14px",
           lineHeight: "17.64px",
+          marginBottom: "5px",
         }}
       >
         {month}

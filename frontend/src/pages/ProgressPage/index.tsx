@@ -3,6 +3,7 @@ import { Header } from "../../common/components/Header";
 import { Navbar } from "../../common/components/Navbar";
 import { Summary } from "./Summary";
 import { Streak } from "./Streak";
+import { BottomSheet } from "./BottomSheet";
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ export const ProgressPage: React.FC = () => {
       <div style={{ position: "absolute", top: "104px", width: "100%" }}>
         <Summary />
         <Streak />
+        <BottomSheet />
       </div>
       <Navbar />
     </Container>
