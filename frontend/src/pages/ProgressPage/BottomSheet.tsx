@@ -56,7 +56,7 @@ export const BottomSheet: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <Container style={{ top: `${!expanded ? 656 : 68}px` }}>
+    <Container style={{ top: `${!expanded ? 350 : 68}px` }}>
       <TabContainer
         onClick={() => setExpanded(!expanded)}
         style={{ height: `${!expanded ? 136 : 80}px` }}
