@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { theme } from "../../common/styles";
-import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -9,12 +8,13 @@ const Container = styled.div`
   width: 100%;
   z-index: 1;
   overflow: scroll;
+  border-radius: 16px 16px 0 0;
 `;
 
 const TabContainer = styled.div`
   position: fixed;
   width: 100%;
-  background-color: ${theme.colors.coolAccentBg};
+  background-color: white;
   border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: center;
@@ -25,12 +25,13 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 75%;
-  width: 344px;
+  width: 340px;
   color: white;
   background-color: transparent;
   font-family: "Baloo 2", sans-serif;
   position: relative;
   top: 10px;
+  color: ${theme.colors.primary};
 `;
 
 const TitleContainer = styled.div`
@@ -40,16 +41,20 @@ const TitleContainer = styled.div`
   gap: 5px;
 `;
 
-const HistoryItemContainer = styled.div`
+const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
   justify-content: center;
-  align-items: center;
-  padding: 24px 24px 80px 24px;
-  gap: 16px;
   min-height: 600px;
   border-bottom: 15px solid ${theme.colors.coolAccentBg};
+`;
+
+const StatsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid red;
 `;
 
 export const BottomSheet: React.FC = () => {
@@ -96,7 +101,6 @@ export const BottomSheet: React.FC = () => {
             </svg>
           )}
           <TitleContainer style={{ marginTop: `${!expanded ? 0 : 15}px` }}>
-            <FaHistory size={21} />
             <p
               style={{
                 fontWeight: 600,
@@ -104,26 +108,29 @@ export const BottomSheet: React.FC = () => {
                 lineHeight: "32.04px",
               }}
             >
-              Your History
+              Today's Schedule
             </p>
           </TitleContainer>
           {!expanded && (
             <p
               style={{
                 fontWeight: 400,
-                fontSize: "14px",
-                lineHeight: "16px",
-                color: `${theme.colors.veryLight}`,
+                fontSize: "13px",
+                lineHeight: "20.83px",
+                color: `${theme.colors.secondary}`,
               }}
             >
-              Swipe up to see your most recent translations!
+              (2/3) completed
             </p>
           )}
         </TextContainer>
       </TabContainer>
-      <HistoryItemContainer style={{ marginTop: `${!expanded ? 0 : 80}px` }}>
-        <p>a</p>
-      </HistoryItemContainer>
+      <ItemContainer style={{ marginTop: `${!expanded ? 0 : 80}px` }}>
+        <StatsContainer>
+          <p>aa</p>
+          <p>aa</p>
+        </StatsContainer>
+      </ItemContainer>
     </Container>
   );
 };
