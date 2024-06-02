@@ -45,9 +45,6 @@ export const Summary: React.FC = () => {
         <ExperienceContainer
           style={{
             width: "100px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
           }}
         >
