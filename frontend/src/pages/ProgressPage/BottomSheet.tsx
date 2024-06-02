@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../common/styles";
 import { useState } from "react";
-import { HistoryItem } from "./HistoryItem";
+import { scheduleCompletion } from "../../../images/index";
+import { IoEllipse } from "react-icons/io5";
+import { Graph } from "./Graph";
 
 const Container = styled.div`
   position: absolute;
@@ -17,7 +19,6 @@ const TabContainer = styled.div`
   height: 80px;
   width: 100%;
   background-color: white;
-  border: 1px solid red;
   border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: center;
@@ -28,7 +29,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 75%;
-  width: 344px;
+  width: 335px;
   color: white;
   background-color: transparent;
   font-family: "Baloo 2", sans-serif;
@@ -36,36 +37,51 @@ const TextContainer = styled.div`
   top: 10px;
 `;
 
-const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
+const Title = styled.p`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32.04px;
+  color: ${theme.colors.primary};
 `;
 
-const HistoryItemContainer = styled.div`
+const SubTitle = styled.p`
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 10.83px;
+  color: ${theme.colors.secondary};
+`;
+
+const MainContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: white;
   align-items: center;
-  padding: 24px 24px 80px 24px;
-  gap: 16px;
+  background-color: white;
+  padding: 0px 24px 80px 24px;
+  gap: 5px;
   min-height: 500px;
+  margin-top: 65px;
   border-bottom: 15px solid ${theme.colors.coolAccentBg};
 `;
 
 const StatusContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  gap: 15px;
+  left: -30px !important;
+`;
+
+const StatusTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const BottomSheet: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <Container style={{ top: `${!expanded ? 355 : 68}px` }}>
+    <Container style={{ top: `${!expanded ? 355 : 220}px` }}>
       <TabContainer onClick={() => setExpanded(!expanded)}>
         <TextContainer>
           {!expanded ? (
@@ -79,7 +95,7 @@ export const BottomSheet: React.FC = () => {
             >
               <path
                 d="M33 7L17 2L1 7"
-                stroke="#D8E7EC"
+                stroke={theme.colors.primary}
                 strokeWidth="2"
                 strokeLinecap="round"
               />
@@ -95,46 +111,63 @@ export const BottomSheet: React.FC = () => {
             >
               <path
                 d="M33 1L17 6L1 1"
-                stroke="#D8E7EC"
+                stroke={theme.colors.primary}
                 strokeWidth="2"
                 strokeLinecap="round"
               />
             </svg>
           )}
-          <TitleContainer style={{ marginTop: `${!expanded ? 0 : 15}px` }}>
-            <p
-              style={{
-                fontWeight: 600,
-                fontSize: "20px",
-                lineHeight: "32.04px",
-                color: `${theme.colors.primary}`,
-              }}
-            >
-              Today's Schedule
-            </p>
-          </TitleContainer>
-          <p
-            style={{
-              fontWeight: 400,
-              fontSize: "13px",
-              lineHeight: "20.83px",
-              color: `${theme.colors.secondary}`,
-            }}
-          >
-            (2/3) completed
-          </p>
+          <Title>Today's Schedule</Title>
+          <SubTitle>(2/3) completed</SubTitle>
         </TextContainer>
       </TabContainer>
-      <HistoryItemContainer style={{ marginTop: `${!expanded ? 0 : 80}px` }}>
+      <MainContentsContainer>
         <StatusContainer>
-          <p>a</p>
-          <p>s</p>
+          <img
+            style={{ height: "74px", width: "74px" }}
+            src={scheduleCompletion}
+          />
+          <StatusTextContainer>
+            <p
+              style={{
+                fontFamily: "Baloo 2, sans-serif",
+                fontSize: "16px",
+                fontWeight: 700,
+                lineHeight: "25.63px",
+              }}
+            >
+              Metaphor Practice
+            </p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                color: `${theme.colors.coolAccentBg}`,
+              }}
+            >
+              <IoEllipse size={8} />
+              <p
+                style={{
+                  fontFamily: "Baloo 2, sans-serif",
+                  fontSize: "14px",
+                  lineHeight: "22.43px",
+                }}
+              >
+                <span style={{ fontWeight: 500 }}>In progress</span>
+                <span
+                  style={{
+                    color: `${theme.colors.secondary}`,
+                    fontWeight: 400,
+                  }}
+                >
+                  , Nov 30, 2023
+                </span>
+              </p>
+            </div>
+          </StatusTextContainer>
         </StatusContainer>
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="This winter is as cold as death" type="Simile" />
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="End" type="Simile" />
-      </HistoryItemContainer>
+        <Graph />
+      </MainContentsContainer>
     </Container>
   );
 };
