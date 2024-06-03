@@ -25,6 +25,7 @@ export const QuizPage: React.FC = () => {
       <Background />
       <Header
         title="Quiz"
+        color={theme.colors.primary}
         typeLabel={
           <TypeLabel
             color={theme.colors.warmYellow}
@@ -48,7 +49,7 @@ export const QuizPage: React.FC = () => {
         <Prompt />
         <MultipleChoice />
       </div>
-      <Navbar/>
+      <Navbar />
     </Container>
   );
 };

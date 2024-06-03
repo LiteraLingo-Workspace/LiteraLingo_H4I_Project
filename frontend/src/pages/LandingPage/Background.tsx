@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { theme } from "../../common/styles/index";
-import { landingGraphic, landingLogo } from "../../../images";
+import { landingGraphic, landingLogo } from "../../../images/index";
 
 const Container = styled.div`
   display: flex;
