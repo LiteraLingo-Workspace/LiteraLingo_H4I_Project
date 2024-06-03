@@ -22,6 +22,7 @@ const Container = styled.div`
   padding: 4px 8px 4px 8px;
   background: rgba(255, 255, 255, 0.6);
   -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
   box-shadow: 0 0 40px #98a8ba33;
   z-index: 10;
 `;
