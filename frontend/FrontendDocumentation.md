@@ -6,7 +6,7 @@ Run `npm i && npm run dev` in the `frontend` folder
 
 ## How to organize your code
 
-Use Prettier for formatting. The default settings are fine
+Use Prettier for formatting. Default settings are fine
 
 ## How to create components
 
@@ -16,54 +16,44 @@ Ensure that your component is declared in the following way for faster TypeScrip
 
 ## How to organize components
 
-Components and their corresponding `styled-components` objects are in the same file for ease of use and development
+Components and their corresponding styling files are stored in the same directory for ease of use and development
 
-`Background.tsx`:
+`QuizPage/Prompt/Prompt.ts`:
 
 ```
-interface BackgroundProps {
-  name: string;
-  type: number;
-}
+import * as S from "./Styles";
 
-const FlexColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: -75px;
-`;
-
-export const Background: React.FC<BackgroundProps> = ({ name, type }) => {
+export const Prompt: React.FC = () => {
   return (
-    <FlexColumn>
-      ...
-    </FlexColumn>
+    <S.Container>
+      <p>
+        Her word had the strength of titanium.
+      </p>
+    </S.Container>
   );
 };
 ```
 
-Your component files can also just contain `styled-component` objects and nothing else
-
-`FlexRow.tsx`:
+`QuizPage/Prompt/Styles.ts`:
 
 ```
-const FlexRow = styled.div`
+import styled from "styled-components";
+import { theme } from "../../../styles";
+
+const Container = styled.div`
+  height: 95px;
+  width: 344px;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 48px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${theme.colors.coolAccentBg};
+  margin-top: 15px;
+  border-radius: 10px;
 `;
 
-const Label = styled.p`
-  color: ${theme.colors.primary};
-  padding: 0;
-  margin: 0;
-`;
-
-export { FlexRow, Label };
+export { Container };
 ```
 
 ## Pull Requests
 
-Developers when submitting Pull Requests should use the template in [PRTemplate.md](/PRTemplate.md) to ensure quality and testing.
+Use and follow the template in [PRTemplate.md](/PRTemplate.md) to ensure quality and proper testing

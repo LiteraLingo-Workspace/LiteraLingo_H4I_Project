@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../common/styles/index";
+import { theme } from "../../../styles/index";
 
 const FlexRow = styled.div`
   display: flex;
