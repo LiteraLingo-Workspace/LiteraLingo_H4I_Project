@@ -1,27 +1,16 @@
-import styled from "styled-components";
-import { Header } from "../../components/Header/Header";
-import { TypeLabel } from "../../components/TypeLabel/TypeLabel";
-import { theme } from "../../common/styles";
-import { StatusInfo } from "./StatusInfo";
-import { Prompt } from "./Prompt";
-import { MultipleChoice } from "./MultipleChoice";
-import { Background } from "./Background";
-import { Navbar } from "../../components/Navbar";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
+import * as S from "./Styles";
+import { Header } from "../../components/Header/index";
+import { TypeLabel } from "../../components/TypeLabel/index";
+import { theme } from "../../styles/index";
+import { StatusInfo } from "./StatusInfo/index";
+import { Prompt } from "./Prompt/index";
+import { MultipleChoice } from "./MultipleChoice/index";
+import { Background } from "../../components/Background/index";
+import { Navbar } from "../../components/Navbar/index";
 
 export const QuizPage: React.FC = () => {
   return (
-    <Container>
+    <S.Container>
       <Background />
       <Header
         title="Quiz"
@@ -30,9 +19,8 @@ export const QuizPage: React.FC = () => {
           <TypeLabel
             color={theme.colors.warmYellow}
             bg={theme.colors.faintYellow}
-          >
-            Simile
-          </TypeLabel>
+            text="Simile"
+          />
         }
       />
       <div
@@ -50,6 +38,6 @@ export const QuizPage: React.FC = () => {
         <MultipleChoice />
       </div>
       <Navbar />
-    </Container>
+    </S.Container>
   );
 };

@@ -1,11 +1,16 @@
 import { ThemeProvider } from "styled-components";
-import { theme } from "./common/styles";
-import GlobalStyle from "./common/styles/GlobalStyle";
-import { HomePage, LandingPage, UserAuthPage, SavedPage } from "./pages/index";
+import { theme } from "./styles/index";
+import GlobalStyle from "./styles/GlobalStyle";
+import {
+  HomePage,
+  LandingPage,
+  UserAuthPage,
+  SavedPage,
+  MePage,
+  ProgressPage,
+  QuizPage,
+} from "./pages/index";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MePage } from "./pages/MePage";
-import { ProgressPage } from "./pages/ProgressPage";
-import { QuizPage } from "./pages/QuizPage";
 
 function App() {
   return (

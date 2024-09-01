@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../styles";
+import { theme } from "../../styles/index";
 
 const PositionContainer = styled.div`
   display: flex;

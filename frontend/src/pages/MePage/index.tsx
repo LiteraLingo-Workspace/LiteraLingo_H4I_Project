@@ -1,27 +1,16 @@
-import styled from "styled-components";
-import { Header } from "../../components/Header/Header";
-import { UserInfo } from "./UserInfo";
-import { Overview } from "./Overview";
-import { FocalPoint } from "./FocalPoint";
-import { Settings } from "./Settings";
-import { Background } from "./Background";
-import { Navbar } from "../../components/Navbar";
-import { theme } from "../../common/styles";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
+import * as S from "./Styles";
+import { Header } from "../../components/Header/index";
+import { UserInfo } from "./UserInfo/index";
+import { Overview } from "./Overview/index";
+import { FocalPoint } from "./FocalPoint/index";
+import { Settings } from "./Settings/index";
+import { Background } from "../../components/Background/index";
+import { Navbar } from "../../components/Navbar/index";
+import { theme } from "../../styles/index";
 
 export const MePage: React.FC = () => {
   return (
-    <Container>
+    <S.Container>
       <Background />
       <Header title="Your Profile" color={theme.colors.primary} />
       <div style={{ position: "absolute", top: "104px", width: "344px" }}>
@@ -31,6 +20,6 @@ export const MePage: React.FC = () => {
         <Settings />
       </div>
       <Navbar />
-    </Container>
+    </S.Container>
   );
 };

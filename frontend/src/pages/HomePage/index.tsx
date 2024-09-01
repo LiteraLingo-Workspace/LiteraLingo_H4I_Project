@@ -1,56 +1,22 @@
-import styled from "styled-components";
-import { Background } from "./Background";
-import { Welcome } from "./Welcome";
-import { TranslationBar } from "./TranslationBar";
-import { TranslationBox } from "./TranslationBox";
-import { History } from "./History";
-import { Navbar } from "../../components/Navbar";
-
-const Container = styled.div`
-  background-color: transparent;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const SubContainer = styled.div`
-  position: absolute;
-  width: 344px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 7.98%;
-`;
-
-const Temp = styled.div`
-  position: fixed;
-  bottom: 0;
-  height: 7%;
-  width: 100%;
-  background-color: white;
-  z-index: 1;
-`;
+import * as S from "./Styles";
+import { Background } from "../../components/Background/index";
+import { Welcome } from "./Welcome/index";
+import { TranslationBar, TranslationBox } from "./Translation/index";
+import { History } from "./History/index";
+import { Navbar } from "../../components/Navbar/index";
 
 export const HomePage: React.FC = () => {
-  // TODO: fix css styles to make them more neat and fix more design details
   return (
-    <Container>
+    <S.Container>
       <Background />
-      <SubContainer>
+      <S.SubContainer>
         <Welcome />
         <TranslationBar />
         <TranslationBox />
-      </SubContainer>
+      </S.SubContainer>
       <History />
-      <Temp />
+      <S.Temp />
       <Navbar />
-    </Container>
+    </S.Container>
   );
 };
