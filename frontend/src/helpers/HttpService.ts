@@ -1,4 +1,4 @@
-export const fetchData = async <T>(
+export const Fetch = async <T>(
   route: string,
   params: RequestInit,
   responseType: "json" | "text" = "json"
