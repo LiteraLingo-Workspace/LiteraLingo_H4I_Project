@@ -4,7 +4,7 @@ import { Welcome } from "./Welcome";
 import { TranslationBar } from "./TranslationBar";
 import { TranslationBox } from "./TranslationBox";
 import { History } from "./History";
-import { Navbar } from "../../common/components/Navbar";
+import { Navbar } from "../../components/Navbar";
 
 const Container = styled.div`
   background-color: transparent;

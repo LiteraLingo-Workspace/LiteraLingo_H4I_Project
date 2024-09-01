@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { Header } from "../../common/components/Header";
+import { Header } from "../../components/Header";
 import { UserInfo } from "./UserInfo";
 import { Overview } from "./Overview";
 import { FocalPoint } from "./FocalPoint";
 import { Settings } from "./Settings";
 import { Background } from "./Background";
-import { Navbar } from "../../common/components/Navbar";
+import { Navbar } from "../../components/Navbar";
 import { theme } from "../../common/styles";
 
 const Container = styled.div`

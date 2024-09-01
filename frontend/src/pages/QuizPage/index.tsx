@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Header } from "../../common/components/Header";
-import { TypeLabel } from "../../common/components/TypeLabel";
+import { Header } from "../../components/Header";
+import { TypeLabel } from "../../components/TypeLabel";
 import { theme } from "../../common/styles";
 import { StatusInfo } from "./StatusInfo";
 import { Prompt } from "./Prompt";
 import { MultipleChoice } from "./MultipleChoice";
 import { Background } from "./Background";
-import { Navbar } from "../../common/components/Navbar";
+import { Navbar } from "../../components/Navbar";
 
 const Container = styled.div`
   display: flex;

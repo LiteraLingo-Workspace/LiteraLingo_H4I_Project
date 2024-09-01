@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Header } from "../../common/components/Header";
-import { Navbar } from "../../common/components/Navbar";
+import { Header } from "../../components/Header";
+import { Navbar } from "../../components/Navbar";
 import { Summary } from "./Summary";
 import { Streak } from "./Streak";
 import { BottomSheet } from "./BottomSheet";

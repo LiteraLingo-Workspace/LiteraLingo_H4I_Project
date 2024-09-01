@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Level } from "./Level";
-import { TypeLabel } from "../../common/components/TypeLabel";
+import { TypeLabel } from "../../components/TypeLabel";
 import { theme } from "../../common/styles";
 
 const Container = styled.div`

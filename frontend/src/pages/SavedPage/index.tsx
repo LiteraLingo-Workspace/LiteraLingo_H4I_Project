@@ -1,5 +1,5 @@
-import { Header } from "../../common/components/Header";
-import { Navbar } from "../../common/components/Navbar";
+import { Header } from "../../components/Header";
+import { Navbar } from "../../components/Navbar";
 import { theme } from "../../common/styles";
 import { Background } from "./Background";
 import { Modal } from "./Modal";
