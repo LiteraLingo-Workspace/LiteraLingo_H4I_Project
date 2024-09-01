@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Header } from "../../components/Header";
-import { TypeLabel } from "../../components/TypeLabel";
+import { Header } from "../../components/Header/Header";
+import { TypeLabel } from "../../components/TypeLabel/TypeLabel";
 import { theme } from "../../common/styles";
 import { StatusInfo } from "./StatusInfo";
 import { Prompt } from "./Prompt";

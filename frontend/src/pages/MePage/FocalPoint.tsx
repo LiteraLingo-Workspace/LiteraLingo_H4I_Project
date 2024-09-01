@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { TitleContainer } from "./TitleContainer";
 import { theme } from "../../common/styles";
-import { TypeLabel } from "../../components/TypeLabel";
+import { TypeLabel } from "../../components/TypeLabel/TypeLabel";
 
 const Container = styled.div`
   display: flex;

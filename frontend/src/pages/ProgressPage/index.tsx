@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Header } from "../../components/Header";
+import { Header } from "../../components/Header/Header";
 import { Navbar } from "../../components/Navbar";
 import { Summary } from "./Summary";
 import { Streak } from "./Streak";

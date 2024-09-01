@@ -1,69 +1,16 @@
-import styled from "styled-components";
 import React from "react";
+import * as S from "./Styles";
 import { useNavigate } from "react-router-dom";
 import { FaRegStar, FaRegUser, FaMagic } from "react-icons/fa";
 import { MdOutlineQuestionMark } from "react-icons/md";
-import { theme } from "../styles";
-
-const PositionContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const Container = styled.div`
-  position: fixed;
-  bottom: 23px;
-  height: 72px;
-  width: 330px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 15px;
-  padding: 4px 8px 4px 8px;
-  background: rgba(255, 255, 255, 0.6);
-  -webkit-backdrop-filter: blur(40px);
-  backdrop-filter: blur(40px);
-  box-shadow: 0 0 40px #98a8ba33;
-  z-index: 10;
-`;
-
-const LinkContainer = styled.div`
-  height: 83px;
-  width: 56px;
-  display: flex;
-  justify-content: center;
-  color: ${theme.colors.primary};
-  cursor: pointer;
-`;
-
-const Text = styled.div`
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  line-height: 22px;
-  font-weight: 500;
-  position: absolute;
-  top: 51px;
-`;
-
-const HomeIconBackground = styled.div`
-  width: 61px;
-  height: 56px;
-  position: relative;
-  top: 3.5px;
-  border-radius: 30.5px;
-  background: #f37576;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <PositionContainer>
-      <Container>
-        <LinkContainer onClick={() => navigate("/progress")}>
+    <S.PositionContainer>
+      <S.Container>
+        <S.LinkContainer onClick={() => navigate("/progress")}>
           <svg
             width="34"
             height="33"
@@ -81,31 +28,30 @@ export const Navbar: React.FC = () => {
               strokeWidth="0.8"
             />
           </svg>
-
-          <Text>Progress</Text>
-        </LinkContainer>
-        <LinkContainer onClick={() => navigate("/quiz")}>
+          <S.Text>Progress</S.Text>
+        </S.LinkContainer>
+        <S.LinkContainer onClick={() => navigate("/quiz")}>
           <MdOutlineQuestionMark
             size={32}
             style={{ position: "absolute", top: "13px" }}
           />
-          <Text>Quiz</Text>
-        </LinkContainer>
-        <LinkContainer onClick={() => navigate("/home")}>
-          <HomeIconBackground>
+          <S.Text>Quiz</S.Text>
+        </S.LinkContainer>
+        <S.LinkContainer onClick={() => navigate("/home")}>
+          <S.HomeIconBackground>
             <FaMagic size={26} color="white" />
-          </HomeIconBackground>
-          <Text>Home</Text>
-        </LinkContainer>
-        <LinkContainer onClick={() => navigate("/saved")}>
+          </S.HomeIconBackground>
+          <S.Text>Home</S.Text>
+        </S.LinkContainer>
+        <S.LinkContainer onClick={() => navigate("/saved")}>
           <FaRegStar size={32} style={{ position: "absolute", top: "13px" }} />
-          <Text>Saved</Text>
-        </LinkContainer>
-        <LinkContainer onClick={() => navigate("/me")}>
+          <S.Text>Saved</S.Text>
+        </S.LinkContainer>
+        <S.LinkContainer onClick={() => navigate("/me")}>
           <FaRegUser size={32} style={{ position: "absolute", top: "13px" }} />
-          <Text>Me</Text>
-        </LinkContainer>
-      </Container>
-    </PositionContainer>
+          <S.Text>Me</S.Text>
+        </S.LinkContainer>
+      </S.Container>
+    </S.PositionContainer>
   );
 };

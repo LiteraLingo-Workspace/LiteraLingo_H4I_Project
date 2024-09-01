@@ -6,7 +6,7 @@ interface Props {
   bg: string;
 }
 
-export const TypeLabel = styled.div<Props>`
+const TypeLabel = styled.div<Props>`
   color: ${(p) => p.color};
   background-color: ${(p) => p.bg};
   font-family: "Poppins", sans-serif;
@@ -20,3 +20,5 @@ export const TypeLabel = styled.div<Props>`
   padding: 8px 16px;
   line-height: 22px;
 `;
+
+export { TypeLabel };

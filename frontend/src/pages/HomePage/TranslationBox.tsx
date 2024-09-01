@@ -3,7 +3,7 @@ import { theme } from "../../common/styles";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
-import { TypeLabel } from "../../components/TypeLabel";
+import { TypeLabel } from "../../components/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
 import data from "./translations.json";
 
