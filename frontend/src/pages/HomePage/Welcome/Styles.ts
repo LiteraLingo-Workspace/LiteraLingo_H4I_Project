@@ -20,4 +20,17 @@ const NameContainer = styled.div`
   text-align: right;
 `;
 
-export { Container, NameContainer };
+const WelcomeLabel = styled.p`
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+`;
+
+const NameLabel = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin-top: -10px;
+`;
+
+export { Container, NameContainer, WelcomeLabel, NameLabel };

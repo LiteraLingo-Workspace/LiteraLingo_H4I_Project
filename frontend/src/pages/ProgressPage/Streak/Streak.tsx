@@ -4,16 +4,7 @@ import { Date } from "./Date";
 export const Streak: React.FC = () => {
   return (
     <S.Container>
-      <p
-        style={{
-          fontFamily: "Quicksand, sans-serif",
-          fontWeight: 700,
-          fontSize: "24px",
-          lineHeight: "32px",
-        }}
-      >
-        5 Day Streak!
-      </p>
+      <S.StreakLabel>5 Day Streak!</S.StreakLabel>
       <S.SubContainer>
         <Date month="Nov" day={23} streakActive={true} today={false} />
         <Date month="Nov" day={24} streakActive={true} today={false} />

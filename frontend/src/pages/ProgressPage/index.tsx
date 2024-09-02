@@ -9,11 +9,11 @@ export const ProgressPage: React.FC = () => {
   return (
     <S.Container>
       <Header title="Your Progress" color="white" />
-      <div style={{ position: "absolute", top: "104px", width: "100%" }}>
+      <S.SubContainer>
         <Summary />
         <Streak />
         <BottomSheet />
-      </div>
+      </S.SubContainer>
       <Navbar />
     </S.Container>
   );

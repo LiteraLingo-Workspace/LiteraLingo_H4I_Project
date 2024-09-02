@@ -45,6 +45,19 @@ const TitleContainer = styled.div<Props>`
   margin-top: ${(p) => (p.expanded ? 0 : 15)}px;
 `;
 
+const Title = styled.p`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32.04px;
+`;
+
+const Description = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: ${theme.colors.veryLight};
+`;
+
 const HistoryItemContainer = styled.div<Props>`
   display: flex;
   flex-direction: column;
@@ -79,6 +92,13 @@ const ItemTop = styled.div`
   color: ${theme.colors.secondary};
 `;
 
+const ItemType = styled.p`
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+`;
+
 const ItemButtons = styled.div`
   display: flex;
   flex-direction: row;
@@ -111,9 +131,12 @@ export {
   TextContainer,
   TabContainer,
   TitleContainer,
+  Title,
+  Description,
   HistoryItemContainer,
   Item,
   ItemTop,
+  ItemType,
   ItemButtons,
   ItemBottom,
   ItemBottomText,

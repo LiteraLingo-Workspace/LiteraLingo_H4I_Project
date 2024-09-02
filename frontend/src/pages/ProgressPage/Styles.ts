@@ -12,4 +12,10 @@ const Container = styled.div`
   background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
 `;
 
-export { Container };
+const SubContainer = styled.div`
+  position: absolute;
+  top: 104px;
+  width: 100%;
+`;
+
+export { Container, SubContainer };

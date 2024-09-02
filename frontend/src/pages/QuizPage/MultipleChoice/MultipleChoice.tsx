@@ -1,22 +1,10 @@
 import * as S from "./Styles";
-import { theme } from "../../../styles/index";
 
 export const MultipleChoice: React.FC = () => {
   return (
     <>
       <S.Container>
-        <p
-          style={{
-            fontFamily: "Poppins, sans-serif",
-            fontWeight: 700,
-            fontSize: "22px",
-            lineHeight: "33px",
-            color: `${theme.colors.primary}`,
-            textAlign: "left",
-          }}
-        >
-          What does this mean?
-        </p>
+        <S.QuestionLabel>What does this mean?</S.QuestionLabel>
         <S.ChoicesContainer>
           <S.ChoiceContainer>
             <S.ChoiceText>Her promises can be believed.</S.ChoiceText>

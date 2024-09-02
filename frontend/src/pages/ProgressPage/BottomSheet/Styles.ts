@@ -78,6 +78,25 @@ const StatusTextContainer = styled.div`
   justify-content: center;
 `;
 
+const StatusTextSubContainer = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${theme.colors.coolAccentBg};
+`;
+
+const Progress = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-size: 14px;
+  line-height: 22.43px;
+`;
+
+const StatusTextLabel = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 25.63px;
+`;
+
 export {
   Container,
   TabContainer,
@@ -87,4 +106,7 @@ export {
   MainContentsContainer,
   StatusContainer,
   StatusTextContainer,
+  StatusTextSubContainer,
+  StatusTextLabel,
+  Progress,
 };

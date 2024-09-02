@@ -11,16 +11,7 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({ text, type }) => {
   return (
     <S.Item>
       <S.ItemTop>
-        <p
-          style={{
-            fontWeight: 400,
-            fontSize: "16px",
-            lineHeight: "22px",
-            fontFamily: "Poppins, sans-serif",
-          }}
-        >
-          {type}
-        </p>
+        <S.ItemType>{type}</S.ItemType>
         <S.ItemButtons>
           <CiStar size={24} />
           <BsThreeDotsVertical size={18} />

@@ -36,6 +36,15 @@ const ChoiceContainer = styled.div`
   background: white;
 `;
 
+const QuestionLabel = styled.p`
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 33px;
+  color: ${theme.colors.primary};
+  text-align: left;
+`;
+
 const ChoiceText = styled.p`
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -64,6 +73,7 @@ export {
   ButtonContainer,
   ChoicesContainer,
   ChoiceContainer,
+  QuestionLabel,
   ChoiceText,
   Button,
 };

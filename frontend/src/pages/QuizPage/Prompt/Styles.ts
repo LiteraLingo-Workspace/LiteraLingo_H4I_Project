@@ -12,4 +12,13 @@ const Container = styled.div`
   border-radius: 10px;
 `;
 
-export { Container };
+const Prompt = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 36.85px;
+  color: white;
+  text-align: center;
+`;
+
+export { Container, Prompt };

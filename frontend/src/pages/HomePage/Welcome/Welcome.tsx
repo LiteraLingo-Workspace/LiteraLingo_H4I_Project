@@ -9,25 +9,8 @@ export const Welcome: React.FC = () => {
         src={avatar}
       />
       <S.NameContainer>
-        <p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: "500",
-            fontSize: "20px",
-          }}
-        >
-          Welcome
-        </p>
-        <p
-          style={{
-            fontFamily: "'Baloo 2', sans-serif",
-            fontWeight: "500",
-            fontSize: "32px",
-            marginTop: "-10px",
-          }}
-        >
-          Anna
-        </p>
+        <S.WelcomeLabel>Welcome</S.WelcomeLabel>
+        <S.NameLabel>Anna</S.NameLabel>
       </S.NameContainer>
     </S.Container>
   );

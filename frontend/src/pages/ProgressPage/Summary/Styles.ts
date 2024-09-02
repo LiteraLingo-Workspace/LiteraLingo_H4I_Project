@@ -24,6 +24,19 @@ const ExperienceContainer = styled.div`
   margin-top: 15px;
 `;
 
+const ExperienceLevelLabel = styled.p`
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  text-align: center;
+`;
+
+const ExperiencePercentLabel = styled.p`
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+`;
+
 const MostPracticedContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -32,6 +45,14 @@ const MostPracticedContainer = styled.div`
   margin-top: 20px;
   left: 30px;
   gap: 10px;
+`;
+
+const MostPracticedLabel = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: white;
 `;
 
 const LevelContainer = styled.div`
@@ -51,6 +72,9 @@ export {
   Container,
   StatsContainer,
   ExperienceContainer,
+  ExperienceLevelLabel,
+  ExperiencePercentLabel,
   MostPracticedContainer,
+  MostPracticedLabel,
   LevelContainer,
 };

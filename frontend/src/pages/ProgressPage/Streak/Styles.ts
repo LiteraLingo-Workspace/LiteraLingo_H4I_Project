@@ -14,6 +14,28 @@ const Container = styled.div`
   margin-top: 10px;
 `;
 
+const StreakLabel = styled.p`
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+`;
+
+const Day = styled.p`
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30.24px;
+`;
+
+const Month = styled.p`
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.64px;
+  margin-bottom: 5px;
+`;
+
 const SubContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -38,4 +60,4 @@ const DateContainer = styled.div<Props>`
     p.today ? theme.colors.warmYellow : "rgba(216, 231, 236, 0.8)"};
 `;
 
-export { Container, SubContainer, DateContainer };
+export { Container, StreakLabel, Day, Month, SubContainer, DateContainer };

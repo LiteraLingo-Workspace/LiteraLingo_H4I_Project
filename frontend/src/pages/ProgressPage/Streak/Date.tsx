@@ -111,27 +111,8 @@ export const Date: React.FC<DateProps> = ({
           </defs>
         </svg>
       )}
-      <p
-        style={{
-          fontFamily: "Outfit, sans-serif",
-          fontWeight: 700,
-          fontSize: "24px",
-          lineHeight: "30.24px",
-        }}
-      >
-        {day}
-      </p>
-      <p
-        style={{
-          fontFamily: "Outfit, sans-serif",
-          fontWeight: 400,
-          fontSize: "14px",
-          lineHeight: "17.64px",
-          marginBottom: "5px",
-        }}
-      >
-        {month}
-      </p>
+      <S.Day>{day}</S.Day>
+      <S.Month>{month}</S.Month>
     </S.DateContainer>
   );
 };

@@ -13,12 +13,12 @@ export const MePage: React.FC = () => {
     <S.Container>
       <Background />
       <Header title="Your Profile" color={theme.colors.primary} />
-      <div style={{ position: "absolute", top: "104px", width: "344px" }}>
+      <S.SubContainer>
         <UserInfo />
         <Overview />
         <FocalPoint />
         <Settings />
-      </div>
+      </S.SubContainer>
       <Navbar />
     </S.Container>
   );

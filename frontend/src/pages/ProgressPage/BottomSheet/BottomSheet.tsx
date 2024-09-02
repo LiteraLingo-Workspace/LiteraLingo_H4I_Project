@@ -56,31 +56,10 @@ export const BottomSheet: React.FC = () => {
             src={scheduleCompletion}
           />
           <S.StatusTextContainer>
-            <p
-              style={{
-                fontFamily: "Baloo 2, sans-serif",
-                fontSize: "16px",
-                fontWeight: 700,
-                lineHeight: "25.63px",
-              }}
-            >
-              Metaphor Practice
-            </p>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                color: `${theme.colors.coolAccentBg}`,
-              }}
-            >
+            <S.StatusTextLabel>Metaphor Practice</S.StatusTextLabel>
+            <S.StatusTextSubContainer>
               <IoEllipse size={8} />
-              <p
-                style={{
-                  fontFamily: "Baloo 2, sans-serif",
-                  fontSize: "14px",
-                  lineHeight: "22.43px",
-                }}
-              >
+              <S.Progress>
                 <span style={{ fontWeight: 500 }}>In progress</span>
                 <span
                   style={{
@@ -90,8 +69,8 @@ export const BottomSheet: React.FC = () => {
                 >
                   , Nov 30, 2023
                 </span>
-              </p>
-            </div>
+              </S.Progress>
+            </S.StatusTextSubContainer>
           </S.StatusTextContainer>
         </S.StatusContainer>
         <Graph />

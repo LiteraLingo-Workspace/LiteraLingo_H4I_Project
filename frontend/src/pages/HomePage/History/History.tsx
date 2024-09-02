@@ -1,5 +1,4 @@
 import * as S from "./Styles";
-import { theme } from "../../../styles/index";
 import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
 import { HistoryItem } from "./HistoryItem";
@@ -49,27 +48,12 @@ export const History: React.FC = () => {
           )}
           <S.TitleContainer expanded={!expanded}>
             <FaHistory size={21} />
-            <p
-              style={{
-                fontWeight: 600,
-                fontSize: "20px",
-                lineHeight: "32.04px",
-              }}
-            >
-              Your History
-            </p>
+            <S.Title>Your History</S.Title>
           </S.TitleContainer>
           {!expanded && (
-            <p
-              style={{
-                fontWeight: 400,
-                fontSize: "14px",
-                lineHeight: "16px",
-                color: `${theme.colors.veryLight}`,
-              }}
-            >
+            <S.Description>
               Swipe up to see your most recent translations!
-            </p>
+            </S.Description>
           )}
         </S.TextContainer>
       </S.TabContainer>
