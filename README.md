@@ -33,10 +33,9 @@ git clone https://github.com/Angelawork/LiteraLingo_H4I_Project.git
 # Navigate to the project directory
 cd LiteraLingo_H4I_Project
 
-# Check that Docker and GNU Make
-docker -v  # Check the installed version of Docker
-make -v  # Check the installed version of GNU Make
-# Visit the official websites to install or update if necessary
+# Check that Docker and GNU Make are installed
+docker -v
+make -v
 # Note: GNU Make is not necessary -- just something to improve the overall developer experience
 
 # Start the frontend
@@ -52,7 +51,7 @@ npm i && npm run dev
 make up_build
 
 # Other important make commands:
-make up # Simply start up all Docker containers without building
+make up # Start up all Docker containers without building
 make down # Stop up all Docker containers
 
 # If GNU Make is not installed, run the Docker commands in the Makefile manually
