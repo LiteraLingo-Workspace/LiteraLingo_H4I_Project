@@ -1,32 +1,20 @@
-import styled from "styled-components";
-import { Header } from "../../common/components/Header";
-import { Navbar } from "../../common/components/Navbar";
-import { Summary } from "./Summary";
-import { Streak } from "./Streak";
-import { BottomSheet } from "./BottomSheet";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(180deg, #64aec6 0%, #5a8bca 100%);
-`;
+import * as S from "./Styles";
+import { Header } from "../../components/Header/index";
+import { Navbar } from "../../components/Navbar/index";
+import { Summary } from "./Summary/index";
+import { Streak } from "./Streak/index";
+import { BottomSheet } from "./BottomSheet/index";
 
 export const ProgressPage: React.FC = () => {
   return (
-    <Container>
+    <S.Container>
       <Header title="Your Progress" color="white" />
-      <div style={{ position: "absolute", top: "104px", width: "100%" }}>
+      <S.SubContainer>
         <Summary />
         <Streak />
         <BottomSheet />
-      </div>
+      </S.SubContainer>
       <Navbar />
-    </Container>
+    </S.Container>
   );
 };
