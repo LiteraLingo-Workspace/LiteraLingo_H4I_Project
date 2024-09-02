@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./BottomSheet.module.css";
 import { theme } from "../../../../styles/index";
 import { useState } from "react";

@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./History.module.css";
 import { FaHistory } from "react-icons/fa";
 import { useState } from "react";

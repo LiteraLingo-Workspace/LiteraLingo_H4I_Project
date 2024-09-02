@@ -1,22 +1,26 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import styles from "./Modal.module.css";
-import { t } from "i18next";
-import { useNavigate } from "react-router-dom";
 
 export const Modal: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
-      <button className={styles.loginButton} onClick={() => navigate("/login")}>
-        <p className={styles.buttonText}>{t("landingPage.signIn")}</p>
+      <button
+        className={styles.loginButton}
+        onClick={() => router.push("/login")}
+      >
+        <p className={styles.buttonText}>Sign In</p>
       </button>
       <div className={styles.break} />
-      <p className={styles.question}>{t("landingPage.new")}</p>
+      <p className={styles.question}>New to LiteraLingo?</p>
       <button
         className={styles.signupButton}
-        onClick={() => navigate("/signup")}
+        onClick={() => router.push("/signup")}
       >
-        <p className={styles.buttonText}>{t("landingPage.createAccount")}</p>
+        <p className={styles.buttonText}>Create Account</p>
       </button>
     </div>
   );

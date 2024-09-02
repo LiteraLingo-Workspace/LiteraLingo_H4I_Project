@@ -1,18 +1,20 @@
+"use client";
+
 import React from "react";
 import styles from "./Navbar.module.css";
-import { useNavigate } from "react-router-dom";
 import { FaRegStar, FaRegUser, FaMagic } from "react-icons/fa";
 import { MdOutlineQuestionMark } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 export const Navbar: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className={styles.positionContainer}>
       <div className={styles.container}>
         <div
           className={styles.linkContainer}
-          onClick={() => navigate("/progress")}
+          onClick={() => router.push("/progress")}
         >
           <svg
             width="34"
@@ -33,14 +35,20 @@ export const Navbar: React.FC = () => {
           </svg>
           <div className={styles.text}>Progress</div>
         </div>
-        <div className={styles.linkContainer} onClick={() => navigate("/quiz")}>
+        <div
+          className={styles.linkContainer}
+          onClick={() => router.push("/quiz")}
+        >
           <MdOutlineQuestionMark
             size={32}
             style={{ position: "absolute", top: "13px" }}
           />
           <div className={styles.text}>Quiz</div>
         </div>
-        <div className={styles.linkContainer} onClick={() => navigate("/home")}>
+        <div
+          className={styles.linkContainer}
+          onClick={() => router.push("/home")}
+        >
           <div className={styles.homeIconBackground}>
             <FaMagic size={26} color="white" />
           </div>
@@ -48,12 +56,15 @@ export const Navbar: React.FC = () => {
         </div>
         <div
           className={styles.linkContainer}
-          onClick={() => navigate("/saved")}
+          onClick={() => router.push("/saved")}
         >
           <FaRegStar size={32} style={{ position: "absolute", top: "13px" }} />
           <div className={styles.text}>Saved</div>
         </div>
-        <div className={styles.linkContainer} onClick={() => navigate("/me")}>
+        <div
+          className={styles.linkContainer}
+          onClick={() => router.push("/me")}
+        >
           <FaRegUser size={32} style={{ position: "absolute", top: "13px" }} />
           <div className={styles.text}>Me</div>
         </div>

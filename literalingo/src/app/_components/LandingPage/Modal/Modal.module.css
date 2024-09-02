@@ -58,5 +58,5 @@
   font-weight: 400;
   margin-bottom: 8px;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }

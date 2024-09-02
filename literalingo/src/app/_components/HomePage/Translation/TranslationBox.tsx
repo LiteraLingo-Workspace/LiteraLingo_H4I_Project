@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Translation.module.css";
 import { theme } from "../../../../styles/index";
 import { useEffect, useRef, useState } from "react";
