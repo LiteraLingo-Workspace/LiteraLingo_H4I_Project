@@ -23,7 +23,7 @@
   width: 344px;
   color: white;
   background-color: transparent;
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   position: relative;
   top: 10px;
 }
@@ -82,7 +82,7 @@
 }
 
 .itemType {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -105,11 +105,11 @@
   overflow: hidden;
   text-overflow: clip;
   color: var(--primary);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 .itemBottomText {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;

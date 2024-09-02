@@ -33,7 +33,7 @@
 }
 
 .settingName {
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 25.63px;

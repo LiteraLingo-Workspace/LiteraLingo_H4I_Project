@@ -16,7 +16,7 @@
 }
 
 .text {
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32.04px;
@@ -70,7 +70,7 @@
 .textField {
   color: var(--primary);
   resize: none;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
@@ -80,14 +80,14 @@
 
 .textField::placeholder {
   color: var(--secondary);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
 }
 
 .result {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   color: black;
   font-weight: 400;
   font-size: 20px;
@@ -122,7 +122,7 @@
   display: flex;
   align-items: center;
   color: white;
-  font-family: Baloo 2, sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;
@@ -142,7 +142,7 @@
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: Baloo 2, sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;
@@ -154,7 +154,7 @@
 
 .label {
   color: var(--secondary);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 21px;

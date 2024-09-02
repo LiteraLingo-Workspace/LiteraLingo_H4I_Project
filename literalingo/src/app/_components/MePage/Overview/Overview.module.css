@@ -18,7 +18,7 @@
 .overviewLabel {
   color: var(--primary);
   background-color: var(--faintGrey);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
   font-size: 16px;
   display: inline-block;

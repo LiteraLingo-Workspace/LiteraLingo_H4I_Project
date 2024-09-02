@@ -30,7 +30,7 @@
 }
 
 .text {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-size: 12px;
   line-height: 22px;
   font-weight: 500;

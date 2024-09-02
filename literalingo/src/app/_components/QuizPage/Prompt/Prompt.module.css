@@ -10,7 +10,7 @@
 }
 
 .prompt {
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 600;
   font-size: 23px;
   line-height: 36.85px;

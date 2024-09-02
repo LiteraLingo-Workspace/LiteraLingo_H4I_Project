@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   color: white;
   margin-top: 15px;
 }
@@ -46,7 +46,7 @@
 }
 
 .mostPracticedLabel {
-  font-family: "Baloo 2", sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;

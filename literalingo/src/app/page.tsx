@@ -1,6 +1,6 @@
 import { HydrateClient } from "~/trpc/server";
 import { LandingPage } from "./_components/LandingPage";
-import { Poppins, Baloo_2 } from "next/font/google";
+import { Poppins, Baloo_2, Quicksand, Outfit } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,10 +16,26 @@ const baloo_2 = Baloo_2({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-quicksand",
+  weight: ["700"],
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+  weight: ["400", "700"],
+});
+
 export default async function Home() {
   return (
     <HydrateClient>
-      <main className={`${poppins.variable} ${baloo_2.variable}`}>
+      <main
+        className={`${poppins.variable} ${baloo_2.variable} ${quicksand.variable} ${outfit.variable}`}
+      >
         <LandingPage />
       </main>
     </HydrateClient>
