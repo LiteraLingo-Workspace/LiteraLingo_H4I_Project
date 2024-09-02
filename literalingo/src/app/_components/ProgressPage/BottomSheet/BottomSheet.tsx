@@ -65,7 +65,7 @@ export const BottomSheet: React.FC = () => {
             src={scheduleCompletion}
             alt="Schedule Completion"
           />
-          <div>
+          <div className={styles.statusTextContainer}>
             <p className={styles.statusTextLabel}>Metaphor Practice</p>
             <div className={styles.statusTextSubContainer}>
               <IoEllipse size={8} />

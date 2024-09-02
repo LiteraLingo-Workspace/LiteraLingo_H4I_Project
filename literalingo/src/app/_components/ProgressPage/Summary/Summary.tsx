@@ -16,7 +16,7 @@ export const Summary: React.FC = () => {
           }}
         >
           <p className={styles.experiencePercentLabel}>88%</p>
-          <p className={styles.experiencePercentLabel}>Lvl 12</p>
+          <p className={styles.experienceLevelLabel}>Lvl 12</p>
         </div>
         <div className={styles.experienceContainer}>
           <p style={{ fontSize: "32px", lineHeight: "40px", fontWeight: 700 }}>
