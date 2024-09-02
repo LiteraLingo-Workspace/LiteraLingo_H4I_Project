@@ -1,0 +1,47 @@
+export type ColorSystem =
+  | "primary"
+  | "secondary"
+  | "veryLight"
+  | "white"
+  | "coolDark"
+  | "coolAccentBg"
+  | "coolLight"
+  | "warm"
+  | "warmLight"
+  | "warmYellow"
+  | "failure"
+  | "success"
+  | "faintBlue"
+  | "faintYellow"
+  | "faintWarm"
+  | "faintCoolDark"
+  | "faintCoolLight"
+  | "faintGrey"
+  | "faintPurple"
+  | "faintPrimary";
+
+export const theme = {
+  colors: {
+    primary: "rgb(22, 57, 104)",
+    secondary: "rgb(152, 168, 186)",
+    veryLight: "rgb(216, 231, 236)",
+    white: "rgb(255, 255, 255)",
+    coolDark: "rgb(70, 122, 190)",
+    coolAccentBg: "rgb(100, 174, 198)",
+    coolLight: "rgb(134, 223, 212)",
+    purple: "rgb(105, 65, 198)",
+    warm: "rgb(243, 117, 118)",
+    warmLight: "rgb(247, 164, 166)",
+    warmYellow: "rgb(241, 185, 80)",
+    failure: "rgb(213, 49, 50)",
+    success: "rgb(69, 203, 115)",
+    faintBlue: "rgba(100, 174, 198, 0.2)",
+    faintYellow: "rgba(241, 185, 80, 0.2)",
+    faintWarm: "rgba(243, 117, 118, 0.2)",
+    faintCoolDark: "rgba(70, 122, 190, 0.2)",
+    faintCoolLight: "rgba(134, 223, 212, 0.2)",
+    faintGrey: "rgba(152, 168, 186, 0.2)",
+    faintPurple: "rgba(105, 65, 198, 0.2)",
+    faintPrimary: "rgba(22, 57, 104, 0.2)",
+  },
+};
