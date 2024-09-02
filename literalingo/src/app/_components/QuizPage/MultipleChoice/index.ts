@@ -1,1 +1,0 @@
-export { MultipleChoice } from "./MultipleChoice";
