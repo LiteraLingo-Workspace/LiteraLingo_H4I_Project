@@ -1,27 +1,27 @@
-import * as S from "./Styles";
+import styles from "./MultipleChoice.module.css";
 
 export const MultipleChoice: React.FC = () => {
   return (
     <>
-      <S.Container>
-        <S.QuestionLabel>What does this mean?</S.QuestionLabel>
-        <S.ChoicesContainer>
-          <S.ChoiceContainer>
-            <S.ChoiceText>Her promises can be believed.</S.ChoiceText>
-          </S.ChoiceContainer>
-          <S.ChoiceContainer>
-            <S.ChoiceText>Her promises cannot be trusted.</S.ChoiceText>
-          </S.ChoiceContainer>
-          <S.ChoiceContainer>
-            <S.ChoiceText>
+      <div className={styles.container}>
+        <p className={styles.questionLabel}>What does this mean?</p>
+        <div className={styles.choicesContainer}>
+          <div className={styles.choiceContainer}>
+            <p className={styles.choiceText}>Her promises can be believed.</p>
+          </div>
+          <div className={styles.choiceContainer}>
+            <p className={styles.choiceText}>Her promises cannot be trusted.</p>
+          </div>
+          <div className={styles.choiceContainer}>
+            <p className={styles.choiceText}>
               Her words sound challenging to understand.
-            </S.ChoiceText>
-          </S.ChoiceContainer>
-        </S.ChoicesContainer>
-      </S.Container>
-      <S.ButtonContainer>
-        <S.Button>Check answer</S.Button>
-      </S.ButtonContainer>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>Check answer</button>
+      </div>
     </>
   );
 };

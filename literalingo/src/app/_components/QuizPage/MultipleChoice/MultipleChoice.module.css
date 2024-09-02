@@ -1,60 +1,57 @@
-import styled from "styled-components";
-import { theme } from "../../../../styles/index";
-
-const Container = styled.div`
+.container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   width: 344px;
-`;
+}
 
-const ButtonContainer = styled.div`
+.buttonContainer {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-`;
+}
 
-const ChoicesContainer = styled.div`
+.choicesContainer {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   width: 344px;
   gap: 15px;
-`;
+}
 
-const ChoiceContainer = styled.div`
+.choiceContainer {
   display: flex;
   flex-direction: column;
   height: 95px;
   width: 344px;
   justify-content: center;
   align-items: center;
-  border: 2px solid ${theme.colors.coolDark};
+  border: var(--coolDark);
   border-radius: 16px;
   box-shadow: 0px 4px 0px 0px rgba(100, 174, 198, 1);
   cursor: pointer;
   background: white;
-`;
+}
 
-const QuestionLabel = styled.p`
+.questionLabel {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 33px;
-  color: ${theme.colors.primary};
+  color: var(--primary);
   text-align: left;
-`;
+}
 
-const ChoiceText = styled.p`
+.choiceText {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   text-align: center;
-  color: ${theme.colors.primary};
-`;
+  color: var(--primary);
+}
 
-const Button = styled.button`
+.button {
   height: 48px;
   border-radius: 100px;
   padding: 8px 12px 8px 12px;
@@ -66,14 +63,4 @@ const Button = styled.button`
   line-height: 32px;
   border: none;
   cursor: pointer;
-`;
-
-export {
-  Container,
-  ButtonContainer,
-  ChoicesContainer,
-  ChoiceContainer,
-  QuestionLabel,
-  ChoiceText,
-  Button,
-};
+}

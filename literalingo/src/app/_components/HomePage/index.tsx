@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./index.module.css";
 import { Background } from "../shared/Background/Background";
 import { Welcome } from "./Welcome/index";
 import { TranslationBar, TranslationBox } from "./Translation/index";
@@ -7,16 +7,16 @@ import { Navbar } from "../shared/Navbar/Navbar";
 
 export const HomePage: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Background />
-      <S.SubContainer>
+      <div className={styles.subContainer}>
         <Welcome />
         <TranslationBar />
         <TranslationBox />
-      </S.SubContainer>
+      </div>
       <History />
-      <S.Temp />
+      <div className={styles.temp} />
       <Navbar />
-    </S.Container>
+    </div>
   );
 };

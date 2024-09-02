@@ -1,9 +1,9 @@
-import * as S from "./Styles";
+import styles from "./Prompt.module.css";
 
 export const Prompt: React.FC = () => {
   return (
-    <S.Container>
-      <S.Prompt>Her word had the strength of titanium.</S.Prompt>
-    </S.Container>
+    <div className={styles.container}>
+      <p className={styles.prompt}>Her word had the strength of titanium.</p>
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./Translation.module.css";
 import { theme } from "../../../../styles/index";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
@@ -37,12 +37,13 @@ export const TranslationBox: React.FC = () => {
   useAutosizeTextArea(textAreaRef.current, value);
 
   return (
-    <S.TBoxContainer>
+    <div className={styles.tBoxContainer}>
       {!translate ? (
-        <S.SubContainer>
-          <S.TextContainer>
-            <S.Label>Figurative</S.Label>
-            <S.TextField
+        <div className={styles.subContainer}>
+          <div className={styles.textContainer}>
+            <p className={styles.label}>Figurative</p>
+            <textarea
+              className={styles.textField}
               onChange={handleChange}
               ref={textAreaRef}
               rows={1}
@@ -50,15 +51,16 @@ export const TranslationBox: React.FC = () => {
               placeholder="Insert sentence to paraphrase"
               disabled={!canType}
               maxLength={80}
-            ></S.TextField>
-          </S.TextContainer>
-          <S.ButtonsContainer>
-            <S.InnerButtonsContainer>
+            ></textarea>
+          </div>
+          <div className={styles.buttonsContainer}>
+            <div className={styles.innerButtonsContainer}>
               <BsCamera size={24.5} />
               <HiOutlineMicrophone size={24.5} />
-            </S.InnerButtonsContainer>
-            <S.InnerButtonsContainer>
-              <S.GoButton
+            </div>
+            <div className={styles.innerButtonsContainer}>
+              <button
+                className={styles.goButton}
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
@@ -83,28 +85,30 @@ export const TranslationBox: React.FC = () => {
                     stroke="white"
                   />
                 </svg>
-              </S.GoButton>
-            </S.InnerButtonsContainer>
-          </S.ButtonsContainer>
-        </S.SubContainer>
+              </button>
+            </div>
+          </div>
+        </div>
       ) : (
-        <S.SubContainer>
-          <S.TextContainer>
-            <S.Label>Figurative</S.Label>
-            <S.TextField
+        <div className={styles.subContainer}>
+          <div className={styles.textContainer}>
+            <p className={styles.label}>Figurative</p>
+            <textarea
+              className={styles.textField}
               onChange={handleChange}
               ref={textAreaRef}
               rows={1}
               value={value}
               disabled={!canType}
-            ></S.TextField>
-            <S.Break />
-            <S.Label>Literal</S.Label>
-            <S.Result>{result}</S.Result>
-          </S.TextContainer>
-          <S.ButtonsContainer>
-            <S.InnerButtonsContainer>
-              <S.RestartButton
+            ></textarea>
+            <div className={styles.break} />
+            <p className={styles.label}>Literal</p>
+            <p className={styles.result}>{result}</p>
+          </div>
+          <div className={styles.buttonsContainer}>
+            <div className={styles.innerButtonsContainer}>
+              <button
+                className={styles.restartButton}
                 onClick={() => {
                   setTranslate(false);
                   setCanType(true);
@@ -114,19 +118,19 @@ export const TranslationBox: React.FC = () => {
               >
                 <BsArrowCounterclockwise />
                 <p>Restart</p>
-              </S.RestartButton>
-            </S.InnerButtonsContainer>
-            <S.InnerButtonsContainer>
+              </button>
+            </div>
+            <div className={styles.innerButtonsContainer}>
               <TypeLabel
                 color={theme.colors.purple}
                 bg={theme.colors.faintPurple}
                 text="Sarcasm"
               />
               <IoIosStarOutline size={32} />
-            </S.InnerButtonsContainer>
-          </S.ButtonsContainer>
-        </S.SubContainer>
+            </div>
+          </div>
+        </div>
       )}
-    </S.TBoxContainer>
+    </div>
   );
 };

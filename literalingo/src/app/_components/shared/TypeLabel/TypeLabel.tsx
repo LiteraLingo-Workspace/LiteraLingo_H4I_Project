@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./TypeLabel.module.css";
 
 interface TypeLabelProps {
   color: string;
@@ -8,8 +8,11 @@ interface TypeLabelProps {
 
 export const TypeLabel: React.FC<TypeLabelProps> = ({ color, bg, text }) => {
   return (
-    <S.TypeLabel color={color} bg={bg}>
+    <div
+      className={styles.typeLabel}
+      style={{ color: color, backgroundColor: bg }}
+    >
       {text}
-    </S.TypeLabel>
+    </div>
   );
 };

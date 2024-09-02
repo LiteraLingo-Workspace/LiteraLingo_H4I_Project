@@ -1,8 +1,8 @@
-import * as S from "./Styles";
+import styles from "./Summary.module.css";
 
 export const Level: React.FC = () => {
   return (
-    <S.LevelContainer>
+    <div className={styles.levelContainer}>
       <svg
         width="100"
         height="100"
@@ -32,6 +32,6 @@ export const Level: React.FC = () => {
           </linearGradient>
         </defs>
       </svg>
-    </S.LevelContainer>
+    </div>
   );
 };

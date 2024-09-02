@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./FocalPoint.module.css";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { TitleContainer } from "../TitleContainer";
 import { theme } from "../../../../styles/index";
@@ -6,12 +6,12 @@ import { TypeLabel } from "../../../_components/shared/TypeLabel/TypeLabel";
 
 export const FocalPoint: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <TitleContainer
         title="Focal Point"
         icon={<PiMagnifyingGlassBold size={24} />}
       />
-      <S.OverviewLabelsContainer>
+      <div className={styles.overviewLabelsContainer}>
         <TypeLabel
           color={theme.colors.warmYellow}
           bg={theme.colors.faintYellow}
@@ -37,7 +37,7 @@ export const FocalPoint: React.FC = () => {
           bg={theme.colors.faintPrimary}
           text="Idiom"
         />
-      </S.OverviewLabelsContainer>
-    </S.Container>
+      </div>
+    </div>
   );
 };

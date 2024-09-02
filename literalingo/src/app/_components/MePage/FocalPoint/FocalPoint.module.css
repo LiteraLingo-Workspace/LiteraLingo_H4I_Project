@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: var(--primary);
+  margin-top: 20px;
+}
+
+.overviewLabelsContainer {
+  flex-wrap: wrap;
+  position: relative;
+  width: 363px;
+  left: 23px;
+  display: flex;
+  row-gap: 8px;
+  column-gap: 8px;
+}

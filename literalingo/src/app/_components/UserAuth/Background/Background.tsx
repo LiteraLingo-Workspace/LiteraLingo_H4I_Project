@@ -1,8 +1,9 @@
-import * as S from "./Styles";
+import styles from "./Background.module.css";
 
 export const Background: React.FC = () => {
   return (
-    <S.Container
+    <svg
+      className={styles.container}
       width="393"
       height="852"
       viewBox="0 0 393 852"
@@ -52,6 +53,6 @@ export const Background: React.FC = () => {
           fill="#F37576"
         />
       </g>
-    </S.Container>
+    </svg>
   );
 };

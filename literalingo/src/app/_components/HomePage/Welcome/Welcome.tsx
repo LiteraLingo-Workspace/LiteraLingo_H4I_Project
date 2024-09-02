@@ -1,19 +1,19 @@
-import * as S from "./Styles";
+import styles from "./Welcome.module.css";
 import { avatar } from "../../../assets/index";
 import Image from "next/image";
 
 export const Welcome: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Image
         style={{ height: "80px", width: "75.35px", borderRadius: "100px" }}
         src={avatar}
         alt="User Avatar"
       />
-      <S.NameContainer>
-        <S.WelcomeLabel>Welcome</S.WelcomeLabel>
-        <S.NameLabel>Anna</S.NameLabel>
-      </S.NameContainer>
-    </S.Container>
+      <div className={styles.nameContainer}>
+        <p className={styles.welcomeLabel}>Welcome</p>
+        <p className={styles.nameLabel}>Anna</p>
+      </div>
+    </div>
   );
 };

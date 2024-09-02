@@ -2,15 +2,15 @@ import { t } from "i18next";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../../../styles/index";
 import { useNavigate } from "react-router-dom";
-import { Container, FlexRow, Title, Label, InputField, Button } from "./Styles";
+import styles from "./Modal.module.css";
 
 export const LoginModal: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
-      <FlexRow>
-        <Title>{t("loginPage.title")}</Title>
+    <div className={styles.container}>
+      <div className={styles.flexRow}>
+        <p className={styles.title}>{t("loginPage.title")}</p>
         <BsX
           style={{
             width: "40px",
@@ -21,12 +21,16 @@ export const LoginModal: React.FC = () => {
           color={theme.colors.primary}
           onClick={() => navigate("/")}
         ></BsX>
-      </FlexRow>
-      <Label>{t("loginPage.email")}</Label>
-      <InputField type="email" placeholder="p.drizzy@gmail.com" />
-      <Label>{t("loginPage.password")}</Label>
-      <InputField type="password" />
-      <Button>{t("loginPage.button")}</Button>
-    </Container>
+      </div>
+      <p className={styles.label}>{t("loginPage.email")}</p>
+      <input
+        className={styles.inputField}
+        type="email"
+        placeholder="p.drizzy@gmail.com"
+      />
+      <p className={styles.label}>{t("loginPage.password")}</p>
+      <input className={styles.inputField} type="password" />
+      <button className={styles.button}>{t("loginPage.button")}</button>
+    </div>
   );
 };

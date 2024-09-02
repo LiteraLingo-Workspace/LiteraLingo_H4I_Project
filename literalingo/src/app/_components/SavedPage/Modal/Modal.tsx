@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./Modal.module.css";
 import React from "react";
 import { Item } from "./Item";
 
@@ -31,13 +31,13 @@ export const Modal: React.FC = () => {
   ];
 
   return (
-    <S.SavedPage>
-      <S.SavedItems>
+    <div className={styles.savedPage}>
+      <div className={styles.savedItems}>
         {items.map((item, index) => (
           <Item key={index} id={item.id} type={item.type} text={item.text} />
         ))}
-      </S.SavedItems>
-    </S.SavedPage>
+      </div>
+    </div>
   );
 };
 

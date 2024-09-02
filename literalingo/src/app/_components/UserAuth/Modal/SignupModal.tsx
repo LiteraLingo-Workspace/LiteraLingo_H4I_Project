@@ -2,15 +2,15 @@ import { t } from "i18next";
 import { BsX } from "react-icons/bs";
 import { theme } from "../../../../styles/index";
 import { useNavigate } from "react-router-dom";
-import { Container, FlexRow, Title, Label, InputField, Button } from "./Styles";
+import styles from "./Modal.module.css";
 
 export const SignupModal: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
-      <FlexRow>
-        <Title>{t("signupPage.title")}</Title>
+    <div className={styles.container}>
+      <div className={styles.flexRow}>
+        <p className={styles.title}>{t("signupPage.title")}</p>
         <BsX
           style={{
             width: "40px",
@@ -21,16 +21,20 @@ export const SignupModal: React.FC = () => {
           color={theme.colors.primary}
           onClick={() => navigate("/")}
         ></BsX>
-      </FlexRow>
-      <Label>{t("signupPage.name")}</Label>
-      <InputField placeholder="Jane Doe" />
-      <Label>{t("signupPage.email")}</Label>
-      <InputField type="email" placeholder="bbl.drizzy@gmail.com" />
-      <Label>{t("signupPage.password")}</Label>
-      <InputField type="password" />
-      <Label>{t("signupPage.passwordConfirmation")}</Label>
-      <InputField type="password" />
-      <Button>{t("signupPage.button")}</Button>
-    </Container>
+      </div>
+      <p className={styles.label}>{t("signupPage.name")}</p>
+      <input className={styles.inputField} placeholder="Jane Doe" />
+      <p className={styles.label}>{t("signupPage.email")}</p>
+      <input
+        className={styles.inputField}
+        type="email"
+        placeholder="bbl.drizzy@gmail.com"
+      />
+      <p className={styles.label}>{t("signupPage.password")}</p>
+      <input className={styles.inputField} type="password" />
+      <p className={styles.label}>{t("signupPage.passwordConfirmation")}</p>
+      <input className={styles.inputField} type="password" />
+      <button className={styles.button}>{t("signupPage.button")}</button>
+    </div>
   );
 };

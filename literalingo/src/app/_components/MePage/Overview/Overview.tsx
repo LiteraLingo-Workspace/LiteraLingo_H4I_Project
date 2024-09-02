@@ -1,17 +1,17 @@
-import * as S from "./Styles";
+import styles from "./Overview.module.css";
 import { FaRegUser } from "react-icons/fa";
 import { TitleContainer } from "../TitleContainer/index";
 
 export const Overview: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <TitleContainer title="Overview" icon={<FaRegUser size={24} />} />
-      <S.OverviewLabelsContainer>
-        <S.OverviewLabel>5 day streak</S.OverviewLabel>
-        <S.OverviewLabel>243 hours spent</S.OverviewLabel>
-        <S.OverviewLabel>13244 XP</S.OverviewLabel>
-        <S.OverviewLabel>Lvl. 14</S.OverviewLabel>
-      </S.OverviewLabelsContainer>
-    </S.Container>
+      <div className={styles.overviewLabelsContainer}>
+        <div className={styles.overviewLabel}>5 day streak</div>
+        <div className={styles.overviewLabel}>243 hours spent</div>
+        <div className={styles.overviewLabel}>13244 XP</div>
+        <div className={styles.overviewLabel}>Lvl. 14</div>
+      </div>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
+import "./global.css";
 
 export const metadata: Metadata = {
   title: "LiteraLingo",

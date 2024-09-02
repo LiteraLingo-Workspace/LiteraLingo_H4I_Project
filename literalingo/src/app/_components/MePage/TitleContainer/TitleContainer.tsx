@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./TitleContainer.module.css";
 
 interface TitleContainerProps {
   title: string;
@@ -10,9 +10,9 @@ export const TitleContainer: React.FC<TitleContainerProps> = ({
   icon,
 }) => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       {icon}
-      <S.Title>{title}</S.Title>
-    </S.Container>
+      <p className={styles.title}>{title}</p>
+    </div>
   );
 };

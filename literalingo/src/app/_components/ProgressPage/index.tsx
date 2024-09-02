@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./index.module.css";
 import { Header } from "../../_components/shared/Header/Header";
 import { Navbar } from "../../_components/shared/Navbar/Navbar";
 import { Summary } from "./Summary/index";
@@ -7,14 +7,14 @@ import { BottomSheet } from "./BottomSheet/index";
 
 export const ProgressPage: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Header title="Your Progress" color="white" />
-      <S.SubContainer>
+      <div className={styles.subContainer}>
         <Summary />
         <Streak />
         <BottomSheet />
-      </S.SubContainer>
+      </div>
       <Navbar />
-    </S.Container>
+    </div>
   );
 };

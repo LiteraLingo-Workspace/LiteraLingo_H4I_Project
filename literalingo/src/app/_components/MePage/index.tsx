@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./index.module.css";
 import { Header } from "../../_components/shared/Header/Header";
 import { UserInfo } from "./UserInfo/index";
 import { Overview } from "./Overview/index";
@@ -10,16 +10,16 @@ import { theme } from "../../../styles/index";
 
 export const MePage: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Background />
       <Header title="Your Profile" color={theme.colors.primary} />
-      <S.SubContainer>
+      <div className={styles.subContainer}>
         <UserInfo />
         <Overview />
         <FocalPoint />
         <Settings />
-      </S.SubContainer>
+      </div>
       <Navbar />
-    </S.Container>
+    </div>
   );
 };

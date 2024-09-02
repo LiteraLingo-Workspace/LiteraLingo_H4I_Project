@@ -1,21 +1,13 @@
-import styled from "styled-components";
-import { theme } from "../../../../styles/index";
-
-interface Props {
-  expanded: boolean;
-}
-
-const Container = styled.div<Props>`
+.container {
   position: absolute;
   height: 723px;
   width: 100%;
   z-index: 1;
   overflow: auto;
   border-radius: 16px 16px 0 0;
-  top: ${(p) => (p.expanded ? 355 : 220)}px;
-`;
+}
 
-const TabContainer = styled.div`
+.tabContainer {
   position: fixed;
   height: 80px;
   width: 100%;
@@ -24,9 +16,9 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
-`;
+}
 
-const TextContainer = styled.div`
+.textContainer {
   display: flex;
   flex-direction: column;
   height: 75%;
@@ -36,23 +28,23 @@ const TextContainer = styled.div`
   font-family: "Baloo 2", sans-serif;
   position: relative;
   top: 10px;
-`;
+}
 
-const Title = styled.p`
+.title {
   font-weight: 600;
   font-size: 20px;
   line-height: 32.04px;
-  color: ${theme.colors.primary};
-`;
+  color: var(--primary);
+}
 
-const SubTitle = styled.p`
+.subTitle {
   font-weight: 400;
   font-size: 13px;
   line-height: 10.83px;
-  color: ${theme.colors.secondary};
-`;
+  color: var(--secondary);
+}
 
-const MainContentsContainer = styled.div`
+.mainContentsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,52 +53,38 @@ const MainContentsContainer = styled.div`
   gap: 5px;
   min-height: 500px;
   margin-top: 65px;
-  border-bottom: 15px solid ${theme.colors.coolAccentBg};
-`;
+  border-bottom: 15px solid var(--coolAccentBg);
+}
 
-const StatusContainer = styled.div`
+.statusContainer {
   display: flex;
   flex-direction: row;
   position: relative;
   gap: 15px;
   left: -30px !important;
-`;
+}
 
-const StatusTextContainer = styled.div`
+.statusTextContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
+}
 
-const StatusTextSubContainer = styled.div`
+.statusTextSubContainer {
   display: flex;
   align-items: center;
-  color: ${theme.colors.coolAccentBg};
-`;
+  color: var(--coolAccentBg);
+}
 
-const Progress = styled.p`
+.progress {
   font-family: "Baloo 2", sans-serif;
   font-size: 14px;
   line-height: 22.43px;
-`;
+}
 
-const StatusTextLabel = styled.p`
+.statusTextLabel {
   font-family: "Baloo 2", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 25.63px;
-`;
-
-export {
-  Container,
-  TabContainer,
-  TextContainer,
-  Title,
-  SubTitle,
-  MainContentsContainer,
-  StatusContainer,
-  StatusTextContainer,
-  StatusTextSubContainer,
-  StatusTextLabel,
-  Progress,
-};
+}

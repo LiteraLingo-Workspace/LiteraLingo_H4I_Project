@@ -1,8 +1,8 @@
-import * as S from "./Styles";
+import styles from "./StatusInfo.module.css";
 
 export const StarInfo: React.FC = () => {
   return (
-    <S.StarInfoContainer>
+    <div className={styles.starInfoContainer}>
       <svg
         width="35"
         height="31"
@@ -16,6 +16,6 @@ export const StarInfo: React.FC = () => {
         />
       </svg>
       <p style={{ marginTop: "5px", fontFamily: "Arial, sans-serif" }}>4</p>
-    </S.StarInfoContainer>
+    </div>
   );
 };

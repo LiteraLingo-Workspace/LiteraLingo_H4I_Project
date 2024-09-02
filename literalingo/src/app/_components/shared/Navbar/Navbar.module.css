@@ -1,12 +1,9 @@
-import styled from "styled-components";
-import { theme } from "../../../../styles/index";
-
-const PositionContainer = styled.div`
+.positionContainer {
   display: flex;
   justify-content: center;
-`;
+}
 
-const Container = styled.div`
+.container {
   position: fixed;
   bottom: 23px;
   height: 72px;
@@ -21,27 +18,27 @@ const Container = styled.div`
   backdrop-filter: blur(40px);
   box-shadow: 0 0 40px #98a8ba33;
   z-index: 10;
-`;
+}
 
-const LinkContainer = styled.div`
+.linkContainer {
   height: 83px;
   width: 56px;
   display: flex;
   justify-content: center;
-  color: ${theme.colors.primary};
+  color: var(--primary);
   cursor: pointer;
-`;
+}
 
-const Text = styled.div`
+.text {
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   line-height: 22px;
   font-weight: 500;
   position: absolute;
   top: 51px;
-`;
+}
 
-const HomeIconBackground = styled.div`
+.homeIconBackground {
   width: 61px;
   height: 56px;
   position: relative;
@@ -51,12 +48,4 @@ const HomeIconBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export {
-  PositionContainer,
-  Container,
-  LinkContainer,
-  Text,
-  HomeIconBackground,
-};
+}

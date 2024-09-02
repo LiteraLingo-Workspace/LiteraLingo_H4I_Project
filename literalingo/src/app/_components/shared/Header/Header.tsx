@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./Header.module.css";
 
 interface TitleProps {
   title: string;
@@ -8,11 +8,13 @@ interface TitleProps {
 
 export const Header: React.FC<TitleProps> = ({ title, color, typeLabel }) => {
   return (
-    <S.Container>
-      <S.SubContainer>
-        <S.Text color={color}>{title}</S.Text>
+    <div className={styles.container}>
+      <div className={styles.subContainer}>
+        <p className={styles.text} style={{ color: color }}>
+          {title}
+        </p>
         {typeLabel}
-      </S.SubContainer>
-    </S.Container>
+      </div>
+    </div>
   );
 };

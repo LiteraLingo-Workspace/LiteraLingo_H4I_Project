@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./index.module.css";
 import { Header } from "../../_components/shared/Header/Header";
 import { TypeLabel } from "../../_components/shared/TypeLabel/TypeLabel";
 import { theme } from "../../../styles/index";
@@ -10,7 +10,7 @@ import { Navbar } from "../../_components/shared/Navbar/Navbar";
 
 export const QuizPage: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Background />
       <Header
         title="Quiz"
@@ -23,12 +23,12 @@ export const QuizPage: React.FC = () => {
           />
         }
       />
-      <S.SubContainer>
+      <div className={styles.subContainer}>
         <StatusInfo />
         <Prompt />
         <MultipleChoice />
-      </S.SubContainer>
+      </div>
       <Navbar />
-    </S.Container>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./Styles";
+import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import { FaRegStar, FaRegUser, FaMagic } from "react-icons/fa";
 import { MdOutlineQuestionMark } from "react-icons/md";
@@ -8,9 +8,12 @@ export const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <S.PositionContainer>
-      <S.Container>
-        <S.LinkContainer onClick={() => navigate("/progress")}>
+    <div className={styles.positionContainer}>
+      <div className={styles.container}>
+        <div
+          className={styles.linkContainer}
+          onClick={() => navigate("/progress")}
+        >
           <svg
             width="34"
             height="33"
@@ -28,30 +31,33 @@ export const Navbar: React.FC = () => {
               strokeWidth="0.8"
             />
           </svg>
-          <S.Text>Progress</S.Text>
-        </S.LinkContainer>
-        <S.LinkContainer onClick={() => navigate("/quiz")}>
+          <div className={styles.text}>Progress</div>
+        </div>
+        <div className={styles.linkContainer} onClick={() => navigate("/quiz")}>
           <MdOutlineQuestionMark
             size={32}
             style={{ position: "absolute", top: "13px" }}
           />
-          <S.Text>Quiz</S.Text>
-        </S.LinkContainer>
-        <S.LinkContainer onClick={() => navigate("/home")}>
-          <S.HomeIconBackground>
+          <div className={styles.text}>Quiz</div>
+        </div>
+        <div className={styles.linkContainer} onClick={() => navigate("/home")}>
+          <div className={styles.homeIconBackground}>
             <FaMagic size={26} color="white" />
-          </S.HomeIconBackground>
-          <S.Text>Home</S.Text>
-        </S.LinkContainer>
-        <S.LinkContainer onClick={() => navigate("/saved")}>
+          </div>
+          <div className={styles.text}>Home</div>
+        </div>
+        <div
+          className={styles.linkContainer}
+          onClick={() => navigate("/saved")}
+        >
           <FaRegStar size={32} style={{ position: "absolute", top: "13px" }} />
-          <S.Text>Saved</S.Text>
-        </S.LinkContainer>
-        <S.LinkContainer onClick={() => navigate("/me")}>
+          <div className={styles.text}>Saved</div>
+        </div>
+        <div className={styles.linkContainer} onClick={() => navigate("/me")}>
           <FaRegUser size={32} style={{ position: "absolute", top: "13px" }} />
-          <S.Text>Me</S.Text>
-        </S.LinkContainer>
-      </S.Container>
-    </S.PositionContainer>
+          <div className={styles.text}>Me</div>
+        </div>
+      </div>
+    </div>
   );
 };

@@ -1,11 +1,11 @@
-import * as S from "./Styles";
+import styles from "./StatusInfo.module.css";
 
 export const ProgressBar: React.FC = () => {
   return (
-    <S.ProgressContainer>
-      <S.Progress>
-        <S.Shine />
-      </S.Progress>
-    </S.ProgressContainer>
+    <div className={styles.progressContainer}>
+      <div className={styles.progress}>
+        <div className={styles.shine} />
+      </div>
+    </div>
   );
 };

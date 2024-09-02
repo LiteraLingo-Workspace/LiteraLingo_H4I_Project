@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./index.module.css";
 import { Background } from "./Background/index";
 import { LoginModal, SignupModal } from "./Modal/index";
 
@@ -8,10 +8,10 @@ interface UserAuthPageProps {
 
 export const UserAuthPage: React.FC<UserAuthPageProps> = ({ type }) => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <Background />
       {(type === "login" && <LoginModal />) ||
         (type === "signup" && <SignupModal />)}
-    </S.Container>
+    </div>
   );
 };

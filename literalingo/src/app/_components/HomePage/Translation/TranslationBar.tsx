@@ -1,14 +1,14 @@
-import * as S from "./Styles";
+import styles from "./Translation.module.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export const TranslationBar: React.FC = () => {
   return (
-    <S.Container>
-      <S.Text>Figurative</S.Text>
-      <S.ArrowContainer>
+    <div className={styles.container}>
+      <p className={styles.text}>Figurative</p>
+      <div className={styles.arrowContainer}>
         <FaArrowRightLong size={15} />
-      </S.ArrowContainer>
-      <S.Text>Literal</S.Text>
-    </S.Container>
+      </div>
+      <p className={styles.text}>Literal</p>
+    </div>
   );
 };

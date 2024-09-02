@@ -1,0 +1,22 @@
+.container {
+  position: fixed;
+  height: 104px;
+  z-index: 100;
+}
+
+.subContainer {
+  display: flex;
+  height: 38px;
+  align-items: center;
+  position: relative;
+  top: 68px;
+  left: 36px;
+  gap: 15px;
+}
+
+.text {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}

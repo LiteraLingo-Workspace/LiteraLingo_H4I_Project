@@ -1,11 +1,11 @@
-import * as S from "./Styles";
+import styles from "./Settings.module.css";
 
 export const Slider: React.FC = () => {
   return (
-    <S.SliderContainer>
-      <S.Button>-</S.Button>
-      <S.Bar>0</S.Bar>
-      <S.Button>+</S.Button>
-    </S.SliderContainer>
+    <div className={styles.sliderContainer}>
+      <div className={styles.button}>-</div>
+      <div className={styles.bar}>0</div>
+      <div className={styles.button}>+</div>
+    </div>
   );
 };

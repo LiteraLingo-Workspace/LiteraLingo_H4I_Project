@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./History.module.css";
 import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
 import { HistoryItem } from "./HistoryItem";
@@ -7,12 +7,16 @@ export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <S.Container expanded={!expanded}>
-      <S.TabContainer
+    <div
+      className={styles.container}
+      style={{ top: `${!expanded ? 656 : 68}px` }}
+    >
+      <div
+        className={styles.tabContainer}
         onClick={() => setExpanded(!expanded)}
-        expanded={!expanded}
+        style={{ height: `${!expanded ? 136 : 80}px` }}
       >
-        <S.TextContainer>
+        <div className={styles.textContainer}>
           {!expanded ? (
             <svg
               width="34"
@@ -46,18 +50,24 @@ export const History: React.FC = () => {
               />
             </svg>
           )}
-          <S.TitleContainer expanded={!expanded}>
+          <div
+            className={styles.titleContainer}
+            style={{ marginTop: `${!expanded ? 0 : 15}px` }}
+          >
             <FaHistory size={21} />
-            <S.Title>Your History</S.Title>
-          </S.TitleContainer>
+            <p className={styles.title}>Your History</p>
+          </div>
           {!expanded && (
-            <S.Description>
+            <p className={styles.description}>
               Swipe up to see your most recent translations!
-            </S.Description>
+            </p>
           )}
-        </S.TextContainer>
-      </S.TabContainer>
-      <S.HistoryItemContainer expanded={!expanded}>
+        </div>
+      </div>
+      <div
+        className={styles.historyItemContainer}
+        style={{ marginTop: `${!expanded ? 0 : 80}px` }}
+      >
         <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
         <HistoryItem text="This winter is as cold as death" type="Simile" />
         <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
@@ -66,7 +76,7 @@ export const History: React.FC = () => {
         <HistoryItem text="This winter is as cold as death" type="Simile" />
         <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
         <HistoryItem text="This winter is as cold as death" type="Simile" />
-      </S.HistoryItemContainer>
-    </S.Container>
+      </div>
+    </div>
   );
 };

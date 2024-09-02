@@ -1,4 +1,5 @@
-import * as S from "./Styles";
+import { theme } from "~/styles/index";
+import styles from "./Streak.module.css";
 
 interface DateProps {
   month: string;
@@ -14,7 +15,15 @@ export const Date: React.FC<DateProps> = ({
   today,
 }) => {
   return (
-    <S.DateContainer today={today}>
+    <div
+      className={styles.dateContainer}
+      style={{
+        height: `${today ? 127 : 99}px`,
+        backgroundColor: `${
+          today ? theme.colors.warmYellow : "rgba(216, 231, 236, 0.8)"
+        }`,
+      }}
+    >
       {!streakActive ? (
         <svg
           width="29"
@@ -111,8 +120,8 @@ export const Date: React.FC<DateProps> = ({
           </defs>
         </svg>
       )}
-      <S.Day>{day}</S.Day>
-      <S.Month>{month}</S.Month>
-    </S.DateContainer>
+      <p className={styles.day}>{day}</p>
+      <p className={styles.month}>{month}</p>
+    </div>
   );
 };

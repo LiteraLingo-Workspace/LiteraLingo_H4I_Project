@@ -1,14 +1,14 @@
-import * as S from "./Styles";
+import styles from "./Settings.module.css";
 import { TitleContainer } from "../TitleContainer/index";
 import { BsGearWide } from "react-icons/bs";
 import { Slider } from "./Slider";
 
 export const Settings: React.FC = () => {
   return (
-    <S.Container>
+    <div className={styles.container}>
       <TitleContainer title="Settings" icon={<BsGearWide size={24} />} />
-      <S.SettingsContainer>
-        <S.SettingContainer>
+      <div className={styles.settingsContainer}>
+        <div className={styles.settingContainer}>
           <svg
             width="46"
             height="36"
@@ -21,12 +21,12 @@ export const Settings: React.FC = () => {
               fill="#163968"
             />
           </svg>
-          <S.InputContainer>
-            <S.SettingName>Font Size</S.SettingName>
+          <div className={styles.inputContainer}>
+            <p className={styles.settingName}>Font Size</p>
             <Slider />
-          </S.InputContainer>
-        </S.SettingContainer>
-        <S.SettingContainer>
+          </div>
+        </div>
+        <div className={styles.settingContainer}>
           <svg
             width="46"
             height="38"
@@ -39,12 +39,12 @@ export const Settings: React.FC = () => {
               fill="#163968"
             />
           </svg>
-          <S.InputContainer>
-            <S.SettingName>Content Scaling</S.SettingName>
+          <div className={styles.inputContainer}>
+            <p className={styles.settingName}>Content Scaling</p>
             <Slider />
-          </S.InputContainer>
-        </S.SettingContainer>
-      </S.SettingsContainer>
-    </S.Container>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

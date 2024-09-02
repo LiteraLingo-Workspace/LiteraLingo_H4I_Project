@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./BottomSheet.module.css";
 import { theme } from "../../../../styles/index";
 import { useState } from "react";
 import { scheduleCompletion } from "../../../assets/index";
@@ -10,9 +10,15 @@ export const BottomSheet: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <S.Container expanded={!expanded}>
-      <S.TabContainer onClick={() => setExpanded(!expanded)}>
-        <S.TextContainer>
+    <div
+      className={styles.container}
+      style={{ top: `${!expanded ? 355 : 220}px` }}
+    >
+      <div
+        className={styles.tabContainer}
+        onClick={() => setExpanded(!expanded)}
+      >
+        <div className={styles.textContainer}>
           {!expanded ? (
             <svg
               width="34"
@@ -46,22 +52,22 @@ export const BottomSheet: React.FC = () => {
               />
             </svg>
           )}
-          <S.Title>Today&apos;s Schedule</S.Title>
-          <S.SubTitle>(2/3) completed</S.SubTitle>
-        </S.TextContainer>
-      </S.TabContainer>
-      <S.MainContentsContainer>
-        <S.StatusContainer>
+          <p className={styles.title}>Today&apos;s Schedule</p>
+          <p className={styles.subTitle}>(2/3) completed</p>
+        </div>
+      </div>
+      <div className={styles.mainContentsContainer}>
+        <div className={styles.statusContainer}>
           <Image
             style={{ height: "74px", width: "74px" }}
             src={scheduleCompletion}
             alt="Schedule Completion"
           />
-          <S.StatusTextContainer>
-            <S.StatusTextLabel>Metaphor Practice</S.StatusTextLabel>
-            <S.StatusTextSubContainer>
+          <div>
+            <p className={styles.statusTextLabel}>Metaphor Practice</p>
+            <div className={styles.statusTextSubContainer}>
               <IoEllipse size={8} />
-              <S.Progress>
+              <p className={styles.progress}>
                 <span style={{ fontWeight: 500 }}>In progress</span>
                 <span
                   style={{
@@ -71,12 +77,12 @@ export const BottomSheet: React.FC = () => {
                 >
                   , Nov 30, 2023
                 </span>
-              </S.Progress>
-            </S.StatusTextSubContainer>
-          </S.StatusTextContainer>
-        </S.StatusContainer>
+              </p>
+            </div>
+          </div>
+        </div>
         <Graph />
-      </S.MainContentsContainer>
-    </S.Container>
+      </div>
+    </div>
   );
 };

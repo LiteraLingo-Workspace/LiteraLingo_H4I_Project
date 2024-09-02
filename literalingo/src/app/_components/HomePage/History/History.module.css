@@ -1,31 +1,22 @@
-import styled from "styled-components";
-import { theme } from "../../../../styles/index";
-
-interface Props {
-  expanded: boolean;
-}
-
-const Container = styled.div<Props>`
+.container {
   position: absolute;
   height: 723px;
   width: 100%;
   z-index: 1;
   overflow: scroll;
-  top: ${(p) => (p.expanded ? 656 : 68)}px;
-`;
+}
 
-const TabContainer = styled.div<Props>`
+.tabContainer {
   position: fixed;
   width: 100%;
-  background-color: ${theme.colors.coolAccentBg};
+  background-color: var(--coolAccentBg);
   border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: center;
   cursor: pointer;
-  height: ${(p) => (p.expanded ? 136 : 80)}px;
-`;
+}
 
-const TextContainer = styled.div`
+.textContainer {
   display: flex;
   flex-direction: column;
   height: 75%;
@@ -35,30 +26,29 @@ const TextContainer = styled.div`
   font-family: "Baloo 2", sans-serif;
   position: relative;
   top: 10px;
-`;
+}
 
-const TitleContainer = styled.div<Props>`
+.titleContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  margin-top: ${(p) => (p.expanded ? 0 : 15)}px;
-`;
+}
 
-const Title = styled.p`
+.title {
   font-weight: 600;
   font-size: 20px;
   line-height: 32.04px;
-`;
+}
 
-const Description = styled.p`
+.description {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: ${theme.colors.veryLight};
-`;
+  color: var(--veryLight);
+}
 
-const HistoryItemContainer = styled.div<Props>`
+.historyItemContainer {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -67,20 +57,19 @@ const HistoryItemContainer = styled.div<Props>`
   padding: 24px 24px 80px 24px;
   gap: 16px;
   min-height: 600px;
-  border-bottom: 15px solid ${theme.colors.coolAccentBg};
-  margin-top: ${(p) => (p.expanded ? 0 : 80)}px;
-`;
+  border-bottom: 15px solid var(--coolAccentBg);
+}
 
-const Item = styled.div`
+.item {
   display: flex;
   flex-direction: column;
-  background-color: ${theme.colors.faintBlue};
+  background-color: var(--faintBlue);
   height: 86px;
   width: 344px;
   border-radius: 12px;
-`;
+}
 
-const ItemTop = styled.div`
+.itemTop {
   display: flex;
   flex-direction: row;
   background-color: transparent;
@@ -89,25 +78,25 @@ const ItemTop = styled.div`
   justify-content: space-between;
   padding: 8px;
   align-items: center;
-  color: ${theme.colors.secondary};
-`;
+  color: var(--secondary);
+}
 
-const ItemType = styled.p`
+.itemType {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-`;
+}
 
-const ItemButtons = styled.div`
+.itemButtons {
   display: flex;
   flex-direction: row;
   background-color: transparent;
   align-items: center;
   gap: 4px;
-`;
+}
 
-const ItemBottom = styled.div`
+.itemBottom {
   background-color: transparent;
   height: 30px;
   width: 311px;
@@ -115,29 +104,13 @@ const ItemBottom = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  color: ${theme.colors.primary};
+  color: var(--primary);
   font-family: "Poppins", sans-serif;
-`;
+}
 
-const ItemBottomText = styled.p`
+.itemBottomText {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 20px;
-  line-geight: 30px;
-`;
-
-export {
-  Container,
-  TextContainer,
-  TabContainer,
-  TitleContainer,
-  Title,
-  Description,
-  HistoryItemContainer,
-  Item,
-  ItemTop,
-  ItemType,
-  ItemButtons,
-  ItemBottom,
-  ItemBottomText,
-};
+  line-height: 30px;
+}

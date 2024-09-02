@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./Modal.module.css";
 import { VscKebabVertical } from "react-icons/vsc";
 import { CiStar } from "react-icons/ci";
 
@@ -10,15 +10,15 @@ interface ItemProps {
 
 export const Item: React.FC<ItemProps> = ({ id, type, text }) => {
   return (
-    <S.SavedItem key={id}>
-      <S.Top>
-        <S.ItemType>{type}</S.ItemType>
-        <S.ItemActions>
+    <div className={styles.savedItem} key={id}>
+      <div className={styles.top}>
+        <div className={styles.itemType}>{type}</div>
+        <div className={styles.itemActions}>
           <CiStar size={24} />
           <VscKebabVertical />
-        </S.ItemActions>
-      </S.Top>
-      <S.ItemText>{text}</S.ItemText>
-    </S.SavedItem>
+        </div>
+      </div>
+      <div className={styles.itemText}>{text}</div>
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import * as S from "./Styles";
+import styles from "./History.module.css";
 import { CiStar } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
@@ -9,17 +9,17 @@ interface HistoryItemProps {
 
 export const HistoryItem: React.FC<HistoryItemProps> = ({ text, type }) => {
   return (
-    <S.Item>
-      <S.ItemTop>
-        <S.ItemType>{type}</S.ItemType>
-        <S.ItemButtons>
+    <div className={styles.item}>
+      <div className={styles.itemTop}>
+        <p className={styles.itemType}>{type}</p>
+        <div className={styles.itemButtons}>
           <CiStar size={24} />
           <BsThreeDotsVertical size={18} />
-        </S.ItemButtons>
-      </S.ItemTop>
-      <S.ItemBottom>
-        <S.ItemBottomText>{text}</S.ItemBottomText>
-      </S.ItemBottom>
-    </S.Item>
+        </div>
+      </div>
+      <div className={styles.itemBottom}>
+        <p className={styles.itemBottomText}>{text}</p>
+      </div>
+    </div>
   );
 };
