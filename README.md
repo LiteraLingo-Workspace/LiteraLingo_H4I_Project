@@ -55,7 +55,7 @@ make up_build
 make up # Simply start up all Docker containers without building
 make down # Stop up all Docker containers
 
-# If GNU Make is not installed, simply run Docker commands in the Makefile manually to start the backend
+# If GNU Make is not installed, run the Docker commands in the Makefile manually
 
 ```
 
