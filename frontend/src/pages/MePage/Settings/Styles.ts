@@ -35,6 +35,13 @@ const InputContainer = styled.div`
   align-items: center;
 `;
 
+const SettingName = styled.p`
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25.63px;
+`;
+
 const SliderContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -75,6 +82,7 @@ export {
   SettingsContainer,
   SettingContainer,
   InputContainer,
+  SettingName,
   SliderContainer,
   Bar,
   Button,

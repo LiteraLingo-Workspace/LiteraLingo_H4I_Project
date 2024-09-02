@@ -8,10 +8,10 @@ export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <S.Container style={{ top: `${!expanded ? 656 : 68}px` }}>
+    <S.Container expanded={!expanded}>
       <S.TabContainer
         onClick={() => setExpanded(!expanded)}
-        style={{ height: `${!expanded ? 136 : 80}px` }}
+        expanded={!expanded}
       >
         <S.TextContainer>
           {!expanded ? (
@@ -47,7 +47,7 @@ export const History: React.FC = () => {
               />
             </svg>
           )}
-          <S.TitleContainer style={{ marginTop: `${!expanded ? 0 : 15}px` }}>
+          <S.TitleContainer expanded={!expanded}>
             <FaHistory size={21} />
             <p
               style={{
@@ -73,7 +73,7 @@ export const History: React.FC = () => {
           )}
         </S.TextContainer>
       </S.TabContainer>
-      <S.HistoryItemContainer style={{ marginTop: `${!expanded ? 0 : 80}px` }}>
+      <S.HistoryItemContainer expanded={!expanded}>
         <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
         <HistoryItem text="This winter is as cold as death" type="Simile" />
         <HistoryItem text="Use soft words and hard argument" type="Metonymy" />

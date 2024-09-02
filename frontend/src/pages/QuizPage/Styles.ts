@@ -11,4 +11,13 @@ const Container = styled.div`
   height: 100%;
 `;
 
-export { Container };
+const SubContainer = styled.div`
+  position: absolute;
+  top: 104px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export { Container, SubContainer };

@@ -1,11 +1,10 @@
 import * as S from "./Styles";
-import { theme } from "../../../styles";
 
 interface DateProps {
   month: string;
   day: number;
   streakActive: boolean;
-  today?: boolean;
+  today: boolean;
 }
 
 export const Date: React.FC<DateProps> = ({
@@ -15,14 +14,7 @@ export const Date: React.FC<DateProps> = ({
   today,
 }) => {
   return (
-    <S.DateContainer
-      style={{
-        height: today ? "127px" : "99px",
-        backgroundColor: today
-          ? `${theme.colors.warmYellow}`
-          : "rgba(216, 231, 236, 0.8)",
-      }}
-    >
+    <S.DateContainer today={today}>
       {!streakActive ? (
         <svg
           width="29"

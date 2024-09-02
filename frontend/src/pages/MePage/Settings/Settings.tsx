@@ -22,16 +22,7 @@ export const Settings: React.FC = () => {
             />
           </svg>
           <S.InputContainer>
-            <p
-              style={{
-                fontFamily: "Baloo 2, sans-serif",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "25.63px",
-              }}
-            >
-              Font Size
-            </p>
+            <S.SettingName>Font Size</S.SettingName>
             <Slider />
           </S.InputContainer>
         </S.SettingContainer>
@@ -49,16 +40,7 @@ export const Settings: React.FC = () => {
             />
           </svg>
           <S.InputContainer>
-            <p
-              style={{
-                fontFamily: "Baloo 2, sans-serif",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "25.63px",
-              }}
-            >
-              Content Scaling
-            </p>
+            <S.SettingName>Content Scaling</S.SettingName>
             <Slider />
           </S.InputContainer>
         </S.SettingContainer>

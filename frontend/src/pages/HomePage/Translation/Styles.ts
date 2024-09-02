@@ -131,6 +131,7 @@ const GoButton = styled.button`
   border: none;
   cursor: pointer;
   gap: 10px;
+  margin-top: auto;
 `;
 
 const RestartButton = styled.button`
@@ -150,6 +151,7 @@ const RestartButton = styled.button`
   border: none;
   cursor: pointer;
   gap: 5px;
+  margin-top: auto;
 `;
 
 const Label = styled.p`

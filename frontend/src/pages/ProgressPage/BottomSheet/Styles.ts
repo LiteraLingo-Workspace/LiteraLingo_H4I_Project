@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/index";
 
-const Container = styled.div`
+interface Props {
+  expanded: boolean;
+}
+
+const Container = styled.div<Props>`
   position: absolute;
   height: 723px;
   width: 100%;
   z-index: 1;
   overflow: auto;
   border-radius: 16px 16px 0 0;
+  top: ${(p) => (p.expanded ? 355 : 220)}px;
 `;
 
 const TabContainer = styled.div`

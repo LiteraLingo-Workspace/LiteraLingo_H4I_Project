@@ -32,8 +32,8 @@ export const TranslationBox: React.FC = () => {
     }, [textAreaRef, value]);
   };
 
-  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(evt.target?.value);
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target?.value);
   };
 
   useAutosizeTextArea(textAreaRef.current, value);
@@ -61,7 +61,6 @@ export const TranslationBox: React.FC = () => {
             </S.InnerButtonsContainer>
             <S.InnerButtonsContainer>
               <S.GoButton
-                style={{ marginTop: "auto" }}
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
@@ -106,7 +105,6 @@ export const TranslationBox: React.FC = () => {
           <S.ButtonsContainer>
             <S.InnerButtonsContainer>
               <S.RestartButton
-                style={{ marginTop: "auto" }}
                 onClick={() => {
                   setTranslate(false);
                   setCanType(true);

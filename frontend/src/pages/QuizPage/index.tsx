@@ -23,20 +23,11 @@ export const QuizPage: React.FC = () => {
           />
         }
       />
-      <div
-        style={{
-          position: "absolute",
-          top: "104px",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <S.SubContainer>
         <StatusInfo />
         <Prompt />
         <MultipleChoice />
-      </div>
+      </S.SubContainer>
       <Navbar />
     </S.Container>
   );

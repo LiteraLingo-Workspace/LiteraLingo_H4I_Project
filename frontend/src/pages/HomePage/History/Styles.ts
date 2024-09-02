@@ -1,15 +1,20 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/index";
 
-const Container = styled.div`
+interface Props {
+  expanded: boolean;
+}
+
+const Container = styled.div<Props>`
   position: absolute;
   height: 723px;
   width: 100%;
   z-index: 1;
   overflow: scroll;
+  top: ${(p) => (p.expanded ? 656 : 68)}px;
 `;
 
-const TabContainer = styled.div`
+const TabContainer = styled.div<Props>`
   position: fixed;
   width: 100%;
   background-color: ${theme.colors.coolAccentBg};
@@ -17,6 +22,7 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  height: ${(p) => (p.expanded ? 136 : 80)}px;
 `;
 
 const TextContainer = styled.div`
@@ -31,14 +37,15 @@ const TextContainer = styled.div`
   top: 10px;
 `;
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.div<Props>`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
+  margin-top: ${(p) => (p.expanded ? 0 : 15)}px;
 `;
 
-const HistoryItemContainer = styled.div`
+const HistoryItemContainer = styled.div<Props>`
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -48,6 +55,7 @@ const HistoryItemContainer = styled.div`
   gap: 16px;
   min-height: 600px;
   border-bottom: 15px solid ${theme.colors.coolAccentBg};
+  margin-top: ${(p) => (p.expanded ? 0 : 80)}px;
 `;
 
 const Item = styled.div`
