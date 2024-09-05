@@ -15,14 +15,15 @@ jobs:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run prettier
+        run: npx prettier --write **/*.{ts,tsx,css}
+
+      - name: Commit changes
         run: |
-          # install dependencies
-          npm install
-
-          # run prettier
-          npx prettier --write **/*.{ts,tsx,css}
-
-          # if changed, create commit
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes detected by Prettier. Exiting gracefully."
             exit 0
@@ -31,14 +32,6 @@ jobs:
 
           # Add changes
           git add .
-
-          # Check for diffs in .github/workflows/*.yml file - to be fixed manually
-          for file in .github/workflows/*.yml; do
-            if git diff --staged "$file" | grep -q .; then
-              echo "::warning file=$file::Changes detected in $file."
-              git diff --staged "$file"
-            fi
-          done    
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
