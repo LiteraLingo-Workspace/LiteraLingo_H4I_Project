@@ -42,12 +42,12 @@ jobs:
           done    
 
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Commit changes without including .github/workflows
           git reset .github/workflows/*.yaml
           git commit -m "Prettify!"
 
           # Push changes to the branch
-          git push origin
+          git push
         shell: bash
