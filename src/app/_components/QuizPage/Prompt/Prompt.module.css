@@ -17,3 +17,12 @@
   color: white;
   text-align: center;
 }
+
+@media screen and (max-height: 750px) {
+  .container {
+    height: 70px;
+  }
+  .prompt {
+    line-height: 30px;
+  }
+}

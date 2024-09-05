@@ -10,8 +10,7 @@ export const History: React.FC = () => {
 
   return (
     <div
-      className={styles.container}
-      style={{ top: `${!expanded ? 656 : 68}px` }}
+      className={`${styles.container} ${expanded ? styles.containerExpanded : ""}`}
     >
       <div
         className={styles.tabContainer}

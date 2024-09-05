@@ -15,3 +15,10 @@
   top: 104px;
   width: 100%;
 }
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .subContainer {
+    top: 60px;
+  }
+}

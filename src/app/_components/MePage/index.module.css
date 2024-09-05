@@ -12,5 +12,24 @@
 .subContainer {
   position: absolute;
   top: 104px;
-  width: 344px;
+  width: 100%;
+  max-width: 400px;
+  height: calc(100vh - 104px - 107px);
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+@media screen and (min-width: 400px) {
+  .subContainer {
+    transform: translate(-50%);
+    left: 50%;
+  }
+}
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .subContainer {
+    top: 60px;
+    height: calc(100vh - 60px - 107px);
+  }
 }

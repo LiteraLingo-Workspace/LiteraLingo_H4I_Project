@@ -33,6 +33,17 @@
   background: white;
 }
 
+@media screen and (max-height: 840px) {
+  .choiceContainer {
+    height: 80px;
+  }
+}
+@media screen and (max-height: 750px) {
+  .choiceContainer {
+    height: 64px;
+  }
+}
+
 .questionLabel {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 700;

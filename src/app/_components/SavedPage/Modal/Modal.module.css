@@ -13,8 +13,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 600px;
+  height: calc(100vh - 104px - 107px);
   width: 341px;
+}
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .savedPage {
+    top: 50px;
+  }
+  .savedItems {
+    height: calc(100vh - 60px - 107px);
+  }
 }
 
 .top {
