@@ -1,9 +1,19 @@
 .container {
   position: absolute;
-  height: 723px;
+  bottom: 0;
+  transform: translateY(calc(100% - 175px)) translateX(-50%);
+  max-height: 723px;
+  height: calc(100% - 68px);
   width: 100%;
   z-index: 1;
   overflow: scroll;
+  /* styles for desktop / tablet layout */
+  max-width: 400px;
+  left: 50%;
+}
+
+.containerExpanded {
+  transform: translateY(0) translateX(-50%);
 }
 
 .tabContainer {

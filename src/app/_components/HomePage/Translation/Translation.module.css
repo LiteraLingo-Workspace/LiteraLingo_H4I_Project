@@ -50,6 +50,13 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-height: 766px) {
+  .tBoxContainer {
+    max-height: 344px;
+    height: 33vh;
+  }
+}
+
 .subContainer {
   width: 312px;
   height: 100%;

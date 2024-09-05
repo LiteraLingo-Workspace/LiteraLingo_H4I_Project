@@ -21,7 +21,7 @@ export const TranslationBox: React.FC = () => {
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string
+    value: string,
   ) => {
     useEffect(() => {
       if (textAreaRef) {

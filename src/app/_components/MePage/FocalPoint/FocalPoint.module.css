@@ -9,7 +9,7 @@
 .overviewLabelsContainer {
   flex-wrap: wrap;
   position: relative;
-  width: 363px;
+  width: 344px;
   left: 23px;
   display: flex;
   row-gap: 8px;

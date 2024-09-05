@@ -1,11 +1,12 @@
 .container {
   height: 130px;
+  box-sizing: border-box;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 50px;
+  padding-left: 50px;
   gap: 10px;
 }
 

@@ -20,3 +20,20 @@
   font-weight: 700;
   font-size: 24px;
 }
+
+/* centre on large screens (tablets, laptops) */
+@media screen and (min-width: 400px) {
+  .container {
+    left: calc(50% - 200px);
+  }
+}
+
+/* shrink on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .container {
+    height: 60px;
+  }
+  .subContainer {
+    top: 20px;
+  }
+}

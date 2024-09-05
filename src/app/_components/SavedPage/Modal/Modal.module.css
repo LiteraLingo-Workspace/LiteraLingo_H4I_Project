@@ -10,11 +10,23 @@
 .savedItems {
   overflow: auto;
   position: fixed;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
-  height: 600px;
-  width: 341px;
+  height: calc(100vh - 104px - 107px);
+  width: calc(100% - 49px);
+  /* use grid to fill more space on a bigger screen */
+  max-width: 712px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .savedPage {
+    top: 50px;
+  }
+  .savedItems {
+    height: calc(100vh - 60px - 107px);
+  }
 }
 
 .top {
