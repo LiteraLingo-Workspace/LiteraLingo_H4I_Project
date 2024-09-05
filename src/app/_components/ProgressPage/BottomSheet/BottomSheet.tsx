@@ -13,7 +13,7 @@ export const BottomSheet: React.FC = () => {
 
   return (
     <div
-      className={`${styles.container} ${expanded ? styles.containerExpanded : ''}`}
+      className={`${styles.container} ${expanded ? styles.containerExpanded : ""}`}
     >
       <div
         className={styles.tabContainer}
