@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-    - name: Checkout code
+    - name: Check out
       uses: actions/checkout@v4
       with:
         # Make sure the actual branch is checked out when running on pull requests
