@@ -1,0 +1,19 @@
+.container {
+  height: 95px;
+  width: 344px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--coolAccentBg);
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.prompt {
+  font-family: var(--font-baloo-2), sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 36.85px;
+  color: white;
+  text-align: center;
+}

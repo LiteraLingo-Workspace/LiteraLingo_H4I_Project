@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 64px;
+  border-top-right-radius: 64px;
+  width: 100%;
+  height: 39%;
+  background-color: white;
+}
+
+.loginButton {
+  background-color: var(--coolAccentBg);
+  border-radius: 32px;
+  color: white;
+  width: 300px;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.signupButton {
+  border-radius: 32px;
+  color: white;
+  width: 300px;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(180deg, #f37576 0%, #f1b950 160%);
+}
+
+.buttonText {
+  color: white;
+  font-size: 32px;
+  line-height: 51px;
+  font-weight: 500;
+}
+
+.break {
+  height: 1px;
+  width: 300px;
+  background-color: var(--faintGrey);
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.question {
+  color: var(--secondary);
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: var(--font-poppins), sans-serif;
+}

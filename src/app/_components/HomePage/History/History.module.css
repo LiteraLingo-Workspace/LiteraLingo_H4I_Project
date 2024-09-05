@@ -1,0 +1,116 @@
+.container {
+  position: absolute;
+  height: 723px;
+  width: 100%;
+  z-index: 1;
+  overflow: scroll;
+}
+
+.tabContainer {
+  position: fixed;
+  width: 100%;
+  background-color: var(--coolAccentBg);
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+  width: 344px;
+  color: white;
+  background-color: transparent;
+  font-family: var(--font-baloo-2), sans-serif;
+  position: relative;
+  top: 10px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32.04px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--veryLight);
+}
+
+.historyItemContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 24px 80px 24px;
+  gap: 16px;
+  min-height: 600px;
+  border-bottom: 15px solid var(--coolAccentBg);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--faintBlue);
+  height: 86px;
+  width: 344px;
+  border-radius: 12px;
+}
+
+.itemTop {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  height: 32px;
+  width: 325px;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: center;
+  color: var(--secondary);
+}
+
+.itemType {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.itemButtons {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  align-items: center;
+  gap: 4px;
+}
+
+.itemBottom {
+  background-color: transparent;
+  height: 30px;
+  width: 311px;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  color: var(--primary);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.itemBottomText {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}

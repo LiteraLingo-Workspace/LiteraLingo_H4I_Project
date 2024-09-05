@@ -1,0 +1,51 @@
+.positionContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  bottom: 23px;
+  height: 72px;
+  width: 330px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 4px 8px 4px 8px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  box-shadow: 0 0 40px #98a8ba33;
+  z-index: 10;
+}
+
+.linkContainer {
+  height: 83px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.text {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 500;
+  position: absolute;
+  top: 51px;
+}
+
+.homeIconBackground {
+  width: 61px;
+  height: 56px;
+  position: relative;
+  top: 3.5px;
+  border-radius: 30.5px;
+  background: #f37576;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

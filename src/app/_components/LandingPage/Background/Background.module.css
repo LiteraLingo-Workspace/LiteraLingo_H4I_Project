@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60%;
+  margin-bottom: 10px;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 40px;
+  line-height: 88px;
+  font-weight: 600;
+}
+
+.slogan1 {
+  color: var(--primary);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+.slogan2 {
+  color: var(--primary);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: -75px;
+}
