@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { resultOf } from "node_modules/@trpc/client/dist/links/internals/urlWithConnectionParams";
 import Configuration, { OpenAI } from "openai";
 
 const configuration = new Configuration({
