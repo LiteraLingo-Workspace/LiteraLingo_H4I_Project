@@ -68,7 +68,7 @@ For more information about dynamic page routing, see the [Next.js docs](https://
 ### Sending HTTP requests from the frontend
 
 View the example file in `src/app/_components/user.tsx` for an example about how you can make an endpoint call from the frontend.
-Import the `<LatestUser/>` component on some random page and play around.
+Import the `<LatestUser />` component on some random page and play around.
 
 ### Testing your endpoints with Postman
 
