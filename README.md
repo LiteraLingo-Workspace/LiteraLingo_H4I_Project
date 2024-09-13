@@ -83,6 +83,7 @@ To create a new user with the properties `name`, `email`, and `password`, send a
 All `ROUTERNAME`s are specified under `src/server/api/routers` and all `ROUTERMETHODNAME`s can be found under the respective router file (e.g. the `hello`, `create`, and `getLatest` methods in the previous examples can be found in `src/server/api/routers/user.tsx`).
 
 Notice how in a GET request, we send a payload in the URL itself, but in a POST request, it's sent as part of the request's body. <br/>
+
 To learn more, see the [tRPC docs](https://trpc.io/docs/rpc).
 
 ## 📃 License
