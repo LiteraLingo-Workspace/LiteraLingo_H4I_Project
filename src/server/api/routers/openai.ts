@@ -24,7 +24,7 @@ export const openaiRouter = createTRPCRouter({
         if (error instanceof Error) {
           throw new Error(`OpenAI API error: ${error.message}`);
         } else {
-          throw new Error('An unknown error occurred');
+          throw new Error("An unknown error occurred");
         }
       }
     }),
