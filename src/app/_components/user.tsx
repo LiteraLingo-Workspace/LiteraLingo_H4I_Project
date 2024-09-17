@@ -22,7 +22,10 @@ export function LatestUser() {
   return (
     <div>
       {latestUser ? (
-        <p>Most recent name: {latestUser.name}</p>
+        <p>
+          Most recent user: {latestUser.name}, {latestUser.email},{" "}
+          {latestUser.password}
+        </p>
       ) : (
         <p>You have no users created yet.</p>
       )}
@@ -35,9 +38,21 @@ export function LatestUser() {
       >
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" disabled={createUser.isPending}>
           {createUser.isPending ? "Submitting..." : "Submit"}
