@@ -20,8 +20,12 @@ export const openaiRouter = createTRPCRouter({
         });
 
         return { result: response.created };
-      } catch (error: any) {
-        throw new Error(`OpenAI API error: ${error.message}`);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          throw new Error(`OpenAI API error: ${error.message}`);
+        } else {
+          throw new Error('An unknown error occurred');
+        }
       }
     }),
 });
