@@ -3,10 +3,13 @@
 import { useState } from "react";
 import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
+import { text } from "stream/consumers";
 
 export const MultipleChoice: React.FC = () => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
+
+  const textChoices = ["Her promises can be believed.", "Her promises cannot be trusted.", "Her words sound challenging to understand."];
 
   const handleChoiceClick = (choice: string, isCorrect: boolean) => {
     setSelectedChoice(choice);
@@ -28,22 +31,22 @@ export const MultipleChoice: React.FC = () => {
         <div className={styles.choicesContainer}>
 
           <Choice 
-            text="Her promises can be believed." 
+            text={textChoices[0]!} 
             isCorrect={true}
-            selected={selectedChoice === "Her promises can be believed."}
-            onClick={() => handleChoiceClick("Her promises can be believed.", true)}
+            selected={selectedChoice === textChoices[0]}
+            onClick={() => handleChoiceClick(textChoices[0]!, true)}
           />
           <Choice 
-            text="Her promises cannot be trusted." 
+            text={textChoices[1]!}
             isCorrect={false}
-            selected={selectedChoice === "Her promises cannot be trusted."}
-            onClick={() => handleChoiceClick("Her promises cannot be trusted.", false)}
+            selected={selectedChoice === textChoices[1]}
+            onClick={() => handleChoiceClick(textChoices[1]!, false)}
           />
           <Choice 
-            text="Her words sound challenging to understand." 
+            text={textChoices[2]!}
             isCorrect={false}
-            selected={selectedChoice === "Her words sound challenging to understand."}
-            onClick={() => handleChoiceClick("Her words sound challenging to understand.", false)}
+            selected={selectedChoice === textChoices[2]}
+            onClick={() => handleChoiceClick(textChoices[2]!, false)}
           />
           
         </div>
