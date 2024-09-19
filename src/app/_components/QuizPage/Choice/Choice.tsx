@@ -9,12 +9,16 @@ interface ChoiceProps {
 }
 
 export const Choice: React.FC<ChoiceProps> = ({ text, selected, onClick }) => {
-    return (
-      <div
-        className={selected ? styles.selectedChoiceContainer : styles.choiceContainer}
-        onClick={onClick}
-      >
-        <p className={selected ? styles.selectedChoiceText : styles.choiceText}>{text}</p>
-      </div>
-    );
-  };
+  return (
+    <div
+      className={
+        selected ? styles.selectedChoiceContainer : styles.choiceContainer
+      }
+      onClick={onClick}
+    >
+      <p className={selected ? styles.selectedChoiceText : styles.choiceText}>
+        {text}
+      </p>
+    </div>
+  );
+};
