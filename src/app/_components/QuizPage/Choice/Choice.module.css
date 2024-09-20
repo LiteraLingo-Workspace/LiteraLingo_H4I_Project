@@ -7,7 +7,7 @@
   align-items: center;
   border: 2px solid var(--coolDark);
   border-radius: 16px;
-  box-shadow: 0px 4px 0px 0px rgba(100, 174, 198, 1);
+  box-shadow: 0px 4px 0px 0px var(--coolAccentBg);
   cursor: pointer;
   background: white;
 }
@@ -23,7 +23,7 @@
   border-radius: 16px;
   box-shadow: 0px 4px 0px 0px black;
   cursor: pointer;
-  background: rgba(100, 174, 198, 1); /* Light blue color */
+  background: var(--coolAccentBg);
 }
 
 @media screen and (max-height: 840px) {
