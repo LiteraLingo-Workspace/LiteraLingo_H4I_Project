@@ -42,7 +42,7 @@ psql -U postgres -D literalingo
 
 # Grant permissions to yourself from your superuser:
 # example below: if your username is postgres:
-GRANT CREATE ON SCHEMA public TO postgres; 
+GRANT CREATE ON SCHEMA public TO postgres;
 
 # Ensure you can create a table by running:
 CREATE TABLE xyz (a VARCHAR(100));

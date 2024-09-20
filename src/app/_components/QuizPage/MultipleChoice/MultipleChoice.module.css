@@ -19,31 +19,6 @@
   gap: 15px;
 }
 
-.choiceContainer {
-  display: flex;
-  flex-direction: column;
-  height: 95px;
-  width: 344px;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--coolDark);
-  border-radius: 16px;
-  box-shadow: 0px 4px 0px 0px rgba(100, 174, 198, 1);
-  cursor: pointer;
-  background: white;
-}
-
-@media screen and (max-height: 840px) {
-  .choiceContainer {
-    height: 80px;
-  }
-}
-@media screen and (max-height: 750px) {
-  .choiceContainer {
-    height: 64px;
-  }
-}
-
 .questionLabel {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 700;
