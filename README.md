@@ -40,6 +40,20 @@ npm i && npm run dev
 
 ```
 
+### Database
+```shell
+# Ensure that database is synced with schemas
+npx prisma db push
+
+# Seeding the database
+npm run seed
+
+# Testing that the seed worked
+npm run seed-test
+
+```
+
+
 ## 📚 Documentation
 
 ### How to format your code
