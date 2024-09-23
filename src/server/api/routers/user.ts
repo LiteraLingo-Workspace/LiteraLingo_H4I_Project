@@ -10,6 +10,7 @@ export const userRouter = createTRPCRouter({
         greeting: `Hello ${input.text}`,
       };
     }),
+  // GET to http://localhost:3000/api/trpc/user.hello?batch=1&input={"0":{"json": {"text": "world"}}}
 
   create: publicProcedure
     .input(
@@ -28,6 +29,8 @@ export const userRouter = createTRPCRouter({
         },
       });
     }),
+  // POST to http://localhost:3000/api/trpc/user.create?batch=1
+  // send as payload: {"0":{"json": {"name": "...","email": "...","password": "..."}}}
 
   getLatest: publicProcedure.query(async ({ ctx }) => {
     const user = await ctx.db.user.findFirst({
@@ -36,4 +39,5 @@ export const userRouter = createTRPCRouter({
 
     return user ?? null;
   }),
+  // GET to http://localhost:3000/api/trpc/user.getLatest?batch=1
 });
