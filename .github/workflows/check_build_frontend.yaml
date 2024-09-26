@@ -6,7 +6,7 @@ on:
 
 env:
   DATABASE_URL: postgresql://postgres:password123@localhost:5432/literalingo
-  OPENAI_API_KEY: 
+  OPENAI_API_KEY: 1
 
 jobs:
   compile:
