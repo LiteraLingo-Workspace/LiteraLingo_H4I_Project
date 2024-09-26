@@ -59,6 +59,12 @@ DROP xyz;
 # Sync up your Prisma schema with your db
 npx prisma db push
 
+# Seeding the database
+npm run seed
+
+# Testing that the seed worked
+npm run seed-test
+
 ```
 
 ## 📚 Documentation
