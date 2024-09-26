@@ -1,6 +1,7 @@
 model HistoryEntry {
     id Int @id @default(autoincrement())
     textEntered String
+    outputText String
     isFavorite Boolean @default(false)
 
     author User @relation(fields: [historyEntryId], references: [id])
