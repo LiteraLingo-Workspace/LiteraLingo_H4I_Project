@@ -35,7 +35,9 @@ export const SignupModal: React.FC = () => {
       <input className={styles.inputField} type="password" />
       <p className={styles.label}>Re-enter your password</p>
       <input className={styles.inputField} type="password" />
-      <button className={styles.button}>Sign up</button>
+      <button
+        className={styles.button}
+        onClick={() => router.push("/home")}>Sign up</button>
     </div>
   );
 };

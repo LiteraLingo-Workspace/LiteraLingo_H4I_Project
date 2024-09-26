@@ -31,7 +31,10 @@ export const LoginModal: React.FC = () => {
       />
       <p className={styles.label}>Enter your password</p>
       <input className={styles.inputField} type="password" />
-      <button className={styles.button}>Sign in</button>
+      <button
+        className={styles.button}
+        onClick={() => router.push("/home")}>Sign in
+      </button>
     </div>
   );
 };

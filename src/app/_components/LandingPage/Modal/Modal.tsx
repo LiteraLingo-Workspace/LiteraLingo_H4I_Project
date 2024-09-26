@@ -12,6 +12,7 @@ export const Modal: React.FC = () => {
         className={styles.loginButton}
         onClick={() => router.push("/login")}
       >
+
         <p className={styles.buttonText}>Sign In</p>
       </button>
       <div className={styles.break} />
