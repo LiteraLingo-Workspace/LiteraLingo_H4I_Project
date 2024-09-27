@@ -34,12 +34,36 @@ docker -v
 npm i && npm run dev
 
 # Start the backend
+# Ensure your PostgreSQL CLI is set up correctly by creating a role, password, and database corresponding to the connection string in env.js (database should be called literalingo, username can be postgres, password can be password123)
+
+# Connect to your database via the CLI with:
+psql <your-connection-string-here> OR
+psql -U postgres -D literalingo
+
+# Grant permissions to yourself from your superuser:
+# example below: if your username is postgres:
+GRANT CREATE ON SCHEMA public TO postgres;
+
+# Ensure you can create a table by running:
+CREATE TABLE xyz (a VARCHAR(100));
+
+# Verify the table was created with:
+\dt
+
+# If successful, delete the table with:
+DROP xyz;
 
 # Run the following script to start the containerized backend
 ./start-database.sh
 
 # Sync up your Prisma schema with your db
 npx prisma db push
+
+# Seeding the database
+npm run seed
+
+# Testing that the seed worked
+npm run seed-test
 
 ```
 

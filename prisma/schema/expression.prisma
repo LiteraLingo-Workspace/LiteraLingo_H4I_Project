@@ -1,0 +1,9 @@
+model Expression {
+  id Int @id @default(autoincrement())
+  literal String
+  figurative String
+  isCorrect Boolean @default(false)
+  moduleId Int
+  
+  module Module @relation(fields: [moduleId], references: [id])
+}
