@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const historyEntryRouter = createTRPCRouter({
   // Endpoint to fetch a HistoryEntry by ID
-  // Example: GET http://localhost:3000/api/trpc/saved.getHistoryEntryById?batch=1&input={"0":{"json": {"id": 1}}}
+  // Example: GET http://localhost:3000/api/trpc/historyEntry.getHistoryEntryById?batch=1&input={"0":{"json": {"id": 1}}}
   getHistoryEntryById: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ ctx, input }) => {
@@ -21,7 +21,7 @@ export const historyEntryRouter = createTRPCRouter({
     }),
 
   // Endpoint to update a HistoryEntry object favorite field by ID and payload
-  // Example: POST http://localhost:3000/api/trpc/saved.updateIsFavorite?batch=1 with payload {"0":{"json":{"id": 1, "isFavorite": false}}}
+  // Example: POST http://localhost:3000/api/trpc/historyEntry.updateIsFavorite?batch=1 with payload {"0":{"json":{"id": 1, "isFavorite": false}}}
   updateIsFavorite: publicProcedure
     .input(
       z.object({
