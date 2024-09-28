@@ -30,8 +30,20 @@ docker -v
 
 # Start the frontend
 
-# Install dependencies and start the dev server
-npm i && npm run dev
+# Install dependencies
+npm i
+
+# Add the appropriate environment variables
+
+# For NEXTAUTH_SECRET, run the following in the terminal and paste the output
+openssl rand -base64 32
+
+# For GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET, you must generate Google Cloud OAuth 2.0 Client IDs (https://console.cloud.google.com)
+# Once you've done so, paste them in
+
+# Start the dev server
+npm run dev
+
 
 # Start the backend
 # Ensure your PostgreSQL CLI is set up correctly by creating a role, password, and database corresponding to the connection string in env.js (database should be called literalingo, username can be postgres, password can be password123)
