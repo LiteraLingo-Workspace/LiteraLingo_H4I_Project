@@ -104,21 +104,15 @@ For more information about dynamic page routing, see the [Next.js docs](https://
 ### Sending HTTP requests from the frontend
 
 View the example file in `src/app/_components/user.tsx` for an example about how you can make an endpoint call from the frontend.
-Import the `<LatestUser />` component on some random page and play around.
 
 ### Testing your endpoints with Postman
 
-To test an endpoint, send a request to `localhost:3000/api/trpc/{ROUTERNAME}.{ROUTERMETHODNAME}?batch=1&input={...}`
+To test an endpoint, send a request to `localhost:3000/api/trpc/{ROUTERNAME}.{ROUTERMETHODNAME}?batch=1` <br/>
+If you're sending a POST request, the payload must be appended to the URL as `&input={...}` rather than sent as part of the request body.
 
-For example, to say hello to a user based on their name, send a GET request to `http://localhost:3000/api/trpc/user.hello?batch=1&input={"0":{"json": {"text": "World"}}}` with no payload body.
+For example, to say hello to a user based on their name, send a GET request to `http://localhost:3000/api/trpc/test.hello?batch=1&input={"0":{"json": {"text": "World"}}}` with no payload body.
 
-To get the latest created user, send a GET request to `http://localhost:3000/api/trpc/user.getLatest?batch=1` <br/>
-
-To create a new user with the properties `name`, `email`, and `password`, send a POST request to `http://localhost:3000/api/trpc/user.create?batch=1` with the payload body `{"0":{"json": {"name": "...","email": "...","password": "..."}}}`.
-
-All `ROUTERNAME`s are specified under `src/server/api/routers` and all `ROUTERMETHODNAME`s can be found under the respective router file (e.g. the `hello`, `create`, and `getLatest` methods in the previous examples can be found in `src/server/api/routers/user.tsx`).
-
-Notice how in a GET request, we send a payload in the URL itself, but in a POST request, it's sent as part of the request's body. <br/>
+All `ROUTERNAME`s are specified under `src/server/api/routers` and all `ROUTERMETHODNAME`s can be found under the respective router file (e.g. the `hello`, method in the previous example can be found in `src/server/api/routers/test.tsx`).
 
 To learn more, see the [tRPC docs](https://trpc.io/docs/rpc).
 
