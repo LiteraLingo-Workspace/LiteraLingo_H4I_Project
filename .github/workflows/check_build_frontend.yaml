@@ -8,9 +8,9 @@ env:
   DATABASE_URL: postgresql://postgres:password123@localhost:5432/literalingo
   OPENAI_API_KEY: 1
   NEXTAUTH_URL: http://localhost:3000
-  NEXTAUTH_SECRET: ""
-  GOOGLE_CLIENT_ID: ""
-  GOOGLE_CLIENT_SECRET: ""
+  NEXTAUTH_SECRET: TZKSdGjE8j1DNLjQNUalo8gOzpJmVKiGsE9LdXRVVzM=
+  GOOGLE_CLIENT_ID: e
+  GOOGLE_CLIENT_SECRET: e
 
 jobs:
   compile:
