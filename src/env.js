@@ -8,6 +8,17 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    NEXTAUTH_SECRET:
+      process.env.NODE_ENV === "production"
+        ? z.string()
+        : z.string().optional(),
+    NEXTAUTH_URL: z.preprocess(
+      (str) => process.env.VERCEL_URL ?? str,
+      // vercel url doesnt include 'https' so it cant be validated as a url
+      process.env.VERCEL ? z.string() : z.string().url()
+    ),
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
   },
 
   // specify client-side environment variables schema here so you can ensure the app isn't built with invalid env vars
@@ -20,7 +31,10 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
-    // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   },
 
   // run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation

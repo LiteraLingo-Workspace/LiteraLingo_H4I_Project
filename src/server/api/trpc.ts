@@ -1,7 +1,8 @@
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
+import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 
 // CONTEXT
@@ -10,15 +11,18 @@ import { db } from "~/server/db";
 // this helper generates the "internals" for a tRPC context
 // the API handler and RSC clients each wrap this and provides the required context (https://trpc.io/docs/server/context)
 export const createTRPCContext = async (opts: { headers: Headers }) => {
+  const session = await getServerAuthSession();
+
   return {
     db,
+    session,
     ...opts,
   };
 };
 
 // INITIALIZATION
 // tRPC API is initialized, connecting the context and transformer
-// ZodErrors also get parsed for typesafety on the frontend if your procedure fails due to validation errors on the backend.
+// ZodErrors also get parsed for typesafety on the frontend if your procedure fails due to validation errors on the backend
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
@@ -65,3 +69,20 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
 // base piece you use to build new queries and mutations on your tRPC API
 // does not guarantee that a user querying is authorized but you can still access user session data if theyre logged in
 export const publicProcedure = t.procedure.use(timingMiddleware);
+
+// protected (authenticated) procedure
+// if you want a query or mutation to be accessible to logged in users only
+// verifies the session is valid and guarantees 'ctx.session.user' is not null
+export const protectedProcedure = t.procedure
+  .use(timingMiddleware)
+  .use(({ ctx, next }) => {
+    if (!ctx.session || !ctx.session.user) {
+      throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+    return next({
+      ctx: {
+        // infers the 'session' as non-nullable
+        session: { ...ctx.session, user: ctx.session.user },
+      },
+    });
+  });
