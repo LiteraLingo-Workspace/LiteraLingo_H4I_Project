@@ -38,7 +38,7 @@ npm i
 # For NEXTAUTH_SECRET, run the following in the terminal and paste the output
 openssl rand -base64 32
 
-# For GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET, you must generate Google Cloud OAuth 2.0 Client IDs (https://console.cloud.google.com)
+# For GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET, you must generate Google Cloud OAuth 2.0 Client IDs. See details below (https://console.cloud.google.com)
 # Once you've done so, paste them in
 
 # Start the dev server
@@ -100,6 +100,12 @@ To create a page, create a file called `page.tsx` in a new directory under `src/
 ![Next.js page routing diagram](documentation-pic1.png)
 
 For more information about dynamic page routing, see the [Next.js docs](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
+
+### Creating Google Cloud APIs
+
+Open [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create a project, and create an OAuth consent screen. Add your own Google Account as a test user.
+
+Switch to the credentials page, click create credentials, then OAuth Client ID. Set Application type to Web Application, `http://localhost:3000` as an authorized JavaScript origin, and `http://localhost:3000/api/auth/callback/google` as an Authorized Redirect URL.
 
 ### Sending HTTP requests from the frontend
 
