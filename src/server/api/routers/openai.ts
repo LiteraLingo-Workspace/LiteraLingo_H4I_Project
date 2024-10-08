@@ -8,6 +8,10 @@ const configuration = new Configuration({
 
 const openai = new OpenAI({ ...configuration });
 
+  // GET to http://localhost:3000/api/trpc/openai.translate?batch=1
+  // No Content-Type specified in header
+  // JSON: {"0":{"json": {"text": "hello world"}}}
+
 export const openaiRouter = createTRPCRouter({
   translate: publicProcedure
     .input(z.object({ text: z.string() }))

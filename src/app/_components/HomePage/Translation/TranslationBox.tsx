@@ -7,17 +7,28 @@ import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
-import data from "../../../data/translations.json";
+import { api } from "../../../../trpc/react"; // import tRPC client
 
 type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
   const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
+
+  const { mutate } = api.openai.translate.useMutation({
+    onSuccess: (data) => {
+      setIsLoading(false);
+      setResult("OpenAI route successfully called."); // placeholder
+    },
+    onError: (error) => {
+      setIsLoading(false);
+      setResult("An error occurred.");
+    }
+  })
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
@@ -66,11 +77,8 @@ export const TranslationBox: React.FC = () => {
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
-                  if (translations.hasOwnProperty(value)) {
-                    setResult(translations[value] ?? "error");
-                  } else {
-                    setResult("error");
-                  }
+                  setIsLoading(true);
+                  mutate({ text: value });
                 }}
               >
                 <p style={{ marginLeft: "5px" }}>Go</p>
@@ -105,8 +113,8 @@ export const TranslationBox: React.FC = () => {
             ></textarea>
             <div className={styles.break} />
             <p className={styles.label}>Literal</p>
-            <p className={styles.result}>{result}</p>
-          </div>
+            <p className={styles.result}>{isLoading ? "Loading..." : result}</p>
+            </div>
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
               <button
