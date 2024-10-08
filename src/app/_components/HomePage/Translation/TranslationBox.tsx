@@ -8,6 +8,8 @@ import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
+import data from "../../../data/translations.json";
+
 
 type JsonData = Record<string, string>;
 
@@ -18,6 +20,7 @@ export const TranslationBox: React.FC = () => {
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
@@ -79,6 +82,14 @@ export const TranslationBox: React.FC = () => {
                   setCanType(false);
                   setIsLoading(true);
                   mutate({ text: value });
+                  // BELOW WAS LEFT IN FOR TESTING PURPOSES
+                  // SINCE OPENAI KEY HAS LIMITED CALLS
+                  
+                  // if (translations.hasOwnProperty(value)) {
+                  //   setResult(translations[value] ?? "error");
+                  // } else {
+                  //   setResult("error");
+                  // }
                 }}
               >
                 <p style={{ marginLeft: "5px" }}>Go</p>
@@ -124,6 +135,11 @@ export const TranslationBox: React.FC = () => {
                   setCanType(true);
                   setValue("");
                   setResult("");
+                  if (translations.hasOwnProperty(value)) {
+                    setResult(translations[value] ?? "error");
+                  } else {
+                    setResult("error");
+                  }
                 }}
               >
                 <BsArrowCounterclockwise />
