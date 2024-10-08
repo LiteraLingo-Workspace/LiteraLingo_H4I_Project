@@ -27,7 +27,7 @@ export const TranslationBox: React.FC = () => {
       setIsLoading(false);
       setResult("OpenAI route successfully called."); // placeholder
     },
-    onError: (error) => {
+    onError: () => {
       setIsLoading(false);
       setResult("An error occurred.");
     }
@@ -84,7 +84,7 @@ export const TranslationBox: React.FC = () => {
                   mutate({ text: value });
                   // BELOW WAS LEFT IN FOR TESTING PURPOSES
                   // SINCE OPENAI KEY HAS LIMITED CALLS
-                  
+
                   // if (translations.hasOwnProperty(value)) {
                   //   setResult(translations[value] ?? "error");
                   // } else {
