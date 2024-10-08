@@ -135,11 +135,6 @@ export const TranslationBox: React.FC = () => {
                   setCanType(true);
                   setValue("");
                   setResult("");
-                  if (translations.hasOwnProperty(value)) {
-                    setResult(translations[value] ?? "error");
-                  } else {
-                    setResult("error");
-                  }
                 }}
               >
                 <BsArrowCounterclockwise />
