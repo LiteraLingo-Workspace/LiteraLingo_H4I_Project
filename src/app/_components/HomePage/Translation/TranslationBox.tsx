@@ -66,8 +66,8 @@ export const TranslationBox: React.FC = () => {
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
-                  if (translations.hasOwnProperty(value)) {
-                    setResult(translations[value] ?? "error");
+                  if (translations.hasOwnProperty(value.toLowerCase())) {
+                    setResult(translations[value.toLowerCase()] ?? "error");
                   } else {
                     setResult("error");
                   }
