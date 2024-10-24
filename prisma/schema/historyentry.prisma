@@ -4,6 +4,6 @@ model HistoryEntry {
     outputText String
     isFavorite Boolean @default(false)
 
-    author         User @relation(fields: [historyEntryId], references: [id])
-    historyEntryId String
+    author         User @relation(fields: [userId], references: [id])
+    userId String
 }

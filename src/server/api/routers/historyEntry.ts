@@ -10,7 +10,7 @@ export const historyEntryRouter = createTRPCRouter({
         textEntered: z.string().min(1),
         outputText: z.string().min(1),
         isFavorite: z.boolean().optional(),
-        historyEntryId: z.number(),
+        userId: z.string().min(1),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -19,7 +19,7 @@ export const historyEntryRouter = createTRPCRouter({
           textEntered: input.textEntered,
           outputText: input.outputText,
           isFavorite: input.isFavorite,
-          historyEntryId: input.historyEntryId,
+          userId: input.userId,
         },
       });
     }),
