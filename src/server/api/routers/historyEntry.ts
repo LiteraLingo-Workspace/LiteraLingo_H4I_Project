@@ -3,17 +3,26 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const historyEntryRouter = createTRPCRouter({
   // Endpoint to create a HistoryEntry
-  // EXAMPLE: POST http://localhost:3000/api/trpc/historyEntry.create?batch=1 
+  // EXAMPLE: POST http://localhost:3000/api/trpc/historyEntry.create?batch=1
   create: publicProcedure
     .input(
       z.object({
         textEntered: z.string().min(1),
         outputText: z.string().min(1),
         isFavorite: z.boolean().optional(),
-        userId: z.string().min(1),
+        userId: z.string(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const user = await ctx.db.user.findUnique({
+        where: {
+          id: input.userId,
+        },
+      });
+
+      if (!user) {
+        throw new Error("User not found");
+      }
       return ctx.db.historyEntry.create({
         data: {
           textEntered: input.textEntered,
@@ -48,7 +57,7 @@ export const historyEntryRouter = createTRPCRouter({
       z.object({
         id: z.number(),
         isFavorite: z.boolean(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       const updatedHistoryEntry = await ctx.db.historyEntry.update({
@@ -67,4 +76,3 @@ export const historyEntryRouter = createTRPCRouter({
       return updatedHistoryEntry;
     }),
 });
-
