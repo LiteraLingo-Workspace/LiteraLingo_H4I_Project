@@ -30,7 +30,7 @@ export const openaiRouter = createTRPCRouter({
           max_tokens: 60,
         });
 
-        return { result: response.choices[0]?.message, data: response };
+        return { result: response.choices[0]?.message.content, data: response };
       } catch (error: unknown) {
         if (error instanceof Error) {
           throw new Error(`OpenAI API error: ${error.message}`);

@@ -14,7 +14,7 @@ type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<String>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
@@ -25,7 +25,7 @@ export const TranslationBox: React.FC = () => {
     onSuccess: (data) => {
       setIsLoading(false);
       console.log(data);
-      setResult(data.result); // placeholder
+      setResult(data.result ? data.result : "An error occurred.");
     },
     onError: () => {
       setIsLoading(false);
