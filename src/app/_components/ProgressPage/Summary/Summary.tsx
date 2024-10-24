@@ -1,6 +1,6 @@
 import styles from "./Summary.module.css";
 import { Level } from "./Level";
-import { TypeLabel } from "../../../_components/shared/TypeLabel/TypeLabel";
+import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { theme } from "../../../../styles";
 
 export const Summary: React.FC = () => {

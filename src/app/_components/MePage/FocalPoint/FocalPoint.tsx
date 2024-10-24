@@ -2,7 +2,7 @@ import styles from "./FocalPoint.module.css";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { TitleContainer } from "../TitleContainer";
 import { theme } from "../../../../styles/index";
-import { TypeLabel } from "../../../_components/shared/TypeLabel/TypeLabel";
+import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 
 export const FocalPoint: React.FC = () => {
   return (

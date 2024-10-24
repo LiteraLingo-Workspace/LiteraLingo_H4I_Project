@@ -1,5 +1,5 @@
-import { Header } from "../../_components/shared/Header/Header";
-import { Navbar } from "../../_components/shared/Navbar/Navbar";
+import { Header } from "../shared/Header/Header";
+import { Navbar } from "../shared/Navbar/Navbar";
 import { theme } from "../../../styles/index";
 import { Background } from "./Background/index";
 import { Modal } from "./Modal/index";

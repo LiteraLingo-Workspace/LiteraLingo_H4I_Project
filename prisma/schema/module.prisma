@@ -1,11 +1,11 @@
 model Module {
-  id Int @id @default(autoincrement())
-  title String
-  description String
-  progress Int
-  level Int
+  id            Int @id @default(autoincrement())
+  title         String
+  description   String
+  progress      Int
+  level         Int
   dateCompleted DateTime
-  expressions Expression[]
+  expressions   Expression[]
 
   @@index([title])
 }

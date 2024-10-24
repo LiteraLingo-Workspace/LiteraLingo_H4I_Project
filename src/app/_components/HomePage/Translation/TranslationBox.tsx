@@ -5,7 +5,7 @@ import { theme } from "../../../../styles/index";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
-import { TypeLabel } from "../../../_components/shared/TypeLabel/TypeLabel";
+import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
 import data from "../../../data/translations.json";
 
@@ -21,7 +21,7 @@ export const TranslationBox: React.FC = () => {
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string,
+    value: string
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -66,8 +66,8 @@ export const TranslationBox: React.FC = () => {
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
-                  if (translations.hasOwnProperty(value)) {
-                    setResult(translations[value] ?? "error");
+                  if (translations.hasOwnProperty(value.toLowerCase())) {
+                    setResult(translations[value.toLowerCase()] ?? "error");
                   } else {
                     setResult("error");
                   }

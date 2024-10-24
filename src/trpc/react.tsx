@@ -13,10 +13,10 @@ import { createQueryClient } from "./query-client";
 let clientQueryClientSingleton: QueryClient | undefined = undefined;
 const getQueryClient = () => {
   if (typeof window === "undefined") {
-    // server: always make a new query client
+    // Server: always make a new query client
     return createQueryClient();
   }
-  // browser: use singleton pattern to keep the same query client
+  // Browser: use singleton pattern to keep the same query client
   return (clientQueryClientSingleton ??= createQueryClient());
 };
 
@@ -51,7 +51,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
           },
         }),
       ],
-    }),
+    })
   );
 
   return (

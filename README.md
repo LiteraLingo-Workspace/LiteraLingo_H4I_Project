@@ -30,8 +30,20 @@ docker -v
 
 # Start the frontend
 
-# Install dependencies and start the dev server
-npm i && npm run dev
+# Install dependencies
+npm i
+
+# Add the appropriate environment variables
+
+# For NEXTAUTH_SECRET, run the following in the terminal and paste the output
+openssl rand -base64 32
+
+# For GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET, you must generate Google Cloud OAuth 2.0 Client IDs. See details below (https://console.cloud.google.com)
+# Once you've done so, paste them in
+
+# Start the dev server
+npm run dev
+
 
 # Start the backend
 # Ensure your PostgreSQL CLI is set up correctly by creating a role, password, and database corresponding to the connection string in env.js (database should be called literalingo, username can be postgres, password can be password123)
@@ -89,24 +101,24 @@ To create a page, create a file called `page.tsx` in a new directory under `src/
 
 For more information about dynamic page routing, see the [Next.js docs](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
 
+### Creating Google Cloud APIs
+
+Open [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create a project, and create an OAuth consent screen. Add your own Google Account as a test user.
+
+Switch to the credentials page, click create credentials, then OAuth Client ID. Set Application type to Web Application, `http://localhost:3000` as an authorized JavaScript origin, and `http://localhost:3000/api/auth/callback/google` as an Authorized Redirect URL.
+
 ### Sending HTTP requests from the frontend
 
 View the example file in `src/app/_components/user.tsx` for an example about how you can make an endpoint call from the frontend.
-Import the `<LatestUser />` component on some random page and play around.
 
 ### Testing your endpoints with Postman
 
-To test an endpoint, send a request to `localhost:3000/api/trpc/{ROUTERNAME}.{ROUTERMETHODNAME}?batch=1&input={...}`
+To test an endpoint, send a request to `localhost:3000/api/trpc/{ROUTERNAME}.{ROUTERMETHODNAME}?batch=1` <br/>
+If you're sending a POST request, the payload must be appended to the URL as `&input={...}` rather than sent as part of the request body.
 
-For example, to say hello to a user based on their name, send a GET request to `http://localhost:3000/api/trpc/user.hello?batch=1&input={"0":{"json": {"text": "World"}}}` with no payload body.
+For example, to say hello to a user based on their name, send a GET request to `http://localhost:3000/api/trpc/test.hello?batch=1&input={"0":{"json": {"text": "World"}}}` with no payload body.
 
-To get the latest created user, send a GET request to `http://localhost:3000/api/trpc/user.getLatest?batch=1` <br/>
-
-To create a new user with the properties `name`, `email`, and `password`, send a POST request to `http://localhost:3000/api/trpc/user.create?batch=1` with the payload body `{"0":{"json": {"name": "...","email": "...","password": "..."}}}`.
-
-All `ROUTERNAME`s are specified under `src/server/api/routers` and all `ROUTERMETHODNAME`s can be found under the respective router file (e.g. the `hello`, `create`, and `getLatest` methods in the previous examples can be found in `src/server/api/routers/user.tsx`).
-
-Notice how in a GET request, we send a payload in the URL itself, but in a POST request, it's sent as part of the request's body. <br/>
+All `ROUTERNAME`s are specified under `src/server/api/routers` and all `ROUTERMETHODNAME`s can be found under the respective router file (e.g. the `hello`, method in the previous example can be found in `src/server/api/routers/test.tsx`).
 
 To learn more, see the [tRPC docs](https://trpc.io/docs/rpc).
 
