@@ -10,12 +10,11 @@ import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
 
-
 type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
@@ -25,17 +24,18 @@ export const TranslationBox: React.FC = () => {
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
       setIsLoading(false);
-      setResult("OpenAI route successfully called."); // placeholder
+      console.log(data);
+      setResult(data.result); // placeholder
     },
     onError: () => {
       setIsLoading(false);
       setResult("An error occurred.");
-    }
-  })
+    },
+  });
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string
+    value: string,
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -125,7 +125,7 @@ export const TranslationBox: React.FC = () => {
             <div className={styles.break} />
             <p className={styles.label}>Literal</p>
             <p className={styles.result}>{isLoading ? "Loading..." : result}</p>
-            </div>
+          </div>
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
               <button
