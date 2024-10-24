@@ -14,7 +14,7 @@ type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState<String>("");
+  const [result, setResult] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
