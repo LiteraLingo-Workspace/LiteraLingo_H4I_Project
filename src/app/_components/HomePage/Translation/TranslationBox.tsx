@@ -2,6 +2,7 @@
 
 import styles from "./Translation.module.css";
 import { theme } from "../../../../styles/index";
+import useTTS from './speech';
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
@@ -20,6 +21,8 @@ export const TranslationBox: React.FC = () => {
   const [canType, setCanType] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
+
+  const { textToSpeeh, speechToText } = useTTS();
 
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
@@ -72,7 +75,21 @@ export const TranslationBox: React.FC = () => {
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
               <BsCamera size={24.5} />
-              <HiOutlineMicrophone size={24.5} />
+              <HiOutlineMicrophone size={24.5} onClick={() => {
+                console.log('starting reader');
+                const stream = speechToText();
+                const reader = stream.getReader();
+
+                const onData = ({done, value}: ReadableStreamReadResult<any>) => {
+                  // @ts-ignore
+                  textAreaRef.current.value = value;
+                  if (!done) {
+                    reader.read().then(onData);
+                  }
+                }
+
+                reader.read().then(onData);
+              }} />
             </div>
             <div className={styles.innerButtonsContainer}>
               <button
