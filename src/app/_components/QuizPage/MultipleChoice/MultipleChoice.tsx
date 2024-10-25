@@ -9,6 +9,7 @@ export const MultipleChoice: React.FC = () => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
 
+  // this logic needs to be moved into parent component
   const textChoices = [
     "Her promises can be believed.",
     "Her promises cannot be trusted.",

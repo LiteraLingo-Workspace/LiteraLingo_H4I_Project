@@ -8,7 +8,7 @@ export const StatusInfo: React.FC = () => {
   return (
     <div className={styles.container}>
       <IoCloseOutline
-        size={40}
+        size={50}
         style={{ color: `${theme.colors.secondary}` }}
       />
       <ProgressBar />
