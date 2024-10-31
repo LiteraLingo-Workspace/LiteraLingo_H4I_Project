@@ -27,7 +27,11 @@ export const QuizPage: React.FC = () => {
   const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>([]);
 
   // set state var for the current number of questions completed
-  const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
+  const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
+  
+  const [currentQuestion, setCurrentQuestion] = useState<QuestionMC>();
+
+  console.log(sessionQuestions[currentQuestionNumber]);
 
   const handleCheckAnswer = () => {
     if (true) {
@@ -58,9 +62,8 @@ export const QuizPage: React.FC = () => {
 
      const generatedQuestions = getRandomQuestions(allExpressions);
      setSessionQuestions(generatedQuestions);
+     setCurrentQuestion(generatedQuestions[0]);
    }, []);
-
-  console.log(sessionQuestions);
 
   return (
     <div className={styles.container}>
@@ -79,15 +82,20 @@ export const QuizPage: React.FC = () => {
       <div className={styles.subContainer}>
         <StatusInfo />
         <Prompt />
-        <MultipleChoice
-          description={sessionQuestions[currentQuestionNumber]!.description}
-          choices={sessionQuestions[currentQuestionNumber]!.alternatives}
-        />
-        <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={handleCheckAnswer}>
-            Check Answer
-          </button>
-        </div>
+        {currentQuestion && (
+          <>
+            <MultipleChoice
+              description={currentQuestion!.description}
+              choices={currentQuestion!.alternatives}
+            />
+            <div className={styles.buttonContainer}>
+              <button className={styles.button} onClick={handleCheckAnswer}>
+                Check Answer
+              </button>
+            </div>
+          </>
+        )
+        }
       </div>
       <Navbar />
     </div>
