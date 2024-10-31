@@ -13,6 +13,8 @@ import data from "../../../data/translations.json";
 
 type JsonData = Record<string, string>;
 
+let reader: ReadableStreamDefaultReader | null;
+
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string>("");
@@ -75,20 +77,29 @@ export const TranslationBox: React.FC = () => {
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
               <BsCamera size={24.5} />
-              <HiOutlineMicrophone size={24.5} onClick={() => {
-                console.log('starting reader');
-                const stream = speechToText();
-                const reader = stream.getReader();
+              <HiOutlineMicrophone size={24.5} onClick={event => {
+                if (reader == null) {
+                  console.log('starting reader');
+                  const stream = speechToText();
+                  reader = stream.getReader();
 
-                const onData = ({done, value}: ReadableStreamReadResult<any>) => {
-                  // @ts-ignore
-                  textAreaRef.current.value = value;
-                  if (!done) {
-                    reader.read().then(onData);
+                  const onData = ({done, value}: ReadableStreamReadResult<any>) => {
+
+                    // don't do anything if value is undefined
+                    if (value !== undefined) {
+                      // @ts-ignore
+                      textAreaRef.current.value = value;
+                    }
+                    if (!done && reader !== null) {
+                      reader.read().then(onData);
+                    }
                   }
-                }
 
-                reader.read().then(onData);
+                  reader.read().then(onData);
+                } else {
+                  reader.cancel();
+                  reader = null;
+                }
               }} />
             </div>
             <div className={styles.innerButtonsContainer}>

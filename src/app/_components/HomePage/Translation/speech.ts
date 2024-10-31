@@ -37,13 +37,8 @@ const speechToText = () => {
     start(controller) {
       recognition.start();
 
+      // when recognition recognizes a word, send it down the stream
       recognition.onresult = (event: any) => {
-
-        /*if (event.result == undefined) {
-          // stop
-          recognition.stop();
-          controller.error("Speech to text issue.");
-        }*/
 
         let output = "";
 
@@ -53,7 +48,9 @@ const speechToText = () => {
           output += result[0].transcript;
         }
 
-        controller.enqueue(output);
+        if (output != undefined) {
+          controller.enqueue(output);
+        }
 
       }
     },
@@ -73,7 +70,7 @@ const speechToText = () => {
 };
 
 const textToSpeeh = async (text: string) => {
-
+  // tbi
 }
 
 export default useTTS;
