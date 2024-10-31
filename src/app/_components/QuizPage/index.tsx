@@ -25,17 +25,19 @@ const allExpressions = expressions as QuestionMC[];
 
 export const QuizPage: React.FC = () => {
   const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>();
+  const [completedQuestions, setCompletedQuestions] = useState<number>(0);
 
   // set state var to index sessionQuestions
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
 
-  const updateQuestion = () => {
+  const updateQuestionNumber = () => {
     if (currentQuestionNumber < maxQuestions - 1) {
       setCurrentQuestionNumber(currentQuestionNumber + 1);
-    } else {
-      setCurrentQuestionNumber(currentQuestionNumber);
     }
-  }
+    if (completedQuestions < maxQuestions ) {
+      setCompletedQuestions(completedQuestions + 1);
+    }
+  };
   
   // generate a list of questions
   useEffect(() => {
@@ -71,19 +73,20 @@ export const QuizPage: React.FC = () => {
           <TypeLabel
             color={theme.colors.warmYellow}
             bg={theme.colors.faintYellow}
-            text={sessionQuestions && sessionQuestions.length > 0 ? sessionQuestions[currentQuestionNumber]!.type : ""}
+            text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
           />
         }
       />
       <div className={styles.subContainer}>
-        <StatusInfo />
-        {sessionQuestions && sessionQuestions.length > 0 && (
+        <StatusInfo completed={completedQuestions} total={sessionQuestions ? sessionQuestions.length : 0} />
+        {sessionQuestions && (
           <>
             <Prompt description={sessionQuestions[currentQuestionNumber]!.description} />
             <MultipleChoice
               description={sessionQuestions[currentQuestionNumber]!.description}
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
-              onQuestionSubmit={updateQuestion}
+              onQuestionSubmit={updateQuestionNumber}
+              shouldDisable={currentQuestionNumber === sessionQuestions.length}
             />
           </>
         )}

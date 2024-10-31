@@ -9,6 +9,7 @@ interface MultipleChoiceProps {
   description: string;
   choices: string[];
   onQuestionSubmit: () => void;
+  shouldDisable?: boolean; // prevent question from being submitted, only displayed
 }
 
 const randomizeChoices = (description: string, choices: string[]) => {
@@ -37,7 +38,7 @@ const randomizeChoices = (description: string, choices: string[]) => {
     return updatedChoices;
 }
 
-export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit }) => {
+export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit, shouldDisable }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
 
@@ -85,7 +86,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={handleSubmit}>
+        <button className={styles.button} disabled={shouldDisable} onClick={handleSubmit}>
           Check Answer
         </button>
       </div>
