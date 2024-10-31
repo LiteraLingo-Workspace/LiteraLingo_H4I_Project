@@ -13,11 +13,12 @@ import { useState } from "react";
 import expressions from "../../data/quiz.json";
 
 const maxQuestions = 15;
-const numberOfChoices = 3;
+const allExpressions = expressions as QuestionMC[];
 
 type JsonData = Record<string, string>;
 
 type QuestionMC = {
+  id: number,
   type: string,
   expression: string;
   description: string;
@@ -31,8 +32,12 @@ export const QuizPage: React.FC = () => {
   // set state var for the current number of questions completed
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
 
-  // pick a random question (there can be repeats for now)
-  const getRandomQuestion = (expressionList: JsonData) => {
+  // generate a list of questions
+  const getRandomQuestions = (expressionList: JsonData) => {
+    let questionList = [] as QuestionMC[];
+    while (questionList.length < maxQuestions) {
+
+    }
   };
 
   return (
