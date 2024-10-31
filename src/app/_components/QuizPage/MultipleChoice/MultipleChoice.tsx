@@ -16,6 +16,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
   const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
+  const [isSelected, setIsSelected] = useState(false); 
 
   const randomizeChoices = (description: string, choices: string[]) => {
     const updatedChoices = [...choices];  
@@ -44,16 +45,18 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
 
   useEffect(() => {
     setRandomizedChoices(randomizeChoices(description, choices));
+    setIsSelected(false);
   }, [description, choices]);
 
 
   const handleChoiceClick = (choice: string, isCorrect: boolean) => {
+    setIsSelected(true);
     setSelectedChoice(choice);
     setIsCorrectChoice(isCorrect);
   };
 
   const handleSubmit = () => {
-    if (!selectedChoice) {
+    if (!isSelected) {
       return;
     }
     handleCheckAnswer();

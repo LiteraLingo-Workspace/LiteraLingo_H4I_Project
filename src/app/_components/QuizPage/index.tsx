@@ -86,7 +86,7 @@ export const QuizPage: React.FC = () => {
               description={sessionQuestions[currentQuestionNumber]!.description}
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
               onQuestionSubmit={updateQuestionNumber}
-              shouldDisable={currentQuestionNumber === sessionQuestions.length}
+              shouldDisable={completedQuestions === sessionQuestions.length}
             />
           </>
         )}
