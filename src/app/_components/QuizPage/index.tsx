@@ -24,23 +24,19 @@ const maxQuestions = 15;
 const allExpressions = expressions as QuestionMC[];
 
 export const QuizPage: React.FC = () => {
-  const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>([]);
+  const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>();
 
-  // set state var for the current number of questions completed
-  const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
-  
-  const [currentQuestion, setCurrentQuestion] = useState<QuestionMC>();
+  // set state var to index sessionQuestions
+  const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
 
-  console.log(sessionQuestions[currentQuestionNumber]);
-
-  const handleCheckAnswer = () => {
-    if (true) {
-      console.log("Correct!");
+  const updateQuestion = () => {
+    if (currentQuestionNumber < maxQuestions - 1) {
+      setCurrentQuestionNumber(currentQuestionNumber + 1);
     } else {
-      console.log("Incorrect!");
+      setCurrentQuestionNumber(currentQuestionNumber);
     }
-  };
-
+  }
+  
   // generate a list of questions
   useEffect(() => {
      console.log("component mounted");
@@ -62,7 +58,6 @@ export const QuizPage: React.FC = () => {
 
      const generatedQuestions = getRandomQuestions(allExpressions);
      setSessionQuestions(generatedQuestions);
-     setCurrentQuestion(generatedQuestions[0]);
    }, []);
 
   return (
@@ -81,21 +76,16 @@ export const QuizPage: React.FC = () => {
       />
       <div className={styles.subContainer}>
         <StatusInfo />
-        {currentQuestion && (
+        {sessionQuestions && sessionQuestions.length > 0 && (
           <>
-            <Prompt description={currentQuestion!.description} />
+            <Prompt description={sessionQuestions[currentQuestionNumber]!.description} />
             <MultipleChoice
-              description={currentQuestion!.description}
-              choices={currentQuestion!.alternatives}
+              description={sessionQuestions[currentQuestionNumber]!.description}
+              choices={sessionQuestions[currentQuestionNumber]!.alternatives}
+              onQuestionSubmit={updateQuestion}
             />
-            <div className={styles.buttonContainer}>
-              <button className={styles.button} onClick={handleCheckAnswer}>
-                Check Answer
-              </button>
-            </div>
           </>
-        )
-        }
+        )}
       </div>
       <Navbar />
     </div>

@@ -8,6 +8,7 @@ import { text } from "stream/consumers";
 interface MultipleChoiceProps {
   description: string;
   choices: string[];
+  onQuestionSubmit: () => void;
 }
 
 const randomizeChoices = (description: string, choices: string[]) => {
@@ -36,7 +37,7 @@ const randomizeChoices = (description: string, choices: string[]) => {
     return updatedChoices;
 }
 
-export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices }) => {
+export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
 
@@ -44,6 +45,11 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
     setSelectedChoice(choice);
     setIsCorrectChoice(isCorrect);
   };
+
+  const handleSubmit = () => {
+    handleCheckAnswer();
+    onQuestionSubmit();
+  }
 
   const handleCheckAnswer = () => {
     if (isCorrectChoice) {
@@ -60,26 +66,26 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         <div className={styles.choicesContainer}>
           <Choice
             text={choices[0]!}
-            isCorrect={true}
+            isCorrect={choices[0] === description}
             selected={selectedChoice === choices[0]}
             onClick={() => handleChoiceClick(choices[0]!, true)}
           />
           <Choice
             text={choices[1]!}
-            isCorrect={false}
+            isCorrect={choices[0] === description}
             selected={selectedChoice === choices[1]}
             onClick={() => handleChoiceClick(choices[1]!, false)}
           />
           <Choice
             text={choices[2]!}
-            isCorrect={false}
+            isCorrect={choices[0] === description}
             selected={selectedChoice === choices[2]}
             onClick={() => handleChoiceClick(choices[2]!, false)}
           />
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={handleCheckAnswer}>
+        <button className={styles.button} onClick={handleSubmit}>
           Check Answer
         </button>
       </div>
