@@ -27,11 +27,11 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      const currentChoice = updatedChoices[currentIndex] as string;
-      const randomChoice = updatedChoices[randomIndex] as string;
+      const currentChoice = updatedChoices[currentIndex];
+      const randomChoice = updatedChoices[randomIndex];
   
-      updatedChoices[currentIndex] = randomChoice;
-      updatedChoices[randomIndex] = currentChoice;
+      updatedChoices[currentIndex] = randomChoice!;
+      updatedChoices[randomIndex] = currentChoice!;
     }
 
     updatedChoices.splice(0, 1); // take only first 2 elements
