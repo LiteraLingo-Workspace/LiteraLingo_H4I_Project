@@ -13,39 +13,39 @@ interface MultipleChoiceProps {
 }
 
 export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit, shouldDisable }) => {
-  const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
+  const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
 
   const randomizeChoices = (description: string, choices: string[]) => {
-    const updatedChoices = [...choices];
-    
-    updatedChoices.splice(0, 0, description); // add correct choice
-  
-    if (typeof description === "string") {
-      updatedChoices.unshift(description); // add correct choice at the start
-    }
-  
+    const updatedChoices = [...choices];  
     // shuffle the array
     let currentIndex = updatedChoices.length, randomIndex;
-      while (currentIndex != 0) {
-    
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+    while (currentIndex != 0) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      const currentChoice = updatedChoices[currentIndex] as string;
+      const randomChoice = updatedChoices[randomIndex] as string;
   
-        const currentChoice = updatedChoices[currentIndex] as string;
-        const randomChoice = updatedChoices[randomIndex] as string;
+      updatedChoices[currentIndex] = randomChoice;
+      updatedChoices[randomIndex] = currentChoice;
+    }
+
+    updatedChoices.splice(0, 1); // take only first 2 elements
+    const insertIndex = Math.floor(Math.random() * (updatedChoices.length + 1));
+    updatedChoices.splice(insertIndex, 0, description);
+
+    console.log(updatedChoices, description);
     
-        updatedChoices[currentIndex] = randomChoice;
-        updatedChoices[randomIndex] = currentChoice;
-      }
-    
-      return updatedChoices;
+    return updatedChoices;
   }
 
   useEffect(() => {
     setRandomizedChoices(randomizeChoices(description, choices));
-  }, [])
+  }, [description, choices]);
+
 
   const handleChoiceClick = (choice: string, isCorrect: boolean) => {
     setSelectedChoice(choice);
@@ -73,24 +73,15 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
       <div className={styles.container}>
         <p className={styles.questionLabel}>What does this mean?</p>
         <div className={styles.choicesContainer}>
+        {randomizedChoices.map((choice, index) => (
           <Choice
-            text={choices[0]!}
-            isCorrect={choices[0] === description}
-            selected={selectedChoice === choices[0]}
-            onClick={() => handleChoiceClick(choices[0]!, true)}
+            key={index}
+            text={choice!}
+            isCorrect={choice === description}
+            selected={selectedChoice === choice}
+            onClick={() => handleChoiceClick(choice, choice === description)}
           />
-          <Choice
-            text={choices[1]!}
-            isCorrect={choices[0] === description}
-            selected={selectedChoice === choices[1]}
-            onClick={() => handleChoiceClick(choices[1]!, false)}
-          />
-          <Choice
-            text={choices[2]!}
-            isCorrect={choices[0] === description}
-            selected={selectedChoice === choices[2]}
-            onClick={() => handleChoiceClick(choices[2]!, false)}
-          />
+        ))}
         </div>
       </div>
       <div className={styles.buttonContainer}>

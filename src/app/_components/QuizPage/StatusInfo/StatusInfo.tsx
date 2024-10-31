@@ -10,7 +10,6 @@ interface StatusInfoProps {
 }
 
 export const StatusInfo: React.FC<StatusInfoProps> = ({ completed, total }) => {
-  console.log(completed, total);
   return (
     <div className={styles.container}>
       <IoCloseOutline
