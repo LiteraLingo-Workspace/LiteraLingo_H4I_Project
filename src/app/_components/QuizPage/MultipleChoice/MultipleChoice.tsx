@@ -48,6 +48,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
   };
 
   const handleSubmit = () => {
+    if (!selectedChoice) {
+      return;
+    }
     handleCheckAnswer();
     onQuestionSubmit();
   }
