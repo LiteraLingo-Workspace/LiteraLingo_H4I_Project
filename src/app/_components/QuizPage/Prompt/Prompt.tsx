@@ -1,13 +1,13 @@
 import styles from "./Prompt.module.css";
 
 interface PromptProps {
-  description: string;
+  expression: string;
 }
 
-export const Prompt: React.FC<PromptProps> = ({ description }) => {
+export const Prompt: React.FC<PromptProps> = ({ expression }) => {
   return (
     <div className={styles.container}>
-      <p className={styles.prompt}>{description}</p>
+      <p className={styles.prompt}>{expression}</p>
     </div>
   );
 };

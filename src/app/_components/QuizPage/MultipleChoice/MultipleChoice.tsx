@@ -22,7 +22,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
     
     updatedChoices.splice(0, 0, description); // add correct choice
   
-    if (typeof description === 'string') {
+    if (typeof description === "string") {
       updatedChoices.unshift(description); // add correct choice at the start
     }
   
@@ -74,22 +74,22 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         <p className={styles.questionLabel}>What does this mean?</p>
         <div className={styles.choicesContainer}>
           <Choice
-            text={randomizedChoices[0]!}
-            isCorrect={randomizedChoices[0] === description}
-            selected={selectedChoice === randomizedChoices[0]}
-            onClick={() => handleChoiceClick(randomizedChoices[0]!, true)}
+            text={choices[0]!}
+            isCorrect={choices[0] === description}
+            selected={selectedChoice === choices[0]}
+            onClick={() => handleChoiceClick(choices[0]!, true)}
           />
           <Choice
-            text={randomizedChoices[1]!}
-            isCorrect={randomizedChoices[0] === description}
-            selected={selectedChoice === randomizedChoices[1]}
-            onClick={() => handleChoiceClick(randomizedChoices[1]!, false)}
+            text={choices[1]!}
+            isCorrect={choices[0] === description}
+            selected={selectedChoice === choices[1]}
+            onClick={() => handleChoiceClick(choices[1]!, false)}
           />
           <Choice
             text={choices[2]!}
-            isCorrect={randomizedChoices[0] === description}
-            selected={selectedChoice === randomizedChoices[2]}
-            onClick={() => handleChoiceClick(randomizedChoices[2]!, false)}
+            isCorrect={choices[0] === description}
+            selected={selectedChoice === choices[2]}
+            onClick={() => handleChoiceClick(choices[2]!, false)}
           />
         </div>
       </div>

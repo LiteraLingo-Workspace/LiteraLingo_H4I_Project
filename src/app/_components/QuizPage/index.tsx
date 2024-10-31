@@ -81,7 +81,7 @@ export const QuizPage: React.FC = () => {
         <StatusInfo completed={completedQuestions} total={sessionQuestions ? sessionQuestions.length : 0} />
         {sessionQuestions && (
           <>
-            <Prompt description={sessionQuestions[currentQuestionNumber]!.description} />
+            <Prompt expression={sessionQuestions[currentQuestionNumber]!.expression} />
             <MultipleChoice
               description={sessionQuestions[currentQuestionNumber]!.description}
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
