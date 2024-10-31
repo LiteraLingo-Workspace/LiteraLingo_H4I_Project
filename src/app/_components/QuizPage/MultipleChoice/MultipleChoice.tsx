@@ -5,16 +5,40 @@ import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
 import { text } from "stream/consumers";
 
-export const MultipleChoice: React.FC = () => {
+interface MultipleChoiceProps {
+  description: string;
+  choices: string[];
+}
+
+const randomizeChoices = (description: string, choices: string[]) => {
+  const updatedChoices = [...choices];
+  
+  updatedChoices.splice(0, 0, description); // add correct choice
+
+  if (typeof description === 'string') {
+    updatedChoices.unshift(description); // add correct choice at the start
+  }
+
+  // shuffle the array
+  let currentIndex = updatedChoices.length, randomIndex;
+    while (currentIndex != 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      const currentChoice = updatedChoices[currentIndex] as string;
+      const randomChoice = updatedChoices[randomIndex] as string;
+  
+      updatedChoices[currentIndex] = randomChoice;
+      updatedChoices[randomIndex] = currentChoice;
+    }
+  
+    return updatedChoices;
+}
+
+export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
-
-  // this logic needs to be moved into parent component
-  const textChoices = [
-    "Her promises can be believed.",
-    "Her promises cannot be trusted.",
-    "Her words sound challenging to understand.",
-  ];
 
   const handleChoiceClick = (choice: string, isCorrect: boolean) => {
     setSelectedChoice(choice);
@@ -35,22 +59,22 @@ export const MultipleChoice: React.FC = () => {
         <p className={styles.questionLabel}>What does this mean?</p>
         <div className={styles.choicesContainer}>
           <Choice
-            text={textChoices[0]!}
+            text={choices[0]!}
             isCorrect={true}
-            selected={selectedChoice === textChoices[0]}
-            onClick={() => handleChoiceClick(textChoices[0]!, true)}
+            selected={selectedChoice === choices[0]}
+            onClick={() => handleChoiceClick(choices[0]!, true)}
           />
           <Choice
-            text={textChoices[1]!}
+            text={choices[1]!}
             isCorrect={false}
-            selected={selectedChoice === textChoices[1]}
-            onClick={() => handleChoiceClick(textChoices[1]!, false)}
+            selected={selectedChoice === choices[1]}
+            onClick={() => handleChoiceClick(choices[1]!, false)}
           />
           <Choice
-            text={textChoices[2]!}
+            text={choices[2]!}
             isCorrect={false}
-            selected={selectedChoice === textChoices[2]}
-            onClick={() => handleChoiceClick(textChoices[2]!, false)}
+            selected={selectedChoice === choices[2]}
+            onClick={() => handleChoiceClick(choices[2]!, false)}
           />
         </div>
       </div>

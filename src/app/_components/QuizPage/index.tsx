@@ -12,27 +12,6 @@ import { Navbar } from "../shared/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import expressions from "../../data/quiz.json";
 
-const maxQuestions = 15;
-const allExpressions = expressions as QuestionMC[];
-
-const getRandomQuestions = (expressionList: QuestionMC[]) => {
-  let questionList = [] as QuestionMC[];
-  const usedIDs = new Set<number>();
-
-  while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
-    const randomIndex = Math.floor(Math.random() * expressionList.length);
-    if (!usedIDs.has(randomIndex)) {
-      if (expressionList[randomIndex]) {
-        questionList.push(expressionList[randomIndex]);
-        usedIDs.add(randomIndex); 
-      }
-    }
-  }
-  return questionList;
-};
-
-const sessionQuestions = getRandomQuestions(allExpressions);
-
 type QuestionMC = {
   id: number,
   type: string,
@@ -41,34 +20,45 @@ type QuestionMC = {
   alternatives: string[];
 }
 
+const maxQuestions = 15;
+const allExpressions = expressions as QuestionMC[];
+
 export const QuizPage: React.FC = () => {
-  // const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>([]);
+  const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>([]);
 
   // set state var for the current number of questions completed
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
 
+  const handleCheckAnswer = () => {
+    if (true) {
+      console.log("Correct!");
+    } else {
+      console.log("Incorrect!");
+    }
+  };
+
   // generate a list of questions
-  // useEffect(() => {
-  //   console.log("component mounted");
-  //   const getRandomQuestions = (expressionList: QuestionMC[]) => {
-  //     let questionList = [] as QuestionMC[];
-  //     const usedIDs = new Set<number>();
+  useEffect(() => {
+     console.log("component mounted");
+     const getRandomQuestions = (expressionList: QuestionMC[]) => {
+       let questionList = [] as QuestionMC[];
+       const usedIDs = new Set<number>();
 
-  //     while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
-  //       const randomIndex = Math.floor(Math.random() * expressionList.length);
-  //       if (!usedIDs.has(randomIndex)) {
-  //         if (expressionList[randomIndex]) {
-  //           questionList.push(expressionList[randomIndex]);
-  //           usedIDs.add(randomIndex); 
-  //         }
-  //       }
-  //     }
-  //     return questionList;
-  //   };
+       while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
+         const randomIndex = Math.floor(Math.random() * expressionList.length);
+         if (!usedIDs.has(randomIndex)) {
+           if (expressionList[randomIndex]) {
+             questionList.push(expressionList[randomIndex]);
+             usedIDs.add(randomIndex); 
+           }
+         }
+       }
+       return questionList;
+     };
 
-  //   const generatedQuestions = getRandomQuestions(allExpressions);
-  //   setSessionQuestions(generatedQuestions);
-  // }, []);
+     const generatedQuestions = getRandomQuestions(allExpressions);
+     setSessionQuestions(generatedQuestions);
+   }, []);
 
   console.log(sessionQuestions);
 
@@ -89,7 +79,10 @@ export const QuizPage: React.FC = () => {
       <div className={styles.subContainer}>
         <StatusInfo />
         <Prompt />
-        <MultipleChoice />
+        <MultipleChoice
+          description={"hello"}
+          choices={["a", "b", "c"]}
+        />
       </div>
       <Navbar />
     </div>
