@@ -43,7 +43,7 @@ export const QuizPage: React.FC = () => {
   useEffect(() => {
      console.log("component mounted");
      const getRandomQuestions = (expressionList: QuestionMC[]) => {
-       let questionList = [] as QuestionMC[];
+       const questionList = [] as QuestionMC[];
        const usedIDs = new Set<number>();
 
        // create a list of unique questions

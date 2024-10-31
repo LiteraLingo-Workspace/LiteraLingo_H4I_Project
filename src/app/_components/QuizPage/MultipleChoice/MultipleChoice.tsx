@@ -79,7 +79,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         {randomizedChoices.map((choice, index) => (
           <Choice
             key={index}
-            text={choice!}
+            text={choice}
             isCorrect={choice === description}
             selected={selectedChoice === choice}
             onClick={() => handleChoiceClick(choice, choice === description)}
