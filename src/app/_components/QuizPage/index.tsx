@@ -9,13 +9,29 @@ import { Prompt } from "./Prompt/index";
 import { MultipleChoice } from "./MultipleChoice/index";
 import { Background } from "../shared/Background/Background";
 import { Navbar } from "../shared/Navbar/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import expressions from "../../data/quiz.json";
 
 const maxQuestions = 15;
 const allExpressions = expressions as QuestionMC[];
 
-type JsonData = Record<string, string>;
+const getRandomQuestions = (expressionList: QuestionMC[]) => {
+  let questionList = [] as QuestionMC[];
+  const usedIDs = new Set<number>();
+
+  while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
+    const randomIndex = Math.floor(Math.random() * expressionList.length);
+    if (!usedIDs.has(randomIndex)) {
+      if (expressionList[randomIndex]) {
+        questionList.push(expressionList[randomIndex]);
+        usedIDs.add(randomIndex); 
+      }
+    }
+  }
+  return questionList;
+};
+
+const sessionQuestions = getRandomQuestions(allExpressions);
 
 type QuestionMC = {
   id: number,
@@ -26,19 +42,35 @@ type QuestionMC = {
 }
 
 export const QuizPage: React.FC = () => {
-  // set state var for prompt and question choices (group together)
-  const [questionInfo, setQuestionInfo] = useState<QuestionMC>();
+  // const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>([]);
 
   // set state var for the current number of questions completed
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
 
   // generate a list of questions
-  const getRandomQuestions = (expressionList: JsonData) => {
-    let questionList = [] as QuestionMC[];
-    while (questionList.length < maxQuestions) {
+  // useEffect(() => {
+  //   console.log("component mounted");
+  //   const getRandomQuestions = (expressionList: QuestionMC[]) => {
+  //     let questionList = [] as QuestionMC[];
+  //     const usedIDs = new Set<number>();
 
-    }
-  };
+  //     while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
+  //       const randomIndex = Math.floor(Math.random() * expressionList.length);
+  //       if (!usedIDs.has(randomIndex)) {
+  //         if (expressionList[randomIndex]) {
+  //           questionList.push(expressionList[randomIndex]);
+  //           usedIDs.add(randomIndex); 
+  //         }
+  //       }
+  //     }
+  //     return questionList;
+  //   };
+
+  //   const generatedQuestions = getRandomQuestions(allExpressions);
+  //   setSessionQuestions(generatedQuestions);
+  // }, []);
+
+  console.log(sessionQuestions);
 
   return (
     <div className={styles.container}>
