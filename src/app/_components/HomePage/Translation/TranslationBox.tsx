@@ -7,21 +7,35 @@ import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
+import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
 
 type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
+  const { mutate } = api.openai.translate.useMutation({
+    onSuccess: (data) => {
+      setIsLoading(false);
+      console.log(data);
+      setResult(data.result ? data.result : "An error occurred.");
+    },
+    onError: () => {
+      setIsLoading(false);
+      setResult("An error occurred.");
+    },
+  });
+
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string
+    value: string,
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -66,11 +80,16 @@ export const TranslationBox: React.FC = () => {
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
-                  if (translations.hasOwnProperty(value.toLowerCase())) {
-                    setResult(translations[value.toLowerCase()] ?? "error");
-                  } else {
-                    setResult("error");
-                  }
+                  setIsLoading(true);
+                  mutate({ text: value });
+                  // BELOW WAS LEFT IN FOR TESTING PURPOSES
+                  // SINCE OPENAI KEY HAS LIMITED CALLS
+
+                  // if (translations.hasOwnProperty(value)) {
+                  //   setResult(translations[value] ?? "error");
+                  // } else {
+                  //   setResult("error");
+                  // }
                 }}
               >
                 <p style={{ marginLeft: "5px" }}>Go</p>
@@ -105,7 +124,7 @@ export const TranslationBox: React.FC = () => {
             ></textarea>
             <div className={styles.break} />
             <p className={styles.label}>Literal</p>
-            <p className={styles.result}>{result}</p>
+            <p className={styles.result}>{isLoading ? "Loading..." : result}</p>
           </div>
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
