@@ -49,7 +49,11 @@ const speechToText = () => {
         }
 
         if (output != undefined) {
-          controller.enqueue(output);
+          try {
+            controller.enqueue(output);
+          } catch (error) {
+            recognition.abort();
+          }
         }
 
       }
@@ -62,7 +66,7 @@ const speechToText = () => {
 
     // stop the speech recognition
     cancel(controller) {
-      recognition.stop();
+      recognition.abort();
     }
 
   });
