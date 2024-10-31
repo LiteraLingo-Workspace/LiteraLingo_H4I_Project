@@ -1,9 +1,13 @@
 import styles from "./Prompt.module.css";
 
-export const Prompt: React.FC = () => {
+interface PromptProps {
+  description: string;
+}
+
+export const Prompt: React.FC<PromptProps> = ({ description }) => {
   return (
     <div className={styles.container}>
-      <p className={styles.prompt}>Her word had the strength of titanium.</p>
+      <p className={styles.prompt}>{description}</p>
     </div>
   );
 };

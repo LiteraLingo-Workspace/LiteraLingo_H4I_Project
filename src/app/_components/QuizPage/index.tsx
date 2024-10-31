@@ -81,9 +81,9 @@ export const QuizPage: React.FC = () => {
       />
       <div className={styles.subContainer}>
         <StatusInfo />
-        <Prompt />
         {currentQuestion && (
           <>
+            <Prompt description={currentQuestion!.description} />
             <MultipleChoice
               description={currentQuestion!.description}
               choices={currentQuestion!.alternatives}
