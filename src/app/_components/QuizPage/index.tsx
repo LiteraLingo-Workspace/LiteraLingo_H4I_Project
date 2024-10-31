@@ -80,9 +80,14 @@ export const QuizPage: React.FC = () => {
         <StatusInfo />
         <Prompt />
         <MultipleChoice
-          description={"hello"}
-          choices={["a", "b", "c"]}
+          description={sessionQuestions[currentQuestionNumber]!.description}
+          choices={sessionQuestions[currentQuestionNumber]!.alternatives}
         />
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={handleCheckAnswer}>
+            Check Answer
+          </button>
+        </div>
       </div>
       <Navbar />
     </div>
