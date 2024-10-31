@@ -44,6 +44,7 @@ export const QuizPage: React.FC = () => {
        let questionList = [] as QuestionMC[];
        const usedIDs = new Set<number>();
 
+       // create a list of unique questions
        while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
          const randomIndex = Math.floor(Math.random() * expressionList.length);
          if (!usedIDs.has(randomIndex)) {
@@ -70,7 +71,7 @@ export const QuizPage: React.FC = () => {
           <TypeLabel
             color={theme.colors.warmYellow}
             bg={theme.colors.faintYellow}
-            text="Simile"
+            text={sessionQuestions && sessionQuestions.length > 0 ? sessionQuestions[currentQuestionNumber]!.type : ""}
           />
         }
       />
