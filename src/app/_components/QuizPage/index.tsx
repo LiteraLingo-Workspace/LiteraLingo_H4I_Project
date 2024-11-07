@@ -77,28 +77,28 @@ export const QuizPage: React.FC = () => {
   
   // generate a list of questions
   useEffect(() => {
-     console.log("component mounted");
-     const getRandomQuestions = (expressionList: QuestionMC[]) => {
-       const questionList = [] as QuestionMC[];
-       const usedIDs = new Set<number>();
+    console.log("component mounted");
+    const getRandomQuestions = (expressionList: QuestionMC[]) => {
+      const questionList = [] as QuestionMC[];
+      const usedIDs = new Set<number>();
 
-       // create a list of unique questions
-       while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
-         const randomIndex = Math.floor(Math.random() * expressionList.length);
-         if (!usedIDs.has(randomIndex)) {
-           if (expressionList[randomIndex]) {
-            // add to the list with a correct field
-            questionList.push({...expressionList[randomIndex], isCorrect: false});
-            usedIDs.add(randomIndex); 
-           }
-         }
-       }
-       return questionList;
-     };
+      // create a list of unique questions
+      while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
+        const randomIndex = Math.floor(Math.random() * expressionList.length);
+        if (!usedIDs.has(randomIndex)) {
+          if (expressionList[randomIndex]) {
+          // add to the list with a correct field
+          questionList.push({...expressionList[randomIndex], isCorrect: false});
+          usedIDs.add(randomIndex); 
+          }
+        }
+      }
+      return questionList;
+    };
 
-     const generatedQuestions = getRandomQuestions(allExpressions);
-     setSessionQuestions(generatedQuestions);
-   }, []);
+    const generatedQuestions = getRandomQuestions(allExpressions);
+    setSessionQuestions(generatedQuestions);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -108,6 +108,12 @@ export const QuizPage: React.FC = () => {
         color={theme.colors.primary}
         typeLabel={
           <TypeLabel
+            color={sessionQuestions 
+              ? typeColors[sessionQuestions[currentQuestionNumber]!.type].label
+              : typeColors["Loading"].label}
+            bg={sessionQuestions 
+              ? typeColors[sessionQuestions[currentQuestionNumber]!.type].background
+              : typeColors["Loading"].label}
             text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
           />
         }
