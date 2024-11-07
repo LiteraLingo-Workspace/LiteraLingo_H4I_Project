@@ -39,12 +39,12 @@
 
 
 @media screen and (max-height: 840px) {
-  .choiceContainer {
+  .choiceContainer, .selectedChoiceContainer {
     height: 80px;
   }
 }
 @media screen and (max-height: 750px) {
-  .choiceContainer {
+  .choiceContainer, .selectedChoiceContainer {
     height: 64px;
   }
 }
