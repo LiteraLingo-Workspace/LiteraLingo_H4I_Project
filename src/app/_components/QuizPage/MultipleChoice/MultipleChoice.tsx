@@ -15,6 +15,7 @@ interface MultipleChoiceProps {
 export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit, shouldDisable }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
+  const [isChecked, setIsChecked] = useState<boolean | null>(false);
   const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
   const [isSelected, setIsSelected] = useState(false); 
 
@@ -60,6 +61,11 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
       return;
     }
     handleCheckAnswer();
+    setIsChecked(true);
+  }
+
+  const handleNext = () => {
+    setIsChecked(false);
     onQuestionSubmit();
   }
 
@@ -87,11 +93,19 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         ))}
         </div>
       </div>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button} disabled={shouldDisable} onClick={handleSubmit}>
-          Check Answer
-        </button>
-      </div>
+      {isChecked ? 
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} disabled={shouldDisable} onClick={handleNext}>
+            Next
+          </button>
+        </div> 
+        :
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} disabled={shouldDisable} onClick={handleSubmit}>
+            Check Answer
+          </button>
+        </div> 
+      }
     </>
   );
 };
