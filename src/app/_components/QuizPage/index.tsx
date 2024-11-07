@@ -12,7 +12,7 @@ import { Navbar } from "../shared/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import expressions from "../../data/quiz.json";
 
-export const typeColors = {
+const typeColors = {
   "idiom": {
     label: theme.colors.warmYellow,
     background: theme.colors.faintYellow,

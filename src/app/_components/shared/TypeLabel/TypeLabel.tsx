@@ -1,18 +1,16 @@
 import styles from "./TypeLabel.module.css";
-import { theme } from "../../../../styles/index";
-import { typeColors } from "../../QuizPage/index";
 
 interface TypeLabelProps {
-  text: keyof typeof typeColors; 
+  color: string;
+  bg: string;
+  text: string;
 }
 
-export const TypeLabel: React.FC<TypeLabelProps> = ({ text }) => {
-  const { label, background } = typeColors[text];
-
+export const TypeLabel: React.FC<TypeLabelProps> = ({ color, bg, text }) => {
   return (
     <div
       className={styles.typeLabel}
-      style={{ color: label, backgroundColor: background }}
+      style={{ color: color, backgroundColor: bg }}
     >
       {text}
     </div>
