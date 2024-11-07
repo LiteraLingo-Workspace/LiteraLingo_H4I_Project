@@ -6,6 +6,8 @@ import { redirect } from "next/navigation";
 export const Modal: React.FC = async () => {
   const session = await getServerAuthSession();
 
+  if (session) redirect("/home");
+
   return (
     <div className={styles.container}>
       <button className={styles.loginButton}>
@@ -22,7 +24,6 @@ export const Modal: React.FC = async () => {
       </button>
 
       <div className={styles.break} />
-      <p>{session && redirect("/home")}</p>
     </div>
   );
 };
