@@ -18,6 +18,7 @@ type QuestionMC = {
   expression: string;
   description: string;
   alternatives: string[];
+  isCorrect: boolean;
 }
 
 const maxQuestions = 15;
@@ -38,6 +39,26 @@ export const QuizPage: React.FC = () => {
       setCompletedQuestions(completedQuestions + 1);
     }
   };
+
+  const handleAnswerClick = (currentQuestionNumber: number, isCorrect: boolean) => {
+    // function to update that this is correct
+    // may be slightly cumbersome to update the entire array just
+    // to update one field 
+    // alternative: create a new state array that tracks 
+    // whether each question number was correct (slightly less data)
+    console.log(currentQuestionNumber, isCorrect);
+    if (sessionQuestions) {
+      setSessionQuestions((prevQuestions  = []) => 
+        prevQuestions.map((question, index) => 
+          // set question to correct or false
+          index === currentQuestionNumber 
+            ? {...question, isCorrect: true} 
+            : {...question}
+      ))
+    }
+    console.log("choice correct: ", isCorrect);
+    updateQuestionNumber();
+  }
   
   // generate a list of questions
   useEffect(() => {
@@ -51,8 +72,9 @@ export const QuizPage: React.FC = () => {
          const randomIndex = Math.floor(Math.random() * expressionList.length);
          if (!usedIDs.has(randomIndex)) {
            if (expressionList[randomIndex]) {
-             questionList.push(expressionList[randomIndex]);
-             usedIDs.add(randomIndex); 
+            // add to the list with a correct field
+            questionList.push({...expressionList[randomIndex], isCorrect: false});
+            usedIDs.add(randomIndex); 
            }
          }
        }
@@ -85,7 +107,8 @@ export const QuizPage: React.FC = () => {
             <MultipleChoice
               description={sessionQuestions[currentQuestionNumber]!.description}
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
-              onQuestionSubmit={updateQuestionNumber}
+              currentQuestionNumber={currentQuestionNumber}
+              onQuestionSubmit={handleAnswerClick}
               shouldDisable={completedQuestions === sessionQuestions.length}
             />
           </>

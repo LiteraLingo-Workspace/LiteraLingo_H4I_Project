@@ -8,14 +8,15 @@ import { text } from "stream/consumers";
 interface MultipleChoiceProps {
   description: string;
   choices: string[];
-  onQuestionSubmit: () => void;
+  currentQuestionNumber: number;
+  onQuestionSubmit: (currentQuestionNumber: number, isQuestionCorrect: boolean) => void; // return whether user got it right 
   shouldDisable?: boolean; // prevent question from being submitted, only displayed
 }
 
-export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, onQuestionSubmit, shouldDisable }) => {
+export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, currentQuestionNumber, onQuestionSubmit, shouldDisable }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
-  const [isChecked, setIsChecked] = useState<boolean | null>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
   const [isSelected, setIsSelected] = useState(false); 
 
@@ -35,11 +36,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
       updatedChoices[randomIndex] = currentChoice!;
     }
 
-    updatedChoices.splice(0, 1); // take only first 2 elements
+    updatedChoices.splice(0, 1); // randomly discard the last element
     const insertIndex = Math.floor(Math.random() * (updatedChoices.length + 1));
     updatedChoices.splice(insertIndex, 0, description);
-
-    console.log(updatedChoices, description);
     
     return updatedChoices;
   }
@@ -60,22 +59,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
     if (!isSelected) {
       return;
     }
-    handleCheckAnswer();
     setIsChecked(true);
   }
 
   const handleNext = () => {
     setIsChecked(false);
-    onQuestionSubmit();
+    // callback to send if choice is correct back to parent component
+    onQuestionSubmit(currentQuestionNumber, isCorrectChoice!); 
   }
-
-  const handleCheckAnswer = () => {
-    if (isCorrectChoice) {
-      console.log("Correct!");
-    } else {
-      console.log("Incorrect!");
-    }
-  };
 
   return (
     <>
