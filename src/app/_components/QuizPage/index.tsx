@@ -3,7 +3,7 @@
 import styles from "./index.module.css";
 import { Header } from "../shared/Header/Header";
 import { TypeLabel } from "../shared/TypeLabel/TypeLabel";
-import { theme } from "../../../styles/index";
+import { theme, labelStyles } from "../../../styles/index";
 import { StatusInfo } from "./StatusInfo/index";
 import { Prompt } from "./Prompt/index";
 import { MultipleChoice } from "./MultipleChoice/index";
@@ -12,28 +12,9 @@ import { Navbar } from "../shared/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import expressions from "../../data/quiz.json";
 
-const typeColors = {
-  "idiom": {
-    label: theme.colors.warmYellow,
-    background: theme.colors.faintYellow,
-  },
-  "metaphor": {
-    label: theme.colors.purple,
-    background: theme.colors.faintPurple,
-  },
-  "simile": {
-    label: theme.colors.coolDark,
-    background: theme.colors.faintBlue,
-  },
-  "Loading": {
-    label: theme.colors.coolDark,
-    background: theme.colors.faintGrey,
-  }
-}
-
 type QuestionMC = {
   id: number,
-  type: keyof typeof typeColors;
+  type: keyof typeof labelStyles;
   expression: string;
   description: string;
   alternatives: string[];
@@ -109,11 +90,11 @@ export const QuizPage: React.FC = () => {
         typeLabel={
           <TypeLabel
             color={sessionQuestions 
-              ? typeColors[sessionQuestions[currentQuestionNumber]!.type].label
-              : typeColors["Loading"].label}
+              ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].color
+              : labelStyles["Loading"].color}
             bg={sessionQuestions 
-              ? typeColors[sessionQuestions[currentQuestionNumber]!.type].background
-              : typeColors["Loading"].label}
+              ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
+              : labelStyles["Loading"].bg}
             text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
           />
         }
