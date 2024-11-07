@@ -9,11 +9,12 @@ interface MultipleChoiceProps {
   description: string;
   choices: string[];
   currentQuestionNumber: number;
-  onQuestionSubmit: (currentQuestionNumber: number, isQuestionCorrect: boolean) => void; // return whether user got it right 
+  onQuestionCheck: (currentQuestionNumber: number, isQuestionCorrect: boolean) => void; // return whether user got it right 
+  onNextQuestion: () => void;
   shouldDisable?: boolean; // prevent question from being submitted, only displayed
 }
 
-export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, currentQuestionNumber, onQuestionSubmit, shouldDisable }) => {
+export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, choices, currentQuestionNumber, onQuestionCheck, onNextQuestion, shouldDisable }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
   const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -60,12 +61,13 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
       return;
     }
     setIsChecked(true);
+    // callback to send if choice is correct back to parent component
+    onQuestionCheck(currentQuestionNumber, isCorrectChoice!); 
   }
 
   const handleNext = () => {
     setIsChecked(false);
-    // callback to send if choice is correct back to parent component
-    onQuestionSubmit(currentQuestionNumber, isCorrectChoice!); 
+    onNextQuestion();
   }
 
   return (

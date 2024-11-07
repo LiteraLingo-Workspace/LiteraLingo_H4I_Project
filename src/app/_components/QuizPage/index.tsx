@@ -59,7 +59,7 @@ export const QuizPage: React.FC = () => {
     }
   };
 
-  const handleAnswerClick = (currentQuestionNumber: number, isCorrect: boolean) => {
+  const handleQuestionCheck = (currentQuestionNumber: number, isCorrect: boolean) => {
     // function to update that this is correct
     // may be slightly cumbersome to update the entire array just
     // to update one field 
@@ -75,7 +75,6 @@ export const QuizPage: React.FC = () => {
       ))
       console.log(`Question number ${currentQuestionNumber}: ${isCorrect ? "correct" : "incorrect"}`);
     }
-    updateQuestionNumber();
   }
   
   // generate a list of questions
@@ -124,7 +123,8 @@ export const QuizPage: React.FC = () => {
               description={sessionQuestions[currentQuestionNumber]!.description}
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
               currentQuestionNumber={currentQuestionNumber}
-              onQuestionSubmit={handleAnswerClick}
+              onQuestionCheck={handleQuestionCheck}
+              onNextQuestion={updateQuestionNumber}
               shouldDisable={completedQuestions === sessionQuestions.length}
             />
           </>
