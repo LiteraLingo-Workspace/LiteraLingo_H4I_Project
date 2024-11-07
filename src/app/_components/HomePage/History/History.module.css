@@ -119,8 +119,14 @@
 }
 
 .itemBottomText {
-  font-family: var(--font-poppins), sans-serif;
-  font-weight: 500;
+  flex: 1;
   font-size: 20px;
+  font-weight: 500;
   line-height: 30px;
+  color: var(--primary);
+  font-family: var(--font-poppins), sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
 }
