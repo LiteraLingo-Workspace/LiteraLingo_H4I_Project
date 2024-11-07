@@ -27,11 +27,13 @@
 }
 
 .correctChoice {
-  background-color: var(--success)
+  background-color: var(--success);
+  border: 2px solid rgb(15, 105, 46);;
 }
 
 .incorrectChoice {
-  background-color: var(--failure)
+  background-color: var(--failure);
+  border: 2px solid rgb(137, 25, 25);
 
 }
 
