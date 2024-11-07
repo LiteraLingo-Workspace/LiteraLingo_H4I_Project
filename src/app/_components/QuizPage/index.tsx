@@ -91,10 +91,10 @@ export const QuizPage: React.FC = () => {
           <TypeLabel
             color={sessionQuestions 
               ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].color
-              : labelStyles["Loading"].color}
+              : labelStyles.Loading.color}
             bg={sessionQuestions 
               ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
-              : labelStyles["Loading"].bg}
+              : labelStyles.Loading.bg}
             text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
           />
         }
