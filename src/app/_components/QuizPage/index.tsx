@@ -46,17 +46,16 @@ export const QuizPage: React.FC = () => {
     // to update one field 
     // alternative: create a new state array that tracks 
     // whether each question number was correct (slightly less data)
-    console.log(currentQuestionNumber, isCorrect);
     if (sessionQuestions) {
       setSessionQuestions((prevQuestions  = []) => 
         prevQuestions.map((question, index) => 
           // set question to correct or false
           index === currentQuestionNumber 
-            ? {...question, isCorrect: true} 
+            ? {...question, isCorrect: isCorrect} 
             : {...question}
       ))
+      console.log(`Question number ${currentQuestionNumber}: ${isCorrect}`);
     }
-    console.log("choice correct: ", isCorrect);
     updateQuestionNumber();
   }
   

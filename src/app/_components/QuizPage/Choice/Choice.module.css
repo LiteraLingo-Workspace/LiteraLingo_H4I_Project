@@ -26,6 +26,16 @@
   background: var(--coolAccentBg);
 }
 
+.correctChoice {
+  background-color: var(--success)
+}
+
+.incorrectChoice {
+  background-color: var(--failure)
+
+}
+
+
 @media screen and (max-height: 840px) {
   .choiceContainer {
     height: 80px;
