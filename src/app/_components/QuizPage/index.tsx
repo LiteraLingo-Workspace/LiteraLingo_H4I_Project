@@ -54,9 +54,6 @@ export const QuizPage: React.FC = () => {
     if (currentQuestionNumber < maxQuestions - 1) {
       setCurrentQuestionNumber(currentQuestionNumber + 1);
     }
-    if (completedQuestions < maxQuestions ) {
-      setCompletedQuestions(completedQuestions + 1);
-    }
   };
 
   const handleQuestionCheck = (currentQuestionNumber: number, isCorrect: boolean) => {
@@ -74,6 +71,7 @@ export const QuizPage: React.FC = () => {
             : {...question}
       ))
       console.log(`Question number ${currentQuestionNumber}: ${isCorrect ? "correct" : "incorrect"}`);
+      setCompletedQuestions(completedQuestions + 1);
     }
   }
   
