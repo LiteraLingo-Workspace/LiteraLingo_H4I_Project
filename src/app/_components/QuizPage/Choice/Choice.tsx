@@ -7,6 +7,7 @@ interface ChoiceProps {
   isChecked: boolean;
   selected: boolean;
   onClick: () => void;
+  disabled: boolean;
 }
 
 export const Choice: React.FC<ChoiceProps> = ({
@@ -15,12 +16,13 @@ export const Choice: React.FC<ChoiceProps> = ({
   isCorrect,
   isChecked,
   onClick,
+  disabled,
 }) => {
   return (
     <div
       className={`${selected ? styles.selectedChoiceContainer : styles.choiceContainer} 
                   ${(isChecked && selected) && (isCorrect ? styles.correctChoice : styles.incorrectChoice)}`}
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
     >
       <p className={selected ? styles.selectedChoiceText : styles.choiceText}>
         {text}

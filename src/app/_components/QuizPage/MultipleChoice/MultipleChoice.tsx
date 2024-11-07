@@ -81,6 +81,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
             isChecked={isChecked}
             selected={selectedChoice === choice}
             onClick={() => handleChoiceClick(choice, choice === description)}
+            disabled={isChecked}
           />
         ))}
         </div>
