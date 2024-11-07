@@ -23,6 +23,15 @@ export const userRouter = createTRPCRouter({
   updateUserSettings: publicProcedure
   .input(z.object({ id: z.string(), font: z.number() }))
   .mutation(async ({ ctx, input }) => {
+    const user = await ctx.db.user.findUnique({
+      where: {
+        id: input.id,
+      },
+    });
+    if (!user) {
+      throw new Error("User not found");
+    }
+
     let updatedSettings;
     const existingSettings = await ctx.db.userSettings.findUnique({
       where: {
