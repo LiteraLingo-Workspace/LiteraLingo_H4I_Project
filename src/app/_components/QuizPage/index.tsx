@@ -12,9 +12,28 @@ import { Navbar } from "../shared/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import expressions from "../../data/quiz.json";
 
+export const typeColors = {
+  "idiom": {
+    label: theme.colors.warmYellow,
+    background: theme.colors.faintYellow,
+  },
+  "metaphor": {
+    label: theme.colors.purple,
+    background: theme.colors.faintPurple,
+  },
+  "simile": {
+    label: theme.colors.coolDark,
+    background: theme.colors.faintBlue,
+  },
+  "Loading": {
+    label: theme.colors.coolDark,
+    background: theme.colors.faintGrey,
+  }
+}
+
 type QuestionMC = {
   id: number,
-  type: string,
+  type: keyof typeof typeColors;
   expression: string;
   description: string;
   alternatives: string[];
@@ -54,7 +73,7 @@ export const QuizPage: React.FC = () => {
             ? {...question, isCorrect: isCorrect} 
             : {...question}
       ))
-      console.log(`Question number ${currentQuestionNumber}: ${isCorrect}`);
+      console.log(`Question number ${currentQuestionNumber}: ${isCorrect ? "correct" : "incorrect"}`);
     }
     updateQuestionNumber();
   }
@@ -92,8 +111,6 @@ export const QuizPage: React.FC = () => {
         color={theme.colors.primary}
         typeLabel={
           <TypeLabel
-            color={theme.colors.warmYellow}
-            bg={theme.colors.faintYellow}
             text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
           />
         }

@@ -94,7 +94,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({  description, ch
         </div> 
         :
         <div className={styles.buttonContainer}>
-          <button className={styles.button} disabled={shouldDisable} onClick={handleSubmit}>
+          <button className={styles.button} onClick={handleSubmit}>
             Check Answer
           </button>
         </div> 
