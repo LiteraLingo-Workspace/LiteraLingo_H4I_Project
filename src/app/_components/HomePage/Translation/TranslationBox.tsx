@@ -25,9 +25,12 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
   const [historyEntryId, setHistoryEntryId] = useState<number | null>(null);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
+  // make this true when we want real api results
   const fakeAPIresults = true;
 
   const { mutate } = api.openai.translate.useMutation({
@@ -94,6 +97,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
         id: historyEntryId,
         isFavorite: true,
       })
+      setIsFavorite(true);
     } else {
       console.error("No history entry ID found.");
     }
@@ -211,7 +215,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                 bg={theme.colors.faintPurple}
                 text="Sarcasm"
               />
-              <IoIosStarOutline size={32} onClick={addToFavorites} className={styles.starIcon}/>
+              <IoIosStarOutline size={32} onClick={addToFavorites} className={isFavorite ? styles.starIconActive : styles.starIcon}/>
             </div>
           </div>
         </div>

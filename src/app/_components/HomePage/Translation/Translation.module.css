@@ -182,3 +182,7 @@
 .starIcon:hover {
   fill: red;
 }
+
+.starIconActive {
+  fill: red; 
+}
