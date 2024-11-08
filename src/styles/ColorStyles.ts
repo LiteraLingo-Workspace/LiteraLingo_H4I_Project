@@ -11,6 +11,8 @@ export type ColorSystem =
   | "warmYellow"
   | "failure"
   | "success"
+  | "faintSuccess"
+  | "faintFailure"
   | "faintBlue"
   | "faintYellow"
   | "faintWarm"
@@ -35,6 +37,8 @@ export const theme = {
     warmYellow: "rgb(241, 185, 80)",
     failure: "rgb(213, 49, 50)",
     success: "rgb(69, 203, 115)",
+    faintFailure: "rgb(207, 236, 205)",
+    faintSuccess: "rgb(244, 202, 203)",
     faintBlue: "rgba(100, 174, 198, 0.2)",
     faintYellow: "rgba(241, 185, 80, 0.2)",
     faintWarm: "rgba(243, 117, 118, 0.2)",
