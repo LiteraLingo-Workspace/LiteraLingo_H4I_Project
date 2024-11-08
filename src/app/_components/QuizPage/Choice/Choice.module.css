@@ -27,24 +27,26 @@
 }
 
 .correctChoice {
-  background-color: var(--success);
-  border: 2px solid rgb(15, 105, 46);;
+  background-color: var(--faintSuccess);
+  border: 2px solid var(--success);
+  box-shadow: 0px 4px 0px 0px var(--success);
 }
 
 .incorrectChoice {
-  background-color: var(--failure);
-  border: 2px solid rgb(137, 25, 25);
-
+  background-color: var(--faintFailure);
+  border: 2px solid var(--failure);
+  box-shadow: 0px 4px 0px 0px var(--failure);
 }
 
-
 @media screen and (max-height: 840px) {
-  .choiceContainer, .selectedChoiceContainer {
+  .choiceContainer,
+  .selectedChoiceContainer {
     height: 80px;
   }
 }
 @media screen and (max-height: 750px) {
-  .choiceContainer, .selectedChoiceContainer {
+  .choiceContainer,
+  .selectedChoiceContainer {
     height: 64px;
   }
 }
