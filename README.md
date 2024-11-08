@@ -12,7 +12,7 @@
 
 ## ❓ About
 
-**LiteraLingo** is a service designed to provide...
+**LiteraLingo** is a service to help individuals with autism learn figurative language.
 
 ## 📝 How to Run
 
@@ -83,7 +83,7 @@ npm run seed-test
 
 ### How to format your code
 
-Use Prettier for formatting. Default settings are fine
+Use Prettier for formatting. The default settings are fine.
 
 ### How to create components
 
@@ -124,7 +124,7 @@ To learn more, see the [tRPC docs](https://trpc.io/docs/rpc).
 
 ## 📃 License
 
-LiteraLingo is licensed under...
+This project is licensed under the terms of the MIT License.
 
 ## 🗨️ Contact
 
