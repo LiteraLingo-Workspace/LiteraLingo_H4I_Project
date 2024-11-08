@@ -174,3 +174,11 @@
   margin-top: 8px;
   margin-bottom: 4px;
 }
+
+.starIcon {
+  transition: color 0.3s ease;
+}
+
+.starIcon:hover {
+  fill: red;
+}

@@ -75,4 +75,9 @@ export const historyEntryRouter = createTRPCRouter({
 
       return updatedHistoryEntry;
     }),
+
+    getAllHistoryEntries: publicProcedure.query(async ({ ctx }) => {
+      const historyEntries = await ctx.db.historyEntry.findMany();
+      return historyEntries;
+    }),
 });

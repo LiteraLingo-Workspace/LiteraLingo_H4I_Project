@@ -9,29 +9,71 @@ import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
+import { getServerAuthSession } from "~/server/auth";
+import { Session } from "next-auth";
 
 type JsonData = Record<string, string>;
 
-export const TranslationBox: React.FC = () => {
+interface TranslationBoxProps {
+  session: Session | null;
+}
+
+export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
+  const [historyEntryId, setHistoryEntryId] = useState<number | null>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
+
+  const fakeAPIresults = true;
 
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
       setIsLoading(false);
       console.log(data);
       setResult(data.result ? data.result : "An error occurred.");
+      storeTranslationHistory(value, data.result ? data.result : "An error occurred.");
     },
     onError: () => {
       setIsLoading(false);
       setResult("An error occurred.");
     },
   });
+
+  const { mutate: storeHistoryMutate } = api.historyEntry.create.useMutation({
+    onSuccess: (data) => {
+      console.log("Translation history stored successfully.");
+      setHistoryEntryId(data.id);
+    },
+    onError: () => {
+      console.log("An error occurred storing translation history.");
+    },
+  });
+
+  const { mutate: updateFavoriteMutate } = api.historyEntry.updateIsFavorite.useMutation({
+    onSuccess: (data) => {
+      console.log("Favorite updated successfully.");
+    },
+    onError: () => {
+      console.log("An error occurred updating favorite status.");
+    },
+  });
+
+  const storeTranslationHistory = (textEntered: string, outputText: string) => {
+    if (session?.user?.id) {
+      storeHistoryMutate({
+        textEntered,
+        outputText,
+        isFavorite: false,
+        userId: session.user.id,
+      });
+    } else {
+      console.error("User not authenticated.");
+    }
+  };
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
@@ -45,6 +87,17 @@ export const TranslationBox: React.FC = () => {
       }
     }, [textAreaRef, value]);
   };
+
+  const addToFavorites = () => {
+    if (historyEntryId) {
+      updateFavoriteMutate({
+        id: historyEntryId,
+        isFavorite: true,
+      })
+    } else {
+      console.error("No history entry ID found.");
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target?.value);
@@ -81,7 +134,18 @@ export const TranslationBox: React.FC = () => {
                   setTranslate(true);
                   setCanType(false);
                   setIsLoading(true);
-                  mutate({ text: value });
+                  // mutate({ text: value });
+                  if (fakeAPIresults) {
+                    // Use fake translation result
+                    const fakeResult = translations[value] ?? "Fake translation result";
+                    setResult(fakeResult);
+                    setIsLoading(false);
+                    storeTranslationHistory(value, fakeResult);
+                  } else {
+                    // Call the actual API
+                    mutate({ text: value });
+                  }
+
                   // BELOW WAS LEFT IN FOR TESTING PURPOSES
                   // SINCE OPENAI KEY HAS LIMITED CALLS
 
@@ -147,7 +211,7 @@ export const TranslationBox: React.FC = () => {
                 bg={theme.colors.faintPurple}
                 text="Sarcasm"
               />
-              <IoIosStarOutline size={32} />
+              <IoIosStarOutline size={32} onClick={addToFavorites} className={styles.starIcon}/>
             </div>
           </div>
         </div>

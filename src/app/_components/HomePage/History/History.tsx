@@ -4,10 +4,21 @@ import styles from "./History.module.css";
 import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
 import { HistoryItem } from "./HistoryItem";
+import { api } from "~/trpc/react";
 
 export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
+  const { data: historyEntryData, isLoading, error } = api.historyEntry.getAllHistoryEntries.useQuery();
+  
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading history entries</div>;
+  }
+  
   return (
     <div
       className={`${styles.container} ${expanded ? styles.containerExpanded : ""}`}
@@ -69,14 +80,14 @@ export const History: React.FC = () => {
         className={styles.historyItemContainer}
         style={{ marginTop: `${!expanded ? 0 : 80}px` }}
       >
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="This winter is as cold as death" type="Simile" />
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="This winter is as cold as death" type="Simile" />
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="This winter is as cold as death" type="Simile" />
-        <HistoryItem text="Use soft words and hard argument" type="Metonymy" />
-        <HistoryItem text="This winter is as cold as death" type="Simile" />
+        {historyEntryData?.map((entry) => (
+          <HistoryItem
+            key={entry.id}
+            text={entry.textEntered}
+            type={entry.outputText}
+            isFavorite={entry.isFavorite}
+          />
+        ))}
       </div>
     </div>
   );
