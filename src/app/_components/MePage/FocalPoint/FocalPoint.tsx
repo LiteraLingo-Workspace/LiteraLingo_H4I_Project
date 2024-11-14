@@ -1,9 +1,8 @@
 import styles from "./FocalPoint.module.css";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { TitleContainer } from "../TitleContainer";
-import { theme } from "../../../../styles/index";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
-import { labelStyleType, labelStyles } from "../../../../styles/index";
+import { labelStyles } from "../../../../styles/index";
 
 export const FocalPoint: React.FC = () => {
   return (
@@ -14,28 +13,28 @@ export const FocalPoint: React.FC = () => {
       />
       <div className={styles.overviewLabelsContainer}>
         <TypeLabel
-          color={theme.colors.warmYellow}
-          bg={theme.colors.faintYellow}
+          color={labelStyles.simile.color}
+          bg={labelStyles.simile.bg}
           text="Simile"
         />
         <TypeLabel
-          color={theme.colors.warm}
-          bg={theme.colors.faintWarm}
+          color={labelStyles.metonymy.color}
+          bg={labelStyles.metonymy.bg}
           text="Metonymy"
         />
         <TypeLabel
-          color={theme.colors.coolDark}
-          bg={theme.colors.faintCoolDark}
+          color={labelStyles.hyperbole.color}
+          bg={labelStyles.hyperbole.bg}
           text="Hyperbole"
         />
         <TypeLabel
-          color={theme.colors.coolLight}
-          bg={theme.colors.faintCoolLight}
+          color={labelStyles.proverb.color}
+          bg={labelStyles.proverb.bg}
           text="Proverb"
         />
         <TypeLabel
-          color={theme.colors.primary}
-          bg={theme.colors.faintPrimary}
+          color={labelStyles.idiom.color}
+          bg={labelStyles.idiom.bg}
           text="Idiom"
         />
       </div>
