@@ -60,25 +60,4 @@ export const userRouter = createTRPCRouter({
       }
       return updatedSettings;
     }),
-
-  deleteUserAccount: publicProcedure
-    .input(z.object({ id: z.string() }))
-    .mutation(async ({ ctx, input }) => {
-      const user = await ctx.db.user.findUnique({
-        where: {
-          id: input.id,
-        },
-      });
-      if (!user) {
-        throw new Error("User not found");
-      }
-
-      const deleteUser = await ctx.db.user.delete({
-        where: {
-          id: input.id,
-        },
-      });
-
-      return deleteUser;
-    }),
 });
