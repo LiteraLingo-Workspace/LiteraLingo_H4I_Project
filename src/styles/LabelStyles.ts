@@ -15,8 +15,8 @@ export const labelStyles = {
     bg: theme.colors.faintWarm,
   },
   idiom: {
-    color: theme.colors.primary,
-    bg: theme.colors.faintPrimary,
+    color: theme.colors.coolDark,
+    bg: theme.colors.faintCoolDark,
   },
   proverb: {
     color: theme.colors.coolLight,
@@ -27,7 +27,7 @@ export const labelStyles = {
     bg: theme.colors.faintCoolDark,
   },
   metaphor: {
-    color: theme.colors.coolDark,
+    color: theme.colors.coolAccentBg,
     bg: theme.colors.faintBlue,
   },
   sarcasm: {

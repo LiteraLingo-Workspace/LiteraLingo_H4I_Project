@@ -18,19 +18,9 @@ export const FocalPoint: React.FC = () => {
           text="Simile"
         />
         <TypeLabel
-          color={labelStyles.metonymy.color}
-          bg={labelStyles.metonymy.bg}
-          text="Metonymy"
-        />
-        <TypeLabel
-          color={labelStyles.hyperbole.color}
-          bg={labelStyles.hyperbole.bg}
-          text="Hyperbole"
-        />
-        <TypeLabel
-          color={labelStyles.proverb.color}
-          bg={labelStyles.proverb.bg}
-          text="Proverb"
+          color={labelStyles.metaphor.color}
+          bg={labelStyles.metaphor.bg}
+          text="Metaphor"
         />
         <TypeLabel
           color={labelStyles.idiom.color}
