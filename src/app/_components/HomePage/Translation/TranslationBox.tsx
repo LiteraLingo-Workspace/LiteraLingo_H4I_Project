@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
+import { labelStyleType, labelStyles } from "../../../../styles/index";
 import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
@@ -143,8 +144,8 @@ export const TranslationBox: React.FC = () => {
             </div>
             <div className={styles.innerButtonsContainer}>
               <TypeLabel
-                color={theme.colors.purple}
-                bg={theme.colors.faintPurple}
+                color={labelStyles.sarcasm.color}
+                bg={labelStyles.sarcasm.bg}
                 text="Sarcasm"
               />
               <IoIosStarOutline size={32} />

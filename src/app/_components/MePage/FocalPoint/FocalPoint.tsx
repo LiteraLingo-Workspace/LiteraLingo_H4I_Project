@@ -3,6 +3,7 @@ import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { TitleContainer } from "../TitleContainer";
 import { theme } from "../../../../styles/index";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
+import { labelStyleType, labelStyles } from "../../../../styles/index";
 
 export const FocalPoint: React.FC = () => {
   return (
