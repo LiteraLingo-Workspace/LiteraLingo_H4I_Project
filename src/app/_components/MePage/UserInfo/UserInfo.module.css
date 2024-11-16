@@ -32,16 +32,16 @@
 }
 
 .logoutBtn {
-  border-width: 3px;   
+  border-width: 3px;
   border-radius: 30px;
   border-color: var(--faintGrey);
-  background-color: #FFFFFF00;
+  background-color: #ffffff00;
   width: 91px;
   height: 36px;
 }
 
 .logoutText {
-  font-family: var(--baloo_2), sans-serif;
+  font-family: var(--font-baloo-2), sans-serif;
   color: var(--primary);
   font-weight: 600;
   font-size: 20px;
