@@ -14,7 +14,7 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({ text, type, isFavorite
       <div className={styles.itemTop}>
         <p className={styles.itemType}>{type}</p>
         <div className={styles.itemButtons}>
-          <CiStar size={24} fill={isFavorite ? "red" : "none"} />
+          <CiStar size={24} fill={isFavorite ? "blue" : "none"} />
           <BsThreeDotsVertical size={18} />
         </div>
       </div>

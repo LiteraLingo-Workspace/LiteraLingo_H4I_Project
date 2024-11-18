@@ -23,6 +23,18 @@ export const historyEntryRouter = createTRPCRouter({
       if (!user) {
         throw new Error("User not found");
       }
+
+      const duplicateEntry = await ctx.db.historyEntry.findFirst({
+        where: {
+          textEntered: input.textEntered,
+          userId: input.userId,
+        },
+      });
+
+      if (duplicateEntry) {
+        throw new Error("Duplicate entry found");
+      }
+
       return ctx.db.historyEntry.create({
         data: {
           textEntered: input.textEntered,

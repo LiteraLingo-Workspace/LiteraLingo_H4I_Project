@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
-import { IoIosStarOutline } from "react-icons/io";
+import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
 import { getServerAuthSession } from "~/server/auth";
@@ -30,7 +30,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
-  // make this true when we want real api results
+  // make this false when we want real api results
   const fakeAPIresults = true;
 
   const { mutate } = api.openai.translate.useMutation({
@@ -51,8 +51,8 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
       console.log("Translation history stored successfully.");
       setHistoryEntryId(data.id);
     },
-    onError: () => {
-      console.log("An error occurred storing translation history.");
+    onError: (e) => {
+      console.log("An error occurred storing translation history. " + e.message);
     },
   });
 
@@ -91,13 +91,13 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
     }, [textAreaRef, value]);
   };
 
-  const addToFavorites = () => {
+  const toggleIsFavorite = () => {
     if (historyEntryId) {
       updateFavoriteMutate({
         id: historyEntryId,
-        isFavorite: true,
+        isFavorite: !isFavorite,
       })
-      setIsFavorite(true);
+      setIsFavorite(!isFavorite);
     } else {
       console.error("No history entry ID found.");
     }
@@ -203,6 +203,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                   setCanType(true);
                   setValue("");
                   setResult("");
+                  setIsFavorite(false);
                 }}
               >
                 <BsArrowCounterclockwise />
@@ -215,7 +216,19 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                 bg={theme.colors.faintPurple}
                 text="Sarcasm"
               />
-              <IoIosStarOutline size={32} onClick={addToFavorites} className={isFavorite ? styles.starIconActive : styles.starIcon}/>
+              {isFavorite ? (
+                <IoIosStar
+                  size={32}
+                  onClick={toggleIsFavorite}
+                  className={styles.starIconActive}
+                />
+              ) : (
+                <IoIosStarOutline
+                  size={32}
+                  onClick={toggleIsFavorite}
+                  className={styles.starIcon}
+                />
+              )}
             </div>
           </div>
         </div>
