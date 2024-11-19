@@ -88,8 +88,16 @@ export const historyEntryRouter = createTRPCRouter({
       return updatedHistoryEntry;
     }),
 
-    getAllHistoryEntries: publicProcedure.query(async ({ ctx }) => {
-      const historyEntries = await ctx.db.historyEntry.findMany();
+    getAllHistoryEntries: publicProcedure
+    .input(z.object({
+      isFavorite: z.boolean().optional(),
+      }).optional()
+    )
+    .query(async ({ ctx, input }) => {
+      const whereClause = input?.isFavorite !== undefined ? { isFavorite: input.isFavorite } : {};
+      const historyEntries = await ctx.db.historyEntry.findMany({
+        where: whereClause,
+      });
       return historyEntries;
     }),
 });
