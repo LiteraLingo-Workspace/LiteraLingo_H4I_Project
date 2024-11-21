@@ -60,4 +60,23 @@ export const userRouter = createTRPCRouter({
       }
       return updatedSettings;
     }),
+
+  // Endpoint to delete user by user ID
+  // Note that this will also delete any associated data (settings, etc)
+  // Example: GET http://localhost:3000/api/trpc/user.deleteUserById?batch=1&input={"0":{"json": {"userId": "user id"}}}
+  deleteUserById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const deletedUser = await ctx.db.user.delete({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!deletedUser) {
+        throw new Error("User was not deleted properly");
+      }
+
+      return deletedUser;
+    }),
 });
