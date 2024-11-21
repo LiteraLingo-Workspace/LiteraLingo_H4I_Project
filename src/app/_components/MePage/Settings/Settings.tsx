@@ -1,4 +1,5 @@
 import styles from "./Settings.module.css";
+import globalStyles from "../../../index.module.css";
 import { TitleContainer } from "../TitleContainer/index";
 import { BsGearWide } from "react-icons/bs";
 import { Slider } from "./Slider";
@@ -43,6 +44,11 @@ export const Settings: React.FC = () => {
             <p className={styles.settingName}>Content Scaling</p>
             <Slider />
           </div>
+        </div>
+        <div className={styles.accountActionContainer}>
+          <button className={globalStyles.secondaryOutlineButton}>
+            Delete Account
+          </button>
         </div>
       </div>
     </div>
