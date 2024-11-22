@@ -177,13 +177,14 @@
 }
 
 .secondaryOutlineButton {
-  border: 2px solid var(--failure);
+  border: 1.5px solid var(--failure);
   background-color: transparent;
   color: var(--failure);
   padding: 0.3rem 1rem;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 9999px;
+  min-width: 40%;
 }
 
 .secondaryOutlineButton:hover {
@@ -192,13 +193,29 @@
   cursor: pointer;
 }
 
-.secondaryOutlineButton:hover {
-  background-color: var(--failure);
-  color: white;
-}
-
 .secondaryOutlineButton:active {
   background-color: var(--failure);
   color: white;
+  transform: scale(0.96);
+}
+
+.secondaryGreyOutlineButton {
+  border: 1.5px solid rgb(112, 112, 112);
+  background-color: transparent;
+  color: rgb(112, 112, 112);
+  padding: 0.3rem 1rem;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 9999px;
+  min-width: 40%;
+}
+
+.secondaryGreyOutlineButton:hover {
+  background-color: rgb(112, 112, 112);
+  color: white;
+  cursor: pointer;
+}
+
+.secondaryGreyOutlineButton:active {
   transform: scale(0.96);
 }
