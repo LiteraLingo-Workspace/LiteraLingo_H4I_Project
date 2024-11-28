@@ -122,6 +122,6 @@ This project is licensed under the terms of the MIT License.
 
 ## 🗨️ Contact
 
-For more details about our product, service, or any general information regarding LiteraLingo, feel free to reach out to us. We are here to provide support and answer any questions you may have. Below is the best way to contact us:
+If you have any inquiries about the development of this project, you can reach the Hack4Impact McGill chapter at:
 
-- **Email**: Send us your inquiries or support requests at...
+- **Email**: hack4impact@ssmu.ca
