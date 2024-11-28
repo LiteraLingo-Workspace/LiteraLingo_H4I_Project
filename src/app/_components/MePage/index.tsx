@@ -20,17 +20,21 @@ export const MePage: React.FC = () => {
 
   const deleteUser = api.user.deleteUserById.useMutation({
     onSuccess: async () => {
-      console.log("User deleted succesffully, redirecting to home.");
-      setVisibleAccountDeletion(false);
-      router.replace("/");
+      console.log("User deleted succesffully.");
     },
     onError: (error) => {
       console.error(`${error}`);
     },
   });
 
-  const handleUserDelete = () => {
-    deleteUser.mutateAsync();
+  const handleUserDelete = async () => {
+    try {
+      await deleteUser.mutateAsync();  
+      setVisibleAccountDeletion(false);
+      router.replace("/");
+    } catch (error) {
+      console.error("Error during deletion:", error);
+    }
   }
 
   return (
