@@ -65,10 +65,13 @@ export const userRouter = createTRPCRouter({
   // Note that this will also delete any associated data (settings, etc)
   // Example: POST http://localhost:3000/api/trpc/user.deleteUserById?batch=1 with payload: {"0":{"json": {"id": "user_id"}}}
   deleteUserById: publicProcedure
-    .input(z.object({ id: z.string() }))
+    // .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
+      const loggedInUserId = ctx.session?.user?.id;
+
       const user = await ctx.db.user.findUnique({
-        where: { id: input.id },
+        // where: { id: input.id },
+        where: { id: loggedInUserId },
       });
 
       if (!user) {
@@ -77,7 +80,7 @@ export const userRouter = createTRPCRouter({
 
       const deletedUser = await ctx.db.user.delete({
         where: {
-          id: input.id,
+          id: loggedInUserId,
         },
       });
 

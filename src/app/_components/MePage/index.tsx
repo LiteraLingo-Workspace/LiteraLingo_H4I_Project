@@ -11,12 +11,26 @@ import { Background } from "../shared/Background/Background";
 import { Navbar } from "../shared/Navbar/Navbar";
 import { ConfirmationModal } from "../shared/ConfirmationModal/ConfirmationModal";
 import { theme } from "../../../styles/index";
+import { api } from "~/trpc/react";
+import { useRouter } from "next/navigation";
 
 export const MePage: React.FC = () => {
   const [visibleAccountDeletion, setVisibleAccountDeletion] = useState<boolean>(false);
+  const router = useRouter();
 
-  const deleteAccount = async () => {
+  const deleteUser = api.user.deleteUserById.useMutation({
+    onSuccess: async () => {
+      console.log("User deleted succesffully, redirecting to home.");
+      setVisibleAccountDeletion(false);
+      router.replace("/");
+    },
+    onError: (error) => {
+      console.error(`${error}`);
+    },
+  });
 
+  const handleUserDelete = () => {
+    deleteUser.mutateAsync();
   }
 
   return (
@@ -28,7 +42,7 @@ export const MePage: React.FC = () => {
           description="Be careful! You will not be able to undo this."
           confirm="Delete"
           cancel="Cancel"
-          onConfirm={deleteAccount}
+          onConfirm={handleUserDelete}
           onClose={() => setVisibleAccountDeletion(false)}
         />
       }
