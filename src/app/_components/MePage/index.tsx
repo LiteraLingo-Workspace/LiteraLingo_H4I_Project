@@ -22,8 +22,8 @@ export const MePage: React.FC = () => {
     onSuccess: async () => {
       console.log("User deleted succesffully.");
     },
-    onError: (error) => {
-      console.error(`${error}`);
+    onError: () => {
+      console.error("An error occurred.");
     },
   });
 
