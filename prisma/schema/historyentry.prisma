@@ -4,6 +4,6 @@ model HistoryEntry {
     outputText String
     isFavorite Boolean @default(false)
 
-    author         User @relation(fields: [userId], references: [id])
+    author         User @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId String
 }
