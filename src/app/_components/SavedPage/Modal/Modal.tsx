@@ -13,20 +13,20 @@ interface Fav {
 export const Modal: React.FC = async () => {
 
   const session = await getServerAuthSession();
-  const items: Fav[] = [];
+  let items: Fav[] = [];
   
   if (session) {
-    const { data: favorites, isLoading, isError } = api.user.getUserHistoryFavorites.useQuery({
+    const { data: favorites} = api.user.getUserHistoryFavorites.useQuery({
       userId: session.user.id,
     });
 
-    const items = (favorites || []).map((favorite) => ({
+    items = (favorites ?? []).map((favorite) => ({
       id: favorite.id,
       type: "temp",
       text: favorite.textEntered,
     }));
   }
-  
+
   return (
     <div className={styles.savedPage}>
       <div className={styles.savedItems}>
