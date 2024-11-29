@@ -1,0 +1,6 @@
+model Expression_Types {
+  id   Int    @id @default(autoincrement())
+  name String @unique 
+
+  expressions Expression[] // Backward relation
+}

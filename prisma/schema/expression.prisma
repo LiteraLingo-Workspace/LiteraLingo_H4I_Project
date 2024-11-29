@@ -4,6 +4,8 @@ model Expression {
   figurative String
   isCorrect  Boolean @default(false)
   moduleId   Int
+  typeId     Int // Foreign key to Expression_Types
   
   module     Module @relation(fields: [moduleId], references: [id])
+  type       Expression_Types @relation(fields: [typeId], references: [id]) // Relationship with Expression_Types
 }
