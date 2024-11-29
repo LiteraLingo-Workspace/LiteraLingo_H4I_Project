@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
+interface PrismaClientKnownRequestError extends Error {
+  code: string;
+}
+
 export const historyEntryRouter = createTRPCRouter({
   // Endpoint to create a HistoryEntry
   // EXAMPLE: POST http://localhost:3000/api/trpc/historyEntry.create?batch=1
@@ -33,8 +37,8 @@ export const historyEntryRouter = createTRPCRouter({
             userId: input.userId,
           },
         });
-      } catch (error: any) {
-        if (error.code === "P2002") {
+      } catch (error: unknown) {
+        if ((error as PrismaClientKnownRequestError).code === "P2002") {
           throw new Error("HistoryEntry already exists");
         }
         throw error;
