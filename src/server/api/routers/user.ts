@@ -90,4 +90,17 @@ export const userRouter = createTRPCRouter({
 
       return deletedUser;
     }),
+
+    getUserHistoryFavorites: publicProcedure
+      .input(z.object({ userId: z.string() }))
+      .query(async ({ ctx, input }) => {
+        const favorites = await ctx.db.historyEntry.findMany({
+          where: {
+            userId: input.userId,
+            isFavorite: true, // Filter for favorite entries
+          },
+        });
+
+        return favorites;
+      }),
 });
