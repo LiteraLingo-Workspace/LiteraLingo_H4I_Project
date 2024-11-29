@@ -11,7 +11,7 @@ export const Modal: React.FC = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
 
-  const items = historyEntryData || [];
+  const items = historyEntryData ?? [];
 
   return (
     <div className={styles.savedPage}>
