@@ -24,25 +24,21 @@ export const historyEntryRouter = createTRPCRouter({
         throw new Error("User not found");
       }
 
-      const duplicateEntry = await ctx.db.historyEntry.findFirst({
-        where: {
-          textEntered: input.textEntered,
-          userId: input.userId,
-        },
-      });
-
-      if (duplicateEntry) {
-        throw new Error("Duplicate entry found");
+      try {
+        return ctx.db.historyEntry.create({
+          data: {
+            textEntered: input.textEntered,
+            outputText: input.outputText,
+            isFavorite: input.isFavorite,
+            userId: input.userId,
+          },
+        });
+      } catch (error: any) {
+        if (error.code === "P2002") {
+          throw new Error("HistoryEntry already exists");
+        }
+        throw error;
       }
-
-      return ctx.db.historyEntry.create({
-        data: {
-          textEntered: input.textEntered,
-          outputText: input.outputText,
-          isFavorite: input.isFavorite,
-          userId: input.userId,
-        },
-      });
     }),
   // Endpoint to fetch a HistoryEntry by ID
   // Example: GET http://localhost:3000/api/trpc/historyEntry.getHistoryEntryById?batch=1&input={"0":{"json": {"id": 1}}}

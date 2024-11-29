@@ -6,4 +6,6 @@ model HistoryEntry {
 
     author         User @relation(fields: [userId], references: [id])
     userId String
+
+    @@unique([textEntered, userId])
 }
