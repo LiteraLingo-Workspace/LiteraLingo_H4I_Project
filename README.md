@@ -12,7 +12,7 @@
 
 ## ❓ About
 
-**LiteraLingo** is a service designed to provide...
+**LiteraLingo** is a service to help individuals with autism learn figurative language.
 
 ## 📝 How to Run
 
@@ -71,19 +71,13 @@ DROP xyz;
 # Sync up your Prisma schema with your db
 npx prisma db push
 
-# Seeding the database
-npm run seed
-
-# Testing that the seed worked
-npm run seed-test
-
 ```
 
 ## 📚 Documentation
 
 ### How to format your code
 
-Use Prettier for formatting. Default settings are fine
+Use Prettier for formatting. The default settings are fine.
 
 ### How to create components
 
@@ -107,6 +101,10 @@ Open [Google Cloud Console](https://console.cloud.google.com/apis/credentials), 
 
 Switch to the credentials page, click create credentials, then OAuth Client ID. Set Application type to Web Application, `http://localhost:3000` as an authorized JavaScript origin, and `http://localhost:3000/api/auth/callback/google` as an Authorized Redirect URL.
 
+### Creating Discord APIs
+
+[Register a developer application](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications) and retrieve your client ID and client secret. In the **OAuth2** tab of your newly registed application, Add `http://localhost:3000/api/auth/callback/discord` as a Redirect URL. 
+
 ### Sending HTTP requests from the frontend
 
 View the example file in `src/app/_components/user.tsx` for an example about how you can make an endpoint call from the frontend.
@@ -124,10 +122,10 @@ To learn more, see the [tRPC docs](https://trpc.io/docs/rpc).
 
 ## 📃 License
 
-LiteraLingo is licensed under...
+This project is licensed under the terms of the MIT License.
 
 ## 🗨️ Contact
 
-For more details about our product, service, or any general information regarding LiteraLingo, feel free to reach out to us. We are here to provide support and answer any questions you may have. Below is the best way to contact us:
+If you have any inquiries about the development of this project, you can reach the Hack4Impact McGill chapter at:
 
-- **Email**: Send us your inquiries or support requests at...
+- **Email**: hack4impact@ssmu.ca

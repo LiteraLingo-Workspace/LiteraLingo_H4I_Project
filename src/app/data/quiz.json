@@ -1,0 +1,662 @@
+[
+  {
+      "type": "metaphor",
+      "expression": "He has a heart of stone",
+      "description": "He is emotionally cold and unfeeling.",
+      "alternatives": [
+          "He prioritizes logic over emotion in decisions.",
+          "He often appears detached from others.",
+          "He avoids intimate relationships."
+      ],
+      "id": 0
+  },
+  {
+      "type": "metaphor",
+      "expression": "Her voice is music to my ears",
+      "description": "Her voice is very pleasant to hear.",
+      "alternatives": [
+          "Her singing can easily distract from conversation.",
+          "Her voice tends to be high-pitched and soft.",
+          "She often uses it to manipulate emotions."
+      ],
+      "id": 1
+  },
+  {
+      "type": "metaphor",
+      "expression": "He is a night owl",
+      "description": "He stays up late and is active at night.",
+      "alternatives": [
+          "He struggles to wake up early for commitments.",
+          "He prefers solitude during nighttime hours.",
+          "He often misses morning opportunities."
+      ],
+      "id": 2
+  },
+  {
+      "type": "metaphor",
+      "expression": "He is the black sheep",
+      "description": "He is different from the rest of his family.",
+      "alternatives": [
+          "He often feels like an outsider among his peers.",
+          "He attracts negative attention from others.",
+          "He is frequently criticized by his family."
+      ],
+      "id": 3
+  },
+  {
+      "type": "metaphor",
+      "expression": "His smile is a ray of sunshine",
+      "description": "His smile brings joy and warmth.",
+      "alternatives": [
+          "He uses his smile to mask deeper issues.",
+          "His smile can be misleading in its sincerity.",
+          "He often smiles at inappropriate times."
+      ],
+      "id": 4
+  },
+  {
+      "type": "metaphor",
+      "expression": "Knowledge is power",
+      "description": "Having knowledge gives one control or influence.",
+      "alternatives": [
+          "It can lead to isolation from those without it.",
+          "Knowledge is often used to intimidate others.",
+          "Too much knowledge can create anxiety."
+      ],
+      "id": 5
+  },
+  {
+      "type": "metaphor",
+      "expression": "Life is a journey",
+      "description": "Life involves growth and experiences.",
+      "alternatives": [
+          "It is filled with unexpected detours and challenges.",
+          "Life can often feel aimless or without direction.",
+          "Each person\u2019s journey is uniquely solitary."
+      ],
+      "id": 6
+  },
+  {
+      "type": "metaphor",
+      "expression": "She is an anchor in my life",
+      "description": "She provides stability and support.",
+      "alternatives": [
+          "She can sometimes weigh me down with expectations.",
+          "Her presence may limit my personal growth.",
+          "She offers stability but at the cost of adventure."
+      ],
+      "id": 7
+  },
+  {
+      "type": "metaphor",
+      "expression": "She is a breath of fresh air",
+      "description": "She brings new and positive energy.",
+      "alternatives": [
+          "Her ideas can sometimes be overwhelming.",
+          "She often changes her mind unexpectedly.",
+          "Her energy can distract from serious matters."
+      ],
+      "id": 8
+  },
+  {
+      "type": "metaphor",
+      "expression": "She is a firecracker",
+      "description": "She is energetic and lively.",
+      "alternatives": [
+          "Her enthusiasm can border on reckless at times.",
+          "She often surprises others with her outbursts.",
+          "She is sometimes difficult to handle in groups."
+      ],
+      "id": 9
+  },
+  {
+      "type": "metaphor",
+      "expression": "She is a shining star",
+      "description": "She stands out as exceptionally talented.",
+      "alternatives": [
+          "Her brilliance often outshines others in the room.",
+          "She tends to attract a lot of attention.",
+          "Her talent can sometimes create jealousy."
+      ],
+      "id": 10
+  },
+  {
+      "type": "metaphor",
+      "expression": "The city is a jungle",
+      "description": "The city is wild and chaotic.",
+      "alternatives": [
+          "It can be both exhilarating and overwhelming.",
+          "The city often feels dangerous at night.",
+          "There are hidden dangers behind every corner."
+      ],
+      "id": 11
+  },
+  {
+      "type": "metaphor",
+      "expression": "The classroom was a zoo",
+      "description": "The classroom was chaotic and noisy.",
+      "alternatives": [
+          "It often lacks structure and discipline.",
+          "Students feel free to express themselves excessively.",
+          "Learning is often overshadowed by distractions."
+      ],
+      "id": 12
+  },
+  {
+      "type": "metaphor",
+      "expression": "The future is a blank canvas",
+      "description": "The future is full of possibilities.",
+      "alternatives": [
+          "It can be intimidating to consider the unknown.",
+          "Not everyone is prepared to fill it meaningfully.",
+          "Some feel pressured to create a perfect picture."
+      ],
+      "id": 13
+  },
+  {
+      "type": "metaphor",
+      "expression": "The mountains are giants",
+      "description": "The mountains loom large and powerful.",
+      "alternatives": [
+          "They often symbolize overwhelming challenges.",
+          "They can seem unapproachable to many.",
+          "Their size can evoke feelings of insignificance."
+      ],
+      "id": 14
+  },
+  {
+      "type": "metaphor",
+      "expression": "The team is a well-oiled machine",
+      "description": "The team works efficiently and smoothly.",
+      "alternatives": [
+          "It can sometimes feel robotic in its function.",
+          "Individuals may feel undervalued in the process.",
+          "Too much focus on efficiency can stifle creativity."
+      ],
+      "id": 15
+  },
+  {
+      "type": "metaphor",
+      "expression": "The wind was a howling wolf",
+      "description": "The wind was loud and fierce.",
+      "alternatives": [
+          "It can evoke feelings of fear in the dark.",
+          "The wind often disrupts peaceful moments.",
+          "Its intensity can feel overwhelming at times."
+      ],
+      "id": 16
+  },
+  {
+      "type": "metaphor",
+      "expression": "The world is a stage",
+      "description": "Life is like a performance where we all play roles.",
+      "alternatives": [
+          "It can feel like people are acting rather than being genuine.",
+          "Some may feel trapped in their assigned roles.",
+          "Not everyone wants to perform for an audience."
+      ],
+      "id": 17
+  },
+  {
+      "type": "metaphor",
+      "expression": "They are a rose among thorns",
+      "description": "They are beautiful in a difficult environment.",
+      "alternatives": [
+          "Their beauty can sometimes mask underlying struggles.",
+          "They might attract unwanted attention from others.",
+          "Their presence can make others feel inadequate."
+      ],
+      "id": 18
+  },
+  {
+      "type": "metaphor",
+      "expression": "Time is a river",
+      "description": "Time flows continuously and cannot be stopped.",
+      "alternatives": [
+          "It can feel like a relentless force in life.",
+          "Time often sweeps away moments without notice.",
+          "It can lead to regrets about missed opportunities."
+      ],
+      "id": 19
+  },
+  {
+      "type": "simile",
+      "expression": "As brave as a lion",
+      "description": "Extremely courageous.",
+      "alternatives": [
+          "Always takes unnecessary risks.",
+          "Acts without thinking of consequences.",
+          "Often seeks attention for bravery."
+      ],
+      "id": 20
+  },
+  {
+      "type": "simile",
+      "expression": "As light as a feather",
+      "description": "Very lightweight.",
+      "alternatives": [
+          "Easily floats away in the wind.",
+          "Incapable of carrying anything heavy.",
+          "Often associated with being fragile."
+      ],
+      "id": 21
+  },
+  {
+      "type": "simile",
+      "expression": "As busy as a bee",
+      "description": "Very active or industrious.",
+      "alternatives": [
+          "Too focused to enjoy leisure time.",
+          "Easily overwhelmed by tasks.",
+          "Rarely finishes projects due to distractions."
+      ],
+      "id": 22
+  },
+  {
+      "type": "simile",
+      "expression": "As blind as a bat",
+      "description": "Unable to see or unaware.",
+      "alternatives": [
+          "Ignores what\u2019s happening around them.",
+          "Has a poor sense of direction.",
+          "Is always dependent on others for guidance."
+      ],
+      "id": 23
+  },
+  {
+      "type": "simile",
+      "expression": "As cool as a cucumber",
+      "description": "Calm and composed.",
+      "alternatives": [
+          "Can be emotionally distant.",
+          "Never shows excitement or enthusiasm.",
+          "Often comes off as indifferent."
+      ],
+      "id": 24
+  },
+  {
+      "type": "simile",
+      "expression": "As clear as mud",
+      "description": "Confusing or unclear.",
+      "alternatives": [
+          "Appears simple but is really complex.",
+          "Can be easily misunderstood by most.",
+          "Is only clear to a select few."
+      ],
+      "id": 25
+  },
+  {
+      "type": "simile",
+      "expression": "As easy as pie",
+      "description": "Very easy to do.",
+      "alternatives": [
+          "Requires a special set of skills.",
+          "Often leads to unexpected challenges.",
+          "Looks easy but can be frustrating."
+      ],
+      "id": 26
+  },
+  {
+      "type": "simile",
+      "expression": "As sharp as a tack",
+      "description": "Very intelligent or perceptive.",
+      "alternatives": [
+          "Often critiques others harshly.",
+          "Is quick to judge situations.",
+          "Can be overly analytical."
+      ],
+      "id": 27
+  },
+  {
+      "type": "simile",
+      "expression": "As sweet as sugar",
+      "description": "Very kind or nice.",
+      "alternatives": [
+          "Can be overly sentimental.",
+          "Often puts others\u2019 needs before their own.",
+          "Is naive about the world."
+      ],
+      "id": 28
+  },
+  {
+      "type": "simile",
+      "expression": "As slow as molasses",
+      "description": "Very slow.",
+      "alternatives": [
+          "Takes time to make decisions.",
+          "Often enjoys taking their time.",
+          "Can be methodical to a fault."
+      ],
+      "id": 29
+  },
+  {
+      "type": "simile",
+      "expression": "As strong as an ox",
+      "description": "Very strong.",
+      "alternatives": [
+          "Can be overly aggressive when provoked.",
+          "Often seen as intimidating.",
+          "May struggle with gentle tasks."
+      ],
+      "id": 30
+  },
+  {
+      "type": "simile",
+      "expression": "As fast as lightning",
+      "description": "Very fast.",
+      "alternatives": [
+          "Often leads to impulsive decisions.",
+          "Can be unpredictable in action.",
+          "Rarely stops to think things through."
+      ],
+      "id": 31
+  },
+  {
+      "type": "simile",
+      "expression": "As fresh as a daisy",
+      "description": "Looking or feeling new and lively.",
+      "alternatives": [
+          "Can be perceived as overly cheerful.",
+          "Easily fades in dull environments.",
+          "May seem out of touch with reality."
+      ],
+      "id": 32
+  },
+  {
+      "type": "simile",
+      "expression": "As quiet as a mouse",
+      "description": "Very quiet or unobtrusive.",
+      "alternatives": [
+          "Often feels invisible in social settings.",
+          "Can be misunderstood as shy.",
+          "Rarely voices their opinions."
+      ],
+      "id": 33
+  },
+  {
+      "type": "simile",
+      "expression": "As deep as the ocean",
+      "description": "Very profound or intense.",
+      "alternatives": [
+          "Can be overwhelming in conversations.",
+          "Often harbors hidden emotions.",
+          "Can be difficult to navigate."
+      ],
+      "id": 34
+  },
+  {
+      "type": "simile",
+      "expression": "As bright as a button",
+      "description": "Very cheerful or lively.",
+      "alternatives": [
+          "Can be overly flashy or attention-seeking.",
+          "Often lacks substance beneath the surface.",
+          "May be perceived as superficial."
+      ],
+      "id": 35
+  },
+  {
+      "type": "simile",
+      "expression": "As tough as leather",
+      "description": "Very durable or resilient.",
+      "alternatives": [
+          "Often resists change.",
+          "Can be emotionally closed off.",
+          "Is sometimes seen as unapproachable."
+      ],
+      "id": 36
+  },
+  {
+      "type": "simile",
+      "expression": "As stubborn as a mule",
+      "description": "Very obstinate.",
+      "alternatives": [
+          "Can be seen as unyielding in relationships.",
+          "Often leads to conflicts with others.",
+          "Rarely compromises on issues."
+      ],
+      "id": 37
+  },
+  {
+      "type": "simile",
+      "expression": "As flat as a pancake",
+      "description": "Very flat or level.",
+      "alternatives": [
+          "Can be perceived as dull or uninteresting.",
+          "Rarely stands out in a crowd.",
+          "Often lacks depth or substance."
+      ],
+      "id": 38
+  },
+  {
+      "type": "simile",
+      "expression": "As funny as a clown",
+      "description": "Very humorous.",
+      "alternatives": [
+          "Can be overly dramatic in humor.",
+          "Often hides sadness behind laughter.",
+          "Is sometimes seen as juvenile."
+      ],
+      "id": 39
+  },
+  {
+      "type": "idiom",
+      "expression": "A blessing in disguise",
+      "description": "A misfortune that results in something good.",
+      "alternatives": [
+          "An unexpected event that causes confusion.",
+          "A hidden benefit that few can appreciate.",
+          "A setback that ultimately leads to more setbacks."
+      ],
+      "id": 40
+  },
+  {
+      "type": "idiom",
+      "expression": "All bark and no bite",
+      "description": "Someone who is threatening but not aggressive.",
+      "alternatives": [
+          "Often makes threats without following through.",
+          "Can be seen as playful rather than serious.",
+          "Usually seeks attention rather than confrontation."
+      ],
+      "id": 41
+  },
+  {
+      "type": "idiom",
+      "expression": "Break the ice",
+      "description": "To initiate conversation in a social setting.",
+      "alternatives": [
+          "To create awkwardness in a conversation.",
+          "To force interaction in an uncomfortable way.",
+          "To disrupt the flow of a gathering."
+      ],
+      "id": 42
+  },
+  {
+      "type": "idiom",
+      "expression": "Burn bridges",
+      "description": "To destroy relationships or connections.",
+      "alternatives": [
+          "To make irreversible decisions in anger.",
+          "To distance oneself from past mistakes.",
+          "To act without considering future consequences."
+      ],
+      "id": 43
+  },
+  {
+      "type": "idiom",
+      "expression": "Burn the midnight oil",
+      "description": "To work late into the night.",
+      "alternatives": [
+          "To sacrifice sleep for entertainment.",
+          "To struggle with procrastination.",
+          "To work without a clear goal in mind."
+      ],
+      "id": 44
+  },
+  {
+      "type": "idiom",
+      "expression": "Caught between a rock and a hard place",
+      "description": "Faced with two difficult choices.",
+      "alternatives": [
+          "Unable to see the broader options available.",
+          "Feeling pressure from both sides without relief.",
+          "Struggling to make any decision at all."
+      ],
+      "id": 45
+  },
+  {
+      "type": "idiom",
+      "expression": "Cold feet",
+      "description": "Nervousness before a big decision.",
+      "alternatives": [
+          "A temporary fear that often disappears.",
+          "An overwhelming desire to avoid commitment.",
+          "A fleeting moment of doubt before action."
+      ],
+      "id": 46
+  },
+  {
+      "type": "idiom",
+      "expression": "Cost an arm and a leg",
+      "description": "Very expensive.",
+      "alternatives": [
+          "Pricey due to luxury branding.",
+          "Costs a lot but has hidden value.",
+          "Reflects the effort rather than the actual price."
+      ],
+      "id": 47
+  },
+  {
+      "type": "idiom",
+      "expression": "Hit the nail on the head",
+      "description": "To be exactly right about something.",
+      "alternatives": [
+          "To make a statement that is somewhat accurate.",
+          "To guess correctly after multiple tries.",
+          "To arrive at the conclusion through luck."
+      ],
+      "id": 48
+  },
+  {
+      "type": "idiom",
+      "expression": "Hit the road",
+      "description": "To leave or depart.",
+      "alternatives": [
+          "To take a leisurely journey without urgency.",
+          "To set off on an adventure with no clear destination.",
+          "To leave quickly without any planning."
+      ],
+      "id": 49
+  },
+  {
+      "type": "idiom",
+      "expression": "Jump on the bandwagon",
+      "description": "To join others in doing something popular.",
+      "alternatives": [
+          "To adopt trends without personal conviction.",
+          "To participate for social validation only.",
+          "To follow blindly without understanding the cause."
+      ],
+      "id": 50
+  },
+  {
+      "type": "idiom",
+      "expression": "Keep your chin up",
+      "description": "Stay positive during hard times.",
+      "alternatives": [
+          "A reminder to ignore problems instead of facing them.",
+          "Encouragement to mask true feelings.",
+          "To remain passive in the face of adversity."
+      ],
+      "id": 51
+  },
+  {
+      "type": "idiom",
+      "expression": "Let the cat out of the bag",
+      "description": "To reveal a secret.",
+      "alternatives": [
+          "To accidentally create confusion.",
+          "To disclose information that was already known.",
+          "To make a mistake in a conversation."
+      ],
+      "id": 52
+  },
+  {
+      "type": "idiom",
+      "expression": "Piece of cake",
+      "description": "Something very easy to do.",
+      "alternatives": [
+          "Seems easy but can have hidden complexities.",
+          "Often perceived as simple but requires time.",
+          "Can lead to unexpected challenges despite appearance."
+      ],
+      "id": 53
+  },
+  {
+      "type": "idiom",
+      "expression": "Pulling your leg",
+      "description": "To tease or joke with someone.",
+      "alternatives": [
+          "To mislead someone for personal amusement.",
+          "To playfully confuse someone without intent to harm.",
+          "To exaggerate a story for effect."
+      ],
+      "id": 54
+  },
+  {
+      "type": "idiom",
+      "expression": "Spill the beans",
+      "description": "To disclose secret information.",
+      "alternatives": [
+          "To reveal something unimportant.",
+          "To accidentally disclose information that was already known.",
+          "To create confusion in a conversation."
+      ],
+      "id": 55
+  },
+  {
+      "type": "idiom",
+      "expression": "The ball is in your court",
+      "description": "It is your turn to make a decision.",
+      "alternatives": [
+          "Indicates that you should take action soon.",
+          "Implies pressure to resolve a situation quickly.",
+          "Suggests that someone else is waiting for your move."
+      ],
+      "id": 56
+  },
+  {
+      "type": "idiom",
+      "expression": "Throw caution to the wind",
+      "description": "To take a risk.",
+      "alternatives": [
+          "To act without considering potential consequences.",
+          "To impulsively abandon all responsibilities.",
+          "To be reckless in the face of danger."
+      ],
+      "id": 57
+  },
+  {
+      "type": "idiom",
+      "expression": "Throw in the towel",
+      "description": "To give up or admit defeat.",
+      "alternatives": [
+          "To express frustration rather than actual defeat.",
+          "To step back temporarily from a challenge.",
+          "To quit without putting in the necessary effort."
+      ],
+      "id": 58
+  },
+  {
+      "type": "idiom",
+      "expression": "Under the weather",
+      "description": "Feeling ill or unwell.",
+      "alternatives": [
+          "Experiencing minor discomfort but not serious illness.",
+          "Feeling off but still able to function normally.",
+          "Having a bad day emotionally rather than physically."
+      ],
+      "id": 59
+  }
+]

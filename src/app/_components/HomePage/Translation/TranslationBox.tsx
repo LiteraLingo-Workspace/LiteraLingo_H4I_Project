@@ -1,12 +1,12 @@
 "use client";
 
 import styles from "./Translation.module.css";
-import { theme } from "../../../../styles/index";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
+import { labelStyles } from "../../../../styles/index";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
 import { getServerAuthSession } from "~/server/auth";
@@ -212,8 +212,8 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
             </div>
             <div className={styles.innerButtonsContainer}>
               <TypeLabel
-                color={theme.colors.purple}
-                bg={theme.colors.faintPurple}
+                color={labelStyles.sarcasm.color}
+                bg={labelStyles.sarcasm.bg}
                 text="Sarcasm"
               />
               {isFavorite ? (

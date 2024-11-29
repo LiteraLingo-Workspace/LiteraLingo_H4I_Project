@@ -4,19 +4,27 @@ import styles from "./Choice.module.css";
 interface ChoiceProps {
   text: string;
   isCorrect: boolean;
+  isChecked: boolean;
   selected: boolean;
   onClick: () => void;
+  disabled: boolean;
 }
 
-export const Choice: React.FC<ChoiceProps> = ({ text, selected, onClick }) => {
+export const Choice: React.FC<ChoiceProps> = ({
+  text,
+  selected,
+  isCorrect,
+  isChecked,
+  onClick,
+  disabled,
+}) => {
   return (
     <div
-      className={
-        selected ? styles.selectedChoiceContainer : styles.choiceContainer
-      }
-      onClick={onClick}
+      className={`${selected ? styles.selectedChoiceContainer : styles.choiceContainer} 
+                  ${(isChecked && (selected || isCorrect)) && (isCorrect ? styles.correctChoice : styles.incorrectChoice)}`}
+      onClick={disabled ? undefined : onClick}
     >
-      <p className={selected ? styles.selectedChoiceText : styles.choiceText}>
+      <p className={(selected && !isChecked) ? styles.selectedChoiceText : styles.choiceText}>
         {text}
       </p>
     </div>
