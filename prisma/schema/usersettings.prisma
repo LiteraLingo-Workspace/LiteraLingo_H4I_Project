@@ -2,6 +2,6 @@ model UserSettings {
     id        Int       @id @default(autoincrement())
     fontScale Int       @default(12)
 
-    author    User      @relation(fields: [authorId], references: [id])
+    author    User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
     authorId  String    @unique
 }

@@ -1,7 +1,7 @@
 import styles from "./Summary.module.css";
 import { Level } from "./Level";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
-import { theme } from "../../../../styles";
+import { labelStyles } from "../../../../styles";
 
 export const Summary: React.FC = () => {
   return (
@@ -30,8 +30,8 @@ export const Summary: React.FC = () => {
       <div className={styles.mostPracticedContainer}>
         <p className={styles.mostPracticedLabel}>Most practiced:</p>
         <TypeLabel
-          color={theme.colors.coolAccentBg}
-          bg={theme.colors.veryLight}
+          color={labelStyles.metaphor.color}
+          bg={labelStyles.metaphor.bg}
           text="Metaphor"
         />
       </div>
