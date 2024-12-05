@@ -5,7 +5,6 @@
 let supported = true;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let recognition: any;
-let tts;
 
 const useTTS = () => {
   // @ts-expect-error type definitions don't include speech recognition
