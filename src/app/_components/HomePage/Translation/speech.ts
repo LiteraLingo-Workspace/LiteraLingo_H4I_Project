@@ -49,6 +49,7 @@ const speechToText = () => {
         if (output != undefined) {
           try {
             controller.enqueue(output);
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           } catch (error) {
             recognition.abort();
           }
@@ -57,7 +58,7 @@ const speechToText = () => {
     },
 
     // stop the speech recognition
-    cancel(controller) {
+    cancel(_controller) {
       recognition.abort();
     },
   });
