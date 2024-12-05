@@ -30,6 +30,8 @@ export const TranslationBox: React.FC = () => {
 
   const { speechToText } = useTTS();
 
+  const { textToSpeeh, speechToText } = useTTS();
+
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
       setIsLoading(false);

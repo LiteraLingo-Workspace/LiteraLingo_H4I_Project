@@ -24,6 +24,7 @@ const useTTS = () => {
 };
 
 const speechToText = () => {
+  
   // check browser support
   if (!supported) {
     alert("Speech to text is not supported in your browser.");
