@@ -12,7 +12,6 @@ import { theme } from "../../../styles/index";
 import useCurrentUser from "~/app/LoadUser";
 
 export const MePage: React.FC = () => {
-
   // load the current user
   const currentUser = useCurrentUser();
 
