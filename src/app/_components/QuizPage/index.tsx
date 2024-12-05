@@ -22,7 +22,7 @@ export type QuestionMC = {
   selectedAnswer: string | undefined;
 }
 
-const maxQuestions = 15;
+const maxQuestions = 5;
 const allExpressions = expressions as QuestionMC[];
 
 export const QuizPage: React.FC = () => {
@@ -82,9 +82,30 @@ export const QuizPage: React.FC = () => {
 
   if (sessionQuestions && showReview) {
     return (
-      <Review 
-        sessionQuestions={sessionQuestions}
-      />
+      <div className={styles.container}>
+        <Background />
+        <Header
+          title="Quiz"
+          color={theme.colors.primary}
+          typeLabel={
+            <TypeLabel
+              color={sessionQuestions 
+                ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].color
+                : labelStyles.Loading.color}
+              bg={sessionQuestions 
+                ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
+                : labelStyles.Loading.bg}
+              text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
+            />
+          }
+        />
+        <div className={styles.subContainer}>
+          <Review  
+            sessionQuestions={sessionQuestions}
+          />
+        </div>
+        <Navbar />
+      </div>
     )
   }
 
@@ -116,8 +137,7 @@ export const QuizPage: React.FC = () => {
               choices={sessionQuestions[currentQuestionNumber]!.alternatives}
               currentQuestionNumber={currentQuestionNumber}
               onQuestionCheck={handleQuestionCheck}
-              onNextQuestion={updateQuestionNumber}
-              shouldDisable={completedQuestions === sessionQuestions.length}
+              onNextQuestion={sessionQuestions && completedQuestions == maxQuestions ? () => setShowReview(true) : updateQuestionNumber}
             />
           </>
         )}
