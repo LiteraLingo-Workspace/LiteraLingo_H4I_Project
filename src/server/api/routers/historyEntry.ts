@@ -27,7 +27,7 @@ export const historyEntryRouter = createTRPCRouter({
       z.object({
         id: z.number(),
         isFavorite: z.boolean(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       const updatedHistoryEntry = await ctx.db.historyEntry.update({
