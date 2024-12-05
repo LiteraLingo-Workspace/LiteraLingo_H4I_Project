@@ -1,7 +1,6 @@
 model UserSettings {
-    id        Int       @id @default(autoincrement())
-    fontScale Int       @default(12)
-
-    author    User      @relation(fields: [authorId], references: [id])
-    authorId  String    @unique
+  id        Int    @id @default(autoincrement())
+  fontScale Int    @default(12)
+  authorId  String @unique
+  author    User   @relation(fields: [authorId], references: [id])
 }
