@@ -16,6 +16,8 @@ export const MePage: React.FC = () => {
   // load the current user
   const currentUser = useCurrentUser();
 
+  console.log(currentUser?.data);
+
   return (
     <div className={styles.container}>
       <Background />

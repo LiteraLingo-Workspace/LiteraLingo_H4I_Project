@@ -1,18 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument */
 import { useState } from 'react';
 import { api } from "../trpc/react"; // import tRPC client
+import type { UseTRPCQueryResult } from 'node_modules/@trpc/react-query/dist/shared/hooks/types';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let user: UseTRPCQueryResult<any, any> | null = null;
 
 export default function useCurrentUser() {
 
   // store current user
-  const [ currentUser, setCurrentUser ] = useState(null);
+  const [ currentUser, setCurrentUser ] = useState(user);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   const response = api.user.currentUser.useQuery();
-  // @ts-expect-error no type definitions
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (!currentUser?.isFetched && response?.isFetched) {
-    // @ts-expect-error type not defined
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    user = response;
     setCurrentUser(response);
   }
 
