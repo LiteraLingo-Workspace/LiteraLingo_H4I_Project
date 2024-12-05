@@ -10,15 +10,16 @@ import { MultipleChoice } from "./MultipleChoice/index";
 import { Background } from "../shared/Background/Background";
 import { Navbar } from "../shared/Navbar/Navbar";
 import { useState, useEffect } from "react";
+import { Review } from "./Review/Review";
 import expressions from "../../data/quiz.json";
 
-type QuestionMC = {
+export type QuestionMC = {
   id: number,
   type: keyof typeof labelStyles;
   expression: string;
   description: string;
   alternatives: string[];
-  isCorrect: boolean;
+  selectedAnswer: string | undefined;
 }
 
 const maxQuestions = 15;
@@ -30,6 +31,7 @@ export const QuizPage: React.FC = () => {
 
   // set state var to index sessionQuestions
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
+  const [showReview, setShowReview] = useState<boolean>(false);
 
   const updateQuestionNumber = () => {
     if (currentQuestionNumber < maxQuestions - 1) {
@@ -37,28 +39,25 @@ export const QuizPage: React.FC = () => {
     }
   };
 
-  const handleQuestionCheck = (currentQuestionNumber: number, isCorrect: boolean) => {
+  const handleQuestionCheck = (currentQuestionNumber: number, choice: string | null) => {
     // function to update that this is correct
     // may be slightly cumbersome to update the entire array just
     // to update one field 
-    // alternative: create a new state array that tracks 
-    // whether each question number was correct (slightly less data)
     if (sessionQuestions) {
       setSessionQuestions((prevQuestions  = []) => 
         prevQuestions.map((question, index) => 
-          // set question to correct or false
+          // set the user choice for this question
           index === currentQuestionNumber 
-            ? {...question, isCorrect: isCorrect} 
+            ? {...question, selectedChoice: choice} 
             : {...question}
       ))
-      console.log(`Question number ${currentQuestionNumber}: ${isCorrect ? "correct" : "incorrect"}`);
+      console.log(`Question number ${currentQuestionNumber}: ${choice}`);
       setCompletedQuestions(completedQuestions + 1);
     }
   }
   
   // generate a list of questions
   useEffect(() => {
-    console.log("component mounted");
     const getRandomQuestions = (expressionList: QuestionMC[]) => {
       const questionList = [] as QuestionMC[];
       const usedIDs = new Set<number>();
@@ -69,7 +68,7 @@ export const QuizPage: React.FC = () => {
         if (!usedIDs.has(randomIndex)) {
           if (expressionList[randomIndex]) {
           // add to the list with a correct field
-          questionList.push({...expressionList[randomIndex], isCorrect: false});
+          questionList.push({...expressionList[randomIndex]});
           usedIDs.add(randomIndex); 
           }
         }
@@ -80,6 +79,14 @@ export const QuizPage: React.FC = () => {
     const generatedQuestions = getRandomQuestions(allExpressions);
     setSessionQuestions(generatedQuestions);
   }, []);
+
+  if (sessionQuestions && showReview) {
+    return (
+      <Review 
+        sessionQuestions={sessionQuestions}
+      />
+    )
+  }
 
   return (
     <div className={styles.container}>

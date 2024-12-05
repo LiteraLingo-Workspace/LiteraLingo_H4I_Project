@@ -11,7 +11,7 @@ interface MultipleChoiceProps {
   currentQuestionNumber: number;
   onQuestionCheck: (
     currentQuestionNumber: number,
-    isQuestionCorrect: boolean
+    choice: string | null
   ) => void; // return whether user got it right
   onNextQuestion: () => void;
   shouldDisable?: boolean; // prevent question from being submitted, only displayed
@@ -65,13 +65,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
     setIsCorrectChoice(isCorrect);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (choice: string | null) => {
     if (!isSelected) {
       return;
     }
     setIsChecked(true);
-    // callback to send if choice is correct back to parent component
-    onQuestionCheck(currentQuestionNumber, isCorrectChoice!);
+    // callback to send the choice the user chose back to the parent
+    // component
+    onQuestionCheck(currentQuestionNumber, choice);
   };
 
   const handleNext = () => {
@@ -109,7 +110,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
         </div>
       ) : (
         <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={handleSubmit}>
+          <button className={styles.button} onClick={() => handleSubmit(selectedChoice)}>
             Check Answer
           </button>
         </div>
