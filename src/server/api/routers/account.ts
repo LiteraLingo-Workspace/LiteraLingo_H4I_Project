@@ -1,0 +1,36 @@
+import { z } from "zod";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+
+export const accountRouter = createTRPCRouter({
+  // Endpoint to fetch an Account by Id
+  // Example: GET http://localhost:3000/api/trpc/account.getAccountbyId?batch=1&input={"0":{"json": {"id": "account id"}}}
+  getAccountById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const user = await ctx.db.account.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+      if (!user) {
+        throw new Error("Account not found");
+      }
+      return user;
+    }),
+
+  // Endpoint to fetch account(s) by user ID
+  // Example: GET http://localhost:3000/api/trpc/account.getAccountsbyUserId?batch=1&input={"0":{"json": {"userId": "user id"}}}
+  getAccountsByUserId: publicProcedure
+    .input(z.object({ userId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const user = await ctx.db.account.findMany({
+        where: {
+          userId: input.userId,
+        },
+      });
+      if (!user) {
+        throw new Error("Account not found");
+      }
+      return user;
+    }),
+});
