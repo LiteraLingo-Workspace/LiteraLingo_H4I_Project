@@ -6,7 +6,7 @@ let tts;
 const useTTS = () => {
 
   // @ts-ignore
-  if (!webkitSpeechRecognition) {
+  if (!window.webkitSpeechRecognition) {
     // if speech recognition isn't supported, set to trigger an error when the user attempts to use
     supported = false;
   } else {
