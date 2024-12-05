@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 "use client";
 
 import styles from "./Translation.module.css";
-import useTTS from './speech';
+import useTTS from "./speech";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone, HiMicrophone } from "react-icons/hi2";
@@ -9,9 +12,9 @@ import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { labelStyles } from "../../../../styles/index";
 import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
-import data from "../../../data/translations.json";
+// import data from "../../../data/translations.json";
 
-type JsonData = Record<string, string>;
+// type JsonData = Record<string, string>;
 
 export const TranslationBox: React.FC = () => {
   const [value, setValue] = useState("");
@@ -20,11 +23,12 @@ export const TranslationBox: React.FC = () => {
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
   const [sttActive, setSttActive] = useState<boolean>(false);
-  const [sttReader, setSttReader] = useState<ReadableStreamDefaultReader | null>(null);
+  const [sttReader, setSttReader] =
+    useState<ReadableStreamDefaultReader | null>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
+  // const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
-  const { textToSpeeh, speechToText } = useTTS();
+  const { speechToText } = useTTS();
 
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
@@ -77,42 +81,50 @@ export const TranslationBox: React.FC = () => {
           <div className={styles.buttonsContainer}>
             <div className={styles.innerButtonsContainer}>
               <BsCamera size={24.5} />
-              <div onClick={event => {
-                if (!sttActive) {
-                  console.log('starting reader');
-                  setSttActive(true);
-                  const stream = speechToText();
-                  let reader = stream.getReader();
-                  setSttReader(reader);
+              <div
+                onClick={() => {
+                  if (!sttActive) {
+                    console.log("starting reader");
+                    setSttActive(true);
+                    const stream = speechToText();
+                    const reader = stream.getReader();
+                    setSttReader(reader);
 
-                  // @ts-ignore
-                  const onData = ({done, value}: ReadableStreamReadResult<any>) => {
+                    const onData = ({
+                      done,
+                      value,
+                    }: ReadableStreamReadResult<string>) => {
+                      // don't do anything if value is undefined
+                      if (value !== undefined) {
+                        setValue(value);
+                      }
+                      if (value == undefined) {
+                        reader.cancel();
+                      }
+                      if (!done && reader !== null) {
+                        reader.read().then(onData);
+                      }
+                    };
 
-                    // don't do anything if value is undefined
-                    if (value !== undefined) {
-                      setValue(value);
-                    } if (value == undefined) {
-                      reader.cancel();
-                    }
-                    if (!done && reader !== null) {
-                      reader.read().then(onData);
-                    }
+                    reader.closed.then(() => {
+                      console.log("reader closed");
+                      setSttReader(null);
+                      setSttActive(false);
+                    });
+
+                    reader.read().then(onData);
+                  } else {
+                    console.log("stopping reader");
+                    console.log(sttReader);
+                    sttReader?.cancel();
                   }
-
-                  reader.closed.then(() => {
-                    console.log('reader closed');
-                    setSttReader(null);
-                    setSttActive(false);
-                  });
-
-                  reader.read().then(onData);
-                } else {
-                  console.log('stopping reader');
-                  console.log(sttReader);
-                  sttReader?.cancel();
-                }
-              }}>
-                { sttActive ? <HiMicrophone size={24.5} /> : <HiOutlineMicrophone size={24.5} /> }
+                }}
+              >
+                {sttActive ? (
+                  <HiMicrophone size={24.5} />
+                ) : (
+                  <HiOutlineMicrophone size={24.5} />
+                )}
               </div>
             </div>
             <div className={styles.innerButtonsContainer}>
