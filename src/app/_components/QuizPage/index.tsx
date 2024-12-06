@@ -99,7 +99,7 @@ export const QuizPage: React.FC = () => {
             />
           }
         />
-        <div className={styles.subContainer}>
+        <div className={styles.subContainerReview}>
           <Review  
             sessionQuestions={sessionQuestions}
           />

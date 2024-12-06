@@ -13,8 +13,8 @@ export const Review: React.FC<Review> = ({ sessionQuestions }) => {
     ));
 
   return (
-    <div className={styles.reviewContainer}>
-      <div className={styles.scrollableList}>{renderQuestions()}</div>
+    <div>
+      {renderQuestions()}
     </div>
   );
 };
