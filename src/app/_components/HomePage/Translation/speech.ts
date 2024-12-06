@@ -8,7 +8,7 @@ let recognition: any;
 
 const useTTS = () => {
   // @ts-expect-error type definitions don't include speech recognition
-  if (!window?.webkitSpeechRecognition) {
+  if (typeof(window) == "undefined" || !window?.webkitSpeechRecognition) {
     // if speech recognition isn't supported, set to trigger an error when the user attempts to use
     supported = false;
   } else {

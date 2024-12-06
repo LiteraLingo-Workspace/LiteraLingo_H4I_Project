@@ -58,7 +58,10 @@ export const MePage: React.FC = () => {
       }
       <Header title="Your Profile" color={theme.colors.primary} />
       <div className={styles.subContainer}>
-        <UserInfo />
+        <UserInfo
+          name={currentUser?.data.name}
+          email={currentUser?.data.email}
+        />
         <Overview />
         <FocalPoint />
         <Settings onAccountDelete={() => setVisibleAccountDeletion(true)}/>
