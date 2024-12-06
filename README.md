@@ -71,12 +71,6 @@ DROP xyz;
 # Sync up your Prisma schema with your db
 npx prisma db push
 
-# Seeding the database
-npm run seed
-
-# Testing that the seed worked
-npm run seed-test
-
 ```
 
 ## 📚 Documentation
@@ -106,6 +100,10 @@ For more information about dynamic page routing, see the [Next.js docs](https://
 Open [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create a project, and create an OAuth consent screen. Add your own Google Account as a test user.
 
 Switch to the credentials page, click create credentials, then OAuth Client ID. Set Application type to Web Application, `http://localhost:3000` as an authorized JavaScript origin, and `http://localhost:3000/api/auth/callback/google` as an Authorized Redirect URL.
+
+### Creating Discord APIs
+
+[Register a developer application](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications) and retrieve your client ID and client secret. In the **OAuth2** tab of your newly registed application, Add `http://localhost:3000/api/auth/callback/discord` as a Redirect URL. 
 
 ### Sending HTTP requests from the frontend
 

@@ -1,8 +1,9 @@
 model HistoryEntry {
-  id          Int     @id @default(autoincrement())
-  textEntered String
-  outputText  String
-  isFavorite  Boolean @default(false)
-  userId      String
-  author      User    @relation(fields: [userId], references: [id])
+    id Int @id @default(autoincrement())
+    textEntered String
+    outputText String
+    isFavorite Boolean @default(false)
+
+    author         User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
 }

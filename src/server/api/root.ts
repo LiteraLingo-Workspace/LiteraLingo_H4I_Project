@@ -3,13 +3,15 @@ import { historyEntryRouter } from "~/server/api/routers/historyEntry";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 import { openaiRouter } from "./routers/openai";
 import { userRouter } from "./routers/user";
+import { accountRouter } from "./routers/account";
 
 // primary router for your server -- all routers added in /api/routers should be manually added here
 export const appRouter = createTRPCRouter({
   test: testRouter,
   historyEntry: historyEntryRouter,
   openai: openaiRouter,
-  user: userRouter
+  user: userRouter,
+  account: accountRouter,
 });
 
 // export type definition of API
