@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import { Background } from "../shared/Background/Background";
 import { Welcome } from "./Welcome/index";
-import { TranslationBar, TranslationBox } from "./Translation/index";
+import { TranslationBar } from "./Translation/index";
 import { History } from "./History/index";
 import { Navbar } from "../shared/Navbar/Navbar";
 import { TranslationBoxComponent } from "./Translation/TranslationBoxComponent";

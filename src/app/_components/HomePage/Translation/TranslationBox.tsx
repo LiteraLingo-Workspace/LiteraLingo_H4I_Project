@@ -13,8 +13,7 @@ import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { labelStyles } from "../../../../styles/index";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
-import { getServerAuthSession } from "~/server/auth";
-import { Session } from "next-auth";
+import { type Session } from "next-auth";
 
 type JsonData = Record<string, string>;
 
@@ -72,7 +71,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
 
   const { mutate: updateFavoriteMutate } =
     api.historyEntry.updateIsFavorite.useMutation({
-      onSuccess: (data) => {
+      onSuccess: (_) => {
         console.log("Favorite updated successfully.");
       },
       onError: () => {

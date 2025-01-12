@@ -1,10 +1,6 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
-interface PrismaClientKnownRequestError extends Error {
-  code: string;
-}
-
 export const historyEntryRouter = createTRPCRouter({
   // Endpoint to create a HistoryEntry
   // EXAMPLE: POST http://localhost:3000/api/trpc/historyEntry.create?batch=1

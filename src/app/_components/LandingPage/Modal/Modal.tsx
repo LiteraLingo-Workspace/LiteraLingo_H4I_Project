@@ -11,7 +11,6 @@ export const Modal: React.FC = async () => {
   return (
     <div className={styles.container}>
       <button className={styles.loginButton}>
-
         <Link
           style={{ textDecoration: "none" }}
           href={session ? "/api/auth/signout" : "/api/auth/signin"}
@@ -19,7 +18,6 @@ export const Modal: React.FC = async () => {
           <p className={styles.buttonText}>
             {session ? "Sign out" : "Sign in"}
           </p>
-
         </Link>
       </button>
 

@@ -3,8 +3,12 @@ import styles from "./UserInfo.module.css";
 import { avatar } from "../../../assets/index";
 import Image from "next/image";
 
-export const UserInfo: React.FC = () => {
+interface UserInfoProps {
+  name: string;
+  email: string;
+}
 
+export const UserInfo: React.FC<UserInfoProps> = ({ name, email }) => {
   return (
     <div className={styles.container}>
       <Image
@@ -13,16 +17,11 @@ export const UserInfo: React.FC = () => {
         alt="User Avatar"
       />
       <div className={styles.userIdentityContainer}>
-        <p className={styles.handle}>@Raven1234</p>
-        <p className={styles.name}>Anna Collin</p>
-        <button className={styles.logoutBtn}> 
-          <Link
-            style={{ textDecoration: "none" }}
-            href={"/api/auth/signout"}
-          >
-            <p className={styles.logoutText}>
-              Logout  
-            </p>
+        <p className={styles.handle}>{email}</p>
+        <p className={styles.name}>{name}</p>
+        <button className={styles.logoutBtn}>
+          <Link style={{ textDecoration: "none" }} href={"/api/auth/signout"}>
+            <p className={styles.logoutText}>Logout</p>
           </Link>
         </button>
       </div>

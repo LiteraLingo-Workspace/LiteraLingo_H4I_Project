@@ -16,12 +16,12 @@ import { api } from "~/trpc/react";
 import { useRouter } from "next/navigation";
 
 export const MePage: React.FC = () => {
-  
   const currentUser = useCurrentUser();
 
   console.log(currentUser?.data);
-  
-  const [visibleAccountDeletion, setVisibleAccountDeletion] = useState<boolean>(false);
+
+  const [visibleAccountDeletion, setVisibleAccountDeletion] =
+    useState<boolean>(false);
   const router = useRouter();
 
   const deleteUser = api.user.deleteUserById.useMutation({
@@ -35,18 +35,18 @@ export const MePage: React.FC = () => {
 
   const handleUserDelete = async () => {
     try {
-      await deleteUser.mutateAsync();  
+      await deleteUser.mutateAsync();
       setVisibleAccountDeletion(false);
       router.replace("/");
     } catch (error) {
       console.error("Error during deletion:", error);
     }
-  }
+  };
 
   return (
     <div className={styles.container}>
       <Background />
-      {visibleAccountDeletion &&
+      {visibleAccountDeletion && (
         <ConfirmationModal
           title="Delete your account?"
           description="Be careful! You will not be able to undo this."
@@ -55,13 +55,20 @@ export const MePage: React.FC = () => {
           onConfirm={handleUserDelete}
           onClose={() => setVisibleAccountDeletion(false)}
         />
-      }
+      )}
       <Header title="Your Profile" color={theme.colors.primary} />
       <div className={styles.subContainer}>
-        <UserInfo />
+        {currentUser && currentUser.data && (
+          <UserInfo
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+            name={currentUser.data.name}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+            email={currentUser.data.email}
+          />
+        )}
         <Overview />
         <FocalPoint />
-        <Settings onAccountDelete={() => setVisibleAccountDeletion(true)}/>
+        <Settings onAccountDelete={() => setVisibleAccountDeletion(true)} />
       </div>
       <Navbar />
     </div>
