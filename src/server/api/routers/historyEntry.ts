@@ -15,7 +15,7 @@ export const historyEntryRouter = createTRPCRouter({
         outputText: z.string().min(1),
         isFavorite: z.boolean().optional(),
         userId: z.string(),
-      }),
+      })
     )
     .mutation(async ({ ctx, input }) => {
       const user = await ctx.db.user.findUnique({
@@ -38,9 +38,9 @@ export const historyEntryRouter = createTRPCRouter({
           },
         });
       } catch (error: unknown) {
-        if ((error as PrismaClientKnownRequestError).code === "P2002") {
-          throw new Error("HistoryEntry already exists");
-        }
+        // if ((error as PrismaClientKnownRequestError).code === "P2002") {
+        //   throw new Error("HistoryEntry already exists");
+        // }
         throw error;
       }
     }),
@@ -69,7 +69,7 @@ export const historyEntryRouter = createTRPCRouter({
       z.object({
         id: z.number(),
         isFavorite: z.boolean(),
-      }),
+      })
     )
     .mutation(async ({ ctx, input }) => {
       const updatedHistoryEntry = await ctx.db.historyEntry.update({
@@ -88,13 +88,17 @@ export const historyEntryRouter = createTRPCRouter({
       return updatedHistoryEntry;
     }),
 
-    getAllHistoryEntries: publicProcedure
-    .input(z.object({
-      isFavorite: z.boolean().optional(),
-      }).optional()
+  getAllHistoryEntries: publicProcedure
+    .input(
+      z
+        .object({
+          isFavorite: z.boolean().optional(),
+        })
+        .optional()
     )
     .query(async ({ ctx, input }) => {
-      const whereClause = input?.isFavorite !== undefined ? { isFavorite: input.isFavorite } : {};
+      const whereClause =
+        input?.isFavorite !== undefined ? { isFavorite: input.isFavorite } : {};
       const historyEntries = await ctx.db.historyEntry.findMany({
         where: whereClause,
       });

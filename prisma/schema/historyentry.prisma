@@ -6,6 +6,4 @@ model HistoryEntry {
 
     author         User @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId String
-
-    @@unique([textEntered, userId])
 }

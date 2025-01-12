@@ -38,7 +38,10 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
       setIsLoading(false);
       console.log(data);
       setResult(data.result ? data.result : "An error occurred.");
-      storeTranslationHistory(value, data.result ? data.result : "An error occurred.");
+      storeTranslationHistory(
+        value,
+        data.result ? data.result : "An error occurred."
+      );
     },
     onError: () => {
       setIsLoading(false);
@@ -52,18 +55,21 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
       setHistoryEntryId(data.id);
     },
     onError: (e) => {
-      console.log("An error occurred storing translation history. " + e.message);
+      console.log(
+        "An error occurred storing translation history. " + e.message
+      );
     },
   });
 
-  const { mutate: updateFavoriteMutate } = api.historyEntry.updateIsFavorite.useMutation({
-    onSuccess: (data) => {
-      console.log("Favorite updated successfully.");
-    },
-    onError: () => {
-      console.log("An error occurred updating favorite status.");
-    },
-  });
+  const { mutate: updateFavoriteMutate } =
+    api.historyEntry.updateIsFavorite.useMutation({
+      onSuccess: (data) => {
+        console.log("Favorite updated successfully.");
+      },
+      onError: () => {
+        console.log("An error occurred updating favorite status.");
+      },
+    });
 
   const storeTranslationHistory = (textEntered: string, outputText: string) => {
     if (session?.user?.id) {
@@ -80,7 +86,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string,
+    value: string
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -92,16 +98,17 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   };
 
   const toggleIsFavorite = () => {
+    console.log(historyEntryId);
     if (historyEntryId) {
       updateFavoriteMutate({
         id: historyEntryId,
         isFavorite: !isFavorite,
-      })
+      });
       setIsFavorite(!isFavorite);
     } else {
       console.error("No history entry ID found.");
     }
-  }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target?.value);
@@ -141,7 +148,8 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                   // mutate({ text: value });
                   if (fakeAPIresults) {
                     // Use fake translation result
-                    const fakeResult = translations[value] ?? "Fake translation result";
+                    const fakeResult =
+                      translations[value] ?? "Fake translation result";
                     setResult(fakeResult);
                     setIsLoading(false);
                     storeTranslationHistory(value, fakeResult);
