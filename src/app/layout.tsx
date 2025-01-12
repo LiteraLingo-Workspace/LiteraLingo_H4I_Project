@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", type: "image/svg+xml", url: "/favicon.svg" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (

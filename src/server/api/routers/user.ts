@@ -1,7 +1,14 @@
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
 
 export const userRouter = createTRPCRouter({
+  currentUser: protectedProcedure.query(async ({ ctx }) => {
+    const currentUser = await ctx.db.user.findFirst({
+      where: { id: ctx.session.user.id },
+    });
+
+    return currentUser ?? null;
+  }),
   // Endpoint to fetch a User by ID
   // Example: GET http://localhost:3000/api/trpc/user.getUserById?batch=1&input={"0":{"json": {"id": "account id"}}}
   getUserById: publicProcedure
