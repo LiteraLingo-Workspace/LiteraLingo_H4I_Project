@@ -4,6 +4,7 @@ import { Welcome } from "./Welcome/index";
 import { TranslationBar, TranslationBox } from "./Translation/index";
 import { History } from "./History/index";
 import { Navbar } from "../shared/Navbar/Navbar";
+import { TranslationBoxComponent } from "./Translation/TranslationBoxComponent";
 
 export const HomePage: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ export const HomePage: React.FC = () => {
       <div className={styles.subContainer}>
         <Welcome />
         <TranslationBar />
-        <TranslationBox />
+        <TranslationBoxComponent />
       </div>
       <History />
       <div className={styles.temp} />

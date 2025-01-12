@@ -21,7 +21,7 @@ type QuestionMC = {
   isCorrect: boolean;
 }
 
-const maxQuestions = 15;
+const maxQuestions = 5;
 const allExpressions = expressions as QuestionMC[];
 
 export const QuizPage: React.FC = () => {
