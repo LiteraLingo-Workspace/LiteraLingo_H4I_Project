@@ -9,32 +9,48 @@ import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
 import { HiOutlineMicrophone, HiMicrophone } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
+import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { labelStyles } from "../../../../styles/index";
-import { IoIosStarOutline } from "react-icons/io";
 import { api } from "../../../../trpc/react"; // import tRPC client
-// import data from "../../../data/translations.json";
+import data from "../../../data/translations.json";
+import { getServerAuthSession } from "~/server/auth";
+import { Session } from "next-auth";
 
-// type JsonData = Record<string, string>;
+type JsonData = Record<string, string>;
 
-export const TranslationBox: React.FC = () => {
+interface TranslationBoxProps {
+  session: Session | null;
+}
+
+export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [translate, setTranslate] = useState<boolean>(false);
   const [canType, setCanType] = useState<boolean>(true);
+  const [historyEntryId, setHistoryEntryId] = useState<number | null>(null);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
   const [sttActive, setSttActive] = useState<boolean>(false);
   const [sttReader, setSttReader] =
     useState<ReadableStreamDefaultReader | null>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  // const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
+  const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
   const { speechToText } = useTTS();
+
+  // make this false when we want real api results
+  const fakeAPIresults = true;
 
   const { mutate } = api.openai.translate.useMutation({
     onSuccess: (data) => {
       setIsLoading(false);
       console.log(data);
       setResult(data.result ? data.result : "An error occurred.");
+      storeTranslationHistory(
+        value,
+        data.result ? data.result : "An error occurred."
+      );
     },
     onError: () => {
       setIsLoading(false);
@@ -42,9 +58,44 @@ export const TranslationBox: React.FC = () => {
     },
   });
 
+  const { mutate: storeHistoryMutate } = api.historyEntry.create.useMutation({
+    onSuccess: (data) => {
+      console.log("Translation history stored successfully.");
+      setHistoryEntryId(data.id);
+    },
+    onError: (e) => {
+      console.log(
+        "An error occurred storing translation history. " + e.message
+      );
+    },
+  });
+
+  const { mutate: updateFavoriteMutate } =
+    api.historyEntry.updateIsFavorite.useMutation({
+      onSuccess: (data) => {
+        console.log("Favorite updated successfully.");
+      },
+      onError: () => {
+        console.log("An error occurred updating favorite status.");
+      },
+    });
+
+  const storeTranslationHistory = (textEntered: string, outputText: string) => {
+    if (session?.user?.id) {
+      storeHistoryMutate({
+        textEntered,
+        outputText,
+        isFavorite: false,
+        userId: session.user.id,
+      });
+    } else {
+      console.error("User not authenticated.");
+    }
+  };
+
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string,
+    value: string
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -53,6 +104,19 @@ export const TranslationBox: React.FC = () => {
         textAreaRef.style.height = scrollHeight + "px";
       }
     }, [textAreaRef, value]);
+  };
+
+  const toggleIsFavorite = () => {
+    console.log(historyEntryId);
+    if (historyEntryId) {
+      updateFavoriteMutate({
+        id: historyEntryId,
+        isFavorite: !isFavorite,
+      });
+      setIsFavorite(!isFavorite);
+    } else {
+      console.error("No history entry ID found.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -134,7 +198,19 @@ export const TranslationBox: React.FC = () => {
                   setTranslate(true);
                   setCanType(false);
                   setIsLoading(true);
-                  mutate({ text: value });
+                  // mutate({ text: value });
+                  if (fakeAPIresults) {
+                    // Use fake translation result
+                    const fakeResult =
+                      translations[value] ?? "Fake translation result";
+                    setResult(fakeResult);
+                    setIsLoading(false);
+                    storeTranslationHistory(value, fakeResult);
+                  } else {
+                    // Call the actual API
+                    mutate({ text: value });
+                  }
+
                   // BELOW WAS LEFT IN FOR TESTING PURPOSES
                   // SINCE OPENAI KEY HAS LIMITED CALLS
 
@@ -188,6 +264,7 @@ export const TranslationBox: React.FC = () => {
                   setCanType(true);
                   setValue("");
                   setResult("");
+                  setIsFavorite(false);
                 }}
               >
                 <BsArrowCounterclockwise />
@@ -200,7 +277,19 @@ export const TranslationBox: React.FC = () => {
                 bg={labelStyles.sarcasm.bg}
                 text="Sarcasm"
               />
-              <IoIosStarOutline size={32} />
+              {isFavorite ? (
+                <IoIosStar
+                  size={32}
+                  onClick={toggleIsFavorite}
+                  className={styles.starIconActive}
+                />
+              ) : (
+                <IoIosStarOutline
+                  size={32}
+                  onClick={toggleIsFavorite}
+                  className={styles.starIcon}
+                />
+              )}
             </div>
           </div>
         </div>
