@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 export const userRouter = createTRPCRouter({
   currentUser: protectedProcedure.query(async ({ ctx }) => {
@@ -73,7 +77,7 @@ export const userRouter = createTRPCRouter({
   // Example: POST http://localhost:3000/api/trpc/user.deleteUserById?batch=1 with payload: {"0":{"json": {"id": "user_id"}}}
   deleteUserById: publicProcedure
     // .input(z.object({ id: z.string() }))
-    .mutation(async ({ ctx, input }) => {
+    .mutation(async ({ ctx }) => {
       const loggedInUserId = ctx.session?.user?.id;
 
       const user = await ctx.db.user.findUnique({
@@ -90,8 +94,7 @@ export const userRouter = createTRPCRouter({
           id: loggedInUserId,
         },
       });
-      
-      
+
       if (!deletedUser) {
         throw new Error("User was not deleted properly");
       }
@@ -101,26 +104,26 @@ export const userRouter = createTRPCRouter({
 
   // Endpoint to create of update a userSettings: true -> increment by 1; false -> reset to 0
   updateUserStreak: publicProcedure
-  .input(z.object({ id: z.string(), increment: z.boolean() }))
-  .mutation(async ({ ctx, input }) => {
-    const user = await ctx.db.user.findUnique({
-      where: {
-        id: input.id,
-      },
-    });
-    if (!user) {
-      throw new Error("User not found");
-    }
+    .input(z.object({ id: z.string(), increment: z.boolean() }))
+    .mutation(async ({ ctx, input }) => {
+      const user = await ctx.db.user.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+      if (!user) {
+        throw new Error("User not found");
+      }
 
-    const updatedUser = await ctx.db.user.update({
-      where: {
-        id: input.id,
-      },
-      data: {
-        streakDays: input.increment ? { increment: 1 } : 0,
-      },
-    });
+      const updatedUser = await ctx.db.user.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          streakDays: input.increment ? { increment: 1 } : 0,
+        },
+      });
 
-    return updatedUser;
-  }),
+      return updatedUser;
+    }),
 });

@@ -60,7 +60,9 @@ export const MePage: React.FC = () => {
       <div className={styles.subContainer}>
         {currentUser && currentUser.data && (
           <UserInfo
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             name={currentUser.data.name}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             email={currentUser.data.email}
           />
         )}

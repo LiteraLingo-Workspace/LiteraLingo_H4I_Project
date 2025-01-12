@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
-import { text } from "stream/consumers";
 
 interface MultipleChoiceProps {
   description: string;
