@@ -1,5 +1,5 @@
 model Module {
-  id            Int @id @default(autoincrement())
+  id            Int          @id @default(autoincrement())
   title         String
   description   String
   progress      Int

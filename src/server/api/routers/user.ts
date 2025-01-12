@@ -90,11 +90,37 @@ export const userRouter = createTRPCRouter({
           id: loggedInUserId,
         },
       });
-
+      
+      
       if (!deletedUser) {
         throw new Error("User was not deleted properly");
       }
 
       return deletedUser;
     }),
+
+  // Endpoint to create of update a userSettings: true -> increment by 1; false -> reset to 0
+  updateUserStreak: publicProcedure
+  .input(z.object({ id: z.string(), increment: z.boolean() }))
+  .mutation(async ({ ctx, input }) => {
+    const user = await ctx.db.user.findUnique({
+      where: {
+        id: input.id,
+      },
+    });
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const updatedUser = await ctx.db.user.update({
+      where: {
+        id: input.id,
+      },
+      data: {
+        streakDays: input.increment ? { increment: 1 } : 0,
+      },
+    });
+
+    return updatedUser;
+  }),
 });
