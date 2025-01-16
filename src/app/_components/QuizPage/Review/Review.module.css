@@ -8,3 +8,14 @@
   height: 100%;
   overflow: hidden;
 }
+
+.questionContainer {
+  height: 95px;
+  width: 344px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--coolAccentBg);
+  margin-top: 15px;
+  border-radius: 10px;
+}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
-import { text } from "stream/consumers";
+import { MultipleChoiceScreen } from "../MultipleChoiceScreen/MultipleChoiceScreen";
 
 interface MultipleChoiceProps {
   description: string;
@@ -70,7 +70,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       return;
     }
     setIsChecked(true);
-    // callback to send the choice the user chose back to the parent
+    // Send the send the user choice back to the parent
     // component
     onQuestionCheck(currentQuestionNumber, choice);
   };
