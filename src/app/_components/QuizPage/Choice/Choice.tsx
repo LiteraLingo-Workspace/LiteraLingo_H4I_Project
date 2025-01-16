@@ -22,14 +22,20 @@ export const Choice: React.FC<ChoiceProps> = ({
 }) => {
   return (
     <div
-    className={`${selected ? styles.selectedChoiceContainer : styles.choiceContainer} 
+      className={`${selected ? styles.selectedChoiceContainer : styles.choiceContainer} 
                 ${((isChecked && (selected || isCorrect)) || (isReview && (selected || isCorrect))) 
                   && (isCorrect ? styles.correctChoice : styles.incorrectChoice)}`}
-    onClick={disabled ? undefined : onClick}
-  >
-    <p className={(selected && !isChecked && !isReview) ? styles.selectedChoiceText : styles.choiceText}>
-      {text}
-    </p>
-  </div>
+      onClick={disabled ? undefined : onClick}
+    >
+      <p
+        className={
+          selected && !isChecked && !isReview
+            ? styles.selectedChoiceText
+            : styles.choiceText
+        }
+      >
+        {text}
+      </p>
+    </div>
   );
 };
