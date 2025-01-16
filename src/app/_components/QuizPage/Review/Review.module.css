@@ -2,20 +2,45 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.subContainer {
+  position: absolute;
+  top: 104px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 }
 
-.questionContainer {
-  height: 95px;
-  width: 344px;
+.reviewLabelContainer {
   display: flex;
+  height: 16px;
+  width: 234px;
   justify-content: center;
   align-items: center;
-  background-color: var(--coolAccentBg);
-  margin-top: 15px;
-  border-radius: 10px;
+  border-radius: 38px;
+  background-color: rgba(229, 229, 229, 1);
+}
+
+.questionLabel {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 33px;
+  color: var(--primary);
+  text-align: left;
+}
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .subContainer {
+    top: 60px;
+  }
 }

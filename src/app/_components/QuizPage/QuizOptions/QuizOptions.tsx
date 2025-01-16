@@ -18,6 +18,8 @@ interface QuizOptionsProps {
     isChecked: boolean;
     isClickable: boolean;
     onSelection?: (choice:string) => void; // return the selected choice
+    isReview?: boolean;
+    selected?: string | null; // send the selected choice
     description: string;
     choices: string[];
 }
@@ -25,7 +27,9 @@ interface QuizOptionsProps {
 export const QuizOptions: React.FC<QuizOptionsProps> = ({ 
     isChecked, 
     isClickable,
+    isReview,
     onSelection,
+    selected, // Pre-select a choice (optionally)
     description,
     choices,
 }) => {
@@ -33,11 +37,12 @@ export const QuizOptions: React.FC<QuizOptionsProps> = ({
 
     const handleChoiceClick = (choice: string) => {
         setSelectedChoice(choice);
-        console.log(choice);
         if (onSelection) {
           onSelection(choice); // send choice back to parent component
         }
     };
+
+    console.log(selected);
 
     return (
     <div className={styles.container}>
@@ -49,7 +54,8 @@ export const QuizOptions: React.FC<QuizOptionsProps> = ({
               text={choice}
               isCorrect={choice === description}
               isChecked={isChecked}
-              selected={selectedChoice === choice}
+              isReview={isReview}
+              selected={selected ? selected === choice : selectedChoice === choice}
               onClick={() => handleChoiceClick(choice)}
               disabled={!isClickable}
             />

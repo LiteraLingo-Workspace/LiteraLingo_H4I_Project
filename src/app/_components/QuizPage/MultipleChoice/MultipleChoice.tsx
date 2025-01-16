@@ -28,34 +28,6 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
-
-  const randomizeChoices = (description: string, choices: string[]) => {
-    const updatedChoices = [...choices];
-    // shuffle the array
-    let currentIndex = updatedChoices.length,
-      randomIndex;
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      const currentChoice = updatedChoices[currentIndex];
-      const randomChoice = updatedChoices[randomIndex];
-
-      updatedChoices[currentIndex] = randomChoice!;
-      updatedChoices[randomIndex] = currentChoice!;
-    }
-
-    updatedChoices.splice(0, 1); // randomly discard the last element
-    const insertIndex = Math.floor(Math.random() * (updatedChoices.length + 1));
-    updatedChoices.splice(insertIndex, 0, description);
-
-    return updatedChoices;
-  };
-
-  useEffect(() => {
-    setRandomizedChoices(randomizeChoices(description, choices));
-  }, [description, choices]);
 
   const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
@@ -83,8 +55,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
         isChecked={isChecked} 
         isClickable={!isChecked} 
         onSelection={handleSelection} 
+        isReview={false}
         description={description} 
-        choices={randomizedChoices}
+        choices={choices}
       />
       {isChecked ? (
         <div className={styles.buttonContainer}>
