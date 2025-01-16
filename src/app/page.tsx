@@ -1,8 +1,6 @@
 import { HydrateClient } from "~/trpc/server";
 import { LandingPage } from "./_components/LandingPage";
-import { HomePage } from "./_components/HomePage";
 import { Poppins, Baloo_2, Quicksand, Outfit } from "next/font/google";
-import { getServerAuthSession } from "~/server/auth";
 
 const poppins = Poppins({
   subsets: ["latin"],

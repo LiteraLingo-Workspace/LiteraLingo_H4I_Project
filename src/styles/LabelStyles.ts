@@ -1,4 +1,4 @@
-import { theme, ColorSystem } from "./ColorStyles";
+import { theme, type ColorSystem } from "./ColorStyles";
 
 export type labelStyleType = {
   color: ColorSystem;
