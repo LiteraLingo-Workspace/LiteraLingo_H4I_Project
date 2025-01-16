@@ -109,6 +109,7 @@ export const QuizPage: React.FC = () => {
   if (sessionQuestions && showReview) {
     return (
       <div className={styles.container}>
+        <Background />
         <Review  
           sessionQuestions={sessionQuestions}
         />
@@ -119,6 +120,7 @@ export const QuizPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <Background />
       <Header
         title="Quiz"
         color={theme.colors.primary}

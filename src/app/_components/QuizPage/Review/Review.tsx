@@ -41,7 +41,9 @@ export const Review: React.FC<ReviewProps> = ({
       color={theme.colors.primary}
       typeLabel={
         <TypeLabel
-          color={labelStyles.Loading.color}
+          color={sessionQuestions 
+          ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].color
+          : labelStyles.Loading.color}
           bg={sessionQuestions 
             ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
             : labelStyles.Loading.bg}
@@ -50,7 +52,7 @@ export const Review: React.FC<ReviewProps> = ({
       }
     />
     <div className={styles.subContainer}>
-      <div className={styles.review}>
+      <div className={styles.reviewLabelContainer}>
         <p className={styles.questionLabel}>Review Answers</p>
       </div>
         {currentQuestion && (
@@ -66,13 +68,16 @@ export const Review: React.FC<ReviewProps> = ({
             />
           </>
         )}
-        <div className={styles.navigationButtons}>
-        <button onClick={handlePrevious} disabled={currentQuestionNumber === 0}>
-          Previous
-        </button>
-        <button onClick={handleNext} disabled={currentQuestionNumber === sessionQuestions.length - 1}>
-          Next
-        </button>
+        <div className={styles.buttonContainer}>
+            <button className={styles.circleButton} onClick={handlePrevious} disabled={currentQuestionNumber === 0}>
+            &lt;
+            </button>
+            <button className={styles.button} onClick={() => {}}>
+              Continue Practicing
+            </button>
+            <button className={styles.circleButton} onClick={handleNext} disabled={currentQuestionNumber === sessionQuestions.length - 1}>
+            &gt;
+            </button>
       </div>
     </div>
   </>
