@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./MultipleChoiceScreen.module.css";
+import styles from "./QuizOptions.module.css";
 import { labelStyles } from "../../../../styles/index";
 import { Choice } from "../Choice";
 import { useState, useEffect } from "react";
@@ -14,18 +14,18 @@ export type QuestionMC = {
   selectedAnswer: string | undefined;
 }
 
-interface QuestionProps {
+interface QuizOptionsProps {
     isChecked: boolean;
     isClickable: boolean;
-    handleSelectionClick?: () => string; // Return the selected choice
+    onSelection?: (choice:string) => void; // return the selected choice
     description: string;
     choices: string[];
 }
 
-export const MultipleChoiceScreen: React.FC<QuestionProps> = ({ 
+export const QuizOptions: React.FC<QuizOptionsProps> = ({ 
     isChecked, 
     isClickable,
-    handleSelectionClick,
+    onSelection,
     description,
     choices,
 }) => {
@@ -33,8 +33,9 @@ export const MultipleChoiceScreen: React.FC<QuestionProps> = ({
 
     const handleChoiceClick = (choice: string) => {
         setSelectedChoice(choice);
-        if (handleSelectionClick) {
-            handleSelectionClick(); // Send choice back to parent component
+        console.log(choice);
+        if (onSelection) {
+          onSelection(choice); // send choice back to parent component
         }
     };
 
@@ -50,7 +51,7 @@ export const MultipleChoiceScreen: React.FC<QuestionProps> = ({
               isChecked={isChecked}
               selected={selectedChoice === choice}
               onClick={() => handleChoiceClick(choice)}
-              disabled={isClickable}
+              disabled={!isClickable}
             />
           ))}
         </div>

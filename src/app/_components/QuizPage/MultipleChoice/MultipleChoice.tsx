@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
-import { MultipleChoiceScreen } from "../MultipleChoiceScreen/MultipleChoiceScreen";
+import { QuizOptions } from "../QuizOptions/QuizOptions";
 
 interface MultipleChoiceProps {
   description: string;
@@ -29,7 +29,6 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [randomizedChoices, setRandomizedChoices] = useState<string[]>([]);
-  const [isSelected, setIsSelected] = useState(false);
 
   const randomizeChoices = (description: string, choices: string[]) => {
     const updatedChoices = [...choices];
@@ -56,17 +55,15 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
   useEffect(() => {
     setRandomizedChoices(randomizeChoices(description, choices));
-    setIsSelected(false);
   }, [description, choices]);
 
-  const handleChoiceClick = (choice: string, isCorrect: boolean) => {
-    setIsSelected(true);
+  const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
-    setIsCorrectChoice(isCorrect);
+    setIsCorrectChoice(selectedChoice === description);
   };
 
   const handleSubmit = (choice: string | null) => {
-    if (!isSelected) {
+    if (selectedChoice === null) {
       return;
     }
     setIsChecked(true);
@@ -82,22 +79,13 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
   return (
     <>
-      <div className={styles.container}>
-        <p className={styles.questionLabel}>What does this mean?</p>
-        <div className={styles.choicesContainer}>
-          {randomizedChoices.map((choice, index) => (
-            <Choice
-              key={index}
-              text={choice}
-              isCorrect={choice === description}
-              isChecked={isChecked}
-              selected={selectedChoice === choice}
-              onClick={() => handleChoiceClick(choice, choice === description)}
-              disabled={isChecked}
-            />
-          ))}
-        </div>
-      </div>
+      <QuizOptions 
+        isChecked={isChecked} 
+        isClickable={!isChecked} 
+        onSelection={handleSelection} 
+        description={description} 
+        choices={randomizedChoices}
+      />
       {isChecked ? (
         <div className={styles.buttonContainer}>
           <button

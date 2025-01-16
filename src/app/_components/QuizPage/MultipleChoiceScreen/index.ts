@@ -1,1 +1,0 @@
-export { MultipleChoiceScreen } from "./MultipleChoiceScreen";
