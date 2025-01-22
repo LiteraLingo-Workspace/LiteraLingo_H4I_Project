@@ -89,14 +89,18 @@ export const historyEntryRouter = createTRPCRouter({
       z
         .object({
           isFavorite: z.boolean().optional(),
+          byMostRecent: z.boolean().optional(),
         })
         .optional()
     )
     .query(async ({ ctx, input }) => {
       const whereClause =
         input?.isFavorite !== undefined ? { isFavorite: input.isFavorite } : {};
+      const orderClause =
+        input?.byMostRecent !== undefined ? [{ createdAt: "desc" }] : {};
       const historyEntries = await ctx.db.historyEntry.findMany({
         where: whereClause,
+        orderBy: orderClause,
       });
       return historyEntries;
     }),

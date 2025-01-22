@@ -3,6 +3,7 @@ model HistoryEntry {
     textEntered String
     outputText String
     isFavorite Boolean @default(false)
+    createdAt  DateTime   @default(now())
 
     author         User @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId String
