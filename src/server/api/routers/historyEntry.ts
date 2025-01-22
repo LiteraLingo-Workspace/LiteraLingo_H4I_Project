@@ -84,6 +84,7 @@ export const historyEntryRouter = createTRPCRouter({
       return updatedHistoryEntry;
     }),
 
+  // GET to: http://localhost:3000/api/trpc/historyEntry.getAllHistoryEntries?batch=1&input={"0":{"json": {"isFavorite": true, "byMostRecent": true}}}
   getAllHistoryEntries: publicProcedure
     .input(
       z
