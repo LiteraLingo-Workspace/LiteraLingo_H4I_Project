@@ -1,13 +1,11 @@
 import styles from "./Review.module.css";
 import { QuestionMC } from "../index";
-import { Background } from "../../LandingPage/Background";
 import { Header } from "../../shared/Header/Header";
 import { QuizOptions } from "../QuizOptions/QuizOptions";
 import { Prompt } from "../Prompt/Prompt";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
 import { labelStyles } from "~/styles";
 import { useState } from "react";
-import { Navbar } from "../../shared/Navbar/Navbar";
 import { theme } from "~/styles";
 
 interface ReviewProps {
@@ -72,7 +70,7 @@ export const Review: React.FC<ReviewProps> = ({
             <button className={styles.circleButton} onClick={handlePrevious} disabled={currentQuestionNumber === 0}>
             &lt;
             </button>
-            <button className={styles.button} onClick={() => {}}>
+            <button className={styles.button}>
               Continue Practicing
             </button>
             <button className={styles.circleButton} onClick={handleNext} disabled={currentQuestionNumber === sessionQuestions.length - 1}>
