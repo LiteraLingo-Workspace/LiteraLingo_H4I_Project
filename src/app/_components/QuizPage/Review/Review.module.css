@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.subContainer {
+  position: absolute;
+  top: 104px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reviewLabelContainer {
+  display: flex;
+  margin-top: 10px;
+  height: 40px;
+  width: 234px;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionLabel {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 33px;
+  color: var(--primary);
+  text-align: left;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 48px;
+  border-radius: 100px;
+  padding: 8px 12px 8px 12px;
+  background-color: #f37576;
+  color: rgb(255, 255, 255);
+  font-family: var(--font-baloo-2), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.circleButton {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: rgba(229, 229, 229, 1);
+  color: rgba(51, 51, 51, 1);
+  font-family: var(--font-baloo-2), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 42px;
+  border: none;
+  cursor: pointer;
+}
+
+.circleButton:disabled {
+  background-color: rgba(200, 200, 200, 1);
+  color: rgba(150, 150, 150, 1);
+  cursor: not-allowed;
+}
+
+/* adjust for smaller header on very small screens (iPhone SE) */
+@media screen and (max-height: 750px) {
+  .subContainer {
+    top: 60px;
+  }
+}

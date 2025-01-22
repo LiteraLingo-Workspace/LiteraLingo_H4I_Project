@@ -16,6 +16,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+
+.subContainerReview {
+  position: absolute;
+  margin-top: 20px;
+  top: 104px;
+  display: flex;
+  max-height: 723px;
+  height: calc(100% - 104px - 120px);
+  width: 100%;
+  z-index: 1;
+  overflow-y: auto;
+  flex-direction: column;
+  align-items: center;
+  bottom: 120px;
 }
 
 /* adjust for smaller header on very small screens (iPhone SE) */
