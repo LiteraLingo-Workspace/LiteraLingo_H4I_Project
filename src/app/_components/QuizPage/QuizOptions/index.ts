@@ -1,1 +1,1 @@
-export { MultipleChoiceScreen } from "./QuizOptions";
+export { QuizOptions } from "./QuizOptions";
