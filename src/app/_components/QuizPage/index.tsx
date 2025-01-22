@@ -39,8 +39,6 @@ export const QuizPage: React.FC = () => {
     }
   };
 
-  console.log(sessionQuestions);
-
   const handleQuestionCheck = (currentQuestionNumber: number, choice: string | null) => {
     // function to update that this is correct
     // may be slightly cumbersome to update the entire array just
