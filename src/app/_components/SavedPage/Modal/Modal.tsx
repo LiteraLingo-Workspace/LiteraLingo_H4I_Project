@@ -6,8 +6,15 @@ import { Item } from "./Item";
 import { api } from "~/trpc/react";
 
 export const Modal: React.FC = () => {
-  const { data: historyEntryData, isLoading, error } = api.historyEntry.getAllHistoryEntries.useQuery({ isFavorite: true, byMostRecent: true });
-
+  const {
+    data: historyEntryData,
+    isLoading,
+    error,
+  } = api.historyEntry.getAllHistoryEntries.useQuery({
+    isFavorite: true,
+    byMostRecent: true,
+  });
+  
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
 
