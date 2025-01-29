@@ -11,8 +11,14 @@ export const History: React.FC = () => {
 
   const hasFetchedOnExpand = useRef(false); // Track whether data has been fetched on expand
 
-  const { data: historyEntryData, isLoading, error, refetch } =
-    api.historyEntry.getAllHistoryEntries.useQuery();
+  const {
+    data: historyEntryData,
+    isLoading,
+    error,
+    refetch
+  } = api.historyEntry.getAllHistoryEntries.useQuery({
+    byMostRecent: true,
+  });
 
     useEffect(() => {
       // Refetch only once when expanded for the first time
@@ -24,7 +30,6 @@ export const History: React.FC = () => {
         hasFetchedOnExpand.current = false;
       }
     }, [expanded, refetch]);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
