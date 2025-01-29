@@ -9,7 +9,13 @@ import { api } from "~/trpc/react";
 export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
-  const { data: historyEntryData, isLoading, error } = api.historyEntry.getAllHistoryEntries.useQuery();
+  const {
+    data: historyEntryData,
+    isLoading,
+    error,
+  } = api.historyEntry.getAllHistoryEntries.useQuery({
+    byMostRecent: true,
+  });
   
   if (isLoading) {
     return <div>Loading...</div>;
