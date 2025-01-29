@@ -17,7 +17,7 @@ export const History: React.FC = () => {
     useEffect(() => {
       // Refetch only once when expanded for the first time
       if (expanded && !hasFetchedOnExpand.current) {
-        refetch(); // Fetch the data
+        void refetch(); // Fetch the data
         hasFetchedOnExpand.current = true; // Mark as fetched
       } else if (!expanded) {
         // Reset the fetch flag when collapsed
