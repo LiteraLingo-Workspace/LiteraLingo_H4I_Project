@@ -1,22 +1,35 @@
 "use client";
 
-import styles from "./History.module.css";
+import { useEffect, useState, useRef } from "react";
 import { FaHistory } from "react-icons/fa";
-import { useState } from "react";
+import styles from "./History.module.css";
 import { HistoryItem } from "./HistoryItem";
 import { api } from "~/trpc/react";
 
 export const History: React.FC = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
+  const hasFetchedOnExpand = useRef(false); // Track whether data has been fetched on expand
+
   const {
     data: historyEntryData,
     isLoading,
     error,
+    refetch
   } = api.historyEntry.getAllHistoryEntries.useQuery({
     byMostRecent: true,
   });
-  
+
+    useEffect(() => {
+      // Refetch only once when expanded for the first time
+      if (expanded && !hasFetchedOnExpand.current) {
+        void refetch(); // Fetch the data
+        hasFetchedOnExpand.current = true; // Mark as fetched
+      } else if (!expanded) {
+        // Reset the fetch flag when collapsed
+        hasFetchedOnExpand.current = false;
+      }
+    }, [expanded, refetch]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -24,11 +37,12 @@ export const History: React.FC = () => {
   if (error) {
     return <div>Error loading history entries</div>;
   }
-  
+
   return (
     <div
       className={`${styles.container} ${expanded ? styles.containerExpanded : ""}`}
     >
+      {/* Toggle expand/collapse */}
       <div
         className={styles.tabContainer}
         onClick={() => setExpanded(!expanded)}
@@ -82,6 +96,8 @@ export const History: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Display history entries */}
       <div
         className={styles.historyItemContainer}
         style={{ marginTop: `${!expanded ? 0 : 80}px` }}
