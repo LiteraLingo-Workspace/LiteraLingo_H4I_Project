@@ -35,8 +35,12 @@ export const Review: React.FC<ReviewProps> = ({
   };
 
   const handleContinuePracticing = () => {
-    localStorage.clear();
-    router.refresh();
+    new Promise<void>((resolve) => {
+      localStorage.clear();
+      resolve();
+    }).then(() => {
+      router.refresh();
+    });
   };
 
   return (
