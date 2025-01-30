@@ -1,5 +1,5 @@
 import styles from "./Review.module.css";
-import { QuestionMC } from "../index";
+import { QuizItemMC } from "..";
 import { Header } from "../../shared/Header/Header";
 import { QuizOptions } from "../QuizOptions/QuizOptions";
 import { Prompt } from "../Prompt/Prompt";
@@ -9,7 +9,7 @@ import { useState } from "react";
 import { theme } from "~/styles";
 
 interface ReviewProps {
-  sessionQuestions: QuestionMC[];
+  sessionQuestions: QuizItemMC[];
 }
 
 export const Review: React.FC<ReviewProps> = ({ 
@@ -61,8 +61,8 @@ export const Review: React.FC<ReviewProps> = ({
               isClickable={false} 
               isReview={true}
               selected={currentQuestion.selectedAnswer}
-              description={currentQuestion.description}
-              choices={currentQuestion.alternatives}
+              description={currentQuestion.correctAnswer}
+              choices={currentQuestion.choices}
             />
           </>
         )}

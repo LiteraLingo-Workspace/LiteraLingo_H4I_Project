@@ -1,18 +1,7 @@
 "use client";
-
 import styles from "./QuizOptions.module.css";
-import { labelStyles } from "../../../../styles/index";
 import { Choice } from "../Choice";
 import { useState, useEffect } from "react";
-
-export type QuestionMC = {
-  id: number,
-  type: keyof typeof labelStyles;
-  expression: string;
-  description: string;
-  alternatives: string[];
-  selectedAnswer: string | undefined;
-}
 
 interface QuizOptionsProps {
     isChecked: boolean;

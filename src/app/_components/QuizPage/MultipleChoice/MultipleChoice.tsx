@@ -15,6 +15,8 @@ interface MultipleChoiceProps {
   ) => void; // return whether user got it right
   onNextQuestion: () => void;
   shouldDisable?: boolean; // prevent question from being submitted, only displayed
+  forceSelectedChoice?: string | null,
+  forceIsChecked?: boolean,
 }
 
 export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
@@ -24,14 +26,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   onQuestionCheck,
   onNextQuestion,
   shouldDisable,
+  forceSelectedChoice,
+  forceIsChecked,
 }) => {
-  const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
-  const [isCorrectChoice, setIsCorrectChoice] = useState<boolean | null>(null);
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(forceSelectedChoice || null);
+  const [isChecked, setIsChecked] = useState<boolean>(forceIsChecked || false);
 
   const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
-    setIsCorrectChoice(selectedChoice === description);
   };
 
   const handleSubmit = (choice: string | null) => {
