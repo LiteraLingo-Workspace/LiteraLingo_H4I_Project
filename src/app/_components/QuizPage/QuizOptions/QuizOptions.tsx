@@ -31,8 +31,6 @@ export const QuizOptions: React.FC<QuizOptionsProps> = ({
         }
     };
 
-    console.log(selected);
-
     return (
     <div className={styles.container}>
         <p className={styles.questionLabel}>What does this mean?</p>

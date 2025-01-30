@@ -35,8 +35,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
   };
+  
+  useEffect(() => {
+    setSelectedChoice(forceSelectedChoice || null);
+    setIsChecked(forceIsChecked || false);
+  }, [forceSelectedChoice, forceIsChecked]);
 
   const handleSubmit = (choice: string | null) => {
+    console.log(selectedChoice);
     if (selectedChoice === null) {
       return;
     }
@@ -55,11 +61,12 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
     <>
       <QuizOptions 
         isChecked={isChecked} 
-        isClickable={!isChecked} 
+        isClickable={!isChecked || !shouldDisable} 
         onSelection={handleSelection} 
         isReview={false}
         description={description} 
         choices={choices}
+        selected={forceSelectedChoice && forceSelectedChoice}
       />
       {isChecked ? (
         <div className={styles.buttonContainer}>

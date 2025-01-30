@@ -100,8 +100,7 @@ export const QuizPage: React.FC = () => {
         showReview,
       }))
     }
-  })
-
+  }, [sessionQuestions, completedQuestions, currentQuestionNumber, showReview]);
 
   const randomizeChoices = (description: string, alternatives: string[], numOfChoices: number) => {
     const updatedChoices = [...alternatives];
@@ -198,6 +197,8 @@ export const QuizPage: React.FC = () => {
               currentQuestionNumber={currentQuestionNumber}
               onQuestionCheck={handleQuestionCheck}
               onNextQuestion={updateQuestionNumber}
+              forceIsChecked={sessionQuestions[currentQuestionNumber]!.selectedAnswer !== null}
+              forceSelectedChoice={sessionQuestions[currentQuestionNumber]!.selectedAnswer}
             />
           </>
         )}
