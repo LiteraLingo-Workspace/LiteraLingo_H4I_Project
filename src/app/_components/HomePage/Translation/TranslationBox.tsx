@@ -208,8 +208,10 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                   } else {
                     // Call the actual API
                     mutate({ text: value });
+                    
                   }
 
+                  
                   // BELOW WAS LEFT IN FOR TESTING PURPOSES
                   // SINCE OPENAI KEY HAS LIMITED CALLS
 
