@@ -36,7 +36,7 @@ export const Review: React.FC<ReviewProps> = ({
 
   const handleContinuePracticing = () => {
     localStorage.clear();
-    router.replace("/quiz");
+    router.refresh();
   };
 
   return (
