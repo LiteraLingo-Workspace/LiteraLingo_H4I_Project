@@ -37,6 +37,13 @@ export type QuizItemMC = {
   selectedAnswer: string | null;
 }
 
+type QuizSession = {
+  sessionQuestions: QuizItemMC[];
+  completedQuestions: number;
+  currentQuestionNumber: number;
+  showReview: boolean;
+}
+
 const MAX_QUESTIONS = 5;
 const ALL_EXPRESSIONS = expressions as QuizItem[];
 const NUM_OF_CHOICES = 3;
@@ -132,11 +139,11 @@ export const QuizPage: React.FC = () => {
   useEffect(() => {
     const savedSession = localStorage.getItem("quizSession");
     if (savedSession) {
-      const parsedSession = JSON.parse(savedSession);
-      setSessionQuestions(parsedSession.sessionQuestions as QuizItemMC[]);
-      setCompletedQuestions(parsedSession.completedQuestions as number);
-      setCurrentQuestionNumber(parsedSession.currentQuestionNumber as number);
-      setShowReview(parsedSession.showReview as boolean);
+      const parsedSession = JSON.parse(savedSession) as QuizSession;
+      setSessionQuestions(parsedSession.sessionQuestions);
+      setCompletedQuestions(parsedSession.completedQuestions);
+      setCurrentQuestionNumber(parsedSession.currentQuestionNumber);
+      setShowReview(parsedSession.showReview);
     } else {
       const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
       setSessionQuestions(generatedQuestions);
