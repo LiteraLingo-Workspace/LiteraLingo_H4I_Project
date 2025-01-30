@@ -135,6 +135,8 @@ export const QuizPage: React.FC = () => {
     return questionList;
   };
 
+  const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
+
   // generate a list of questions
   useEffect(() => {
     const savedSession = localStorage.getItem("quizSession");
@@ -145,10 +147,9 @@ export const QuizPage: React.FC = () => {
       setCurrentQuestionNumber(parsedSession.currentQuestionNumber);
       setShowReview(parsedSession.showReview);
     } else {
-      const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
       setSessionQuestions(generatedQuestions);
     }
-  }, [getRandomQuestions]);
+  }, []);
 
   useEffect(() => {
     // save to local storage to persist across refresh
