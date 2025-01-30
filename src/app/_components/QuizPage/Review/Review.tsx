@@ -1,5 +1,5 @@
 import styles from "./Review.module.css";
-import { QuizItemMC } from "..";
+import type { QuizItemMC } from "..";
 import { Header } from "../../shared/Header/Header";
 import { QuizOptions } from "../QuizOptions/QuizOptions";
 import { Prompt } from "../Prompt/Prompt";

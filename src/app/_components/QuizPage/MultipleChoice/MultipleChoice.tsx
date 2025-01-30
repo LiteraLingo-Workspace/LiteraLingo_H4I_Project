@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Choice } from "../Choice";
 import styles from "./MultipleChoice.module.css";
 import { QuizOptions } from "../QuizOptions/QuizOptions";
 
@@ -29,16 +28,16 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   forceSelectedChoice,
   forceIsChecked,
 }) => {
-  const [selectedChoice, setSelectedChoice] = useState<string | null>(forceSelectedChoice || null);
-  const [isChecked, setIsChecked] = useState<boolean>(forceIsChecked || false);
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(forceSelectedChoice ?? null);
+  const [isChecked, setIsChecked] = useState<boolean>(forceIsChecked ?? false);
 
   const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
   };
   
   useEffect(() => {
-    setSelectedChoice(forceSelectedChoice || null);
-    setIsChecked(forceIsChecked || false);
+    setSelectedChoice(forceSelectedChoice ?? null);
+    setIsChecked(forceIsChecked ?? false);
   }, [forceSelectedChoice, forceIsChecked]);
 
   const handleSubmit = (choice: string | null) => {

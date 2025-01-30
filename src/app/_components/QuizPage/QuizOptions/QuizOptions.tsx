@@ -1,7 +1,7 @@
 "use client";
 import styles from "./QuizOptions.module.css";
 import { Choice } from "../Choice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface QuizOptionsProps {
     isChecked: boolean;

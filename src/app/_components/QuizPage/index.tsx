@@ -75,33 +75,7 @@ export const QuizPage: React.FC = () => {
     }
   } 
 
-  // generate a list of questions
-  useEffect(() => {
-    const savedSession = localStorage.getItem("quizSession");
-    if (savedSession) {
-      const parsedSession = JSON.parse(savedSession);
-      setSessionQuestions(parsedSession.sessionQuestions);
-      setCompletedQuestions(parsedSession.completedQuestions);
-      setCurrentQuestionNumber(parsedSession.currentQuestionNumber);
-      setShowReview(parsedSession.showReview);
-    } else {
-      const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
-      setSessionQuestions(generatedQuestions);
-    }
-  }, []);
-
-  useEffect(() => {
-    // save to local storage to persist across refresh
-    if (sessionQuestions) {
-      localStorage.setItem("quizSession", JSON.stringify({
-        sessionQuestions,
-        completedQuestions,
-        currentQuestionNumber,
-        showReview,
-      }))
-    }
-  }, [sessionQuestions, completedQuestions, currentQuestionNumber, showReview]);
-
+  
   const randomizeChoices = (description: string, alternatives: string[], numOfChoices: number) => {
     const updatedChoices = [...alternatives];
     // shuffle the array
@@ -153,6 +127,33 @@ export const QuizPage: React.FC = () => {
     }
     return questionList;
   };
+
+  // generate a list of questions
+  useEffect(() => {
+    const savedSession = localStorage.getItem("quizSession");
+    if (savedSession) {
+      const parsedSession = JSON.parse(savedSession);
+      setSessionQuestions(parsedSession.sessionQuestions as QuizItemMC[]);
+      setCompletedQuestions(parsedSession.completedQuestions as number);
+      setCurrentQuestionNumber(parsedSession.currentQuestionNumber as number);
+      setShowReview(parsedSession.showReview as boolean);
+    } else {
+      const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
+      setSessionQuestions(generatedQuestions);
+    }
+  }, [getRandomQuestions]);
+
+  useEffect(() => {
+    // save to local storage to persist across refresh
+    if (sessionQuestions) {
+      localStorage.setItem("quizSession", JSON.stringify({
+        sessionQuestions,
+        completedQuestions,
+        currentQuestionNumber,
+        showReview,
+      }))
+    }
+  }, [sessionQuestions, completedQuestions, currentQuestionNumber, showReview]);
   
   if (currentQuestionNumber == MAX_QUESTIONS && sessionQuestions && showReview) {
     return (
