@@ -14,6 +14,7 @@ import { labelStyles } from "../../../../styles/index";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
 import { type Session } from "next-auth";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 type JsonData = Record<string, string>;
 
@@ -284,15 +285,18 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                 text="Sarcasm"
               />
               {isFavorite ? (
-                <IoIosStar
+                <FaStar
                   size={32}
+                  color="#EFB951"
                   onClick={toggleIsFavorite}
-                  className={styles.starIconActive}
+                  style={{ cursor: 'pointer' }}
+                  className={styles.starIcon}
                 />
               ) : (
-                <IoIosStarOutline
+                <FaRegStar
                   size={32}
                   onClick={toggleIsFavorite}
+                  style={{ cursor: 'pointer' }}
                   className={styles.starIcon}
                 />
               )}

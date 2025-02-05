@@ -13,29 +13,55 @@ import { useState, useEffect } from "react";
 import { Review } from "./Review/Review";
 import expressions from "../../data/quiz.json";
 
-export type QuestionMC = {
+// match format of JSON
+// it is possible for there to be more alternatives
+// than there are choices
+export type QuizItem = {
   id: number,
   type: keyof typeof labelStyles;
   expression: string;
   description: string;
   alternatives: string[];
+}
+
+// need the choices intermixed with the correct answer
+// could potentially add more attributes
+// depending on how we might want data saved
+// number of choices is fixed
+export type QuizItemMC = {
+  id: number,
+  type: keyof typeof labelStyles;
+  expression: string;
+  choices: string[];
+  correctAnswer: string;
   selectedAnswer: string | null;
 }
 
-const maxQuestions = 5;
-const allExpressions = expressions as QuestionMC[];
+type QuizSession = {
+  sessionQuestions: QuizItemMC[];
+  completedQuestions: number;
+  currentQuestionNumber: number;
+  showReview: boolean;
+}
+
+const MAX_QUESTIONS = 5;
+const ALL_EXPRESSIONS = expressions as QuizItem[];
+const NUM_OF_CHOICES = 3;
 
 export const QuizPage: React.FC = () => {
-  const [sessionQuestions, setSessionQuestions] = useState<QuestionMC[]>();
+  const [sessionQuestions, setSessionQuestions] = useState<QuizItemMC[]>();
   const [completedQuestions, setCompletedQuestions] = useState<number>(0);
-
   // set state var to index sessionQuestions
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0);
   const [showReview, setShowReview] = useState<boolean>(false);
+  // keep track of if user has a selected answer (for cache purposes)
 
   const updateQuestionNumber = () => {
-    if (currentQuestionNumber < maxQuestions - 1) {
+    if (currentQuestionNumber < MAX_QUESTIONS) {
       setCurrentQuestionNumber(currentQuestionNumber + 1);
+    }
+    if (currentQuestionNumber == MAX_QUESTIONS - 1) {
+      setShowReview(true);
     }
   };
 
@@ -55,56 +81,89 @@ export const QuizPage: React.FC = () => {
       setCompletedQuestions(completedQuestions + 1);
     }
   } 
-  // generate a list of questions
-  useEffect(() => {
-    const randomizeChoices = (description: string, choices: string[]) => {
-      const updatedChoices = [...choices];
-      // shuffle the array
-      let currentIndex = updatedChoices.length,
-        randomIndex;
-      while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-  
-        const currentChoice = updatedChoices[currentIndex];
-        const randomChoice = updatedChoices[randomIndex];
-  
-        updatedChoices[currentIndex] = randomChoice!;
-        updatedChoices[randomIndex] = currentChoice!;
-      }
-  
-      updatedChoices.splice(0, 1); // randomly discard the last element
-      const insertIndex = Math.floor(Math.random() * (updatedChoices.length + 1));
-      updatedChoices.splice(insertIndex, 0, description);
-  
-      return updatedChoices;
-    };  
 
-    const getRandomQuestions = (expressionList: QuestionMC[]) => {
-      const questionList = [] as QuestionMC[];
-      const usedIDs = new Set<number>();
-    
-      // create a list of unique questions
-      while (questionList.length < maxQuestions && questionList.length < expressionList.length) {
-        const randomIndex = Math.floor(Math.random() * expressionList.length);
-        if (!usedIDs.has(randomIndex)) {
-          if (expressionList[randomIndex]) {
-            // add to the list with randomized choices
-            const question = { ...expressionList[randomIndex] };
-            question.alternatives = randomizeChoices(question.description, question.alternatives);
-            questionList.push(question);
-            usedIDs.add(randomIndex);
-          }
+  
+  const randomizeChoices = (description: string, alternatives: string[], numOfChoices: number) => {
+    const updatedChoices = [...alternatives];
+    // shuffle the array
+    let currentIndex = updatedChoices.length,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      const currentChoice = updatedChoices[currentIndex];
+      const randomChoice = updatedChoices[randomIndex];
+
+      updatedChoices[currentIndex] = randomChoice!;
+      updatedChoices[randomIndex] = currentChoice!;
+    }
+
+    updatedChoices.splice(numOfChoices - 1);
+    const insertIndex = Math.floor(Math.random() * (updatedChoices.length + 1));
+    updatedChoices.splice(insertIndex, 0, description);
+
+    return updatedChoices;
+  };  
+
+  const getRandomQuestions = (expressionList: QuizItem[]) => {
+    const questionList = [] as QuizItemMC[];
+    const usedIDs = new Set<number>();
+  
+    // create a list of unique questions
+    while (questionList.length < MAX_QUESTIONS && questionList.length < expressionList.length) {
+      const randomIndex = Math.floor(Math.random() * expressionList.length);
+      if (!usedIDs.has(randomIndex)) {
+        if (expressionList[randomIndex]) {
+          // randomize choices and convert into MC format
+          // this is to keep the type for the input data unaffected
+          // when trying to mix choices 
+          const choices = randomizeChoices(expressionList[randomIndex].description, expressionList[randomIndex].alternatives, NUM_OF_CHOICES);
+          const newQuizItemMC = {
+            id: randomIndex,
+            type: expressionList[randomIndex].type,
+            expression: expressionList[randomIndex].expression,
+            correctAnswer: expressionList[randomIndex].description,
+            choices: choices,
+            selectedAnswer: null,
+          } as QuizItemMC;
+          questionList.push(newQuizItemMC);
+          usedIDs.add(randomIndex);
         }
       }
-      return questionList;
-    };
+    }
+    return questionList;
+  };
 
-    const generatedQuestions = getRandomQuestions(allExpressions);
-    setSessionQuestions(generatedQuestions);
+  const generatedQuestions = getRandomQuestions(ALL_EXPRESSIONS);
+
+  // generate a list of questions
+  useEffect(() => {
+    const savedSession = localStorage.getItem("quizSession");
+    if (savedSession) {
+      const parsedSession = JSON.parse(savedSession) as QuizSession;
+      setSessionQuestions(parsedSession.sessionQuestions);
+      setCompletedQuestions(parsedSession.completedQuestions);
+      setCurrentQuestionNumber(parsedSession.currentQuestionNumber);
+      setShowReview(parsedSession.showReview);
+    } else {
+      setSessionQuestions(generatedQuestions);
+    }
   }, []);
 
-  if (sessionQuestions && showReview) {
+  useEffect(() => {
+    // save to local storage to persist across refresh
+    if (sessionQuestions) {
+      localStorage.setItem("quizSession", JSON.stringify({
+        sessionQuestions,
+        completedQuestions,
+        currentQuestionNumber,
+        showReview,
+      }))
+    }
+  }, [sessionQuestions, completedQuestions, currentQuestionNumber, showReview]);
+  
+  if (currentQuestionNumber == MAX_QUESTIONS && sessionQuestions && showReview) {
     return (
       <div className={styles.container}>
         <Background />
@@ -115,6 +174,8 @@ export const QuizPage: React.FC = () => {
     </div>
     )
   }
+
+  console.log(currentQuestionNumber);
 
   return (
     <div className={styles.container}>
@@ -140,11 +201,13 @@ export const QuizPage: React.FC = () => {
           <>
             <Prompt expression={sessionQuestions[currentQuestionNumber]!.expression} />
             <MultipleChoice
-              description={sessionQuestions[currentQuestionNumber]!.description}
-              choices={sessionQuestions[currentQuestionNumber]!.alternatives}
+              description={sessionQuestions[currentQuestionNumber]!.correctAnswer}
+              choices={sessionQuestions[currentQuestionNumber]!.choices}
               currentQuestionNumber={currentQuestionNumber}
               onQuestionCheck={handleQuestionCheck}
-              onNextQuestion={sessionQuestions && completedQuestions == maxQuestions ? () => setShowReview(true) : updateQuestionNumber}
+              onNextQuestion={updateQuestionNumber}
+              forceIsChecked={sessionQuestions[currentQuestionNumber]!.selectedAnswer !== null}
+              forceSelectedChoice={sessionQuestions[currentQuestionNumber]!.selectedAnswer}
             />
           </>
         )}

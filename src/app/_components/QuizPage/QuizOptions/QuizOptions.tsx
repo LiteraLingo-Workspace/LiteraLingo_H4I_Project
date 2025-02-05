@@ -1,18 +1,7 @@
 "use client";
-
 import styles from "./QuizOptions.module.css";
-import { labelStyles } from "../../../../styles/index";
 import { Choice } from "../Choice";
-import { useState, useEffect } from "react";
-
-export type QuestionMC = {
-  id: number,
-  type: keyof typeof labelStyles;
-  expression: string;
-  description: string;
-  alternatives: string[];
-  selectedAnswer: string | undefined;
-}
+import { useState } from "react";
 
 interface QuizOptionsProps {
     isChecked: boolean;
@@ -41,8 +30,6 @@ export const QuizOptions: React.FC<QuizOptionsProps> = ({
           onSelection(choice); // send choice back to parent component
         }
     };
-
-    console.log(selected);
 
     return (
     <div className={styles.container}>

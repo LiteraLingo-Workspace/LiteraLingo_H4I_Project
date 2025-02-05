@@ -11,25 +11,43 @@ export const History: React.FC = () => {
 
   const hasFetchedOnExpand = useRef(false); // Track whether data has been fetched on expand
 
+  const utils = api.useUtils();
+
   const {
     data: historyEntryData,
     isLoading,
     error,
-    refetch
   } = api.historyEntry.getAllHistoryEntries.useQuery({
     byMostRecent: true,
   });
 
-    useEffect(() => {
-      // Refetch only once when expanded for the first time
-      if (expanded && !hasFetchedOnExpand.current) {
-        void refetch(); // Fetch the data
-        hasFetchedOnExpand.current = true; // Mark as fetched
-      } else if (!expanded) {
-        // Reset the fetch flag when collapsed
-        hasFetchedOnExpand.current = false;
-      }
-    }, [expanded, refetch]);
+  const { mutate: updateFavoriteMutate } = api.historyEntry.updateIsFavorite.useMutation({
+    onSuccess: () => {
+      void utils.historyEntry.getAllHistoryEntries.invalidate();
+    },
+    onError: () => {
+      console.error("Failed to update favorite status");
+    }
+  });
+
+  const handleFavoriteToggle = (id: number, newState: boolean) => {
+    updateFavoriteMutate({
+      id,
+      isFavorite: newState
+    });
+  };
+
+  useEffect(() => {
+    // Refetch only once when expanded for the first time
+    if (expanded && !hasFetchedOnExpand.current) {
+      void utils.historyEntry.getAllHistoryEntries.invalidate();
+      hasFetchedOnExpand.current = true; // Mark as fetched
+    } else if (!expanded) {
+      // Reset the fetch flag when collapsed
+      hasFetchedOnExpand.current = false;
+    }
+  }, [expanded, utils]);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -105,9 +123,11 @@ export const History: React.FC = () => {
         {historyEntryData?.map((entry) => (
           <HistoryItem
             key={entry.id}
+            id={entry.id}
             text={entry.textEntered}
             type={entry.outputText}
             isFavorite={entry.isFavorite}
+            onFavoriteToggle={handleFavoriteToggle}
           />
         ))}
       </div>
