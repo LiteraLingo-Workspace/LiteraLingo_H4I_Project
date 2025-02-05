@@ -136,6 +136,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
               ref={textAreaRef}
               rows={1}
               value={value}
+              aria-label="Insert sentence to paraphrase"
               placeholder="Insert sentence to paraphrase"
               disabled={!canType}
               maxLength={80}
@@ -182,6 +183,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                     sttReader?.cancel();
                   }
                 }}
+                aria-label="Start speech-to-text"
               >
                 {sttActive ? (
                   <HiMicrophone size={24.5} />
@@ -193,6 +195,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
             <div className={styles.innerButtonsContainer}>
               <button
                 className={styles.goButton}
+                aria-label="Apply literal translation"
                 onClick={() => {
                   setTranslate(true);
                   setCanType(false);
@@ -246,6 +249,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
             <p className={styles.label}>Figurative</p>
             <textarea
               className={styles.textField}
+              aria-label="Figurative text"
               onChange={handleChange}
               ref={textAreaRef}
               rows={1}
@@ -260,6 +264,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
             <div className={styles.innerButtonsContainer}>
               <button
                 className={styles.restartButton}
+                aria-label="Restart translation"
                 onClick={() => {
                   setTranslate(false);
                   setCanType(true);

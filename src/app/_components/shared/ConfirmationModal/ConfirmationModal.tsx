@@ -29,10 +29,10 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         </div>
         <div className={styles.buttonsContainer}>
           <div className={styles.buttonContainer}>
-           <button className={globalStyles.secondaryOutlineButton} onClick={onConfirm}>{confirm}</button>
+           <button className={globalStyles.secondaryOutlineButton} onClick={onConfirm} aria-label="Confirm">{confirm}</button>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={globalStyles.secondaryGreyOutlineButton} onClick={onClose}>{cancel}</button>
+            <button className={globalStyles.secondaryGreyOutlineButton} onClick={onClose} aria-label="Cancel">{cancel}</button>
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ export const Settings: React.FC<SettingProps> = ({ onAccountDelete }) => {
           </div>
         </div>
         <div className={styles.accountActionContainer}>
-          <button onClick={onAccountDelete} className={globalStyles.secondaryOutlineButton}>
+          <button onClick={onAccountDelete} className={globalStyles.secondaryOutlineButton} aria-label="Delete account">
             Delete Account
           </button>
         </div>

@@ -65,13 +65,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
             className={styles.button}
             disabled={shouldDisable}
             onClick={handleNext}
+            aria-label="Next Question"
           >
             Next
           </button>
         </div>
       ) : (
         <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={() => handleSubmit(selectedChoice)}>
+          <button className={styles.button} onClick={() => handleSubmit(selectedChoice)} aria-label="Check Answer">
             Check Answer
           </button>
         </div>

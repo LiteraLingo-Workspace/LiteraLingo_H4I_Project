@@ -20,7 +20,7 @@ export const UserInfo: React.FC<UserInfoProps> = ({ name, email }) => {
         <p className={styles.handle}>{email}</p>
         <p className={styles.name}>{name}</p>
         <button className={styles.logoutBtn}>
-          <Link style={{ textDecoration: "none" }} href={"/api/auth/signout"}>
+          <Link style={{ textDecoration: "none" }} href={"/api/auth/signout"} aria-label="Logout">
             <p className={styles.logoutText}>Logout</p>
           </Link>
         </button>
