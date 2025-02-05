@@ -19,8 +19,8 @@ export const UserInfo: React.FC<UserInfoProps> = ({ name, email }) => {
       <div className={styles.userIdentityContainer}>
         <p className={styles.handle}>{email}</p>
         <p className={styles.name}>{name}</p>
-        <button className={styles.logoutBtn}>
-          <Link style={{ textDecoration: "none" }} href={"/api/auth/signout"} aria-label="Logout">
+        <button className={styles.logoutBtn} aria-label="Logout">
+          <Link style={{ textDecoration: "none" }} href={"/api/auth/signout"}>
             <p className={styles.logoutText}>Logout</p>
           </Link>
         </button>
