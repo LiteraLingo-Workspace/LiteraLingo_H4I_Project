@@ -10,12 +10,12 @@ export const Modal: React.FC = async () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.loginButton}>
+      <button className={styles.loginButton} aria-label="Sign in or sign out">
         <Link
           style={{ textDecoration: "none" }}
           href={session ? "/api/auth/signout" : "/api/auth/signin"}
         >
-          <p className={styles.buttonText}>
+          <p className={styles.buttonText} >
             {session ? "Sign out" : "Sign in"}
           </p>
         </Link>

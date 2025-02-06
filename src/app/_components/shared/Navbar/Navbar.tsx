@@ -15,6 +15,7 @@ export const Navbar: React.FC = () => {
         <div
           className={styles.linkContainer}
           onClick={() => router.push("/progress")}
+          aria-label="Navigate to Progress page"
         >
           <svg
             width="34"
@@ -38,6 +39,7 @@ export const Navbar: React.FC = () => {
         <div
           className={styles.linkContainer}
           onClick={() => router.push("/quiz")}
+          aria-label="Navigate to Quiz page"
         >
           <MdOutlineQuestionMark
             size={32}
@@ -48,6 +50,7 @@ export const Navbar: React.FC = () => {
         <div
           className={styles.linkContainer}
           onClick={() => router.push("/home")}
+          aria-label="Navigate to Home page"
         >
           <div className={styles.homeIconBackground}>
             <FaMagic size={26} color="white" />
@@ -57,6 +60,7 @@ export const Navbar: React.FC = () => {
         <div
           className={styles.linkContainer}
           onClick={() => router.push("/saved")}
+          aria-label="Navigate to Saved page"
         >
           <FaRegStar size={32} style={{ position: "absolute", top: "13px" }} />
           <div className={styles.text}>Saved</div>
@@ -64,6 +68,7 @@ export const Navbar: React.FC = () => {
         <div
           className={styles.linkContainer}
           onClick={() => router.push("/me")}
+          aria-label="Navigate to Me page"
         >
           <FaRegUser size={32} style={{ position: "absolute", top: "13px" }} />
           <div className={styles.text}>Me</div>

@@ -21,7 +21,7 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
     <div className={styles.item}>
       <div className={styles.itemTop}>
         <p className={styles.itemType}>{type}</p>
-        <div className={styles.itemButtons}>
+        <div className={styles.itemButtons} aria-label="History items">
           {isFavorite ? (
             <FaStar
               size={24}

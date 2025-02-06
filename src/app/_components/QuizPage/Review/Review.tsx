@@ -58,7 +58,7 @@ export const Review: React.FC<ReviewProps> = ({
     />
     <div className={styles.subContainer}>
       <div className={styles.reviewLabelContainer}>
-        <p className={styles.questionLabel}>Review Answers</p>
+        <p className={styles.questionLabel} aria-label="Review answers">Review Answers</p>
       </div>
         {currentQuestion && (
           <>
@@ -74,13 +74,13 @@ export const Review: React.FC<ReviewProps> = ({
           </>
         )}
         <div className={styles.buttonContainer}>
-            <button className={styles.circleButton} onClick={handlePrevious} disabled={currentQuestionNumber === 0}>
+            <button className={styles.circleButton} aria-label="Go to previous" onClick={handlePrevious} disabled={currentQuestionNumber === 0}>
             &lt;
             </button>
-            <button className={styles.button} onClick={handleContinuePracticing}>
+            <button className={styles.button} onClick={handleContinuePracticing} aria-label="Continue practicing">
               Continue Practicing
             </button>
-            <button className={styles.circleButton} onClick={handleNext} disabled={currentQuestionNumber === sessionQuestions.length - 1}>
+            <button className={styles.circleButton} aria-label="Go to next" onClick={handleNext} disabled={currentQuestionNumber === sessionQuestions.length - 1}>
             &gt;
             </button>
       </div>
