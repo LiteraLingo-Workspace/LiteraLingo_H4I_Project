@@ -1,0 +1,18 @@
+model Quiz {
+  id            Int          @id @default(autoincrement())
+  dateCompleted DateTime
+  userId        String
+  user          User         @relation(fields: [userId], references: [id])
+  expressions   QuizExpression[]
+  
+  @@index([id])
+}
+
+model QuizExpression {
+  quizId       Int
+  quiz        Quiz        @relation(fields: [quizId], references: [id])
+  expressionId Int
+  expression  Expression  @relation(fields: [expressionId], references: [id])
+
+  @@id([quizId, expressionId])
+}
