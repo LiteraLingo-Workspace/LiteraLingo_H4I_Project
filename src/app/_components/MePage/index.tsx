@@ -18,8 +18,6 @@ import { useRouter } from "next/navigation";
 export const MePage: React.FC = () => {
   const currentUser = useCurrentUser();
 
-  console.log(currentUser?.data);
-
   const [visibleAccountDeletion, setVisibleAccountDeletion] =
     useState<boolean>(false);
   const router = useRouter();
