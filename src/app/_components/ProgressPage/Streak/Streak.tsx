@@ -5,10 +5,13 @@ import { Date } from "./Date";
 import useCurrentUser from "~/app/LoadUser";
 
 export const Streak: React.FC = () => {
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const user = useCurrentUser();
 
   return (
     <div className={styles.container}>
+      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       <p className={styles.streakLabel}>{user?.data?.streakDays} Day Streak!</p>
       <div className={styles.subContainer}>
         <Date month="Nov" day={23} streakActive={true} today={false} />
