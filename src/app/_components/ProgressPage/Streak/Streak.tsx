@@ -9,7 +9,7 @@ export const Streak: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.streakLabel}>{user?.data.streakDays} Day Streak!</p>
+      <p className={styles.streakLabel}>{user?.data?.streakDays} Day Streak!</p>
       <div className={styles.subContainer}>
         <Date month="Nov" day={23} streakActive={true} today={false} />
         <Date month="Nov" day={24} streakActive={true} today={false} />
