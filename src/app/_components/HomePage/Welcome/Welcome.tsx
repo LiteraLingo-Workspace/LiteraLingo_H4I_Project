@@ -17,8 +17,7 @@ export const Welcome: React.FC = () => {
       />
       <div className={styles.nameContainer}>
         <p className={styles.welcomeLabel}>Welcome</p>
-        {// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-        currentUser && currentUser.data && <p className={styles.nameLabel}>{currentUser.data.name.split(" ")[0]}</p>}
+        {currentUser && currentUser.data && <p className={styles.nameLabel}>{(currentUser?.data?.name ?? "").split(" ")[0]}</p>}
       </div>
     </div>
   );
