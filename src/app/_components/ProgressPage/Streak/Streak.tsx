@@ -37,35 +37,42 @@ const getDayCount = (month: string, isLeapYear: boolean) => {
 
 export const Streak: React.FC = () => {
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const user = useCurrentUser();
+
+  const streakDays = user?.data?.streakDays ?? 0;
 
   // get the current date
   const date = new Date(Date.now());
   const month = getMonth(date.getMonth());
 
   const dateInt = date.getDate();
+  const leapYear = isLeapYear(date.getFullYear());
 
   // how many days are in this month
-  const maxDays = getDayCount(month, isLeapYear(date.getFullYear()));
+  const maxDays = getDayCount(month, leapYear);
 
-  let days: number[5] = [
-    dateInt - 2,
-    dateInt - 1,
-    dateInt,
-    dateInt + 1,
-    dateInt + 2
-  ];
+  const days: number[] = new Array<number>(5);
+  days[0] = dateInt - 2;
+  days[1] = dateInt - 1;
+  days[2] = dateInt;
+  days[3] = dateInt + 1;
+  days[4] = dateInt + 2;
 
-  let months: string[5] = [ month, month, month, month, month ];
+  // create an array of length 5 with default month of the current month
+  const months: string[] = new Array<string>(5);
+  months[0] = month;
+  months[1] = month;
+  months[2] = month;
+  months[3] = month;
+  months[4] = month;
 
   if (days[0] < 1) {
     months[0] = getMonth(month == "Jan" ? 11 : date.getMonth() - 1);
-    days[0] += getDayCount(months[0]);
+    days[0] += getDayCount(months[0], leapYear);
   }
   if (days[1] < 1) {
     months[1] = getMonth(month == "Jan" ? 11 : date.getMonth() - 1);
-    days[1] += getDayCount(months[1]);
+    days[1] += getDayCount(months[1], leapYear);
   }
   if (days[3] > maxDays) {
     months[3] = getMonth(month == "Dec" ? 0 : date.getMonth() + 1);
@@ -81,9 +88,9 @@ export const Streak: React.FC = () => {
       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       <p className={styles.streakLabel}>{user?.data?.streakDays} Day Streak!</p>
       <div className={styles.subContainer}>
-        <DateElement month={months[0]} day={days[0]} streakActive={user?.data?.streakDays > 2} today={false} />
-        <DateElement month={months[1]} day={days[1]} streakActive={user?.data?.streakDays > 1} today={false} />
-        <DateElement month={months[2]} day={days[2]} streakActive={user?.data?.streakDays > 0} today={true} />
+        <DateElement month={months[0]} day={days[0]} streakActive={streakDays > 2} today={false} />
+        <DateElement month={months[1]} day={days[1]} streakActive={streakDays > 1} today={false} />
+        <DateElement month={months[2]} day={days[2]} streakActive={streakDays > 0} today={true} />
         <DateElement month={months[3]} day={days[3]} streakActive={false} today={false} />
         <DateElement month={months[4]} day={days[4]} streakActive={false} today={false} />
       </div>
