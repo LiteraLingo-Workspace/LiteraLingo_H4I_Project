@@ -53,20 +53,20 @@ export const BottomSheet: React.FC = () => {
               />
             </svg>
           )}
-          <p className={styles.title}>Today&apos;s Schedule</p>
-          <p className={styles.subTitle}>(2/3) completed</p>
+          {/*<p className={styles.title}>Today&apos;s Schedule</p>
+          <p className={styles.subTitle}>(2/3) completed</p>*/}
         </div>
       </div>
       <div className={styles.mainContentsContainer}>
         <div className={styles.statusContainer}>
-          <Image
+          {/*<Image
             style={{ height: "74px", width: "74px" }}
             src={scheduleCompletion}
             alt="Schedule Completion"
-          />
+          />*/}
           <div className={styles.statusTextContainer}>
-            <p className={styles.statusTextLabel}>Metaphor Practice</p>
-            <div className={styles.statusTextSubContainer}>
+            {/*<p className={styles.statusTextLabel}>Metaphor Practice</p>*/}
+            {/*<div className={styles.statusTextSubContainer}>
               <IoEllipse size={8} />
               <p className={styles.progress}>
                 <span style={{ fontWeight: 500 }}>In progress</span>
@@ -79,10 +79,10 @@ export const BottomSheet: React.FC = () => {
                   , Nov 30, 2023
                 </span>
               </p>
-            </div>
+            </div>*/}
           </div>
         </div>
-        <Graph />
+        {/* <Graph /> */}
       </div>
     </div>
   );

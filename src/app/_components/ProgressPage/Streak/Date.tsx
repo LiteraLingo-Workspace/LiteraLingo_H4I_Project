@@ -8,7 +8,7 @@ interface DateProps {
   today: boolean;
 }
 
-export const Date: React.FC<DateProps> = ({
+export const DateElement: React.FC<DateProps> = ({
   month,
   day,
   streakActive,
