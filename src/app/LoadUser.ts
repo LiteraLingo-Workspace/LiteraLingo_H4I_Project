@@ -3,8 +3,17 @@ import { useState } from "react";
 import { api } from "../trpc/react"; // import tRPC client
 import type { UseTRPCQueryResult } from "node_modules/@trpc/react-query/dist/shared/hooks/types";
 
+interface UserData {
+  streakDays: number;
+  image: string | null;
+  id: string;
+  name: string | null;
+  email: string | null;
+  emailVerified: Date | null;
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let user: UseTRPCQueryResult<any, any> | null = null;
+let user: UseTRPCQueryResult<UserData | null, any> | null = null;
 
 export default function useCurrentUser() {
   // store current user
