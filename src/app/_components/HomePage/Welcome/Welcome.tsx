@@ -5,7 +5,6 @@ import Image from "next/image";
 import useCurrentUser from "~/app/LoadUser";
 
 export const Welcome: React.FC = () => {
-
   const currentUser = useCurrentUser();
 
   return (
@@ -17,7 +16,11 @@ export const Welcome: React.FC = () => {
       />
       <div className={styles.nameContainer}>
         <p className={styles.welcomeLabel}>Welcome</p>
-        {currentUser && currentUser.data && <p className={styles.nameLabel}>{(currentUser?.data?.name ?? "").split(" ")[0]}</p>}
+        {currentUser && currentUser.data && (
+          <p className={styles.nameLabel}>
+            {(currentUser?.data?.name ?? "").split(" ")[0]}
+          </p>
+        )}
       </div>
     </div>
   );

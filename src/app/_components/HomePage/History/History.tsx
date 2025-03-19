@@ -21,19 +21,20 @@ export const History: React.FC = () => {
     byMostRecent: true,
   });
 
-  const { mutate: updateFavoriteMutate } = api.historyEntry.updateIsFavorite.useMutation({
-    onSuccess: () => {
-      void utils.historyEntry.getAllHistoryEntries.invalidate();
-    },
-    onError: () => {
-      console.error("Failed to update favorite status");
-    }
-  });
+  const { mutate: updateFavoriteMutate } =
+    api.historyEntry.updateIsFavorite.useMutation({
+      onSuccess: () => {
+        void utils.historyEntry.getAllHistoryEntries.invalidate();
+      },
+      onError: () => {
+        console.error("Failed to update favorite status");
+      },
+    });
 
   const handleFavoriteToggle = (id: number, newState: boolean) => {
     updateFavoriteMutate({
       id,
-      isFavorite: newState
+      isFavorite: newState,
     });
   };
 

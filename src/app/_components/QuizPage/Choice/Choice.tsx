@@ -23,8 +23,11 @@ export const Choice: React.FC<ChoiceProps> = ({
   return (
     <div
       className={`${selected ? styles.selectedChoiceContainer : styles.choiceContainer} 
-                ${((isChecked && (selected || isCorrect)) || (isReview && (selected || isCorrect))) 
-                  && (isCorrect ? styles.correctChoice : styles.incorrectChoice)}`}
+                ${
+                  ((isChecked && (selected || isCorrect)) ||
+                    (isReview && (selected || isCorrect))) &&
+                  (isCorrect ? styles.correctChoice : styles.incorrectChoice)
+                }`}
       onClick={disabled ? undefined : onClick}
       aria-label={"Select this choice: " + text}
     >

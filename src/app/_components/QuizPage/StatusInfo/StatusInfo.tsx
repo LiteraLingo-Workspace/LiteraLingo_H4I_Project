@@ -5,8 +5,8 @@ import { ProgressBar } from "./ProgressBar";
 import { StarInfo } from "./StarInfo";
 
 interface StatusInfoProps {
-  completed: number,
-  total: number,
+  completed: number;
+  total: number;
 }
 
 export const StatusInfo: React.FC<StatusInfoProps> = ({ completed, total }) => {

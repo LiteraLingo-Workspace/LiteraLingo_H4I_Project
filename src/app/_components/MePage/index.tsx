@@ -57,7 +57,10 @@ export const MePage: React.FC = () => {
       <Header title="Your Profile" color={theme.colors.primary} />
       <div className={styles.subContainer}>
         {currentUser && currentUser.data && (
-          <UserInfo name={currentUser?.data?.name ?? ""} email={currentUser?.data?.email ?? ""} />
+          <UserInfo
+            name={currentUser?.data?.name ?? ""}
+            email={currentUser?.data?.email ?? ""}
+          />
         )}
         <Overview />
         <FocalPoint />

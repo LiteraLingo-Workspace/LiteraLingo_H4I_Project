@@ -1,8 +1,8 @@
 import styles from "./StatusInfo.module.css";
 
 interface ProgressBar {
-  completed: number,
-  total: number,
+  completed: number;
+  total: number;
 }
 
 export const ProgressBar: React.FC<ProgressBar> = ({ completed, total }) => {
@@ -10,10 +10,7 @@ export const ProgressBar: React.FC<ProgressBar> = ({ completed, total }) => {
 
   return (
     <div className={styles.progressContainer}>
-      <div 
-        className={styles.progress}
-        style={{ width: `${percentage}%` }}
-      >
+      <div className={styles.progress} style={{ width: `${percentage}%` }}>
         <div className={styles.shine} />
       </div>
     </div>
