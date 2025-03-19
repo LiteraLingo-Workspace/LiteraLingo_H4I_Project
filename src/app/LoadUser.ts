@@ -10,7 +10,7 @@ interface UserData {
   name: string | null;
   email: string | null;
   emailVerified: Date | null;
-};
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: UseTRPCQueryResult<UserData | null, any> | null = null;

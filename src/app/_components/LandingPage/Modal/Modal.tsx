@@ -15,7 +15,7 @@ export const Modal: React.FC = async () => {
           style={{ textDecoration: "none" }}
           href={session ? "/api/auth/signout" : "/api/auth/signin"}
         >
-          <p className={styles.buttonText} >
+          <p className={styles.buttonText}>
             {session ? "Sign out" : "Sign in"}
           </p>
         </Link>

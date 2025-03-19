@@ -17,32 +17,32 @@ import expressions from "../../data/quiz.json";
 // it is possible for there to be more alternatives
 // than there are choices
 export type QuizItem = {
-  id: number,
+  id: number;
   type: keyof typeof labelStyles;
   expression: string;
   description: string;
   alternatives: string[];
-}
+};
 
 // need the choices intermixed with the correct answer
 // could potentially add more attributes
 // depending on how we might want data saved
 // number of choices is fixed
 export type QuizItemMC = {
-  id: number,
+  id: number;
   type: keyof typeof labelStyles;
   expression: string;
   choices: string[];
   correctAnswer: string;
   selectedAnswer: string | null;
-}
+};
 
 type QuizSession = {
   sessionQuestions: QuizItemMC[];
   completedQuestions: number;
   currentQuestionNumber: number;
   showReview: boolean;
-}
+};
 
 const MAX_QUESTIONS = 5;
 const ALL_EXPRESSIONS = expressions as QuizItem[];
@@ -65,25 +65,32 @@ export const QuizPage: React.FC = () => {
     }
   };
 
-  const handleQuestionCheck = (currentQuestionNumber: number, choice: string | null) => {
+  const handleQuestionCheck = (
+    currentQuestionNumber: number,
+    choice: string | null,
+  ) => {
     // function to update that this is correct
     // may be slightly cumbersome to update the entire array just
-    // to update one field 
+    // to update one field
     if (sessionQuestions) {
-      setSessionQuestions((prevQuestions  = []) => 
-        prevQuestions.map((question, index) => 
+      setSessionQuestions((prevQuestions = []) =>
+        prevQuestions.map((question, index) =>
           // set the user choice for this question
-          index === currentQuestionNumber 
-            ? {...question, selectedAnswer: choice} 
-            : {...question}
-      ))
+          index === currentQuestionNumber
+            ? { ...question, selectedAnswer: choice }
+            : { ...question },
+        ),
+      );
       console.log(`Question number ${currentQuestionNumber}: ${choice}`);
       setCompletedQuestions(completedQuestions + 1);
     }
-  } 
+  };
 
-  
-  const randomizeChoices = (description: string, alternatives: string[], numOfChoices: number) => {
+  const randomizeChoices = (
+    description: string,
+    alternatives: string[],
+    numOfChoices: number,
+  ) => {
     const updatedChoices = [...alternatives];
     // shuffle the array
     let currentIndex = updatedChoices.length,
@@ -104,21 +111,28 @@ export const QuizPage: React.FC = () => {
     updatedChoices.splice(insertIndex, 0, description);
 
     return updatedChoices;
-  };  
+  };
 
   const getRandomQuestions = (expressionList: QuizItem[]) => {
     const questionList = [] as QuizItemMC[];
     const usedIDs = new Set<number>();
-  
+
     // create a list of unique questions
-    while (questionList.length < MAX_QUESTIONS && questionList.length < expressionList.length) {
+    while (
+      questionList.length < MAX_QUESTIONS &&
+      questionList.length < expressionList.length
+    ) {
       const randomIndex = Math.floor(Math.random() * expressionList.length);
       if (!usedIDs.has(randomIndex)) {
         if (expressionList[randomIndex]) {
           // randomize choices and convert into MC format
           // this is to keep the type for the input data unaffected
-          // when trying to mix choices 
-          const choices = randomizeChoices(expressionList[randomIndex].description, expressionList[randomIndex].alternatives, NUM_OF_CHOICES);
+          // when trying to mix choices
+          const choices = randomizeChoices(
+            expressionList[randomIndex].description,
+            expressionList[randomIndex].alternatives,
+            NUM_OF_CHOICES,
+          );
           const newQuizItemMC = {
             id: randomIndex,
             type: expressionList[randomIndex].type,
@@ -154,25 +168,30 @@ export const QuizPage: React.FC = () => {
   useEffect(() => {
     // save to local storage to persist across refresh
     if (sessionQuestions) {
-      localStorage.setItem("quizSession", JSON.stringify({
-        sessionQuestions,
-        completedQuestions,
-        currentQuestionNumber,
-        showReview,
-      }))
+      localStorage.setItem(
+        "quizSession",
+        JSON.stringify({
+          sessionQuestions,
+          completedQuestions,
+          currentQuestionNumber,
+          showReview,
+        }),
+      );
     }
   }, [sessionQuestions, completedQuestions, currentQuestionNumber, showReview]);
-  
-  if (currentQuestionNumber == MAX_QUESTIONS && sessionQuestions && showReview) {
+
+  if (
+    currentQuestionNumber == MAX_QUESTIONS &&
+    sessionQuestions &&
+    showReview
+  ) {
     return (
       <div className={styles.container}>
         <Background />
-        <Review  
-          sessionQuestions={sessionQuestions}
-        />
+        <Review sessionQuestions={sessionQuestions} />
         <Navbar />
-    </div>
-    )
+      </div>
+    );
   }
 
   console.log(currentQuestionNumber);
@@ -185,29 +204,49 @@ export const QuizPage: React.FC = () => {
         color={theme.colors.primary}
         typeLabel={
           <TypeLabel
-            color={sessionQuestions 
-              ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].color
-              : labelStyles.Loading.color}
-            bg={sessionQuestions 
-              ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
-              : labelStyles.Loading.bg}
-            text={sessionQuestions ? sessionQuestions[currentQuestionNumber]!.type : "Loading"}
+            color={
+              sessionQuestions
+                ? labelStyles[sessionQuestions[currentQuestionNumber]!.type]
+                    .color
+                : labelStyles.Loading.color
+            }
+            bg={
+              sessionQuestions
+                ? labelStyles[sessionQuestions[currentQuestionNumber]!.type].bg
+                : labelStyles.Loading.bg
+            }
+            text={
+              sessionQuestions
+                ? sessionQuestions[currentQuestionNumber]!.type
+                : "Loading"
+            }
           />
         }
       />
       <div className={styles.subContainer}>
-        <StatusInfo completed={completedQuestions} total={sessionQuestions ? sessionQuestions.length : 0} />
+        <StatusInfo
+          completed={completedQuestions}
+          total={sessionQuestions ? sessionQuestions.length : 0}
+        />
         {sessionQuestions && (
           <>
-            <Prompt expression={sessionQuestions[currentQuestionNumber]!.expression} />
+            <Prompt
+              expression={sessionQuestions[currentQuestionNumber]!.expression}
+            />
             <MultipleChoice
-              description={sessionQuestions[currentQuestionNumber]!.correctAnswer}
+              description={
+                sessionQuestions[currentQuestionNumber]!.correctAnswer
+              }
               choices={sessionQuestions[currentQuestionNumber]!.choices}
               currentQuestionNumber={currentQuestionNumber}
               onQuestionCheck={handleQuestionCheck}
               onNextQuestion={updateQuestionNumber}
-              forceIsChecked={sessionQuestions[currentQuestionNumber]!.selectedAnswer !== null}
-              forceSelectedChoice={sessionQuestions[currentQuestionNumber]!.selectedAnswer}
+              forceIsChecked={
+                sessionQuestions[currentQuestionNumber]!.selectedAnswer !== null
+              }
+              forceSelectedChoice={
+                sessionQuestions[currentQuestionNumber]!.selectedAnswer
+              }
             />
           </>
         )}

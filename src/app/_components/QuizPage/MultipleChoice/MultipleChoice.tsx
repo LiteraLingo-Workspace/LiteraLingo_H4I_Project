@@ -10,12 +10,12 @@ interface MultipleChoiceProps {
   currentQuestionNumber: number;
   onQuestionCheck: (
     currentQuestionNumber: number,
-    choice: string | null
+    choice: string | null,
   ) => void; // return whether user got it right
   onNextQuestion: () => void;
   shouldDisable?: boolean; // prevent question from being submitted, only displayed
-  forceSelectedChoice?: string | null,
-  forceIsChecked?: boolean,
+  forceSelectedChoice?: string | null;
+  forceIsChecked?: boolean;
 }
 
 export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
@@ -28,13 +28,15 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   forceSelectedChoice,
   forceIsChecked,
 }) => {
-  const [selectedChoice, setSelectedChoice] = useState<string | null>(forceSelectedChoice ?? null);
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(
+    forceSelectedChoice ?? null,
+  );
   const [isChecked, setIsChecked] = useState<boolean>(forceIsChecked ?? false);
 
   const handleSelection = (choice: string) => {
     setSelectedChoice(choice);
   };
-  
+
   useEffect(() => {
     setSelectedChoice(forceSelectedChoice ?? null);
     setIsChecked(forceIsChecked ?? false);
@@ -58,12 +60,12 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
   return (
     <>
-      <QuizOptions 
-        isChecked={isChecked} 
-        isClickable={!isChecked || !shouldDisable} 
-        onSelection={handleSelection} 
+      <QuizOptions
+        isChecked={isChecked}
+        isClickable={!isChecked || !shouldDisable}
+        onSelection={handleSelection}
         isReview={false}
-        description={description} 
+        description={description}
         choices={choices}
         selected={forceSelectedChoice && forceSelectedChoice}
       />
@@ -80,7 +82,11 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
         </div>
       ) : (
         <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={() => handleSubmit(selectedChoice)} aria-label="Check Answer">
+          <button
+            className={styles.button}
+            onClick={() => handleSubmit(selectedChoice)}
+            aria-label="Check Answer"
+          >
             Check Answer
           </button>
         </div>

@@ -7,9 +7,12 @@ import styles from "./Translation.module.css";
 import useTTS from "./speech";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
-import { HiOutlineMicrophone, HiMicrophone } from "react-icons/hi2";
+import {
+  HiOutlineMicrophone,
+  HiMicrophone,
+  HiOutlineSpeakerWave,
+} from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
-import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { labelStyles } from "../../../../styles/index";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
@@ -37,7 +40,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const translations: JsonData = JSON.parse(JSON.stringify(data)) as JsonData;
 
-  const { speechToText } = useTTS();
+  const { speechToText, textToSpeeh } = useTTS();
 
   // make this false when we want real api results
   const fakeAPIresults = true;
@@ -49,7 +52,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
       setResult(data.result ? data.result : "An error occurred.");
       storeTranslationHistory(
         value,
-        data.result ? data.result : "An error occurred."
+        data.result ? data.result : "An error occurred.",
       );
     },
     onError: () => {
@@ -65,7 +68,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
     },
     onError: (e) => {
       console.log(
-        "An error occurred storing translation history. " + e.message
+        "An error occurred storing translation history. " + e.message,
       );
     },
   });
@@ -95,7 +98,7 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
 
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
-    value: string
+    value: string,
   ) => {
     useEffect(() => {
       if (textAreaRef) {
@@ -117,6 +120,10 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
     } else {
       console.error("No history entry ID found.");
     }
+  };
+
+  const readResultTTS = () => {
+    textToSpeeh(result);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -212,10 +219,8 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                   } else {
                     // Call the actual API
                     mutate({ text: value });
-                    
                   }
 
-                  
                   // BELOW WAS LEFT IN FOR TESTING PURPOSES
                   // SINCE OPENAI KEY HAS LIMITED CALLS
 
@@ -284,19 +289,25 @@ export const TranslationBox: React.FC<TranslationBoxProps> = ({ session }) => {
                 bg={labelStyles.sarcasm.bg}
                 text="Sarcasm"
               />
+              <HiOutlineSpeakerWave
+                size={32}
+                style={{ cursor: "pointer" }}
+                onClick={readResultTTS}
+                className={styles.starIcon}
+              />
               {isFavorite ? (
                 <FaStar
                   size={32}
                   color="#EFB951"
                   onClick={toggleIsFavorite}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   className={styles.starIcon}
                 />
               ) : (
                 <FaRegStar
                   size={32}
                   onClick={toggleIsFavorite}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   className={styles.starIcon}
                 />
               )}

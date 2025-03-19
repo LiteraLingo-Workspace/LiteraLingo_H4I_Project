@@ -8,7 +8,7 @@ let recognition: any;
 
 const useTTS = () => {
   // @ts-expect-error type definitions don't include speech recognition
-  if (typeof(window) == "undefined" || !window?.webkitSpeechRecognition) {
+  if (typeof window == "undefined" || !window?.webkitSpeechRecognition) {
     // if speech recognition isn't supported, set to trigger an error when the user attempts to use
     supported = false;
   } else {
@@ -24,7 +24,6 @@ const useTTS = () => {
 };
 
 const speechToText = () => {
-  
   // check browser support
   if (!supported) {
     alert("Speech to text is not supported in your browser.");
@@ -50,7 +49,7 @@ const speechToText = () => {
         if (output != undefined) {
           try {
             controller.enqueue(output);
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
           } catch (error) {
             recognition.abort();
           }

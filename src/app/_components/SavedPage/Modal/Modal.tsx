@@ -14,7 +14,7 @@ export const Modal: React.FC = () => {
     isFavorite: true,
     byMostRecent: true,
   });
-  
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
 

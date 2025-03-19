@@ -11,7 +11,7 @@ export const historyEntryRouter = createTRPCRouter({
         outputText: z.string().min(1),
         isFavorite: z.boolean().optional(),
         userId: z.string(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       const user = await ctx.db.user.findUnique({
@@ -65,7 +65,7 @@ export const historyEntryRouter = createTRPCRouter({
       z.object({
         id: z.number(),
         isFavorite: z.boolean(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       const updatedHistoryEntry = await ctx.db.historyEntry.update({
@@ -92,7 +92,7 @@ export const historyEntryRouter = createTRPCRouter({
           isFavorite: z.boolean().optional(),
           byMostRecent: z.boolean().optional(),
         })
-        .optional()
+        .optional(),
     )
     .query(async ({ ctx, input }) => {
       const whereClause =

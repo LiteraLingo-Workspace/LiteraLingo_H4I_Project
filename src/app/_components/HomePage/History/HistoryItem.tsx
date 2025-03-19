@@ -10,12 +10,12 @@ interface HistoryItemProps {
   onFavoriteToggle: (id: number, newState: boolean) => void;
 }
 
-export const HistoryItem: React.FC<HistoryItemProps> = ({ 
+export const HistoryItem: React.FC<HistoryItemProps> = ({
   id,
-  text, 
-  type, 
+  text,
+  type,
   isFavorite,
-  onFavoriteToggle 
+  onFavoriteToggle,
 }) => {
   return (
     <div className={styles.item}>
@@ -27,14 +27,14 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({
               size={24}
               color="#EFB951"
               onClick={() => onFavoriteToggle(id, !isFavorite)}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               className={styles.starIcon}
             />
           ) : (
             <FaRegStar
               size={24}
               onClick={() => onFavoriteToggle(id, !isFavorite)}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               className={styles.starIcon}
             />
           )}
