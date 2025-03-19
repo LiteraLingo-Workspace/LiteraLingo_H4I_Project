@@ -7,9 +7,8 @@ import styles from "./Translation.module.css";
 import useTTS from "./speech";
 import { useEffect, useRef, useState } from "react";
 import { BsCamera, BsArrowCounterclockwise } from "react-icons/bs";
-import { HiOutlineMicrophone, HiMicrophone, HiOutlineSpeakerWave, HiSpeakerWave } from "react-icons/hi2";
+import { HiOutlineMicrophone, HiMicrophone, HiOutlineSpeakerWave } from "react-icons/hi2";
 import { TypeLabel } from "../../shared/TypeLabel/TypeLabel";
-import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { labelStyles } from "../../../../styles/index";
 import { api } from "../../../../trpc/react"; // import tRPC client
 import data from "../../../data/translations.json";
