@@ -20,7 +20,7 @@ export const DateElement: React.FC<DateProps> = ({
       style={{
         height: `${today ? 127 : 99}px`,
         backgroundColor: `${
-          today ? theme.colors.warmYellow : "rgba(216, 231, 236, 0.8)"
+          (today && streakActive) ? theme.colors.warmYellow : "rgba(216, 231, 236, 0.8)"
         }`,
       }}
     >
