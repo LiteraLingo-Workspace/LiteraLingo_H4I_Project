@@ -13,7 +13,7 @@ export const Settings: React.FC<SettingProps> = ({ onAccountDelete }) => {
     <div className={styles.container}>
       <TitleContainer title="Settings" icon={<BsGearWide size={24} />} />
       <div className={styles.settingsContainer}>
-        <div className={styles.settingContainer}>
+        {/*<div className={styles.settingContainer}>
           <svg
             width="46"
             height="36"
@@ -48,7 +48,7 @@ export const Settings: React.FC<SettingProps> = ({ onAccountDelete }) => {
             <p className={styles.settingName}>Content Scaling</p>
             <Slider />
           </div>
-        </div>
+        </div>*/}
         <div className={styles.accountActionContainer}>
           <button
             onClick={onAccountDelete}
