@@ -62,7 +62,6 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  justify-content: center;
   align-items: center;
   padding: 24px 24px 80px 24px;
   gap: 16px;
