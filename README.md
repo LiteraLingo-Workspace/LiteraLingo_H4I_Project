@@ -33,7 +33,7 @@ docker -v
 # Install dependencies
 npm i
 
-# Add the appropriate environment variables
+# Add the appropriate environment variables in the .env file
 
 # For NEXTAUTH_SECRET, run the following in the terminal and paste the output
 openssl rand -base64 32
@@ -46,7 +46,12 @@ npm run dev
 
 
 # Start the backend
-# Ensure your PostgreSQL CLI is set up correctly by creating a role, password, and database corresponding to the connection string in env.js (database should be called literalingo, username can be postgres, password can be password123)
+# Ensure your PostgreSQL CLI is set up correctly by creating a role, password, and database corresponding to the connection string in .env (database should be called literalingo, username can be postgres, password can be password123)
+
+# Run the following script to start the containerized backend
+./start-database.sh
+# if you're on windows, to create the docker image, use
+docker run -d --name literalingo-postgres -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD=PASSWORD -e POSTGRES_DB=literalingo -p 8800:5432 docker.io/postgres
 
 # Connect to your database via the CLI with:
 psql <your-connection-string-here> OR
@@ -64,9 +69,6 @@ CREATE TABLE xyz (a VARCHAR(100));
 
 # If successful, delete the table with:
 DROP xyz;
-
-# Run the following script to start the containerized backend
-./start-database.sh
 
 # Sync up your Prisma schema with your db
 npx prisma db push
