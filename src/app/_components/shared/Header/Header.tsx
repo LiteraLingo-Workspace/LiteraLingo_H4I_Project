@@ -12,12 +12,12 @@ export const Header: React.FC<TitleProps> = ({ title, color, typeLabel, subtitle
     <div className={styles.container}>
       <div className={styles.subContainer}>
         <div>
-        <p className={styles.text} style={{ color: color }}>
-          {title}
-        </p>
-        <p className={styles.text} style={{ color: color }}>
-          {subtitle}
-        </p>
+          <p className={styles.text} style={{ color: color }}>
+        {title}
+          </p>
+          <p className={styles.text} style={{ color: color, marginTop: "30px" }}>
+        {subtitle}
+          </p>
         </div>
         {typeLabel}
       </div>
