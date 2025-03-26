@@ -1,0 +1,80 @@
+.courseCard {
+  display: flex;
+  flex-direction: column;
+  height: 95px;
+  width: 344px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--coolDark);
+  border-radius: 16px;
+  box-shadow: 0px 4px 0px 0px var(--coolAccentBg);
+  cursor: pointer;
+  background: white;
+  
+}
+
+.selectedcourseContainer {
+  display: flex;
+  flex-direction: column;
+  height: 95px;
+  width: 344px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--coolDark);
+  border-radius: 16px;
+  box-shadow: 0px 4px 0px 0px black;
+  cursor: pointer;
+  background: var(--coolAccentBg);
+}
+
+.correctcourse {
+  background-color: var(--faintSuccess);
+  border: 2px solid var(--success);
+  box-shadow: 0px 4px 0px 0px var(--success);
+}
+
+.incorrectcourse {
+  background-color: var(--faintFailure);
+  border: 2px solid var(--failure);
+  box-shadow: 0px 4px 0px 0px var(--failure);
+}
+
+@media screen and (max-height: 840px) {
+  .courseContainer,
+  .selectedcourseContainer {
+    height: 80px;
+  }
+}
+@media screen and (max-height: 750px) {
+  .courseContainer,
+  .selectedcourseContainer {
+    height: 64px;
+  }
+}
+
+.questionLabel {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 33px;
+  color: var(--primary);
+  text-align: left;
+}
+
+.courseText {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.selectedcourseText {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+}
