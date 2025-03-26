@@ -26,13 +26,17 @@ export const FrontPage: React.FC = () => {
 
 
           <Course
-
+            bgColour = {theme.colors.faintYellow}
+            borderColour={theme.colors.warmYellow}
             title="Simile"
             progress={0}
             totalProgress={15} urlToCourse={""}
           />
 
           <Course
+            bgColour = {theme.colors.faintBlue}
+            borderColour={theme.colors.coolAccentBg}
+
 
             title="Metaphor"
             progress={2}
@@ -40,6 +44,9 @@ export const FrontPage: React.FC = () => {
           />
 
           <Course
+            bgColour= {theme.colors.faintCoolDark}
+            borderColour={theme.colors.coolDark}
+
 
             title="Idiom"
             progress={15}
@@ -47,6 +54,9 @@ export const FrontPage: React.FC = () => {
           />
 
           <Course
+            bgColour = {theme.colors.white}
+            borderColour={theme.colors.coolDark}
+
 
             title="Random"
             progress={0}

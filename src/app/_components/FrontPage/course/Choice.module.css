@@ -6,11 +6,11 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border: 2px solid var(--coolDark);
+  /* border: 2px solid var(--warmYellow); */
   border-radius: 16px;
-  box-shadow: 0px 4px 0px 0px var(--coolAccentBg);
+  /* box-shadow: 0px 4px 0px 0px; */
   cursor: pointer;
-  background: white;
+  /* background: var(--faintYellow); */
   padding: 0 16px;
 
   margin-top: 20px;
@@ -35,9 +35,9 @@
 
 .courseProgress {
   font-family: var(--font-poppins), sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--secondary);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--primary);
 }
 
 .progressBar {
