@@ -1,17 +1,104 @@
 .courseCard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 95px;
-  width: 344px;
-  justify-content: center;
+  width: 300px;
+  justify-content: space-between;
   align-items: center;
+  text-align: center;
   border: 2px solid var(--coolDark);
   border-radius: 16px;
   box-shadow: 0px 4px 0px 0px var(--coolAccentBg);
   cursor: pointer;
   background: white;
+  padding: 0 16px;
+
+  margin-top: 20px;
   
 }
+
+.courseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.courseTitle {
+  text-align: center;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--primary);
+  margin: 0;
+}
+
+.courseProgress {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+.progressBar {
+  position: relative;
+  width: 100px;
+  height: 12px;
+  background: var(--faintGrey);
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progressWrapper {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--coolAccentBg);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.startBtn,
+.reviewBtn {
+  display: inline-block;
+  width: 80px;
+  height: 25px;
+  padding: 8px 16px;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.startBtn {
+  background: var(--warm);
+  color: var(--white);
+  border: none;
+}
+
+/* .startBtn:hover {
+  background: #d9534f;
+} */
+
+.reviewBtn {
+  background: var(--warm);
+  color: var(--white);
+  border: none;
+}
+
+/* .reviewBtn:hover {
+  background: #5cb85c;
+} */
+
 
 .selectedcourseContainer {
   display: flex;

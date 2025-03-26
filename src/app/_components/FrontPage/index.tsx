@@ -27,30 +27,30 @@ export const FrontPage: React.FC = () => {
 
           <Course
 
-            title="Course 1"
+            title="Simile"
             progress={0}
-            totalProgress={0} urlToCourse={""}
+            totalProgress={15} urlToCourse={""}
           />
 
           <Course
 
-            title="Course 1"
-            progress={0}
-            totalProgress={0} urlToCourse={""}
+            title="Metaphor"
+            progress={2}
+            totalProgress={15} urlToCourse={""}
           />
 
           <Course
 
-            title="Course 1"
-            progress={0}
-            totalProgress={0} urlToCourse={""}
+            title="Idiom"
+            progress={15}
+            totalProgress={15} urlToCourse={""}
           />
 
           <Course
 
-            title="Course 1"
+            title="Random"
             progress={0}
-            totalProgress={0} urlToCourse={""}
+            totalProgress={15} urlToCourse={""}
           />
 
       </div>

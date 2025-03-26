@@ -19,18 +19,31 @@ export const Course: React.FC<CourseProps> = ({
 
   return (
     <div className={styles.courseCard}>
-      <div className={styles.courseHeader}>
-        <h3 className={styles.courseTitle}>{title}</h3>
-        <span className={styles.courseProgress}>
-          {progress}/{totalProgress}
-        </span>
-      </div>
+      <div>
+          <h3 className={styles.courseTitle}>{title}</h3>
 
-      <div className={styles.progressBar}>
-        <div
-          className={styles.progressFill}
-          style={{ width: `${progressPercentage}%` }}
-        />
+
+
+        <div className={styles.courseTitle} style={{fontSize: '14px'}}>Progress</div>
+
+        <div className={styles.progressWrapper}>
+
+          <div className={styles.progressBar}>
+            <div
+              className={styles.progressFill}
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+
+          <span className={styles.courseProgress}>
+            {progress}/{totalProgress}
+          </span>
+
+
+
+
+        </div>
+
       </div>
 
       <a href={urlToCourse} className={isCompleted ? styles.reviewBtn : styles.startBtn}>
