@@ -15,9 +15,11 @@ export const Header: React.FC<TitleProps> = ({ title, color, typeLabel, subtitle
           <p className={styles.text} style={{ color: color }}>
         {title}
           </p>
-          <p className={styles.text} style={{ color: color, marginTop: "30px" }}>
-        {subtitle}
-          </p>
+            {subtitle && (
+            <p className={styles.text} style={{ color: color, marginTop: "30px" }}>
+              {subtitle}
+            </p>
+            )}
         </div>
         {typeLabel}
       </div>
