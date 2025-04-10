@@ -2,12 +2,9 @@
 
 import styles from "./index.module.css";
 import { Header } from "../shared/Header/Header";
-import { TypeLabel } from "../shared/TypeLabel/TypeLabel";
-import { theme, labelStyles } from "../../../styles/index";
+import { theme } from "../../../styles/index";
 import { Background } from "../shared/Background/Background";
 import { Navbar } from "../shared/Navbar/Navbar";
-import { useState, useEffect } from "react";
-import expressions from "../../data/quiz.json";
 import { Course } from "./course";
 export const FrontPage: React.FC = () => {
 
@@ -30,7 +27,7 @@ export const FrontPage: React.FC = () => {
             borderColour={theme.colors.warmYellow}
             title="Simile"
             progress={0}
-            totalProgress={15} urlToCourse={""}
+            totalProgress={15} urlToCourse={"/quiz/simile"}
           />
 
           <Course
@@ -40,7 +37,7 @@ export const FrontPage: React.FC = () => {
 
             title="Metaphor"
             progress={2}
-            totalProgress={15} urlToCourse={""}
+            totalProgress={15} urlToCourse={"/quiz/metaphor"}
           />
 
           <Course
@@ -50,7 +47,7 @@ export const FrontPage: React.FC = () => {
 
             title="Idiom"
             progress={15}
-            totalProgress={15} urlToCourse={""}
+            totalProgress={15} urlToCourse={"/quiz/idiom"}
           />
 
           <Course
@@ -60,7 +57,7 @@ export const FrontPage: React.FC = () => {
 
             title="Random"
             progress={0}
-            totalProgress={15} urlToCourse={""}
+            totalProgress={15} urlToCourse={"/quiz/random"}
           />
 
       </div>

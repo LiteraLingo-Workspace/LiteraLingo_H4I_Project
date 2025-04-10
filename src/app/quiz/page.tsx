@@ -1,6 +1,6 @@
 import { HydrateClient } from "~/trpc/server";
 import { Poppins, Baloo_2 } from "next/font/google";
-import { QuizPage } from "../_components/QuizPage";
+import { FrontPage } from "../_components/FrontPage";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <HydrateClient>
       <main className={`${poppins.variable} ${baloo_2.variable}`}>
-        <QuizPage />
+        <FrontPage />
       </main>
     </HydrateClient>
   );
