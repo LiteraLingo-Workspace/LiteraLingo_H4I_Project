@@ -3,6 +3,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { theme } from "../../../../styles/index";
 import { ProgressBar } from "./ProgressBar";
 import { StarInfo } from "./StarInfo";
+import Link from 'next/link'
 
 interface StatusInfoProps {
   completed: number;
@@ -12,10 +13,12 @@ interface StatusInfoProps {
 export const StatusInfo: React.FC<StatusInfoProps> = ({ completed, total }) => {
   return (
     <div className={styles.container}>
-      <IoCloseOutline
-        size={50}
-        style={{ color: `${theme.colors.secondary}` }}
-      />
+      <Link href="/quiz">
+        <IoCloseOutline
+          size={50}
+          style={{ color: `${theme.colors.secondary}` }}
+        />
+      </Link>
       <ProgressBar completed={completed} total={total} />
       <StarInfo />
     </div>
